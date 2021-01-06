@@ -1,0 +1,28 @@
+import axios from "axios";
+import { get as _get } from "lodash";
+
+import { config } from "../../config";
+
+export const api = function (timeout = 10000, baseURL = config.apiUrl) {
+    return axios.create({
+        baseURL: baseURL,
+        timeout: timeout,
+        validateStatus: status => { return (status >= 200 && status < 500) }
+    });
+};
+
+
+const GET = async (url, params = {}) => {
+    const response = await api().get(url, { params });
+    return response;
+};
+
+const POST = async (url, data, timeout) => {
+    const response = await api(timeout).post(url, data);
+    return response;
+};
+
+
+/**
+ * desc: Hackathon services
+ */

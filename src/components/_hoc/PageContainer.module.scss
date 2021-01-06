@@ -1,0 +1,5 @@
+@import "../../css/layouts/container.scss";
+
+.mainContainer {
+    @include main-container;
+}

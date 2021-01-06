@@ -1,0 +1,24 @@
+import {createFlagTypes, createRequestTypes} from "../actionCreator";
+
+export const FETCH_AUTH_USER_INFO = createRequestTypes("FETCH_AUTH_USER_INFO");
+export const REGISTER = createRequestTypes("REGISTER");
+export const LOGIN = createRequestTypes("LOGIN");
+export const AUTHENTICATE = createRequestTypes("AUTHENTICATE");
+export const LOGOUT = createRequestTypes("LOGOUT");
+export const SEND_OTP = createRequestTypes("SEND_OTP");
+export const VERIFY_OTP = createRequestTypes("VERIFY_OTP");
+export const FLAG_IS_OTP_SENT = createFlagTypes("FLAG_IS_OTP_SENT");
+export const STORE_SELECTED_COURSE = createRequestTypes("STORE_SELECTED_COURSE");
+export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");
+export const FLAG_CHECK_USER_EXISTS = createFlagTypes("FLAG_CHECK_USER_EXISTS");
+export const FORCED_REDIRECTION_TO_LOGIN = createFlagTypes("FORCED_REDIRECTION_TO_LOGIN");
+export const MID_GUARD_AUTH_ROUTE_CAPTURED = createFlagTypes("MID_GUARD_AUTH_ROUTE_CAPTURED");
+export const SET_REDIRECTION = createRequestTypes("SET_REDIRECTION");
+export const FETCH_DISQUS_AUTH = createRequestTypes("FETCH_DISQUS_AUTH");
+export const FETCH_USER_NOTIFICATIONS = createRequestTypes("FETCH_USER_NOTIFICATIONS");
+export const FETCH_USER_NOTIFICATIONS_COUNT = createRequestTypes("FETCH_USER_NOTIFICATIONS_COUNT");
+export const FETCH_PROFILE_BY_USER_ID = createRequestTypes("FETCH_PROFILE_BY_USER_ID");
+export const THEME_PREFERENCE = createFlagTypes("THEME_PREFERENCE");
+export const DEVICE_ID = createFlagTypes("DEVICE_ID");
+export const LOCALE_PREFERENCE = createFlagTypes("LOCALE_PREFERENCE");
+export const FETCH_WEBSITE_DETAILS = createRequestTypes("FETCH_WEBSITE_DETAILS")

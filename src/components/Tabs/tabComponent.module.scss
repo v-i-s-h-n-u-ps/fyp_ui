@@ -1,0 +1,44 @@
+@import "../../css/components/headings";
+@import "../../css/layouts/mediaQueries.scss";
+.section {
+  position: relative;
+
+  @include respond-above(tablet){
+    padding: 2vw 5.5vw 3.19vw 5.3vw;
+  }
+  @include respond-between(phablet, tablet){
+    padding: 2vw 4vw 4.17vw 4vw;
+  }
+  @include respond-below(phablet){
+    padding: 2vw 4.2vw 4.3vw 4.2vw;
+  }
+}
+.tabHeader{
+  display: flex;
+  align-items: center;
+  padding: 1vw 0;
+  &:nth-child(1){
+    border-bottom: 1px solid #E1EAF1
+  }
+  & > div{
+    padding: 0;
+  }
+  & > span {
+    margin: 0 0.5vw;
+    &:nth-child(1){
+      margin: 0 1.11vw 0 0;
+      color: #7D7D7D;
+    }
+  }
+  @include respond-below(phablet){
+    flex-direction: column;
+  }
+}
+
+.filterBtnContainer {
+  display: flex;
+  overflow: auto;
+  @include respond-below(phablet){
+    width: 100%;
+  }
+}

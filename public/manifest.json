@@ -1,0 +1,12 @@
+{
+  "name": "Freelance Collaboration",
+  "short_name": "Freelancer",
+  "description": "Freelance collaboration for students",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF"
+}

@@ -1,0 +1,132 @@
+
+$color-midnight_blue: #191262;
+$color-night_rider: #2D2D2D;
+$color-brilliant_rose: #F55498;
+
+$color-dark_gray:#ACACAC;
+$color-black:#000000;
+
+$color-white:#FFFFFF;
+
+$color-pattens_blue:#D3F0FF;
+$color-dodger_blue:#2A7EFF;
+
+$color-we_peep: #FFCFD0;
+$color-alizarin:#EB1926;
+
+$color-varden:#FFEFCD;
+$color-carrot_orange:#FF8E16;
+
+$color-safety_orange: #FF6400;
+
+$color-pattens_blue_light:#E1EAF1;
+
+$color-tickle-me-pink:#FF7C9C;
+$color-malachite:#03D269;
+
+$color-dodger_blue: #018EEC;
+
+$color-mariner: #4468B2;
+$color-facebook: #4468B2;
+
+$color-mosque: #075E54;
+$color-whatsapp: #075E54;
+
+$color-rgb-white: 255;
+$color-rgb-black: 0;
+
+$color-text-brown:#965200;
+$color-light-brown:#FEEEE5;
+$color-text-gray:#7D7D7D;
+$color-light-gray:#F7FAFF;
+$color-link-blue:#048FED;
+$color-text-rare:#ED303B;
+
+
+$colors: (
+    light: (
+        default: $color-black,
+        
+        button-l: (
+            1: (
+                hollow: $color-malachite,
+                block: $color-white
+            ),
+            2: (
+                hollow: $color-dodger_blue,
+                block: $color-white
+            )
+        ),
+        button-xl: (
+            fb: (
+                hollow: $color-facebook,
+                block: $color-white
+            ),
+            wa: (
+                // hollow: $color-whatsapp,
+                hollow: $color-malachite,
+                block: $color-white
+            )
+        ),
+        button-full: (
+            1: (
+                hollow: $color-malachite,
+                block: $color-white
+            ),
+            2: (
+                hollow: $color-dodger_blue,
+                block: $color-white
+            )
+        ),
+
+        heading-l: $color-midnight_blue,
+        heading-s: $color-midnight_blue,
+
+        subText-l: $color-night_rider,
+
+        shadow: $color-rgb-black
+    ),
+    dark: (
+        default: $color-white,
+        malachite: $color-malachite,
+
+        button-l: (
+            1: (
+                hollow: $color-malachite,
+                block: $color-white
+            ),
+            2: (
+                hollow: $color-dodger_blue,
+                block: $color-white
+            )
+        ),
+        button-xl: (
+            fb: (
+                hollow: $color-facebook,
+                block: $color-white
+            ),
+            wa: (
+                // hollow: $color-whatsapp,
+                hollow: $color-malachite,
+                block: $color-white
+            )
+        ),
+        button-full: (
+            1: (
+                hollow: $color-malachite,
+                block: $color-white
+            ),
+            2: (
+                hollow: $color-dodger_blue,
+                block: $color-white
+            )
+        ),
+
+        heading-l: $color-white,
+        heading-s: $color-white,
+
+        subText-l: $color-white,
+
+        shadow: $color-rgb-white
+    )
+);

@@ -1,0 +1,126 @@
+@import "../../css/components/headings";
+@import "../../css/layouts/mediaQueries.scss";
+@import "../../css/theme/fontSizes";
+@import "../../css/layouts/container.scss";
+@import '../../css/theme/colors';
+
+
+
+.tabContainer {
+  // position: sticky;
+  // z-index: 2;
+  @include respond-above(desktop) {
+    // top: 4.76vw;
+    // padding: 0.95vw 0 0 0;
+    @include highlight-background;
+  }
+  @include respond-between(tablet, desktop) {
+    // top: 4.76vw;
+    // padding: 1.18vw 0 0 0;
+    @include highlight-background;
+  }
+  @include respond-between(phablet, tablet) {
+    // top: 8.5vw;
+    padding: 2vw 0 0 0;
+    @include highlight-background;
+  }
+  @include respond-below(phablet) {
+    top: 13.1vw;
+    padding: 0;
+    @include default-background;
+  }
+}
+
+.tabList {
+  display: flex;
+  
+  overflow:auto;
+  @include respond-above(desktop){
+    padding: 0.8vw 5.31vw 0 5.31vw;
+    @include highlight-background;
+  }
+  @include respond-between(tablet, desktop) {
+    padding: 1.18vw 7.15vw 0 7.15vw;
+    @include highlight-background;
+  }
+  @include respond-between(phablet, tablet) {
+    padding: 2vw 4vw 0 4vw;
+    @include highlight-background;
+  }
+  @include respond-below(phablet) {
+    padding: 0;
+  }
+}
+.tabListItem {
+  position: relative;
+  color: #7D7D7D;
+  list-style: none;
+  flex: 1 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  cursor: pointer;
+  white-space: nowrap;
+  @include respond-above(desktop){
+    height: 2.57vw;
+    font-size: $font-size-screen-m;
+  }
+  @include respond-between(tablet, desktop){
+    height: 3.26vw;
+    font-size: $font-size-desktop-m;
+  }
+  @include respond-between(phablet, tablet){
+    height: 6vw;
+    font-size: $font-size-tablet-lm;
+  }
+  @include respond-below(phablet){
+    height: 12.53vw;
+    min-width: 36vw;
+    flex-direction: column-reverse;
+    font-size: $font-size-phablet-l;
+  }
+
+  &:last-child{
+    margin-left: auto;
+  }
+}
+.tabLabel{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.tabListActive {
+  @each $theme, $map in $colors {
+    :global(.#{$theme}) & {
+        color: map-get($map, default);
+    }
+  }
+
+  @include default-background;
+
+  border-radius: 12px 12px 0 0;
+  
+
+  @include respond-above(tablet){
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.07);
+
+  }
+  @include respond-between(phablet, tablet){
+    
+  }
+  @include respond-below(phablet){
+    border-radius: 0;
+  }
+}
+.activeBorder {
+  width: 100%;
+  margin: 0  auto;
+  border: solid #FF6400;
+  border-width: 2px 0 0 0;
+  @include respond-below(phablet){
+    position: absolute;
+    bottom: 0;
+  }
+}
