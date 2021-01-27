@@ -4,3 +4,19 @@
 .mainContainer {
     @include main-container;
 }
+
+.button {
+    color:red;
+    @include respond-above(desktop){
+        font-size: 30px;
+    }
+    @include respond-between(tablet,desktop){
+        font-size: 45px;
+    }
+    @include respond-between(phone,tablet){
+        font-size: 20px;
+    }
+    @include respond-below(phone){
+        font-weight: bolder;
+    }
+}

@@ -10,6 +10,7 @@ const CommunityHome = (props) => {
         <>
             <PageContainer active={"home"}>
                 Hello
+                <button className={s.button}>Send</button>
             </PageContainer>
         </>
     );
