@@ -1,22 +1,884 @@
 @import "../../../css/layouts/container.scss";
 @import "../../../css/layouts/mediaQueries.scss";
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 .mainContainer {
     @include main-container;
 }
 
-.button {
-    color:red;
-    @include respond-above(desktop){
-        font-size: 30px;
+.buttonAdd {
+    display: flex;
+    align-items: center;
+    background: #0097e6;
+    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 32px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0px;
+    border-color: #0097e6;
+
+    &:hover {
+        background: darken(#0097e6, 10%);
+        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
     }
-    @include respond-between(tablet,desktop){
-        font-size: 45px;
+
+    &:active {
+        box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
     }
-    @include respond-between(phone,tablet){
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonAdd2 {
+    display: flex;
+    align-items: center;
+    background: #0097e6;
+    box-shadow: 0 10px 10px -11px #83959e;
+    border-radius: 5px;
+    height: 32px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0px;
+    border-color: #0097e6;
+
+    &:hover {
+        background: darken(#0097e6, 10%);
+        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+
+    &:active {
+        box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonPrimary {
+    display: flex;
+    align-items: center;
+    background: #50a354;
+    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 32px;
+    padding: 0 30px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0;
+    border-color:#50a354;
+
+    &:hover {
+        background: darken(#50a354, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonPrimary2 {
+    display: flex;
+    align-items: center;
+    background: #50a354;
+    box-shadow: 0px 10px 10px -11px #839e84;;
+    border-radius: 5px;
+    height: 32px;
+    padding: 0 30px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0;
+    border-color:#50a354;
+
+    &:hover {
+        background: darken(#50a354, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonSecondary {
+    display: flex;
+    align-items: center;
+    background: #cf5248;
+    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 32px;
+    padding: 0 30px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0;
+    border-color: #cf5248;
+
+    &:hover {
+        background: darken(#cf5248, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonSecondary2 {
+    display: flex;
+    align-items: center;
+    background: #cf5248;
+    box-shadow: 0px 10px 10px -11px #9e8583;
+    border-radius: 5px;
+    height: 32px;
+    padding: 0 30px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0;
+    border-color: #cf5248;
+
+    &:hover {
+        background: darken(#cf5248, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.headingMain {
+    margin: 1em 0 0.5em 0;
+    line-height: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    letter-spacing: 1px;
+
+    @include respond-above(desktop) {
+        font-size: 24px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 24px;
+    }
+    @include respond-between(phone, tablet) {
         font-size: 20px;
     }
-    @include respond-below(phone){
-        font-weight: bolder;
+    @include respond-below(phone) {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+.headingSub {
+    margin: 1em 0 0.5em 0;
+    line-height: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    letter-spacing: 1px;
+
+    @include respond-above(desktop) {
+        font-size: 18px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 18px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 14px;
+    }
+    @include respond-below(phone) {
+        font-size: 12px;
+    }
+}
+
+.textNormal {
+    margin: 1em 0 0.5em 0;
+    line-height: 40px;
+    font-weight: normal;
+    //font-family: "Orienta", sans-serif;
+    font-family: Muli, Lato, sans-serif;
+    letter-spacing: 1px;
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.textSub {
+    margin: 1em 0 0.5em 0;
+    color: #585656;
+    line-height: 40px;
+    font-weight: normal;
+    font-family: Muli, Lato, sans-serif;
+    letter-spacing: 1px;
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.textSub2 {
+    margin: 1em 0 0.5em 0;
+    color: #b5b7ba;
+    line-height: 40px;
+    font-weight: normal;
+    font-family: Muli, Lato, sans-serif;
+    letter-spacing: 1px;
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.header {
+    display: flex;
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.header2 {
+    display: flex;
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.name {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0px;
+    h3 {
+        margin: 0px;
+        font-size: 16px;
+    }
+
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.name2 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0px;
+    h3 {
+        margin: 0px;
+        font-size: 16px;
+    }
+
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: fit-content;
+    p {
+        font-size: 12px;
+        padding: 5px 40px 0px 0px;
+        margin: 0px;
+        flex-grow: 1;
+        color: #585656;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        font-size: 10px;
+    }
+}
+
+.content2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: fit-content;
+    p {
+        font-size: 12px;
+        padding: 5px 40px 0px 0px;
+        margin: 0px;
+        flex-grow: 1;
+        color: #b5b7ba;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        font-size: 10px;
+    }
+}
+
+.cardContainer {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    padding: 15px 15px 20px 15px;
+    width: 650px;
+    max-width: 100%;
+    text-align: left;
+    h6 {
+        font-size: 14px;
+        margin: 4px 0px 0px 0px;
+        font-weight: lighter;
+        color: #585656;
+    }
+    .round {
+    border: 1px solid #03bfcb;
+    border-radius: 50%;
+    padding: 3px;
+    height: 50px;
+    width: 50px;
+    margin: 0px 10px 0px 0px;
+    }
+}
+
+.cardContainer2 {
+    box-sizing: border-box;
+    background-color: #383b40;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px -10px white;
+    padding: 15px 15px 20px 15px;
+    width: 650px;
+    max-width: 100%;
+    text-align: left;
+    h6 {
+        font-size: 14px;
+        margin: 4px 0px 0px 0px;
+        font-weight: lighter;
+        color: #b5b7ba;
+    }
+    .round2 {
+    border: 1px solid #048f99;
+    border-radius: 50%;
+    padding: 3px;
+    height: 50px;
+    width: 50px;
+    margin: 0px 10px 0px 0px;
+    }
+}
+
+.buttonSend {
+    align-items: center;
+    background: #8e4d99;
+    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    padding: 0px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0px;
+    border-color: #8e4d99;
+
+    &:hover {
+        background: darken(#8e4d99, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.buttonSend2 {
+    align-items: center;
+    background: #8e4d99;
+    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    padding: 0px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0px;
+    border-color: #8e4d99;
+
+    &:hover {
+        background: darken(#8e4d99, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.forumContainer {
+    display: flex;
+
+    .forumCard {
+        margin: 1rem;
+        width: 500px;
+        height: 100px;
+        padding: .5rem 1rem;
+        background-color: #ffff;
+        border-radius: 8px;
+        box-shadow: hsla(0, 0, 0, .2) 6px 4px 4px -2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: .2s;
+        
+        &:hover {
+        transform: translateY(-3px);
+        }
+
+        @include respond-above(desktop) {
+            font-size: 14px;
+        }
+        @include respond-between(tablet, desktop) {
+            font-size: 14px;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: 12px;
+        }
+        @include respond-below(phone) {
+            font-size: 10px;
+        }
+    }
+    .tags ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding-left: 0;
+    }
+    .tags li + li {
+        margin-left: .5rem;
+    }
+    .tags a {
+        border: 1px solid #edf2f7;
+        border-radius: 5px;
+        background-color: #edf2f7;
+        color: #4a5568;
+        height: 2rem;
+        padding: 2px 5px 2px 5px;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+        border-color: #ffefcd;
+        background-color: #ffefcd;
+        color: #ff8800;
+        }
+
+        @include respond-above(desktop) {
+            font-size: 12px;
+        }
+        @include respond-between(tablet, desktop) {
+            font-size: 12px;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: 10px;
+        }
+        @include respond-below(phone) {
+            font-size: 8px;
+        }
+    }
+}
+
+.forumContainer2 {
+    display: flex;
+
+    .forumCard2 {
+        margin: 1rem;
+        width: 500px;
+        height: 100px;
+        padding: .5rem 1rem;
+        background-color: #36343b;
+        border-radius: 8px;
+        box-shadow: whitesmoke 4px 4px 6px -6px;;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: .2s;
+        
+        &:hover {
+        transform: translateY(-3px);
+        }
+
+        @include respond-above(desktop) {
+            font-size: 14px;
+        }
+        @include respond-between(tablet, desktop) {
+            font-size: 14px;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: 12px;
+        }
+        @include respond-below(phone) {
+            font-size: 10px;
+        }
+    }
+    .tags2 ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding-left: 0;
+        
+    }
+    .tags2 li + li {
+        margin-left: .5rem;
+    }
+    .tags2 a {
+        border: 1px solid #edf2f7;
+        border-radius: 5px;
+        background-color: #edf2f7;
+        color: #4a5568;
+        height: 2rem;
+        padding: 2px 5px 2px 5px;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+        border-color: #ffefcd;
+        background-color: #ffefcd;
+        color: #ff8800;
+        }
+
+        @include respond-above(desktop) {
+            font-size: 12px;
+        }
+        @include respond-between(tablet, desktop) {
+            font-size: 12px;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: 10px;
+        }
+        @include respond-below(phone) {
+            font-size: 8px;
+        }
+    }
+}
+
+.message {
+    width: 400px;
+    padding: 10px;
+    background-color: white;
+    
+    .messageLight {
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #eee8fa;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #eee8fa;
+        border-radius: 20px 20px 20px 0px;
+    }
+    .messageDark {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: calc(100% - 240px);
+        padding: 10px;
+        background-color: #8e4d99;
+        color: #ffffff;
+        font-weight: lighter;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #8e4d99;
+        border-radius: 20px 20px 0px 20px;
+    }
+    .messageContent {
+        padding: 0;
+        margin: 0;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.message2 {
+    width: 400px;
+    padding: 10px;
+    background-color:#0d0911;
+    .messageLight2 {
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #36343b;
+        color: whitesmoke;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #36343b;
+        border-radius: 20px 20px 20px 0px;
+    }
+    .messageDark2 {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: calc(100% - 240px);
+        padding: 10px;
+        background-color: #8e4d99;
+        color: #ffffff;
+        font-weight: lighter;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #8e4d99;
+        border-radius: 20px 20px 0px 20px;
+    }
+    .messageContent2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
     }
 }
