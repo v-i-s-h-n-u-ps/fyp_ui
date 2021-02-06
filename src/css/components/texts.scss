@@ -1,0 +1,122 @@
+@import '../theme/fontSizes';
+@import '../theme/colors';
+@import '../theme/breakpoints';
+@import '../layouts/mediaQueries.scss';
+
+@mixin heading-l {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-l);
+        }
+    }
+    // @each $break, $point in $breakpoints {
+    //     @include respond-below($break) {
+    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
+    //         font-size: map-get($breakpoint-font-sizes, heading-l)
+    //     }
+    // }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, heading-l)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, heading-l)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, heading-l)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, heading-l)
+    }
+    font-weight: 500;
+}
+
+@mixin heading-s {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-s);
+        }
+    }
+    // @each $break, $point in $breakpoints {
+    //     @include respond-below($break) {
+    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
+    //         font-size: map-get($breakpoint-font-sizes, heading-l)
+    //     }
+    // }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, heading-s)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, heading-s)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, heading-s)
+    }
+    font-weight: 500;
+}
+/*heading-lm*/
+@mixin heading-lm {
+  @each $theme, $map in $colors {
+      :global(.#{$theme}) & {
+          color: map-get($map, heading-lm);
+      }
+  }
+  // @each $break, $point in $breakpoints {
+  //     @include respond-below($break) {
+  //         $breakpoint-font-sizes: map-get($font-sizes, $break);
+  //         font-size: map-get($breakpoint-font-sizes, heading-l)
+  //     }
+  // }
+  @include respond-above(tablet) {
+      $breakpoint-font-size: map-get($font-sizes, desktop);
+      font-size: map-get($breakpoint-font-size, heading-lm)
+  }
+  @include respond-between(phablet, tablet) {
+      $breakpoint-font-size: map-get($font-sizes, tablet);
+      font-size: map-get($breakpoint-font-size, heading-lm)
+  }
+  @include respond-below(phablet) {
+      $breakpoint-font-size: map-get($font-sizes, phablet);
+      font-size: map-get($breakpoint-font-size, heading-lm)
+  }
+  font-weight: 500;
+}
+
+@mixin subText-l {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, subText-l);
+        }
+    }
+    // @each $break, $point in $breakpoints {
+    //     @include respond-below($break) {
+    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
+    //         font-size: map-get($breakpoint-font-sizes, heading-l)
+    //     }
+    // }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, subText-l)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, subText-l)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, subText-l)
+    }
+    font-weight: 500;
+}
+
+@mixin text-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

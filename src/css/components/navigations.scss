@@ -1,0 +1,125 @@
+@import '../theme/fontSizes';
+@import '../theme/colors';
+@import '../theme/breakpoints';
+@import '../layouts/mediaQueries.scss';
+
+@mixin header {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, header)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, header)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, header)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, header)
+    }
+}
+
+@mixin topnav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, topnav)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, topnav)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, topnav)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, topnav)
+    }
+    font-weight: 500;
+}
+
+@mixin sidenav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, sidenav)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, sidenav)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, sidenav)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, sidenav)
+    }
+}
+
+@mixin bottomnav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, bottomnav)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, bottomnav)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, bottomnav)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, bottomnav)
+    }
+}
+
+@mixin footer {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, footer)
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, footer)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, footer)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, footer)
+    }
+}

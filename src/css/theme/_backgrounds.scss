@@ -1,0 +1,129 @@
+@import "./cdnImagePath";
+$background-white: #FFFFFF;
+$background-black: #000000;
+
+$background-malachite: #03D269;
+$background-jade: #02BA5D;
+
+$background-transparent: transparent;
+
+$background-dodger_blue: #018EEC;
+$background-lochmara: #0281D5;
+
+$background-light_gray:#F7FAFF;
+$background-cod_gray:#111111;
+
+$background-blaze_orange:#FF6400;
+
+
+$background-mariner: #4468B2;
+$background-facebook: #4468B2;
+
+$background-mosque: #075E54;
+$background-whatsapp: #075E54;
+
+
+$backgrounds: (
+    light: (
+        default: $background-white,
+        overlay:  rgba(0, 0, 0, 0.6),
+        transparent: $background-transparent,
+        highlight: $background-light_gray,
+        highlight2: #D3F0FF,
+        highlight3: $background-blaze_orange,
+        highlight-green: #EAF8FA,
+
+        cardLoader: linear-gradient(to right, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%, transparent 100%),
+        textLoader: #F4F4F4,
+
+        button-full: (
+            1: (
+                hollow: $background-transparent,
+                block: $background-malachite
+            ),
+            2: (
+                hollow: $background-transparent,
+                block: $background-dodger_blue
+            ),
+            3: (
+                hollow: $background-transparent,
+                block: $background-white
+            ),
+            hover: (
+                1: (
+                    hollow: $background-transparent,
+                    block: $background-jade
+                ),
+                2: (
+                    hollow: $background-transparent,
+                    block: $background-lochmara
+                ),
+                3: (
+                    hollow: $background-transparent,
+                    block: $background-white
+                ),
+            )
+        ),
+    ),
+    dark: (
+        default: $background-black,
+        overlay:  rgba(99, 99, 99, 0.6),
+        transparent: $background-transparent,
+        highlight: $background-cod_gray,
+        highlight2: $background-cod_gray,
+        highlight3: $background-cod_gray,
+        highlight-green: $background-cod_gray,
+
+        cardLoader: linear-gradient(to right, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.6) 50%, transparent 60%, transparent 100%),
+        textLoader: #111,
+
+        button-l: (
+            1: (
+                hollow: $background-transparent,
+                block: $background-malachite
+            ),
+            2: (
+                hollow: $background-transparent,
+                block: $background-dodger_blue
+            ),
+            hover: (
+                1: (
+                    hollow: $background-transparent,
+                    block: $background-jade
+                ),
+                2: (
+                    hollow: $background-transparent,
+                    block: $background-lochmara
+                ),
+            )
+        ),
+        button-full: (
+            1: (
+                hollow: $background-transparent,
+                block: $background-malachite
+            ),
+            2: (
+                hollow: $background-transparent,
+                block: $background-dodger_blue
+            ),
+            3: (
+                hollow: $background-transparent,
+                block: $background-black
+            ),
+            hover: (
+                1: (
+                    hollow: $background-transparent,
+                    block: $background-jade
+                ),
+                2: (
+                    hollow: $background-transparent,
+                    block: $background-lochmara
+                ),
+                3: (
+                    hollow: $background-transparent,
+                    block: $background-black
+                ),
+            )
+        ),
+    )
+);

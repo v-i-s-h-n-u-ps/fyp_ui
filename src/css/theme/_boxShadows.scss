@@ -1,0 +1,37 @@
+@import '../theme/colors';
+@import '../theme/opacity';
+
+$box-shadow-desktop-top: 0;
+$box-shadow-desktop-left: 4px;
+$box-shadow-desktop-blur: 12px;
+
+$box-shadows: (
+    light: (
+        phablet: (
+            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
+            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+        ),
+        tablet: (
+            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
+            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+        ),
+        desktop: (
+            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
+            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+        )
+    ),
+    dark: (
+        phablet: (
+            default: none,
+            inset-default: none
+        ),
+        tablet: (
+            default: none,
+            inset-default: none
+        ),
+        desktop: (
+            default: none,
+            inset-default: none
+        )
+    )
+);

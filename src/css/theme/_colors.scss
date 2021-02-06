@@ -46,28 +46,7 @@ $color-text-rare:#ED303B;
 $colors: (
     light: (
         default: $color-black,
-        
-        button-l: (
-            1: (
-                hollow: $color-malachite,
-                block: $color-white
-            ),
-            2: (
-                hollow: $color-dodger_blue,
-                block: $color-white
-            )
-        ),
-        button-xl: (
-            fb: (
-                hollow: $color-facebook,
-                block: $color-white
-            ),
-            wa: (
-                // hollow: $color-whatsapp,
-                hollow: $color-malachite,
-                block: $color-white
-            )
-        ),
+
         button-full: (
             1: (
                 hollow: $color-malachite,
@@ -89,28 +68,7 @@ $colors: (
     dark: (
         default: $color-white,
         malachite: $color-malachite,
-
-        button-l: (
-            1: (
-                hollow: $color-malachite,
-                block: $color-white
-            ),
-            2: (
-                hollow: $color-dodger_blue,
-                block: $color-white
-            )
-        ),
-        button-xl: (
-            fb: (
-                hollow: $color-facebook,
-                block: $color-white
-            ),
-            wa: (
-                // hollow: $color-whatsapp,
-                hollow: $color-malachite,
-                block: $color-white
-            )
-        ),
+        
         button-full: (
             1: (
                 hollow: $color-malachite,

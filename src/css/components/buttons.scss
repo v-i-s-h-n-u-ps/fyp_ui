@@ -1,0 +1,61 @@
+@import '../theme/fontSizes';
+@import '../theme/colors';
+@import '../theme/borders';
+@import '../theme/backgrounds';
+@import '../theme/breakpoints';
+@import '../layouts/mediaQueries.scss';
+
+@mixin button($type: 1, $style: block, $variant: button-l) {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+
+            $button-type: map-get($button, $type);
+            $button-background: map-get($button-type, $style);
+            background: $button-background;
+
+            $button-hover: map-get($button, 'hover');
+            $button-hover-type: map-get($button-hover, $type);
+            $button-hover-background: map-get($button-hover-type, $style);
+            &:hover {
+                background: $button-hover-background;
+            }
+        }
+    }
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+            $button-type: map-get($button, $type);
+            $button-color: map-get($button-type, $style);
+            color: $button-color;
+        }
+    }
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+            $button-type: map-get($button, $type);
+            $button-border: map-get($button-type, $style);
+            border: $button-border;
+        }
+    }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, $variant)
+    }
+    @include respond-between(phablet, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, $variant)
+    }
+    @include respond-below(phablet) {
+        $breakpoint-font-size: map-get($font-sizes, phablet);
+        font-size: map-get($breakpoint-font-size, $variant)
+    }
+    font-family: 'Muli';
+    cursor: pointer;
+    transition: background 0.4s ease;
+    will-change: background;
+}
+
+@mixin button-full($type, $style) {
+    @include button($type, $style, $variant: button-full);
+}

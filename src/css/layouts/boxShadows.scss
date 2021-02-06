@@ -1,0 +1,47 @@
+@import '../theme/boxShadows';
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin box-shadow-default($inset: false) {
+    @if $inset {
+        @each $theme, $map in $box-shadows {
+            :global(.#{$theme}) & {
+                @include respond-above(tablet) {
+                    $box-shadow: map-get($map, tablet);
+                    box-shadow: map-get($box-shadow, inset-default)
+                }
+                @include respond-between(phablet, tablet) {
+                    $box-shadow: map-get($map, tablet);
+                    box-shadow: map-get($box-shadow, inset-default)
+                }
+                @include respond-below(phablet) {
+                    $box-shadow: map-get($map, tablet);
+                    box-shadow: map-get($box-shadow, inset-default)
+                }
+            }
+        }
+    } @else {
+        @each $theme, $map in $box-shadows {
+            :global(.#{$theme}) & {
+                @include respond-above(tablet) {
+                    $box-shadow: map-get($map, tablet);
+                    box-shadow: map-get($box-shadow, default)
+                }
+                @include respond-between(phablet, tablet) {
+                    $box-shadow: map-get($map, tablet);
+                    box-shadow: map-get($box-shadow, default)
+                }
+                @include respond-below(phablet) {
+                    box-shadow: none
+                }
+            }
+        }
+    }
+}
+  
