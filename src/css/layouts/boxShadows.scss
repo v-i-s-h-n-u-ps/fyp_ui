@@ -16,11 +16,11 @@
                     $box-shadow: map-get($map, tablet);
                     box-shadow: map-get($box-shadow, inset-default)
                 }
-                @include respond-between(phablet, tablet) {
+                @include respond-between(phone, tablet) {
                     $box-shadow: map-get($map, tablet);
                     box-shadow: map-get($box-shadow, inset-default)
                 }
-                @include respond-below(phablet) {
+                @include respond-below(phone) {
                     $box-shadow: map-get($map, tablet);
                     box-shadow: map-get($box-shadow, inset-default)
                 }
@@ -33,11 +33,11 @@
                     $box-shadow: map-get($map, tablet);
                     box-shadow: map-get($box-shadow, default)
                 }
-                @include respond-between(phablet, tablet) {
+                @include respond-between(phone, tablet) {
                     $box-shadow: map-get($map, tablet);
                     box-shadow: map-get($box-shadow, default)
                 }
-                @include respond-below(phablet) {
+                @include respond-below(phone) {
                     box-shadow: none
                 }
             }

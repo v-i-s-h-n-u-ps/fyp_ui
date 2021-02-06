@@ -23,12 +23,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-l)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, heading-l)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, heading-l)
     }
     font-weight: 500;
@@ -50,12 +50,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-s)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, heading-s)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, heading-s)
     }
     font-weight: 500;
@@ -77,12 +77,12 @@
       $breakpoint-font-size: map-get($font-sizes, desktop);
       font-size: map-get($breakpoint-font-size, heading-lm)
   }
-  @include respond-between(phablet, tablet) {
+  @include respond-between(phone, tablet) {
       $breakpoint-font-size: map-get($font-sizes, tablet);
       font-size: map-get($breakpoint-font-size, heading-lm)
   }
-  @include respond-below(phablet) {
-      $breakpoint-font-size: map-get($font-sizes, phablet);
+  @include respond-below(phone) {
+      $breakpoint-font-size: map-get($font-sizes, phone);
       font-size: map-get($breakpoint-font-size, heading-lm)
   }
   font-weight: 500;
@@ -104,12 +104,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, subText-l)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, subText-l)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, subText-l)
     }
     font-weight: 500;

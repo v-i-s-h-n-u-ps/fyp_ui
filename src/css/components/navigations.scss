@@ -17,12 +17,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, header)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, header)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, header)
     }
 }
@@ -41,12 +41,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, topnav)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, topnav)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, topnav)
     }
     font-weight: 500;
@@ -66,12 +66,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, sidenav)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, sidenav)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, sidenav)
     }
 }
@@ -90,12 +90,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, bottomnav)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, bottomnav)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, bottomnav)
     }
 }
@@ -114,12 +114,12 @@
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, footer)
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
         font-size: map-get($breakpoint-font-size, footer)
     }
-    @include respond-below(phablet) {
-        $breakpoint-font-size: map-get($font-sizes, phablet);
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, footer)
     }
 }
