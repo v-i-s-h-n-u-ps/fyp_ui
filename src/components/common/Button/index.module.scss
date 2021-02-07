@@ -4,6 +4,21 @@
 .button {
     display: block;
     margin: 3px;
+    span {
+        @include flex-center;
+    }
+    @include respond-below(phone) {
+        width: calc(100% - 8px) !important;
+    }
+}
+
+.text {
+    @include flex-center;
+    &.withIcon {
+        @include flex-center;
+        justify-content: space-between;
+        width: 80%;
+    }
 }
 
 .primary {
@@ -24,12 +39,21 @@
     }
 }
 
-.cancel, .delete {
+.cancel {
     &.block {
         @include button-custom(3, block);
     }
     &.hollow {
         @include button-custom(3, hollow);
+    }
+}
+
+.cautious {
+    &.block {
+        @include button-custom(caution, block);
+    }
+    &.hollow {
+        @include button-custom(caution, hollow);
     }
 }
 
@@ -39,5 +63,14 @@
     }
     &.hollow {
         @include button-custom(4, hollow);
+    }
+}
+
+.whatsapp {
+    &.block {
+        @include button-custom(wa, block);
+    }
+    &.hollow {
+        @include button-custom(wa, hollow);
     }
 }

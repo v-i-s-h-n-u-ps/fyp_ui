@@ -20,6 +20,7 @@ $border-cerulean: 2px solid #0097e6;
 $border-fruit_salad: 2px solid #50a354;
 $border-chestnut_rose: 2px solid #cf5248;
 $border-affair: 2px solid #8e4d99;
+$border-alizarin: #eb1926;
 
 $borders: (
     light: (
@@ -46,6 +47,10 @@ $borders: (
             4:(
                 hollow: $border-affair,
                 block: $border-affair
+            ),
+            caution: (
+                hollow: $border-alizarin,
+                block: $border-alizarin
             ),
             wa: (
                 hollow: $border-whatsapp,
@@ -77,6 +82,10 @@ $borders: (
             4:(
                 hollow: $border-affair,
                 block: $border-affair
+            ),
+            caution: (
+                hollow: $border-alizarin,
+                block: $border-alizarin
             ),
             wa: (
                 hollow: $border-whatsapp,

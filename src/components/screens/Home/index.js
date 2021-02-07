@@ -8,9 +8,9 @@ import Button from "../../common/Button";
 const CommunityHome = (props) => {
 
     const [condition, setCondition] = useState(false);
-    
+
     useEffect(() => {
-        if(condition) {
+        if (condition) {
             setTimeout(() => {
                 setCondition(false)
             }, 4000)
@@ -20,9 +20,33 @@ const CommunityHome = (props) => {
     return (
         <PageContainer active={"home"}>
             <button className={s.buttonAdd}>Add Task</button><br></br><br></br>
-            <Button 
+            <Button
                 text="add task"
-                // type="message"
+                type="secondary"
+                variant="hollow"
+                onClick={() => setCondition(true)}
+                loading={condition}
+                width={20}
+                icon="calendar_filled"
+                iconStyle={s.calendarIcon}
+            />
+
+            <Button
+                text="2nd add task"
+                type="cancel"
+                variant="block"
+            />
+
+            <Button
+                text="Message to be sent"
+                type="cautious"
+                variant="hollow"
+                icon="logout"
+            />
+
+            <Button
+                text="WhatsApp Button"
+                type="whatsapp"
                 variant="block"
             />
 
@@ -32,14 +56,14 @@ const CommunityHome = (props) => {
 
             <button
                 className={s.buttonAdd2}
-                
+
             >
                 Add Task
             </button>
             <br></br><br></br>
             <button className={s.buttonPrimary}>Ok</button><br></br><br></br>
             <button className={s.buttonPrimary2}>
-                 'Ok'
+                'Ok'
 
             </button>
             <br></br><br></br>

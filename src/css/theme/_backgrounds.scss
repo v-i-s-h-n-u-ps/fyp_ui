@@ -14,6 +14,7 @@ $background-cerulean: #0097e6;
 $background-fruit_salad: #50a354;
 $background-chestnut_rose: #cf5248;
 $background-affair: #8e4d99;
+$background-alizarin: #eb1926;
 
 $background-moon_raker: #f1edfb;
 $background-ship_gray: #36343b;
@@ -53,6 +54,10 @@ $backgrounds: (
                 hollow: $background-transparent,
                 block: $background-affair
             ),
+            caution: (
+                hollow: $background-transparent,
+                block: $background-alizarin
+            ),
             wa: (
                 hollow: $background-transparent,
                 block: $background-whatsapp
@@ -91,6 +96,10 @@ $backgrounds: (
             4:(
                 hollow: $background-transparent,
                 block: $background-affair
+            ),
+            caution: (
+                hollow: $background-transparent,
+                block: $background-alizarin
             ),
             wa: (
                 hollow: $background-transparent,
