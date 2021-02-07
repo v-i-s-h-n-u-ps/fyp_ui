@@ -1,37 +1,49 @@
-@import '../theme/colors';
-@import '../theme/opacity';
-
-$box-shadow-desktop-top: 0;
-$box-shadow-desktop-left: 4px;
-$box-shadow-desktop-blur: 12px;
 
 $box-shadows: (
     light: (
-        phablet: (
-            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
-            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+        phone: (
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         tablet: (
-            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
-            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         desktop: (
-            default: $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008),
-            inset-default: inset $box-shadow-desktop-top $box-shadow-desktop-left $box-shadow-desktop-blur rgba($color-rgb-black, $color-rgb-black, $color-rgb-black, $opacity-008)
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         )
     ),
     dark: (
-        phablet: (
-            default: none,
-            inset-default: none
+        phone: (
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         tablet: (
-            default: none,
-            inset-default: none
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         desktop: (
-            default: none,
-            inset-default: none
+            default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
+            button: 0px 10px 10px -10px rgba(0, 0, 0, 0.75),
+            button_hover: 0 4px 15px rgba(0, 0, 0, 0.4),
+            button_active: 0 1px 1px rgba(0, 0, 0, 0.1),
+            inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         )
     )
 );

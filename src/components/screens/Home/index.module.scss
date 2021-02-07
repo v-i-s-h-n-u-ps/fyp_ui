@@ -1,279 +1,34 @@
 @import "../../../css/layouts/container.scss";
 @import "../../../css/layouts/mediaQueries.scss";
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import "../../../css/components/buttons.scss";
 
 .mainContainer {
     @include main-container;
 }
 
 .buttonAdd {
-    display: flex;
-    align-items: center;
-    background: #0097e6;
-    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
-    height: 32px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0px;
-    border-color: #0097e6;
-
-    &:hover {
-        background: darken(#0097e6, 10%);
-        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-
-    &:active {
-        box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-full(1, hollow);
 }
 
 .buttonAdd2 {
-    display: flex;
-    align-items: center;
-    background: #0097e6;
-    box-shadow: 0 10px 10px -11px #83959e;
-    border-radius: 5px;
-    height: 32px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0px;
-    border-color: #0097e6;
-
-    &:hover {
-        background: darken(#0097e6, 10%);
-        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-
-    &:active {
-        box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-custom(1, block)
 }
 
 .buttonPrimary {
-    display: flex;
-    align-items: center;
-    background: #50a354;
-    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
-    height: 32px;
-    padding: 0 30px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0;
-    border-color:#50a354;
-
-    &:hover {
-        background: darken(#50a354, 10%);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-    &:active {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-custom(2, block, 30%);
 }
 
 .buttonPrimary2 {
-    display: flex;
-    align-items: center;
-    background: #50a354;
-    box-shadow: 0px 10px 10px -11px #839e84;;
-    border-radius: 5px;
-    height: 32px;
-    padding: 0 30px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0;
-    border-color:#50a354;
-
-    &:hover {
-        background: darken(#50a354, 10%);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-    &:active {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-custom(2, block, 30%);
 }
 
 .buttonSecondary {
-    display: flex;
-    align-items: center;
-    background: #cf5248;
-    box-shadow: 0px 10px 10px -11px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
-    height: 32px;
-    padding: 0 30px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0;
-    border-color: #cf5248;
-
-    &:hover {
-        background: darken(#cf5248, 10%);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-    &:active {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-custom(3, block, 50%)
 }
 
 .buttonSecondary2 {
-    display: flex;
-    align-items: center;
-    background: #cf5248;
-    box-shadow: 0px 10px 10px -11px #9e8583;
-    border-radius: 5px;
-    height: 32px;
-    padding: 0 30px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0;
-    border-color: #cf5248;
-
-    &:hover {
-        background: darken(#cf5248, 10%);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-    &:active {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    @include button-custom(3, hollow)
 }
 
 .headingMain {
@@ -552,48 +307,49 @@
 }
 
 .buttonSend {
-    align-items: center;
-    background: #8e4d99;
-    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
-    height: 30px;
-    width: 100%;
-    padding: 0px;
-    color: #ffffff;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    will-change: transform;
-    border-width: 0px;
-    border-color: #8e4d99;
+    // align-items: center;
+    // background: #8e4d99;
+    // box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
+    // border-radius: 5px;
+    // height: 30px;
+    // width: 100%;
+    // padding: 0px;
+    // color: #ffffff;
+    // font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    // text-transform: uppercase;
+    // text-decoration: none;
+    // transition: transform 0.3s, box-shadow 0.3s;
+    // will-change: transform;
+    // border-width: 0px;
+    // border-color: #8e4d99;
 
-    &:hover {
-        background: darken(#8e4d99, 10%);
-        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 0px, 0);
-    }
-    &:active {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-        transform: translate3d(0, 1px, 0);
-    }
+    // &:hover {
+    //     background: darken(#8e4d99, 10%);
+    //     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+    //     transform: translate3d(0, 0px, 0);
+    // }
+    // &:active {
+    //     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    //     transform: translate3d(0, 1px, 0);
+    // }
 
-    @include respond-above(desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-        padding: 0px 30px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 12px;
-        padding: 0px 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-        padding: 0px 20px;
-    }
+    // @include respond-above(desktop) {
+    //     font-size: 12px;
+    //     padding: 0px 30px;
+    // }
+    // @include respond-between(tablet, desktop) {
+    //     font-size: 12px;
+    //     padding: 0px 30px;
+    // }
+    // @include respond-between(phone, tablet) {
+    //     font-size: 12px;
+    //     padding: 0px 20px;
+    // }
+    // @include respond-below(phone) {
+    //     font-size: 10px;
+    //     padding: 0px 20px;
+    // }
+    @include button-full(1, block);
 }
 
 .buttonSend2 {
@@ -881,4 +637,8 @@
     @include respond-below(phone) {
         font-size: 10px;
     }
+}
+
+.whatsapp {
+    @include button-custom(wa, block, 50%)
 }

@@ -1,0 +1,43 @@
+@import "../../../css/components/buttons.scss";
+@import "../../../css/layouts/flexBox.scss";
+
+.button {
+    display: block;
+    margin: 3px;
+}
+
+.primary {
+    &.block {
+        @include button-custom(1, block);
+    }
+    &.hollow {
+        @include button-custom(1, hollow);
+    }
+}
+
+.secondary {
+    &.block {
+        @include button-custom(2, block);
+    }
+    &.hollow {
+        @include button-custom(2, hollow);
+    }
+}
+
+.cancel, .delete {
+    &.block {
+        @include button-custom(3, block);
+    }
+    &.hollow {
+        @include button-custom(3, hollow);
+    }
+}
+
+.message {
+    &.block {
+        @include button-custom(4, block);
+    }
+    &.hollow {
+        @include button-custom(4, hollow);
+    }
+}

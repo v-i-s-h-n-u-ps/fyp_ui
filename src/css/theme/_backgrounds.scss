@@ -1,128 +1,100 @@
-@import "./cdnImagePath";
-$background-white: #FFFFFF;
-$background-black: #000000;
-
-$background-malachite: #03D269;
-$background-jade: #02BA5D;
+$background-white: #ffffff;
+$background-black: #0d0911;
 
 $background-transparent: transparent;
 
-$background-dodger_blue: #018EEC;
-$background-lochmara: #0281D5;
-
-$background-light_gray:#F7FAFF;
+$background-light_gray:#f7faff;
 $background-cod_gray:#111111;
+$background-tuna: #383b40;
 
-$background-blaze_orange:#FF6400;
+$background-facebook: #4468b2;
+$background-whatsapp: #075e54;
 
+$background-cerulean: #0097e6;
+$background-fruit_salad: #50a354;
+$background-chestnut_rose: #cf5248;
+$background-affair: #8e4d99;
 
-$background-mariner: #4468B2;
-$background-facebook: #4468B2;
-
-$background-mosque: #075E54;
-$background-whatsapp: #075E54;
+$background-moon_raker: #f1edfb;
+$background-ship_gray: #36343b;
+$background-wild_sand: #f4f4f4;
 
 
 $backgrounds: (
     light: (
         default: $background-white,
-        overlay:  rgba(0, 0, 0, 0.6),
         transparent: $background-transparent,
+        
+        overlay:  rgba(0, 0, 0, 0.34),
+
         highlight: $background-light_gray,
-        highlight2: #D3F0FF,
-        highlight3: $background-blaze_orange,
-        highlight-green: #EAF8FA,
 
         cardLoader: linear-gradient(to right, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%, transparent 100%),
-        textLoader: #F4F4F4,
+        textLoader: $background-wild_sand,
+
+        card-background: $background-white,
+        chat-from-background: $background-moon_raker,
+        chat-to-background: $background-affair,
 
         button-full: (
             1: (
                 hollow: $background-transparent,
-                block: $background-malachite
+                block: $background-cerulean
             ),
             2: (
                 hollow: $background-transparent,
-                block: $background-dodger_blue
+                block: $background-fruit_salad
             ),
             3: (
                 hollow: $background-transparent,
-                block: $background-white
+                block: $background-chestnut_rose
             ),
-            hover: (
-                1: (
-                    hollow: $background-transparent,
-                    block: $background-jade
-                ),
-                2: (
-                    hollow: $background-transparent,
-                    block: $background-lochmara
-                ),
-                3: (
-                    hollow: $background-transparent,
-                    block: $background-white
-                ),
+            4:(
+                hollow: $background-transparent,
+                block: $background-affair
+            ),
+            wa: (
+                hollow: $background-transparent,
+                block: $background-whatsapp
             )
         ),
     ),
     dark: (
         default: $background-black,
-        overlay:  rgba(99, 99, 99, 0.6),
         transparent: $background-transparent,
+
+        overlay:  rgba(99, 99, 99, 0.6),
+
         highlight: $background-cod_gray,
-        highlight2: $background-cod_gray,
-        highlight3: $background-cod_gray,
-        highlight-green: $background-cod_gray,
 
         cardLoader: linear-gradient(to right, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.6) 50%, transparent 60%, transparent 100%),
-        textLoader: #111,
+        textLoader: $background-cod_gray,
 
-        button-l: (
-            1: (
-                hollow: $background-transparent,
-                block: $background-malachite
-            ),
-            2: (
-                hollow: $background-transparent,
-                block: $background-dodger_blue
-            ),
-            hover: (
-                1: (
-                    hollow: $background-transparent,
-                    block: $background-jade
-                ),
-                2: (
-                    hollow: $background-transparent,
-                    block: $background-lochmara
-                ),
-            )
-        ),
+        card-background: $background-tuna,
+        chat-from-background: $background-ship_gray,
+        chat-to-background: $background-affair,
+
+
         button-full: (
             1: (
                 hollow: $background-transparent,
-                block: $background-malachite
+                block: $background-cerulean
             ),
             2: (
                 hollow: $background-transparent,
-                block: $background-dodger_blue
+                block: $background-fruit_salad
             ),
             3: (
                 hollow: $background-transparent,
-                block: $background-black
+                block: $background-chestnut_rose
             ),
-            hover: (
-                1: (
-                    hollow: $background-transparent,
-                    block: $background-jade
-                ),
-                2: (
-                    hollow: $background-transparent,
-                    block: $background-lochmara
-                ),
-                3: (
-                    hollow: $background-transparent,
-                    block: $background-black
-                ),
+            4:(
+                hollow: $background-transparent,
+                block: $background-affair
+            ),
+            wa: (
+                hollow: $background-transparent,
+                block: $background-whatsapp
             )
         ),
     )

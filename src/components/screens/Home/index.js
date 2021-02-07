@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { get as _get, isEmpty as _isEmpty } from "lodash";
 
 import s from "./index.module.scss";
 import PageContainer from "../../_hoc/PageContainer";
+import Button from "../../common/Button";
 
 const CommunityHome = (props) => {
+
+    const [condition, setCondition] = useState(false);
+    
+    useEffect(() => {
+        if(condition) {
+            setTimeout(() => {
+                setCondition(false)
+            }, 4000)
+        }
+    }, [condition])
 
     return (
         <PageContainer active={"home"}>
             <button className={s.buttonAdd}>Add Task</button><br></br><br></br>
-            <button className={s.buttonAdd2}>Add Task</button><br></br><br></br>
+            <Button 
+                text="add task"
+                // type="message"
+                variant="block"
+            />
+
+            <button className={s.whatsapp}>
+                WhatsApp
+            </button>
+
+            <button
+                className={s.buttonAdd2}
+                
+            >
+                Add Task
+            </button>
+            <br></br><br></br>
             <button className={s.buttonPrimary}>Ok</button><br></br><br></br>
-            <button className={s.buttonPrimary2}>Ok</button><br></br><br></br>
+            <button className={s.buttonPrimary2}>
+                 'Ok'
+
+            </button>
+            <br></br><br></br>
             <button className={s.buttonSecondary}>Cancel</button><br></br><br></br>
             <button className={s.buttonSecondary2}>Cancel</button><br></br><br></br>
             <h1 className={s.headingMain}>Dashboard</h1>

@@ -1,44 +1,55 @@
 
-$border-white: 1px solid #FFFFFF;
+$border-white: 1px solid #ffffff;
 $border-black: 1px solid #000000;
-$border-malachite: 1px solid #03D269;
+
 $border-transparent: 1px solid transparent;
-$border-dodger_blue: 1px solid #018EEC;
-$border-light_gray: 1px solid #F7FAFF;
+
+$border-light_gray: 1px solid #f7faff;
 $border-cod_gray:1px solid #111111;
-$border-mine_shaft:1px solid #222222;
-$border-catskill_white: 1px solid #E1EAF1;
 
-$border-blaze_orange:#FF6400;
+$border-facebook: 1px solid #4468b2;
+$border-whatsapp: 1px solid #075e54;
 
-$border-mariner: 1px solid #4468B2;
-$border-facebook: 1px solid #4468B2;
-
-$border-mosque: 1px solid #075E54;
-$border-whatsapp: 1px solid #075E54;
-
-$border-blueberry_gelato: #00b5ce;
+$border-robin_egg_blue: #03bfcb;
 
 $border-input_radio: 1.5px solid #999999;
+$border-catskill_white: 1px solid #E1EAF1;
+$border-mine_shaft: 1px solid #222222;
+
+$border-cerulean: 2px solid #0097e6;
+$border-fruit_salad: 2px solid #50a354;
+$border-chestnut_rose: 2px solid #cf5248;
+$border-affair: 2px solid #8e4d99;
 
 $borders: (
     light: (
         default: $border-catskill_white,
         transparent: $border-transparent,
         input_radio: $border-input_radio,
+        input_checked: $border-cerulean,
+
+        avatar_border: $border-robin_egg_blue,
 
         button-full: (
             1: (
-                hollow: $border-malachite,
-                block: $border-malachite
+                hollow: $border-cerulean,
+                block: $border-cerulean
             ),
             2: (
-                hollow: $border-dodger_blue,
-                block: $border-dodger_blue
+                hollow: $border-fruit_salad,
+                block: $border-fruit_salad
             ),
             3: (
-                hollow: $border-blaze_orange,
-                block: $border-blaze_orange
+                hollow: $border-chestnut_rose,
+                block: $border-chestnut_rose
+            ),
+            4:(
+                hollow: $border-affair,
+                block: $border-affair
+            ),
+            wa: (
+                hollow: $border-whatsapp,
+                block: $border-whatsapp
             )
         ),
     ),
@@ -46,18 +57,30 @@ $borders: (
         default: $border-mine_shaft,
         transparent: $border-transparent,
         input_radio: $border-input_radio,
+        input_checked: $border-cerulean,
+
+        avatar_border: $border-robin_egg_blue,
+
         button-full: (
             1: (
-                hollow: $border-malachite,
-                block: $border-malachite
+                hollow: $border-cerulean,
+                block: $border-cerulean
             ),
             2: (
-                hollow: $border-dodger_blue,
-                block: $border-dodger_blue
+                hollow: $border-fruit_salad,
+                block: $border-fruit_salad
             ),
             3: (
-                hollow: $border-blaze_orange,
-                block: $border-blaze_orange
+                hollow: $border-chestnut_rose,
+                block: $border-chestnut_rose
+            ),
+            4:(
+                hollow: $border-affair,
+                block: $border-affair
+            ),
+            wa: (
+                hollow: $border-whatsapp,
+                block: $border-whatsapp
             )
         ),
     )
