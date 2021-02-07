@@ -70,6 +70,48 @@
     font-weight: 500;
 }
 
+@mixin heading-sm {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-sm);
+        }
+    }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, heading-sm);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, heading-sm);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, heading-sm);
+    }
+    font-weight: 500;
+}
+
+@mixin heading-s {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-s);
+        }
+    }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, heading-s);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, heading-s);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, heading-s);
+    }
+    font-weight: 500;
+}
+
 @mixin subText-l {
     @each $theme, $map in $colors {
         :global(.#{$theme}) & {

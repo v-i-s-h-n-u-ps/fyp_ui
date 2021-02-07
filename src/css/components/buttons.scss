@@ -16,7 +16,7 @@
             background: $button-background;
 
             &:hover {
-                background: darken($button-background, 2%);
+                background: darken($button-background, 5%);
                 transform: translate3d(0, 0px, 0);
                 letter-spacing: 0.2px;
             }
