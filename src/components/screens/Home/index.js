@@ -54,6 +54,12 @@ const CommunityHome = (props) => {
                 WhatsApp
             </button>
 
+            <div style={{backgroundColor: "red", width: "500px", height: "600px"}}>
+                <div className={s.inside}>
+
+                </div>
+            </div>
+
             <button
                 className={s.buttonAdd2}
 

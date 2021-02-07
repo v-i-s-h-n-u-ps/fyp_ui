@@ -1,4 +1,5 @@
 @import './mediaQueries';
+@import '../theme/backgrounds';
 
 @mixin main-container {
     @include respond-above(desktop) {
@@ -22,5 +23,77 @@
     @include respond-below(phone) {
         margin: 13.2vw 0 0 0;
         min-height: calc(100vh - 13.2vw - 20vw - 19vw)
+    }
+}
+
+@mixin default-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, card-background);
+        }
+    }
+}
+
+@mixin card-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, card-background);
+        }
+    }
+}
+
+@mixin highlight-backbground {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, highlight);
+        }
+    }
+}
+
+@mixin from_text-backbground {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, chat-from-background);
+        }
+    }
+}
+
+@mixin to_text-backbground {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, chat-to-background);
+        }
+    }
+}
+
+@mixin default-overlay-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, overlay);
+        }
+    }
+}
+
+@mixin card-loader-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, cardLoader);
+        }
+    }
+}
+
+@mixin text-loader-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, textLoader);
+        }
+    }
+}
+
+@mixin image-loader-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, imageLoader);
+        }
     }
 }
