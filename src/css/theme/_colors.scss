@@ -17,10 +17,26 @@ $color-fruit_salad: #50a354;
 $color-chestnut_rose: #cf5248;
 $color-affair: #8e4d99;
 
+$color-night_rider: #2d2d2d;
+$color-text_gray: #7d7d7d;
+$color-cod_gray: #111111;
+$color-noble: #b3b3b3;
+
+$color-mercury: #e6e6e6;
+$color-concrete: #f3f1f1;
+
+$color-river_bed: #4a5568;
+$color-pizazz: #ff8800;
 
 $colors: (
     light: (
         default: $color-black,
+
+        heading-l: $color-cod_gray,
+        heading-lm: $color-cod_gray,
+        heading-m: $color-night_rider,
+        subText-l: $color-text_gray,
+        notice: $color-noble,
 
         button-full: (
             1: (
@@ -49,10 +65,23 @@ $colors: (
             )
         ),
 
+        tag: (
+            1: $color-river_bed,
+            hover: (
+                1: $color-pizazz
+            )
+        ),
+
         shadow: $color-rgb-black
     ),
     dark: (
         default: $color-white,
+
+        heading-l: $color-mercury,
+        heading-lm: $color-concrete,
+        heading-m: $color-white,
+        subText-l: $color-text_gray,
+        notice: $color-noble,
 
         button-full: (
             1: (
@@ -78,6 +107,13 @@ $colors: (
             wa: (
                 hollow: $color-whatsapp,
                 block: $color-white
+            )
+        ),
+
+        tag: (
+            1: $color-river_bed,
+            hover: (
+                1: $color-pizazz
             )
         ),
 

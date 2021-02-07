@@ -1,7 +1,7 @@
-@import '../theme/fontSizes';
-@import '../theme/colors';
-@import '../theme/breakpoints';
-@import '../layouts/mediaQueries.scss';
+@import "../theme/fontSizes";
+@import "../theme/colors";
+@import "../theme/breakpoints";
+@import "../layouts/mediaQueries.scss";
 
 @mixin heading-l {
     @each $theme, $map in $colors {
@@ -9,83 +9,65 @@
             color: map-get($map, heading-l);
         }
     }
-    // @each $break, $point in $breakpoints {
-    //     @include respond-below($break) {
-    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
-    //         font-size: map-get($breakpoint-font-sizes, heading-l)
-    //     }
-    // }
     @include respond-above(desktop) {
         $breakpoint-font-size: map-get($font-sizes, screen);
-        font-size: map-get($breakpoint-font-size, heading-l)
+        font-size: map-get($breakpoint-font-size, heading-l);
     }
     @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
-        font-size: map-get($breakpoint-font-size, heading-l)
+        font-size: map-get($breakpoint-font-size, heading-l);
     }
     @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
-        font-size: map-get($breakpoint-font-size, heading-l)
+        font-size: map-get($breakpoint-font-size, heading-l);
     }
     @include respond-below(phone) {
         $breakpoint-font-size: map-get($font-sizes, phone);
-        font-size: map-get($breakpoint-font-size, heading-l)
+        font-size: map-get($breakpoint-font-size, heading-l);
     }
     font-weight: 500;
 }
 
-@mixin heading-s {
+@mixin heading-lm {
     @each $theme, $map in $colors {
         :global(.#{$theme}) & {
-            color: map-get($map, heading-s);
+            color: map-get($map, heading-lm);
         }
     }
-    // @each $break, $point in $breakpoints {
-    //     @include respond-below($break) {
-    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
-    //         font-size: map-get($breakpoint-font-sizes, heading-l)
-    //     }
-    // }
     @include respond-above(tablet) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
-        font-size: map-get($breakpoint-font-size, heading-s)
+        font-size: map-get($breakpoint-font-size, heading-lm);
     }
     @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
-        font-size: map-get($breakpoint-font-size, heading-s)
+        font-size: map-get($breakpoint-font-size, heading-lm);
     }
     @include respond-below(phone) {
         $breakpoint-font-size: map-get($font-sizes, phone);
-        font-size: map-get($breakpoint-font-size, heading-s)
+        font-size: map-get($breakpoint-font-size, heading-lm);
     }
     font-weight: 500;
 }
-/*heading-lm*/
-@mixin heading-lm {
-  @each $theme, $map in $colors {
-      :global(.#{$theme}) & {
-          color: map-get($map, heading-lm);
-      }
-  }
-  // @each $break, $point in $breakpoints {
-  //     @include respond-below($break) {
-  //         $breakpoint-font-sizes: map-get($font-sizes, $break);
-  //         font-size: map-get($breakpoint-font-sizes, heading-l)
-  //     }
-  // }
-  @include respond-above(tablet) {
-      $breakpoint-font-size: map-get($font-sizes, desktop);
-      font-size: map-get($breakpoint-font-size, heading-lm)
-  }
-  @include respond-between(phone, tablet) {
-      $breakpoint-font-size: map-get($font-sizes, tablet);
-      font-size: map-get($breakpoint-font-size, heading-lm)
-  }
-  @include respond-below(phone) {
-      $breakpoint-font-size: map-get($font-sizes, phone);
-      font-size: map-get($breakpoint-font-size, heading-lm)
-  }
-  font-weight: 500;
+
+@mixin heading-m {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-m);
+        }
+    }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, heading-m);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, heading-m);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, heading-m);
+    }
+    font-weight: 500;
 }
 
 @mixin subText-l {
@@ -94,23 +76,17 @@
             color: map-get($map, subText-l);
         }
     }
-    // @each $break, $point in $breakpoints {
-    //     @include respond-below($break) {
-    //         $breakpoint-font-sizes: map-get($font-sizes, $break);
-    //         font-size: map-get($breakpoint-font-sizes, heading-l)
-    //     }
-    // }
     @include respond-above(tablet) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
-        font-size: map-get($breakpoint-font-size, subText-l)
+        font-size: map-get($breakpoint-font-size, subText-l);
     }
     @include respond-between(phone, tablet) {
         $breakpoint-font-size: map-get($font-sizes, tablet);
-        font-size: map-get($breakpoint-font-size, subText-l)
+        font-size: map-get($breakpoint-font-size, subText-l);
     }
     @include respond-below(phone) {
         $breakpoint-font-size: map-get($font-sizes, phone);
-        font-size: map-get($breakpoint-font-size, subText-l)
+        font-size: map-get($breakpoint-font-size, subText-l);
     }
     font-weight: 500;
 }
@@ -119,4 +95,171 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+@mixin header {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, header);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, header);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, header);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, header);
+    }
+}
+
+@mixin topnav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, topnav);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, topnav);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, topnav);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, topnav);
+    }
+    font-weight: 500;
+}
+
+@mixin sidenav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, sidenav);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, sidenav);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, sidenav);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, sidenav);
+    }
+}
+
+@mixin bottomnav {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, bottomnav);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, bottomnav);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, bottomnav);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, bottomnav);
+    }
+}
+
+@mixin footer {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, footer);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, footer);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, footer);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, footer);
+    }
+}
+
+@mixin normal-content-size {  
+    @include respond-above(desktop) {
+        font-size: $font-size-desktop-xs;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: $font-size-desktop-s;
+    }
+    @include respond-between(phablet, tablet) {
+        font-size: $font-size-tablet-s;
+    }
+    @include respond-below(phablet) {
+        font-size: $font-size-phablet-xs;
+    }
+}
+
+@mixin small-content-size {  
+    @include respond-above(desktop) {
+        font-size: $font-size-screen-xs;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: $font-size-desktop-xs;
+    }
+    @include respond-between(phablet, tablet) {
+        font-size: $font-size-tablet-xs;
+    }
+    @include respond-below(phablet) {
+        font-size: $font-size-tablet-s;
+    }
+}
+
+@mixin default-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, default);
+        }
+    }
+}
+
+@mixin subtext-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, noble);
+        }
+    }
 }

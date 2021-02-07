@@ -1,8 +1,10 @@
 @import "../../../css/layouts/container.scss";
 @import "../../../css/layouts/mediaQueries.scss";
 @import "../../../css/layouts/flexBox.scss";
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import "../../../css/components/buttons.scss";
+@import "../../../css/layouts/boxShadows.scss";
+@import "../../../css/components/texts.scss";
+@import "../../../css/components/tags.scss";
 
 .inside {
     @include card-background;
@@ -40,92 +42,39 @@
 }
 
 .headingMain {
-    margin: 1em 0 0.5em 0;
-    line-height: 40px;
-    font-weight: normal;
-    text-transform: uppercase;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    letter-spacing: 1px;
+//     margin: 1em 0 0.5em 0;
+//     line-height: 40px;
+//     font-weight: normal;
+//     text-transform: uppercase;
+//     font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+//     letter-spacing: 1px;
 
-    @include respond-above(desktop) {
-        font-size: 24px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 24px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 20px;
-    }
-    @include respond-below(phone) {
-        font-size: 14px;
-        font-weight: bold;
-    }
+//     @include respond-above(desktop) {
+//         font-size: 24px;
+//     }
+//     @include respond-between(tablet, desktop) {
+//         font-size: 24px;
+//     }
+//     @include respond-between(phone, tablet) {
+//         font-size: 20px;
+//     }
+//     @include respond-below(phone) {
+//         font-size: 14px;
+//         font-weight: bold;
+//     }
+@include heading-l;
 }
 
 .headingSub {
-    margin: 1em 0 0.5em 0;
-    line-height: 40px;
-    font-weight: normal;
-    text-transform: uppercase;
-    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
-    letter-spacing: 1px;
-
-    @include respond-above(desktop) {
-        font-size: 18px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 18px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 14px;
-    }
-    @include respond-below(phone) {
-        font-size: 12px;
-    }
+    @include heading-lm
 }
 
 .textNormal {
-    margin: 1em 0 0.5em 0;
-    line-height: 40px;
-    font-weight: normal;
-    //font-family: "Orienta", sans-serif;
-    font-family: Muli, Lato, sans-serif;
-    letter-spacing: 1px;
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 10px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-    }
+    @include heading-m;
 }
 
 .textSub {
-    margin: 1em 0 0.5em 0;
-    color: #585656;
-    line-height: 40px;
-    font-weight: normal;
-    font-family: Muli, Lato, sans-serif;
-    letter-spacing: 1px;
-
-    @include respond-above(desktop) {
-        font-size: 12px;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: 12px;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: 10px;
-    }
-    @include respond-below(phone) {
-        font-size: 10px;
-    }
+    @include subText-l;
 }
 
 .textSub2 {
@@ -168,53 +117,22 @@
     }
 }
 
-.name {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0px;
-    h3 {
-        margin: 0px;
-        font-size: 16px;
-    }
-
-    h5 {
-        margin: 0px;
-        font-size: 14px;
-        font-weight: lighter;
-    }
+.name, .name2 {
+    @include normal-content-size;
+    @include default-color;
 }
 
-.name2 {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0px;
-    h3 {
-        margin: 0px;
-        font-size: 16px;
-    }
-
-    h5 {
-        margin: 0px;
-        font-size: 14px;
-        font-weight: lighter;
-    }
-}
 
 .content {
-    display: flex;
-    flex-direction: row;
+    @include responsive-flex;
     align-items: flex-end;
     height: fit-content;
     p {
-        font-size: 12px;
+        @include default-color;
+        @include small-content-size;
         padding: 5px 40px 0px 0px;
         margin: 0px;
         flex-grow: 1;
-        color: #585656;
     }
 
     @include respond-above(desktop) {
@@ -240,11 +158,11 @@
     align-items: flex-end;
     height: fit-content;
     p {
-        font-size: 12px;
+        @include default-color;
+        @include small-content-size;
         padding: 5px 40px 0px 0px;
         margin: 0px;
         flex-grow: 1;
-        color: #b5b7ba;
     }
 
     @include respond-above(desktop) {
@@ -266,51 +184,47 @@
 
 .cardContainer {
     box-sizing: border-box;
-    background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    @include box-shadow-default;
+    @include default-border;
+    @include card-container;
     padding: 15px 15px 20px 15px;
     width: 650px;
     max-width: 100%;
     text-align: left;
     h6 {
-        font-size: 14px;
-        margin: 4px 0px 0px 0px;
-        font-weight: lighter;
-        color: #585656;
+        @include normal-content-size;
     }
     .round {
-    border: 1px solid #03bfcb;
-    border-radius: 50%;
-    padding: 3px;
-    height: 50px;
-    width: 50px;
-    margin: 0px 10px 0px 0px;
+        border: 1px solid #03bfcb;
+        border-radius: 50%;
+        padding: 3px;
+        height: 50px;
+        width: 50px;
+        margin: 0px 10px 0px 0px;
     }
 }
 
 .cardContainer2 {
     box-sizing: border-box;
-    background-color: #383b40;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px -10px white;
+    @include box-shadow-default;
+    @include default-border;
+    @include card-container;
     padding: 15px 15px 20px 15px;
     width: 650px;
     max-width: 100%;
     text-align: left;
     h6 {
-        font-size: 14px;
-        margin: 4px 0px 0px 0px;
-        font-weight: lighter;
-        color: #b5b7ba;
+        @include normal-content-size;
     }
     .round2 {
-    border: 1px solid #048f99;
-    border-radius: 50%;
-    padding: 3px;
-    height: 50px;
-    width: 50px;
-    margin: 0px 10px 0px 0px;
+        border: 1px solid #03bfcb;
+        border-radius: 50%;
+        padding: 3px;
+        height: 50px;
+        width: 50px;
+        margin: 0px 10px 0px 0px;
     }
 }
 
@@ -522,32 +436,33 @@
         margin-left: .5rem;
     }
     .tags2 a {
-        border: 1px solid #edf2f7;
-        border-radius: 5px;
-        background-color: #edf2f7;
-        color: #4a5568;
-        height: 2rem;
-        padding: 2px 5px 2px 5px;
-        text-align: center;
-        text-decoration: none;
-        &:hover {
-        border-color: #ffefcd;
-        background-color: #ffefcd;
-        color: #ff8800;
-        }
+        @include tag(1);
+        // border: 1px solid #edf2f7;
+        // border-radius: 5px;
+        // background-color: #edf2f7;
+        // color: #4a5568;
+        // height: 2rem;
+        // padding: 2px 5px 2px 5px;
+        // text-align: center;
+        // text-decoration: none;
+        // &:hover {
+        // border-color: #ffefcd;
+        // background-color: #ffefcd;
+        // color: #ff8800;
+        // }
 
-        @include respond-above(desktop) {
-            font-size: 12px;
-        }
-        @include respond-between(tablet, desktop) {
-            font-size: 12px;
-        }
-        @include respond-between(phone, tablet) {
-            font-size: 10px;
-        }
-        @include respond-below(phone) {
-            font-size: 8px;
-        }
+        // @include respond-above(desktop) {
+        //     font-size: 12px;
+        // }
+        // @include respond-between(tablet, desktop) {
+        //     font-size: 12px;
+        // }
+        // @include respond-between(phone, tablet) {
+        //     font-size: 10px;
+        // }
+        // @include respond-below(phone) {
+        //     font-size: 8px;
+        // }
     }
 }
 

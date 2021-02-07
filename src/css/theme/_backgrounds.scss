@@ -20,6 +20,9 @@ $background-moon_raker: #f1edfb;
 $background-ship_gray: #36343b;
 $background-wild_sand: #f4f4f4;
 
+$background-patterns_blue: #e0f0ff;
+$background-catskill_white: #edf2f7;
+$background-barley_white: #ffefcd;
 
 $backgrounds: (
     light: (
@@ -63,6 +66,13 @@ $backgrounds: (
                 block: $background-whatsapp
             )
         ),
+
+        tag: (
+            1: $background-patterns_blue,
+            hover: (
+                1: $background-barley_white
+            )
+        )
     ),
     dark: (
         default: $background-black,
@@ -79,6 +89,12 @@ $backgrounds: (
         chat-from-background: $background-ship_gray,
         chat-to-background: $background-affair,
 
+        tag: (
+            1: $background-catskill_white,
+            hover: (
+                1: $background-barley_white
+            )
+        ),
 
         button-full: (
             1: (

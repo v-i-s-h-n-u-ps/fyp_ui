@@ -97,3 +97,48 @@
         }
     }
 }
+
+@mixin card-container {
+    @include card-background;
+    border-radius: 10px;
+}
+
+@mixin avatar-border {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border: map-get($map, avatar_border);
+        }
+    }
+}
+
+@mixin default-border {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border: map-get($map, default);
+        }
+    }
+}
+
+@mixin default-border-top {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border-top: map-get($map, default);
+        }
+    }
+}
+
+@mixin default-border-right {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border-right: map-get($map, default);
+        }
+    }
+}
+
+@mixin default-border-bottom {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border-bottom: map-get($map, default);
+        }
+    }
+}
