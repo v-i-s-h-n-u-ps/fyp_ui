@@ -18,6 +18,7 @@
             &:hover {
                 background: darken($button-background, 2%);
                 transform: translate3d(0, 0px, 0);
+                letter-spacing: 0.25px;
             }
             &:active {
                 transform: translate3d(0, 1px, 0);
@@ -81,7 +82,7 @@
     cursor: pointer;
     transition: all 0.4s ease;
     will-change: background;
-    padding: 10px 0;
+    // padding: 10px 0;
     width: calc(100%);
 }
 

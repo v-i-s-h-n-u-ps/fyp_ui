@@ -61,7 +61,6 @@ const Ripple = ({
                     position: relative;
                     overflow: hidden;
                     border-radius: ${borderRadius};
-                    cursor: pointer;
                 }
                 .ripple-target {
                     position: absolute;

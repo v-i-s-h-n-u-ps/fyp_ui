@@ -25,69 +25,57 @@ const IndicatorMap = (type, variant) => {
 const Button = props => {
 
     const {
-        text, disabled = false,
-        onClick, loading = false,
+        text, icon, onClick, loading = false,
         type = "primary", variant = "block",
-        width = 100, icon,
+        width = 100, rippleDuration = 1000,
         ripple = true, rippleClass = '',
-        iconColor = '', rippleDuration=1000
+        iconColor = '', disabled = false,
     } = props;
 
     const color = IndicatorMap(type, variant);
 
-    const button = <button
-        disabled={disabled || loading}
-        onClick={onClick}
-        className={`${s.button} ${s[type]} ${s[variant]}`}
-    >
-        <span>
-            {loading
-                ? <ActivityIndicator show={loading} color={color} />
-                : <p className={`${s.text} ${!!icon ? s.withIcon : ''}`}>
-                    {text} {icon && <i className={`icon-${icon} ${s.iconStyle} iconColor`} />}
-                </p>
-            }
-        </span>
-        <style jsx>{`
-            .iconColor {
-                color: ${iconColor}
-            }
-        `}</style>
-    </button>
-
     return (
         <div className={`button`}>
-            {ripple
-                ? (
+            <button
+                disabled={disabled || loading}
+                onClick={onClick}
+                className={`${s.button} ${s[type]} ${s[variant]}`}
+            >
                 <Ripple
                     className={rippleClass}
-                    callback={onClick}
-                    disabled={disabled || loading}
+                    disabled={disabled || loading || !ripple}
                     duration={rippleDuration}
                 >
-                    {button}
+                    <div className={s.container}>
+                        {loading
+                            ? <ActivityIndicator show={loading} color={color} />
+                            : <p className={`${s.text} ${!!icon ? s.withIcon : ''}`}>
+                                {text} {icon && <i className={`icon-${icon} ${s.iconStyle} iconColor`} />}
+                            </p>
+                        }
+                    </div>
                 </Ripple>
-                )
-                : button
-            }
-
-        <style jsx>{`
-            .button {
-                border-radius: 8px;
-                margin: 3px;
-            }
-            @media screen and (min-width: 640px) {
-                .button {
-                    width: ${width}%;
+            </button>
+            <style jsx>{`
+                .iconColor {
+                    color: ${iconColor}
                 }
-            }
-            @media screen and (max-width: 640px) {
                 .button {
-                    width: calc(${width}% - 16px);
-                    margin: 3px auto;
+                    border-radius: 8px;
+                    margin: 3px;
                 }
-            }
-        `}</style>
+                @media screen and (min-width: 640px) {
+                    .button {
+                        width: ${width}%;
+                    }
+                }
+                @media screen and (max-width: 640px) {
+                    .button {
+                        width: calc(${width}% - 16px);
+                        margin: 3px auto;
+                    }
+                }
+            `}</style>
         </div>
     )
 }
