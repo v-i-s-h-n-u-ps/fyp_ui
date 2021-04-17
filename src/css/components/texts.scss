@@ -267,11 +267,11 @@
     @include respond-between(tablet, desktop) {
         font-size: $font-size-desktop-s;
     }
-    @include respond-between(phablet, tablet) {
-        font-size: $font-size-tablet-s;
+    @include respond-between(phone, tablet) {
+        font-size: $font-size-tablet-sm;
     }
-    @include respond-below(phablet) {
-        font-size: $font-size-phablet-xs;
+    @include respond-below(phone) {
+        font-size: $font-size-phone-xs;
     }
 }
 
@@ -282,11 +282,11 @@
     @include respond-between(tablet, desktop) {
         font-size: $font-size-desktop-xs;
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         font-size: $font-size-tablet-xs;
     }
-    @include respond-below(phablet) {
-        font-size: $font-size-tablet-s;
+    @include respond-below(phone) {
+        font-size: $font-size-tablet-sm;
     }
 }
 

@@ -18,15 +18,15 @@ const CommunityHome = (props) => {
         }
     }, [condition])
 
-    useEffect(() => {
-        login({
-            "email": "admin@gmail.com",
-            "password": "admin"
-        }).then( res => {
-            console.log(res, "here it iss");
-            return res;
-        })
-    }, [])
+    // useEffect(() => {
+    //     login({
+    //         "email": "admin@gmail.com",
+    //         "password": "admin"
+    //     }).then( res => {
+    //         console.log(res, "here it iss");
+    //         return res;
+    //     })
+    // }, [])
 
     return (
         <PageContainer active={"home"}>

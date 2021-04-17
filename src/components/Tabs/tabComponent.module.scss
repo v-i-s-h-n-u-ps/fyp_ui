@@ -6,10 +6,10 @@
   @include respond-above(tablet){
     padding: 2vw 5.5vw 3.19vw 5.3vw;
   }
-  @include respond-between(phablet, tablet){
+  @include respond-between(phone, tablet){
     padding: 2vw 4vw 4.17vw 4vw;
   }
-  @include respond-below(phablet){
+  @include respond-below(phone){
     padding: 2vw 4.2vw 4.3vw 4.2vw;
   }
 }
@@ -30,7 +30,7 @@
       color: #7D7D7D;
     }
   }
-  @include respond-below(phablet){
+  @include respond-below(phone){
     flex-direction: column;
   }
 }
@@ -38,7 +38,7 @@
 .filterBtnContainer {
   display: flex;
   overflow: auto;
-  @include respond-below(phablet){
+  @include respond-below(phone){
     width: 100%;
   }
 }
