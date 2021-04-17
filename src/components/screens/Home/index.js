@@ -23,7 +23,7 @@ const CommunityHome = (props) => {
             "email": "admin@gmail.com",
             "password": "admin"
         }).then( res => {
-            console.log(res);
+            console.log(res, "here it iss");
             return res;
         })
     }, [])
