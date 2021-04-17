@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../src";
-import Home from "../screens/Home";
+import Home from "../page/Home";
 
 
 const HomePage = (props) => {
