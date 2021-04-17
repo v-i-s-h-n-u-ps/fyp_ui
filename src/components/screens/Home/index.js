@@ -47,6 +47,7 @@ const CommunityHome = (props) => {
                 type="cancel"
                 variant="block"
             />
+            
 
             <Button
                 text="Message to be sent"
@@ -55,11 +56,13 @@ const CommunityHome = (props) => {
                 icon="logout"
             />
 
+
             <Button
                 text="WhatsApp Button"
                 type="whatsapp"
                 variant="block"
             />
+
 
             <button className={s.whatsapp}>
                 WhatsApp
