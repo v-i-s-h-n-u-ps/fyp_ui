@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { get as _get } from "lodash";
+import _get from "lodash/get";
 
 const selectAux = state => state.aux;
 

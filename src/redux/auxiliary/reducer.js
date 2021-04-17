@@ -3,8 +3,8 @@ import { get as _get, includes as _includes } from "lodash";
 
 import { SET, UNSET } from "../actionCreator";
 import { GLOBAL_API_ERROR_FLAG, GLOBAL_API_SUCCESS_FLAG, GLOBAL_MODAL_FLAG } from "./types";
-import GLOBAL_API_FAILURE_CONFIG from "../../utils/responseConfig/ApiFailureConfig";
-import GLOBAL_API_SUCCESS_CONFIG from "../../utils/responseConfig/ApiSuccessConfig";
+import GLOBAL_API_FAILURE_CONFIG from "../../utils/snackbar/ApiFailureConfig";
+import GLOBAL_API_SUCCESS_CONFIG from "../../utils/snackbar/ApiSuccessConfig";
 
 const initialSuccessState = {
     message: null,

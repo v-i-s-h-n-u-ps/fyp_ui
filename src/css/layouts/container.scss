@@ -1,5 +1,12 @@
 @import './mediaQueries';
 @import '../theme/backgrounds';
+@import './flexBox.scss';
+
+@mixin full-container {
+    width: 100vw;
+    height: 100vh;
+    @include flex-center;
+}
 
 @mixin main-container {
     @include respond-above(desktop) {

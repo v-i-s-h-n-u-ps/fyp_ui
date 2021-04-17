@@ -15,7 +15,8 @@ function configureStore(initialState) {
   const composedEnhancers = composeWithDevTools(...enhancers);
 
   const logoutResetEnhancer = rootReducer => (state, action) => {
-    if (action.type !== "LOGOUT_SUCCESS") return rootReducer(state, action);
+    if (action.type !== "LOGOUT_SUCCESS") 
+      return rootReducer(state, action);
     const newState = rootReducer(undefined, {});
     return newState;
   };

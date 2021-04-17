@@ -3,8 +3,8 @@ import Head from "next/head";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import GlobalPageLoader from "../Loader/PageLoader";
-import GlobalApiToast from "../handlerSuccessError/GlobalApiToast";
+import GlobalPageLoader from "../loader/PageLoader";
+import GlobalApiToast from "../../utils/snackbar/GlobalApiToast";
 
 const Layout = (props) => {
     const { children } = props;
@@ -29,11 +29,13 @@ const Layout = (props) => {
                 setTheme(_theme);
                 document.body.setAttribute('class', _theme);
             }
-            themeChange.addEventListener && themeChange.addEventListener('change', (e) => themeChangeFunction(e));
+            themeChange.addEventListener && 
+                themeChange.addEventListener('change', (e) => themeChangeFunction(e));
         }
-
         return (() => {
-            themeChange && themeChange.removeEventListener && themeChange.removeEventListener('change', e => themeChangeFunction(e));
+            themeChange && 
+            themeChange.removeEventListener && 
+            themeChange.removeEventListener('change', e => themeChangeFunction(e));
         })
     }, []);
 

@@ -3,14 +3,14 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../src";
-import Home from "../page/Dashboard";
+import Access from "../page/Access";
 
 
-const HomePage = (props) => {
-    return <Home {...props} />
+const AccessPage = (props) => {
+    return <Access {...props} />
 };
 
-HomePage.getInitialProps = async (props) => {
+AccessPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -22,4 +22,4 @@ HomePage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(HomePage);
+export default withReduxSaga(AccessPage);
