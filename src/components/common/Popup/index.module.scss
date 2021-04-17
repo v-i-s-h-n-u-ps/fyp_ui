@@ -1,0 +1,91 @@
+@import "../../../css/layouts/mediaQueries.scss";
+@import "../../../css/layouts/container.scss";
+@import "../../../css/layouts/flexBox.scss";
+@import "../../../css/components/texts.scss";
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.overlay {
+    @include respond-above(phone) {
+        display: none;
+    }
+    @include respond-below(phone) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include default-overlay-background;
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+        z-index: 998;
+    }
+}
+
+.popUpContainer {
+    position: absolute;
+    display: block;
+    min-width: 150px;
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.15s ease-in-out;
+    box-shadow: 0 3px 8px #aaaaaa55;
+    border-radius: 4px;
+    z-index: 999;
+    @include default-background;
+    @include respond-below(phone) {
+        @include default-background;
+        width: calc(100vw - 20px);
+        position: fixed;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+    }
+}
+
+.wrapper {
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.popUpMain {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 16px;
+    z-index: 999;
+    @include default-background;
+    @include respond-below(phone) {
+        @include default-background;
+    }
+}
+
+.popUpPointer {
+    width: 15px;
+    height: 15px;
+    z-index: 999;
+    right: 7px;
+    transform: rotate(45deg);
+    top: -7px;
+    position: absolute;
+    display: block;
+    @include default-background;
+    @include respond-below(phone) {
+        display: none;
+    }
+}
+
+.iconStyle {
+    right: 6px;
+    top: 6px;
+    position: absolute;
+    @include default-color;
+    cursor: pointer;
+}

@@ -2,4 +2,6 @@
 
 .container {
     @include full-container;
+    height: 100%;
+    display: block !important;
 }

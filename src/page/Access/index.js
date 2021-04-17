@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
 import Button from "../../components/common/Button";
+import Popup from "../../components/common/Popup";
 
 const Access = props => {
+
+    const [open, setOpen] = useState(false);
 
     return (
         <div className={s.container}>
@@ -14,6 +17,12 @@ const Access = props => {
                 variant="block"
                 // loading={true}
                 icon="logout"
+                onClick={() => setOpen(true)}
+            />
+            <Popup
+                open={open} 
+                onClose={() => setOpen(false)} 
+                position={""}
             />
         </div>
     );
