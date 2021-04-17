@@ -50,14 +50,14 @@ const Button = props => {
                         {loading
                             ? <ActivityIndicator show={loading} color={color} />
                             : <p className={`${s.text} ${!!icon ? s.withIcon : ''}`}>
-                                {text} {icon && <i className={`icon-${icon} ${s.iconStyle} iconColor`} />}
+                                {text} {icon && <i className={`icon-${icon} ${s.iconStyle} icon-color`} />}
                             </p>
                         }
                     </div>
                 </Ripple>
             </button>
             <style jsx>{`
-                .iconColor {
+                .icon-color {
                     color: ${iconColor}
                 }
                 .button {

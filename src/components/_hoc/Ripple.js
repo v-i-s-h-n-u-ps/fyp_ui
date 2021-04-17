@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import s from "./index.module.scss";
-
 const Ripple = ({
     duration = 1000,
     color = "#eeeeee",

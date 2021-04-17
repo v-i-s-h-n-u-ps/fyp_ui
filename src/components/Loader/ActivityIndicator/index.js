@@ -10,8 +10,18 @@ const ActivityIndicator = props => {
         <>
             {show &&
                 <>
-                    <svg className={`${s.spinner} spinner`} viewBox="0 0 50 50">
-                        <circle className={`${s.path} path`} cx="25" cy="25" r={r} fill="none" strokeWidth={strokeWidth}></circle>
+                    <svg 
+                        className={`${s.spinner} spinner`} 
+                        viewBox="0 0 50 50"
+                    >
+                        <circle 
+                            className={`${s.path} path`} 
+                            fill="none" 
+                            cx="25" 
+                            cy="25" 
+                            r={r} 
+                            strokeWidth={strokeWidth}
+                        />
                     </svg>
                     <style jsx>{`
                         .spinner .path {

@@ -13,6 +13,7 @@ const Access = props => {
                 type="primary"
                 variant="block"
                 // loading={true}
+                icon="logout"
             />
         </div>
     );
