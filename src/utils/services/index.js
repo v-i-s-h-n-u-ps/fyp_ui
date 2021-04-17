@@ -22,7 +22,5 @@ const POST = async (url, data, timeout) => {
     return response;
 };
 
-
-/**
- * desc: Hackathon services
- */
+export const signup = data => POST('user/signup', data);
+export const login = data => POST('user/login/', data);

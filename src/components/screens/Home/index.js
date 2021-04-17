@@ -4,6 +4,7 @@ import { get as _get, isEmpty as _isEmpty } from "lodash";
 import s from "./index.module.scss";
 import PageContainer from "../../_hoc/PageContainer";
 import Button from "../../common/Button";
+import { login } from "../../../utils/services"
 
 const CommunityHome = (props) => {
 
@@ -16,6 +17,16 @@ const CommunityHome = (props) => {
             }, 4000)
         }
     }, [condition])
+
+    useEffect(() => {
+        login({
+            "email": "admin@gmail.com",
+            "password": "admin"
+        }).then( res => {
+            console.log(res);
+            return res;
+        })
+    }, [])
 
     return (
         <PageContainer active={"home"}>
@@ -53,7 +64,7 @@ const CommunityHome = (props) => {
             <button className={s.whatsapp}>
                 WhatsApp
             </button>
-            
+
             <button
                 className={s.buttonAdd2}
 

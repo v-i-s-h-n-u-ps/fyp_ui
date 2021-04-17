@@ -339,19 +339,6 @@
         &:hover {
         transform: translateY(-3px);
         }
-
-        @include respond-above(desktop) {
-            font-size: 14px;
-        }
-        @include respond-between(tablet, desktop) {
-            font-size: 14px;
-        }
-        @include respond-between(phone, tablet) {
-            font-size: 12px;
-        }
-        @include respond-below(phone) {
-            font-size: 10px;
-        }
     }
     .tags ul {
         @include flex;
@@ -374,11 +361,11 @@
         width: 500px;
         height: 100px;
         padding: .5rem 1rem;
-        background-color: #36343b;
         border-radius: 8px;
-        box-shadow: whitesmoke 4px 4px 6px -6px;;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
+        @include card-container;
+        @include heading-sm;
+
         justify-content: center;
         transition: .2s;
         
@@ -386,18 +373,6 @@
         transform: translateY(-3px);
         }
 
-        @include respond-above(desktop) {
-            font-size: 14px;
-        }
-        @include respond-between(tablet, desktop) {
-            font-size: 14px;
-        }
-        @include respond-between(phone, tablet) {
-            font-size: 12px;
-        }
-        @include respond-below(phone) {
-            font-size: 10px;
-        }
     }
     .tags2 ul {
         display: flex;
