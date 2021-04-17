@@ -1,14 +1,11 @@
 @import "../../../css/components/buttons.scss";
 @import "../../../css/layouts/flexBox.scss";
+@import "../../../css/components/texts.scss";
 
 .button {
     display: block;
-    margin: 3px;
     span {
         @include flex-center;
-    }
-    @include respond-below(phone) {
-        width: calc(100% - 8px) !important;
     }
 }
 
@@ -23,54 +20,59 @@
 
 .primary {
     &.block {
-        @include button-custom(1, block);
+        @include button-full(1, block);
     }
     &.hollow {
-        @include button-custom(1, hollow);
+        @include button-full(1, hollow);
     }
 }
 
 .secondary {
     &.block {
-        @include button-custom(2, block);
+        @include button-full(2, block);
     }
     &.hollow {
-        @include button-custom(2, hollow);
+        @include button-full(2, hollow);
     }
 }
 
 .cancel {
     &.block {
-        @include button-custom(3, block);
+        @include button-full(3, block);
     }
     &.hollow {
-        @include button-custom(3, hollow);
+        @include button-full(3, hollow);
     }
 }
 
 .cautious {
     &.block {
-        @include button-custom(caution, block);
+        @include button-full(caution, block);
     }
     &.hollow {
-        @include button-custom(caution, hollow);
+        @include button-full(caution, hollow);
     }
 }
 
 .message {
     &.block {
-        @include button-custom(4, block);
+        @include button-full(4, block);
     }
     &.hollow {
-        @include button-custom(4, hollow);
+        @include button-full(4, hollow);
     }
 }
 
 .whatsapp {
     &.block {
-        @include button-custom(wa, block);
+        @include button-full(wa, block);
     }
     &.hollow {
-        @include button-custom(wa, hollow);
+        @include button-full(wa, hollow);
     }
+}
+
+.iconStyle {
+    @include heading-lm;
+    font-weight: bold;
 }

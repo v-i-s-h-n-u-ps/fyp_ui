@@ -16,9 +16,8 @@
             background: $button-background;
 
             &:hover {
-                background: darken($button-background, 5%);
+                background: darken($button-background, 2%);
                 transform: translate3d(0, 0px, 0);
-                letter-spacing: 0.2px;
             }
             &:active {
                 transform: translate3d(0, 1px, 0);
@@ -27,7 +26,7 @@
             }
             &:disabled {
                 background: lighten($button-background, 10%);
-                cursor: not-allowed;
+                cursor: not-allowed !important;
             }
         }
     }
@@ -73,20 +72,20 @@
     @include respond-below(phone) {
         $breakpoint-font-size: map-get($font-sizes, phone);
         font-size: map-get($breakpoint-font-size, $variant);
-        width: calc(100% - 6px);
+        width: calc(100%);
     }
     font-family: "Muli";
     text-transform: uppercase;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.4s ease;
     will-change: background;
     padding: 10px 0;
+    width: calc(100%);
 }
 
 @mixin button-full($type, $style) {
-    width: calc(100% - 6px);
     @include button($type, $style, $variant: button-full);
 }
 

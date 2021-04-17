@@ -4,11 +4,6 @@
 @import "../layouts/mediaQueries.scss";
 
 @mixin heading-l {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, heading-l);
-        }
-    }
     @include respond-above(desktop) {
         $breakpoint-font-size: map-get($font-sizes, screen);
         font-size: map-get($breakpoint-font-size, heading-l);
@@ -29,12 +24,11 @@
 }
 
 @mixin heading-lm {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, heading-lm);
-        }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, heading-lm);
     }
-    @include respond-above(tablet) {
+    @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-lm);
     }
@@ -50,12 +44,11 @@
 }
 
 @mixin heading-m {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, heading-m);
-        }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, heading-m);
     }
-    @include respond-above(tablet) {
+    @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-m);
     }
@@ -71,12 +64,11 @@
 }
 
 @mixin heading-sm {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, heading-sm);
-        }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, heading-sm);
     }
-    @include respond-above(tablet) {
+    @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-sm);
     }
@@ -92,12 +84,11 @@
 }
 
 @mixin heading-s {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, heading-s);
-        }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, heading-s);
     }
-    @include respond-above(tablet) {
+    @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, heading-s);
     }
@@ -113,12 +104,11 @@
 }
 
 @mixin subText-l {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, subText-l);
-        }
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, subText-l);
     }
-    @include respond-above(tablet) {
+    @include respond-between(tablet, desktop) {
         $breakpoint-font-size: map-get($font-sizes, desktop);
         font-size: map-get($breakpoint-font-size, subText-l);
     }
@@ -133,6 +123,25 @@
     font-weight: 500;
 }
 
+@mixin subText-s {
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, subText-s);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, subText-s);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, subText-s);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, subText-s);
+    }
+}
+
 @mixin text-ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -140,11 +149,6 @@
 }
 
 @mixin header {
-    @each $theme, $map in $colors {
-        :global(.#{$theme}) & {
-            color: map-get($map, default);
-        }
-    }
     @include respond-above(desktop) {
         $breakpoint-font-size: map-get($font-sizes, screen);
         font-size: map-get($breakpoint-font-size, header);
@@ -260,7 +264,7 @@
     }
 }
 
-@mixin normal-content-size {  
+@mixin normal-content-size {
     @include respond-above(desktop) {
         font-size: $font-size-desktop-xs;
     }
@@ -275,7 +279,7 @@
     }
 }
 
-@mixin small-content-size {  
+@mixin small-content-size {
     @include respond-above(desktop) {
         font-size: $font-size-screen-xs;
     }
@@ -305,3 +309,68 @@
         }
     }
 }
+
+@mixin heading-l-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-l);
+        }
+    }
+}
+
+@mixin heading-lm-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-lm);
+        }
+    }
+}
+
+@mixin heading-m-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-m);
+        }
+    }
+}
+
+@mixin heading-sm-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-sm);
+        }
+    }
+}
+
+@mixin heading-s-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading-s);
+        }
+    }
+}
+
+@mixin heading-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, heading);
+        }
+    }
+}
+
+@mixin subText-l-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, subText-l);
+        }
+    }
+}
+
+@mixin subText-s-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, subText-s);
+        }
+    }
+}
+

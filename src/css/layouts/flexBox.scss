@@ -41,8 +41,12 @@
 
 @mixin responsive-flex($breakpoint: phone) {
     @include flex;
-    align-items: center;
     @include respond-below($breakpoint) {
         @include flex-column;
     }
+}
+
+@mixin flex-layout($justify: center, $align: center) {
+    justify-content: $justify;
+    align-items: $align;
 }

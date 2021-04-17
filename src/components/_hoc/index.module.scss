@@ -1,0 +1,12 @@
+@import "../../css/layouts/container.scss";
+
+.mainContainer {
+    @include main-container;
+}
+
+.mainTarget {
+    pointer-events: none;
+    > *:hover {
+        pointer-events: none;
+    }
+}

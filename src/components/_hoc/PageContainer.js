@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./PageContainer.module.scss";
+import s from "./index.module.scss";
 
 const PageContainer = props => {
     return (
