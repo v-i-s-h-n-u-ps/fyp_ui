@@ -43,7 +43,7 @@ export const sidebarLinks = () => {
             sameTab: true
         },
         {
-            text: 'GROUPS',
+            text: 'Groups',
             path: CONTACT_US,
             icon: 'users',
             sameTab: true

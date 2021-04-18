@@ -76,7 +76,7 @@ const Sidebar = (props) => {
                     <Link href="/" prefetch={false}>
                         <a onClick={() => { setNavOpen(false) }} href={"/"} className={`${s.linkContainer} ${s.logo}`}>
                             <div className={`${s.shortLogo}`}>
-                                <img alt={"handyman short logo"} src="/images/handyman-icon.png" />
+                                <img alt={"logo"} src="/images/handyman-icon.png" />
                             </div>
                             <div className={`${s.link}`}>
                                 <img alt={"handyman full logo"} className={`${s.fullLogo} lazyload`} src="/images/infohandyman.png" />
