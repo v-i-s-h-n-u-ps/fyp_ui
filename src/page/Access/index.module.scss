@@ -57,15 +57,16 @@
     }
 }
 
-.content {
-    
-}
-
 .right {
     @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
+    @include respond-below(phone) {
+        animation: none;
+    }
 }
 
 .left {
     @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
-
+    @include respond-below(phone) {
+        animation: none;
+    }
 }
