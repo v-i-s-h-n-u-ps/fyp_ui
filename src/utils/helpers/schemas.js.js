@@ -31,5 +31,4 @@ export const LOGIN_VALIDATION = yup.object().shape({
   password: yup.string()
     .trim()
     .required('Password is required')
-    .min(8, 'Password should be at least 8 characters.'),
 })
