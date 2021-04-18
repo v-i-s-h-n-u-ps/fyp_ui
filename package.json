@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@redux-saga/core": "latest",
-    "axios": "^0.21.1",
+    "axios": "^0.18.0",
     "formik": "^2.1.4",
     "js-cookie": "^2.2.1",
     "lazysizes": "^5.2.2",

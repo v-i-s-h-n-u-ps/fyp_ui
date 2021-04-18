@@ -1,4 +1,5 @@
 export const ROOT = "/";
+export const DASHBOARD = "/dashboard";
 
 export const SERVICE_ROUTE = "/services/[id]";
 

@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "../css/_main.scss";
 import { config } from "../config";
+import { GET_AUTH } from  "../utils/services/auth";
+import { authentication } from "../redux/user/actions"
 import createStore from "../redux/configureStore";
 import Layout from "../components/_App/Layout";
 import MidGuard from "../components/_App/MidGuard";
@@ -16,8 +18,12 @@ class MyApp extends App {
 
     static async getInitialProps({ Component, ctx }) {
         const { store, isServer } = ctx;
-        let pageProps = {};
 
+        let token = GET_AUTH({ isServer: isServer || false, ctx: ctx || null });
+
+        store.dispatch(authentication.request(token))
+
+        let pageProps = {};
 
         if (Component.getInitialProps) {
             pageProps = await Component.getInitialProps({ ctx });

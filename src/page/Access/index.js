@@ -2,30 +2,53 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
-import Button from "../../components/common/Button";
-import Popup from "../../components/common/Popup";
+import Signup from "../../components/forms/Signup";
+import Login from "../../components/forms/Login";
 
 const Access = props => {
 
-    const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('login');
 
-    return (
-        <div className={s.container}>
-            <Button
-                text="Hello"
-                type="primary"
-                variant="block"
-                // loading={true}
-                icon="logout"
-                onClick={() => setOpen(true)}
-            />
-            <Popup
-                open={open} 
-                onClose={() => setOpen(false)} 
-                position={""}
-            />
+  return (
+    <div className={s.container}>
+      <div className={s.accessContainer}>
+        <div className={s.formContainer}>
+          {active === 'login'
+            ? (
+              <div className={`${s.form} ${s.left}`}>
+                <Login />
+              </div>
+            )
+            : (
+              <div className={s.content}>
+                <div className={s.content}>
+                  <p onClick={() => setActive("login")}>
+                    Login
+                </p>
+                </div>
+              </div>
+            )
+          }
         </div>
-    );
+        <div className={s.formContainer}>
+          {active === 'signup'
+            ? (
+              <div className={`${s.form} ${s.right}`}>
+                <Signup />
+              </div>
+            )
+            : (
+              <div className={s.content}>
+                <p onClick={() => setActive("signup")}>
+                  Signup
+                </p>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default (Access);

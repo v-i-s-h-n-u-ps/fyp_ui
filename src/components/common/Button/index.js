@@ -27,9 +27,10 @@ const Button = props => {
     const {
         text, icon, onClick, loading = false,
         type = "primary", variant = "block",
-        width = 100, rippleDuration = 1000,
+        width = "100%", rippleDuration = 1000,
         ripple = true, rippleClass = '',
         iconColor = '', disabled = false,
+        buttonType = "button"
     } = props;
 
     const color = IndicatorMap(type, variant);
@@ -40,6 +41,7 @@ const Button = props => {
                 disabled={disabled || loading}
                 onClick={onClick}
                 className={`${s.button} ${s[type]} ${s[variant]}`}
+                type={buttonType}
             >
                 <Ripple
                     className={rippleClass}
@@ -66,12 +68,12 @@ const Button = props => {
                 }
                 @media screen and (min-width: 640px) {
                     .button {
-                        width: ${width}%;
+                        width: ${width};
                     }
                 }
                 @media screen and (max-width: 640px) {
                     .button {
-                        width: calc(${width}% - 16px);
+                        width: calc(${width} - 16px);
                         margin: 3px auto;
                     }
                 }

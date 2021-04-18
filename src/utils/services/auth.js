@@ -8,8 +8,10 @@ import {
 
 
 export const SET_AUTH = data => {
-    const { token } = data
-    cookie.set(tokenKey, token, { domain: config["domain"] || "" });
+    const tokens = JSON.stringify(data);
+    api().defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+    api().defaults.headers["Authorization"] = `Bearer ${data.access_token}`;
+    cookie.set(tokenKey, tokens, { domain: config["domain"] || "" });
 };
 
 export const REMOVE_AUTH = () => {
@@ -20,15 +22,25 @@ export const REMOVE_AUTH = () => {
 
 export const GET_AUTH = (props) => {
     const { isServer = false, ctx = null } = props
-    let token;
     if (isServer) {
         const { tk } = nextCookie(ctx);
-        return tk
+        return tk;
     } else {
-        const token = cookie.get(tokenKey);
+        const token = JSON.parse(cookie.get(tokenKey) || "");
         if (token) {
             return token
         }
         return null
     }
+}
+
+export const authHeaders = () => {
+    const auth = GET_AUTH({})
+    if (auth.access_token) return {
+        "Authorization": `Bearer ${auth.access_token}`,
+        common: {
+            "Authorization": `Bearer ${auth.access_token}`
+        }
+    }
+    return false;
 }

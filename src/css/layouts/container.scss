@@ -1,11 +1,16 @@
 @import './mediaQueries';
 @import '../theme/backgrounds';
+@import './mediaQueries.scss';
 @import './flexBox.scss';
+@import '../theme/borders';
 
 @mixin full-container {
     width: 100vw;
     height: 100vh;
     @include flex-center;
+    @include respond-below(phone) {
+        
+    }
 }
 
 @mixin main-container {
@@ -36,7 +41,7 @@
 @mixin default-background {
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
-            background: map-get($map, card-background);
+            background: map-get($map, default);
         }
     }
 }
@@ -146,6 +151,14 @@
     @each $theme, $map in $borders {
         :global(.#{$theme}) & {
             border-bottom: map-get($map, default);
+        }
+    }
+}
+
+@mixin input-border-bottom {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border-bottom: map-get($map, input);
         }
     }
 }

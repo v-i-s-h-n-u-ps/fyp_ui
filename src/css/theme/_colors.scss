@@ -31,6 +31,7 @@ $color-pizazz: #ff8800;
 $colors: (
     light: (
         default: $color-black,
+        reverse: $color-noble,
 
         heading-l: $color-cod_gray,
         heading-lm: $color-cod_gray,
@@ -40,6 +41,8 @@ $colors: (
 
         subText-l: $color-text_gray,
         notice: $color-noble,
+        read-only: $color-text-gray,
+        label: $color-fruit_salad,
 
         button-full: (
             1: (
@@ -79,6 +82,7 @@ $colors: (
     ),
     dark: (
         default: $color-white,
+        reverse: $color-river_bed,
 
         heading-l: $color-mercury,
         heading-lm: $color-concrete,
@@ -87,7 +91,9 @@ $colors: (
         heading-s: $color-white,
 
         subText-l: $color-text_gray,
-        notice: $color-noble,
+        notice: $color-mercury,
+        read-only: $color-text-gray,
+        label: $color-fruit_salad,
 
         button-full: (
             1: (

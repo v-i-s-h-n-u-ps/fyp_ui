@@ -1,0 +1,35 @@
+@import "../../../css/layouts/flexBox.scss";
+@import "../../../css/layouts/container.scss";
+
+.container {
+    margin: auto;
+    display: block;
+    border-radius: 8px;
+    padding: 35px 15px;
+    @include default-background;
+    @include default-border;
+    @include respond-above(desktop) {
+        width: 26vw;
+        max-width: 1200px;
+
+    }
+    @include respond-between(tablet, desktop) {
+        width: 33vw;
+        max-width: 1000px;
+    }
+    @include respond-between(phone, tablet) {
+        width: 45vw;
+        max-width: 800px;
+    }
+    @include respond-below(phone) {
+        width: 100%;
+    }
+}
+
+.form {
+    width: 100%;
+}
+
+.flexCenter {
+    @include flex-center;
+}

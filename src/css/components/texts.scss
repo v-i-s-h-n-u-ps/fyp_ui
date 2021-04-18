@@ -302,10 +302,18 @@
     }
 }
 
+@mixin reverse-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, reverse);
+        }
+    }
+}
+
 @mixin subtext-color {
     @each $theme, $map in $colors {
         :global(.#{$theme}) & {
-            color: map-get($map, noble);
+            color: map-get($map, notice);
         }
     }
 }
@@ -374,3 +382,18 @@
     }
 }
 
+@mixin read-only-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, read-only);
+        }
+    }
+}
+
+@mixin label-color {
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            color: map-get($map, label);
+        }
+    }
+}

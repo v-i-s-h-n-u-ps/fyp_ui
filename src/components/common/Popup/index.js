@@ -20,9 +20,10 @@ const Popup = props => {
             <div className={s.overlay} />
             <div className={`${s.popUpContainer} ${align}`}>
                 <div className={s.wrapper}>
-                    {showClose && <i className={`icon-close ${s.iconStyle}`} onClick={onClose} />}
+                    {showClose && 
+                        <i className={`icon-close ${s.iconStyle}`} onClick={onClose} />
+                    }
                     <div className={s.popUpMain} ref={contentRef}>
-                        {/* {showPointer && <div className={s.popUpPointer} />} */}
                         {children}
                     </div>
                 </div>

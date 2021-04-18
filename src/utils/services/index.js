@@ -11,7 +11,6 @@ export const api = function (timeout = 10000, baseURL = config.apiUrl) {
     });
 };
 
-
 const GET = async (url, params = {}) => {
     const response = await api().get(url, { params });
     return response;
@@ -22,5 +21,6 @@ const POST = async (url, data, timeout) => {
     return response;
 };
 
-export const signup = data => POST('user/signup', data);
+export const signup = data => POST('user/signup/', data);
 export const login = data => POST('user/login/', data);
+export const me = () => GET('user/me');
