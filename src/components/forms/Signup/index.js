@@ -2,8 +2,10 @@ import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 import _omit from "lodash/omit";
+import { createStructuredSelector } from "reselect";
 
 import s from "./index.module.scss";
+import { selectIsFormSubmitting } from "../../../redux/user/selectors";
 import { signup } from "../../../redux/user/actions";
 import { SIGNUP_VALIDATION } from "../../../utils/helpers/schemas.js";
 import Button from "../../common/Button";
@@ -18,9 +20,10 @@ const init = {
 
 const Signup = props => {
 
-  const { d__signup } = props
+  const { d__signup, selectIsFormSubmitting } = props
 
-  const submit = values => {
+  const submit = (values, { setSubmitting }) => {
+    setSubmitting(false);
     d__signup({
       role: 'student',
       ..._omit(values, ['confirm']),
@@ -85,8 +88,8 @@ const Signup = props => {
                   buttonType="submit"
                   text="Submit"
                   width={"150px"}
-                  // disabled={isSubmitting}
-                  // loading={isSubmitting}
+                  disabled={selectIsFormSubmitting}
+                  loading={selectIsFormSubmitting}
                 />
               </div>
             </form>
@@ -98,10 +101,14 @@ const Signup = props => {
   )
 }
 
+const mapStateToProps = createStructuredSelector({
+  selectIsFormSubmitting
+})
+
 const mapDispatchToProps = dispatch => {
   return {
     d__signup: data => dispatch(signup.request(data))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

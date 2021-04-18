@@ -1,66 +1,77 @@
 import { useSelector } from "react-redux";
 
 import { 
-    ROOT, USER_ENTRY, ADMIN_MANAGE, ABOUT_US,
+    DASHBOARD, USER_ENTRY, ADMIN_MANAGE, ABOUT_US,
     CONTACT_US, TERMS_AND_CONDITIONS, PROFILE,
     MY_SERVICES
 } from "./routes";
 
-export const bottomNavLinks = [
-    {
-        text: 'Services',
-        path: ROOT,
-        icon: 'home',
-        sameTab: true
-    },
-    {
-        text: 'Contact Us',
-        path: CONTACT_US,
-        icon: 'call',
-        sameTab: true
-    },
-    {
-        text: 'Terms & Conditions',
-        path: TERMS_AND_CONDITIONS,
-        icon: 'terms',
-        sameTab: true
-    },
-    {
-        text: 'About Us',
-        path: ABOUT_US,
-        icon: 'users',
-        sameTab: true
-    },
-];
+// export const bottomNavLinks = [
+//     {
+//         text: 'Services',
+//         path: ROOT,
+//         icon: 'home',
+//         sameTab: true
+//     },
+//     {
+//         text: 'Contact Us',
+//         path: CONTACT_US,
+//         icon: 'call',
+//         sameTab: true
+//     },
+//     {
+//         text: 'Terms & Conditions',
+//         path: TERMS_AND_CONDITIONS,
+//         icon: 'terms',
+//         sameTab: true
+//     },
+//     {
+//         text: 'About Us',
+//         path: ABOUT_US,
+//         icon: 'users',
+//         sameTab: true
+//     },
+// ];
 
 export const sidebarLinks = () => {
 
     const links = [
         {
-            text: 'Services',
-            path: ROOT,
-            icon: 'home',
+            text: 'Dashboard',
+            path: DASHBOARD,
+            icon: 'dashboard',
             sameTab: true
         },
         {
-            text: 'Contact Us',
+            text: 'GROUPS',
             path: CONTACT_US,
-            icon: 'call',
-            sameTab: true
-        },
-        {
-            text: 'Terms & Conditions',
-            path: TERMS_AND_CONDITIONS,
-            icon: 'terms',
-            sameTab: true
-        },
-        {
-            text: 'About Us',
-            path: ABOUT_US,
             icon: 'users',
             sameTab: true
         },
-
+        {
+            text: 'Forums',
+            path: TERMS_AND_CONDITIONS,
+            icon: 'comments',
+            sameTab: true
+        },
+        {
+            text: 'Chats',
+            path: ABOUT_US,
+            icon: 'chats',
+            sameTab: true
+        },
+        {
+            text: 'Calendar',
+            path: ABOUT_US,
+            icon: 'calendar',
+            sameTab: true
+        },
+        {
+            text: 'Profile',
+            path: ABOUT_US,
+            icon: 'user',
+            sameTab: true
+        },
     ];
     return links;
 };
@@ -68,16 +79,10 @@ export const sidebarLinks = () => {
 export const otherLinks = {
     theme: {
         light: {
-            text: {
-                en: 'Dark Mode',
-                hi: 'डार्क मोड'
-            }
+            text: 'Dark Mode'
         },
         dark: {
-            text: {
-                en: 'Light Mode',
-                hi: 'लाइट मोड'
-            }
+            text: 'Light Mode'
         }
     },
     locale: {

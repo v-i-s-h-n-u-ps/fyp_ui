@@ -36,9 +36,10 @@ function* handleLogoutUser() {
 function* handleLogin({ data }) {
   try {
     const apiResponse = yield call(login, data);
+    console.log(isSuccess(apiResponse), "")
     if (isSuccess(apiResponse)) {
       cookie.set('loginTime', new Date(), { domain: config["domain"] || "" });
-      // yield call(Router.push, DASHBOARD);
+      yield call(Router.push, DASHBOARD);
       yield put({
         type: AUTHENTICATE[REQUEST],
         data: _omit(apiResponse.data.data, ['user_info'])
@@ -60,8 +61,6 @@ function* handleAuth({ data }) {
       }
     } else {
       REMOVE_AUTH()
-      delete api().defaults.headers.common["Authorization"];
-      delete api().defaults.headers["Authorization"];
     }
     yield put({ type: AUTHENTICATE[SUCCESS] });
   } catch (e) {

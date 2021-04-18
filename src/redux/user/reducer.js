@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import {
-  LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE
+  LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
+  THEME_PREFERENCE
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -39,8 +40,15 @@ const users = () => {
     }
   };
 
+  const themePreference = (state = { theme: 'light' }, action) => {
+    if (action.type === THEME_PREFERENCE[SET]) {
+      return { theme: action.theme }
+    }
+    return state
+  };
+
   return combineReducers({
-    auth,
+    auth, themePreference
   });
 };
 

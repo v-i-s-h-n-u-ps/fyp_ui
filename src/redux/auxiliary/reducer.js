@@ -17,7 +17,8 @@ const aux = () => {
     const globalAPIError = (state = {}, action) => {
         if (_includes(GLOBAL_API_FAILURE_CONFIG, action.type)) {
             return Object.assign({}, state, action.payload, {
-                actionTriggered: action.type
+                actionTriggered: action.type,
+                message: action.payload
             });
         } else if (action.type === GLOBAL_API_ERROR_FLAG[UNSET]) {
             return initialSuccessState;

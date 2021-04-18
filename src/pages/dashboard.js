@@ -3,12 +3,10 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../src";
-
+import Dashboard from "../page/Dashboard";
 
 const DashboardPage = (props) => {
-    return <div>
-        dashboard
-    </div>
+    return <Dashboard {...props} />
 };
 
 DashboardPage.getInitialProps = async (props) => {

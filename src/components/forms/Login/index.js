@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
+import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
 import { login, authentication } from "../../../redux/user/actions";
-import { GET_AUTH } from "../../../utils/services/auth";
+import { selectIsFormSubmitting } from "../../../redux/user/selectors";
 import { LOGIN_VALIDATION } from "../../../utils/helpers/schemas.js";
 import Button from "../../common/Button";
 import Input from "../../common/Input";
@@ -16,16 +17,21 @@ const init = {
 
 const Login = props => {
 
-  const { d__login, d__authentication } = props
+  const { d__login, selectIsFormSubmitting } = props
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const onSubmit = (values, { setSubmitting }) => {
+    setSubmitting(false);
+    d__login({ ...values });
+  }
 
   return (
     <div className={s.container}>
       <Formik
         enableReinitialize={true}
         initialValues={init}
-        onSubmit={d__login}
+        onSubmit={onSubmit}
         validationSchema={LOGIN_VALIDATION}
       >
         {({
@@ -68,24 +74,26 @@ const Login = props => {
                   buttonType="submit"
                   text="Login"
                   width={"150px"}
-                  disabled={isSubmitting}
-                  loading={isSubmitting}
+                  disabled={selectIsFormSubmitting}
+                  loading={selectIsFormSubmitting}
                 />
               </div>
             </form>
           )
         }}
       </Formik>
-
     </div>
   )
 }
 
+const mapStateToProps = createStructuredSelector({
+  selectIsFormSubmitting
+})
+
 const mapDispatchToProps = dispatch => {
   return {
     d__login: data => dispatch(login.request(data)),
-    d__authentication: data => dispatch(authentication.request(data)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

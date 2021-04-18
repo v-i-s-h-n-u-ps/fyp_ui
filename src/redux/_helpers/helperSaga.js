@@ -9,6 +9,7 @@ export const isSuccess = apiResponse => {
 }
 
 export function* sendPayload(apiResponse, event) {
+    console.log(apiResponse.data)
     yield put({
         type: isSuccess(apiResponse) ? event[SUCCESS] : event[FAILURE],
         payload: apiResponse.data
@@ -28,7 +29,6 @@ export function* sendPayloadFailure(error, event) {
         });
     } else {
         if (error.status === undefined) {
-            //network error
             yield put({
                 type: event[FAILURE],
                 payload: { code: "NETWORK_ERROR_CUSTOM" }

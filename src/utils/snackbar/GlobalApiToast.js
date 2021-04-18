@@ -9,38 +9,30 @@ import { globalApiErrorFlag, globalApiSuccessFlag } from "../../redux/auxiliary/
 import { selectGlobalAPIError, selectGlobalAPISuccess } from "../../redux/auxiliary/selectors";
 
 const GlobalApiToast = (props) => {
-    
+
     let globalErrorMsg;
     let globalSuccessMsg;
 
     const { selectGlobalAPIError, selectGlobalAPISuccess } = props;
 
     const setErrorMessage = () => {
-        const errorCode = _get(selectGlobalAPIError, 'code')
-        switch (errorCode) {
-            case 400:
-            case "SERVER_ERROR": { 
-                globalErrorMsg = `${_get(selectGlobalAPIError, 'message')}`; 
-                break;
-            }
-            case "NETWORK_ERROR_CUSTOM": { 
-                globalErrorMsg = "🛠 Server is currently unavailable"; 
-                break;
-            }
-            default: globalErrorMsg = "😓 Something went wrong!";
+        if (_get(selectGlobalAPIError, 'message')) {
+            globalErrorMsg = _get(selectGlobalAPIError, 'message.message')
+        } else {
+            globalErrorMsg = "😓 Something went wrong!";
         }
     }
-    const notify = val => { 
-        toast.error(val, { 
-            toastId: globalErrorMsg, 
-            onClose: onErrorCloseCb 
-        }); 
+    const notify = val => {
+        toast.error(val, {
+            toastId: globalErrorMsg,
+            onClose: onErrorCloseCb
+        });
     };
 
-    const setSuccessMessage = () => 
+    const setSuccessMessage = () =>
         globalSuccessMsg = _get(selectGlobalAPISuccess, 'message');
 
-    const notifySuccess = msg => 
+    const notifySuccess = msg =>
         toast.info(msg, { toastId: globalSuccessMsg, onClose: onSuccessCloseCb });
 
     const onSuccessCloseCb = () => props.d__globalApiSuccessFlag();

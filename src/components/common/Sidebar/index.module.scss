@@ -1,0 +1,360 @@
+@import "../../../css/layouts/positions.scss";
+@import "../../../css/components/texts.scss";
+@import "../../../css/layouts/mediaQueries.scss";
+@import "../../../css/layouts/container.scss";
+@import "../../../css/layouts/flexBox.scss";
+
+
+.hamburger {
+    @include position-fixed-left;
+    width: 4.31vw;
+    height: 4.31vw;
+    display: none;
+    z-index: 1003;
+}
+
+.aside {
+    @include position-fixed-left;
+    @include default-background;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+
+    z-index: 1007;
+
+    @include respond-above(tablet){
+        &:hover {
+            .sidebar {
+                width: 300px;
+            }
+            .link{
+                transform: translateX(0);
+                // opacity: 1;
+            }
+            &+ .overlay.overlay {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    }
+}
+
+.sidebar {
+    width: 4.31vw;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    transition: width 0.4s ease;
+    will-change: width;
+}
+
+.linkContainer {
+    display: flex;
+    height: 4vw;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    color: $color-cerulean;
+    cursor: pointer;
+
+    &.logo {
+        height: 5vw;
+    }
+
+    .fullLogo {
+        height: 5vw;
+        padding: 1vw 0;
+    }
+
+    .shortLogo {
+        min-width: 4.31vw;
+        padding: 1vw;
+        height: 5vw;
+        width: 4.31vw;
+    }
+
+    &.active, &:hover {
+        color: #000;
+        background: #b2cee6;
+
+        .iconContainer, .shortLogo {
+            background: #b2cee6;
+        }
+
+        .link {
+            color: #000;
+        }
+    }
+    
+}
+
+.iconContainer{
+    min-width: 4.31vw;
+    height: 4vw;
+    @include flex-center;
+    // height: 4vw;
+    @include default-background;
+    position: relative;
+    z-index: 1;
+}
+.shortLogo {
+    @include default-background;
+    position: relative;
+    z-index: 1;
+}
+
+.icon {
+    transition: none;
+    @include respond-above(tablet) {
+        &.dashboard {
+            font-size: 1.6vw;
+        }
+        &.add_users {
+            font-size: 1.8vw;
+        }
+        &.call {
+            font-size: 1.2vw;
+        }
+        &.bulb {
+            font-size: 1.4vw;
+        }
+        &.flight {
+            font-size: 1.5vw;
+        }
+        &.user {
+            font-size: 1.8vw;
+        }
+        &.info {
+            font-size: 1.1vw;
+        }
+        &.theme {
+            font-size: 1.5vw;
+        }
+        &.language {
+            font-size: 1.5vw;
+        }
+        &.help {
+            font-size: 1.5vw;
+        }
+        &.logout {
+            font-size: 1.5vw;
+        }
+    }
+    @include respond-between(phablet, tablet) {
+        &.dashboard {
+            font-size: 3.2vw
+        }
+        &.add_users {
+            font-size: 3.4vw
+        }
+        &.call {
+            font-size: 2.4vw
+        }
+        &.bulb {
+            font-size: 2.6vw
+        }
+        &.flight {
+            font-size: 2.8vw;
+        }
+        &.user {
+            font-size: 3vw;
+        }
+        &.info {
+            font-size: 2.4vw;
+        }
+        &.theme {
+            font-size: 2.8vw;
+        }
+        &.language {
+            font-size: 2.8vw;
+        }
+        &.help {
+            font-size: 2.8vw;
+        }
+        &.logout {
+            font-size: 2.8vw;
+        }
+    }
+    @include respond-below(phablet) {
+        &.dashboard {
+            font-size: 5.4vw
+        }
+        &.add_users {
+            font-size: 5.8vw
+        }
+        &.call {
+            font-size: 3.8vw
+        }
+        &.bulb {
+            font-size: 4.2vw
+        }
+        &.flight {
+            font-size: 4.6vw;
+        }
+        &.user {
+            font-size: 5.4vw;
+        }
+        &.theme {
+            font-size: 4.6vw;
+        }
+        &.language {
+            font-size: 4.6vw;
+        }
+        &.help {
+            font-size: 4.6vw;
+        }
+        &.logout {
+            font-size: 4.6vw;
+        }
+    }
+}
+
+.language {
+    cursor: auto;
+}
+
+.link {
+    flex-grow: 1;
+    transform: translateX(-300px);
+    white-space: nowrap;
+    color: $color-cerulean;
+    transition: transform 0.4s ease;
+    // opacity: 0;
+}
+
+.overlay {
+    position: fixed;
+    bottom: 0;
+    top:0;
+    right:0;
+    left: 0;
+    // background: rgba(0, 0, 0, 0.8);
+    @include default-overlay-background;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+    will-change: opacity, visibility;
+    z-index: 1006;
+
+}
+
+@include respond-above(desktop) {
+    .sidebar{
+        width: 3.47vw;
+    }
+    .iconContainer {
+        min-width: 3.47vw;
+        height: 4vw;
+    }
+}
+
+@include respond-below(tablet) {
+    
+    .hamburger{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 8.6vw;
+        left:4.3vw;
+    }
+    .aside {
+        transform: translateX(-300px);
+        box-shadow: none;
+        transition: transform 0.4s ease;
+        will-change: transform;
+
+
+        &.open.open {
+            transform: translateX(0);
+
+            .link{
+                opacity: 1;
+            }
+            &+ .overlay.overlay {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    }
+    
+    .sidebar {
+        width: 300px;
+    }
+
+    .linkContainer {
+        height: 8.6vw;
+
+        &.logo {
+            height: 8.6vw;
+        }
+        .fullLogo {
+            height: 8.6vw;
+            padding: 2vw 0;
+        }
+    
+        .shortLogo {
+            min-width: 8vw;
+            padding: 2vw;
+            width: 8vw;
+            height: 8.6vw;
+        }
+    }
+    .link {
+        transform: none;
+        transition: opacity 2s ease;
+    }
+    .iconContainer{
+        width: 8vw;
+        height: 8.6vw;
+    }
+    .icon {
+
+        &.menu{
+            font-size: 2vw;
+        }
+    }
+}
+
+
+@include respond-below(phablet) {
+    .hamburger{
+        height: 13.2vw;
+    }
+    .linkContainer {
+        height: 13.2vw;
+        &.logo {
+            height: 13.2vw;
+        }
+        .fullLogo {
+            height: 13.2vw;
+            padding: 2vw 0;
+        }
+    
+        .shortLogo {
+            width: 13.2vw;
+            min-width: 13.2vw;
+            height: 13.2vw;
+            padding: 3vw;
+        }
+    }
+    .iconContainer{
+        width: 13.2vw;
+        height: 13.2vw;
+    }
+    .icon {
+        font-size: 6vw;
+        &.menu{
+            font-size: 4vw;
+        }
+    }
+}
+
+.menu {
+    @include default-color;
+}
