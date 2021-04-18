@@ -70,3 +70,14 @@
         animation: none;
     }
 }
+
+.content {
+    // background-color: green;
+    // @include default-background;
+    @include label-color;
+}
+
+.noMember {
+    @include normal-content-size;
+    @include heading-l-color;
+}

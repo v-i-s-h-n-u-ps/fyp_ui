@@ -5,7 +5,7 @@ import s from "./index.module.scss";
 const Input = props => {
 
     const {
-        handleChange, label, value, onEdit, onBlur, name, onEnter, placeholder,
+        handleChange, label, value, onSecondaryAction, onBlur, name, onEnter, placeholder,
         readOnly = false, alwaysFloat = false, showEdit = false, type = "text", focusCallback,
         secondaryText = "Edit", error = false, helperText = ""
     } = props;
@@ -30,8 +30,8 @@ const Input = props => {
         !!focusCallback ? focusCallback() : '';
     }
 
-    const onClickEdit = () => {
-        onEdit();
+    const onClick = () => {
+        onSecondaryAction();
         input.current.focus();
     }
 
@@ -69,7 +69,7 @@ const Input = props => {
                 {showEdit &&
                     <span
                         className={s.editIcon}
-                        onClick={onClickEdit}
+                        onClick={onClick}
                     >
                         {secondaryText}
                     </span>

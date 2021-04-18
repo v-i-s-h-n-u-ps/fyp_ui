@@ -1,5 +1,6 @@
 @import "../../../css/layouts/flexBox.scss";
 @import "../../../css/layouts/container.scss";
+@import "../../../css/components/texts.scss";
 
 .container {
     margin: auto;
@@ -32,4 +33,9 @@
 
 .flexCenter {
     @include flex-center;
+}
+
+.icon {
+    @include heading-m;
+    font-weight: bold;
 }

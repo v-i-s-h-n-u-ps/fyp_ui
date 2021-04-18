@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
 import { login, authentication } from "../../../redux/user/actions";
-import {  GET_AUTH } from "../../../utils/services/auth";
+import { GET_AUTH } from "../../../utils/services/auth";
 import { LOGIN_VALIDATION } from "../../../utils/helpers/schemas.js";
 import Button from "../../common/Button";
 import Input from "../../common/Input";
@@ -17,10 +17,8 @@ const init = {
 const Login = props => {
 
   const { d__login, d__authentication } = props
-//   useEffect(() => {
-//     const tk = GET_AUTH({})
-//     d__authentication(tk)
-//   }, [])
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className={s.container}>
@@ -52,14 +50,21 @@ const Login = props => {
                 label="Password"
                 name="password"
                 handleChange={handleChange}
+                type={showPassword ? 'text' : `password`}
                 value={values.password}
                 error={errors.password && touched.password}
                 helperText={errors.password && touched.password ? errors.password : ''}
+                showEdit={true}
+                secondaryText={showPassword
+                  ? <i className={`icon-eye ${s.icon}`} />
+                  : <i className={`icon-eye_off ${s.icon}`} />
+                }
+                onSecondaryAction={() => setShowPassword(!showPassword)}
               />
               <div className={s.flexCenter}>
                 <Button
-                  type="primary"
-                  variant="hollow"
+                  type="whatsapp"
+                  variant="block"
                   buttonType="submit"
                   text="Login"
                   width={"150px"}

@@ -21,11 +21,9 @@ const Access = props => {
             )
             : (
               <div className={s.content}>
-                <div className={s.content}>
-                  <p onClick={() => setActive("login")}>
-                    Login
+                <p onClick={() => setActive("login")}>
+                  Login
                 </p>
-                </div>
               </div>
             )
           }
@@ -39,6 +37,9 @@ const Access = props => {
             )
             : (
               <div className={s.content}>
+                <div>
+                  <p className={s.noMember}>Not a member?</p>
+                </div>
                 <p onClick={() => setActive("signup")}>
                   Signup
                 </p>

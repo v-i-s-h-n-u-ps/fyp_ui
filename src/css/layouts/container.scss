@@ -86,6 +86,22 @@
     }
 }
 
+@mixin picture-background-overlay-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, picture-background);
+        }
+    }
+}
+
+@mixin nedass-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, nedass);
+        }
+    }
+}
+
 @mixin card-loader-background {
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
