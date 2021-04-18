@@ -13,10 +13,6 @@ export const SIGNUP_VALIDATION = yup.object().shape({
     .trim()
     .required('Password is required')
     .min(8, 'Password should be at least 8 characters.'),
-    // .matches(
-    //   /^(?=.*[0-9])(?=.*[a-z])(?=.*[*.!@$%^&(){}[]:;<>,.?\/~_+-=|\\]).{8,32}$/,
-    //   'Password at least one letter, number and special character.'
-    // ),
   confirm: yup.string()
     .trim()
     .required('Password is required')

@@ -29,8 +29,8 @@ const users = () => {
       case AUTHENTICATE[SUCCESS]: return { ...state, isSubmitting: false, error: '', isAuthenticated: true }
       case AUTHENTICATE[FAILURE]: return { ...state, isAuthenticated: false }
 
-      case ME[FAILURE]: return { ...state, isFetching: true, error: '' }
-      case ME[FAILURE]: return { ...state, isFetching: false, error: '', userInfo: action.payload }
+      case ME[REQUEST]: return { ...state, isFetching: true, error: '' }
+      case ME[SUCCESS]: return { ...state, isFetching: false, error: '', userInfo: action.payload }
       case ME[FAILURE]: return { ...state, isFetching: false, error: '' }
 
       case LOGOUT[SUCCESS]: return { ...state, isSubmitting: false, isAuthenticated: false, isOtpSent: false };

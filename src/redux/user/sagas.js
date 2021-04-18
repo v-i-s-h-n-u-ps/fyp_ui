@@ -72,7 +72,6 @@ function* handleAuth({ data }) {
 function* handleMe() {
   try {
     const apiResponse = yield call(me);
-    console.log(apiResponse, "me call")
     yield sendPayload(apiResponse, ME);
   } catch (e) {
     yield sendPayloadFailure(e, ME);

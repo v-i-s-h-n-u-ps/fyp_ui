@@ -1,23 +1,21 @@
 import nextCookie from 'next-cookies'
 import cookie from 'js-cookie'
+import axios from "axios";
+
 import { tokenKey } from "../constants"
 import { config } from "../../config";
-import {
-    api,
-} from "../../utils/services";
-
 
 export const SET_AUTH = data => {
     const tokens = JSON.stringify(data);
-    api().defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
-    api().defaults.headers["Authorization"] = `Bearer ${data.access_token}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+    axios.defaults.headers["Authorization"] = `Bearer ${data.access_token}`;
     cookie.set(tokenKey, tokens, { domain: config["domain"] || "" });
 };
 
 export const REMOVE_AUTH = () => {
     cookie.remove(tokenKey, { domain: config["domain"] || "" });
-    delete api().defaults.headers.common["Authorization"];
-    delete api().defaults.headers["Authorization"];
+    delete axios.defaults.headers.common["Authorization"];
+    delete axios.defaults.headers["Authorization"];
 }
 
 export const GET_AUTH = (props) => {
@@ -32,15 +30,4 @@ export const GET_AUTH = (props) => {
         }
         return null
     }
-}
-
-export const authHeaders = () => {
-    const auth = GET_AUTH({})
-    if (auth.access_token) return {
-        "Authorization": `Bearer ${auth.access_token}`,
-        common: {
-            "Authorization": `Bearer ${auth.access_token}`
-        }
-    }
-    return false;
 }
