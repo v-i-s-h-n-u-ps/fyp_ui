@@ -42,7 +42,6 @@ const Signup = props => {
           values,
           errors,
           touched,
-          isSubmitting,
           handleChange,
           handleSubmit,
         }) => {
@@ -55,6 +54,7 @@ const Signup = props => {
                 value={values.name}
                 error={errors.name && touched.name}
                 helperText={errors.name && touched.name ? errors.name : ''}
+                autoFocus={true}
               />
               <Input
                 label="Email"

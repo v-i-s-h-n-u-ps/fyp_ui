@@ -9,7 +9,6 @@ export const isSuccess = apiResponse => {
 }
 
 export function* sendPayload(apiResponse, event) {
-    console.log(apiResponse.data)
     yield put({
         type: isSuccess(apiResponse) ? event[SUCCESS] : event[FAILURE],
         payload: apiResponse.data

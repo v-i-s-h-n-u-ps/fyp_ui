@@ -6,6 +6,7 @@ import { tokenKey } from "../constants"
 import { config } from "../../config";
 
 export const SET_AUTH = data => {
+    if (!data) return;
     const tokens = JSON.stringify(data);
     axios.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
     axios.defaults.headers["Authorization"] = `Bearer ${data.access_token}`;
@@ -22,11 +23,11 @@ export const GET_AUTH = (props) => {
     const { isServer = false, ctx = null } = props
     if (isServer) {
         const { tk } = nextCookie(ctx);
-        return tk;
+        return tk || {};
     } else {
-        const token = JSON.parse(cookie.get(tokenKey) || "");
+        const token = cookie.get(tokenKey);
         if (token) {
-            return token
+            return JSON.parse(token)
         }
         return null
     }

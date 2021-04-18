@@ -51,6 +51,7 @@ const Login = props => {
                 value={values.email}
                 error={errors.email && touched.email}
                 helperText={errors.email && touched.email ? errors.email : ''}
+                autoFocus={true}
               />
               <Input
                 label="Password"

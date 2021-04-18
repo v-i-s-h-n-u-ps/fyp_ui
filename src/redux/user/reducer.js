@@ -40,7 +40,13 @@ const users = () => {
     }
   };
 
-  const themePreference = (state = { theme: 'light' }, action) => {
+  const themePreference = (state = {
+    theme:
+      typeof window === 'undefined'
+        ? 'light'
+        : window.matchMedia('(prefers-color-scheme: dark)')
+          ? 'dark' : 'light'
+  }, action) => {
     if (action.type === THEME_PREFERENCE[SET]) {
       return { theme: action.theme }
     }

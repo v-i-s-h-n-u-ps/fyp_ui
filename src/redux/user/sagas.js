@@ -2,14 +2,14 @@ import { takeLatest, call, put, all, select } from "redux-saga/effects";
 import _get from "lodash/get";
 import _omit from "lodash/omit";
 import _isEmpty from "lodash/isEmpty";
-import Router from 'next/router';
 import cookie from 'js-cookie'
+import Router from "next/router";
 
 import { config } from "../../config";
 import { REQUEST, SUCCESS } from "../actionCreator";
 import { sendPayload, sendPayloadFailure, isSuccess } from "../_helpers/helperSaga";
 import {
-  ROOT, DASHBOARD
+  ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
 } from "../../utils/constants/routes";
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME
@@ -26,8 +26,8 @@ import {
 function* handleLogoutUser() {
   try {
     REMOVE_AUTH();
-    yield put({ type: LOGOUT[SUCCESS] });
     yield call(Router.push, ROOT);
+    yield put({ type: LOGOUT[SUCCESS] });
   } catch (e) {
     yield sendPayloadFailure(e, LOGOUT);
   }
@@ -36,16 +36,14 @@ function* handleLogoutUser() {
 function* handleLogin({ data }) {
   try {
     const apiResponse = yield call(login, data);
-    console.log(isSuccess(apiResponse), "")
     if (isSuccess(apiResponse)) {
       cookie.set('loginTime', new Date(), { domain: config["domain"] || "" });
-      yield call(Router.push, DASHBOARD);
       yield put({
         type: AUTHENTICATE[REQUEST],
-        data: _omit(apiResponse.data.data, ['user_info'])
+        data: { token: _omit(apiResponse.data.data, ['user_info']) }
       })
     }
-      yield sendPayload(apiResponse, LOGIN);
+    yield sendPayload(apiResponse, LOGIN);
   } catch (e) {
     yield sendPayloadFailure(e, LOGIN);
   }
@@ -53,10 +51,21 @@ function* handleLogin({ data }) {
 
 function* handleAuth({ data }) {
   try {
-    if (data.access_token) {
-      SET_AUTH(data);
+    const { token, ctx } = data;
+    const pathname = _get(ctx, 'pathname') || _get(Router, 'pathname');
+    if (_get(token, 'access_token')) {
+      SET_AUTH(token);
+      if (PUBLIC_ROUTES.includes(pathname)) {
+        if (ctx && ctx.req) {
+          ctx.res.writeHead(302, { Location: DASHBOARD });
+          ctx.res.end();
+          return;
+        } else {
+          yield call(Router.push, DASHBOARD);
+        }
+      }
       const user = yield select(selectUserInfo);
-      if(_isEmpty(user) || !user) {
+      if (_isEmpty(user) || !user) {
         yield put({ type: ME[REQUEST] })
       }
     } else {

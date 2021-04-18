@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "../css/_main.scss";
 import { config } from "../config";
-import { GET_AUTH } from  "../utils/services/auth";
+import { GET_AUTH } from "../utils/services/auth";
 import { authentication, themePreference } from "../redux/user/actions"
 import { selectThemePreference } from "../redux/user/selectors"
 import createStore from "../redux/configureStore";
@@ -23,7 +23,7 @@ class MyApp extends App {
 
         let token = GET_AUTH({ isServer: isServer || false, ctx: ctx || null });
 
-        store.dispatch(authentication.request(token))
+        store.dispatch(authentication.request({ token, ctx }))
 
         const { theme } = nextCookie(ctx);
         if (theme && theme !== selectThemePreference.theme) {

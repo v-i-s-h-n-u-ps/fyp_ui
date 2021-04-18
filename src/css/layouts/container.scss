@@ -9,32 +9,31 @@
     height: 100vh;
     @include flex-center;
     @include respond-below(phone) {
-        
     }
 }
 
 @mixin main-container {
     @include respond-above(desktop) {
-        margin: 3.91vw 0 0 3.47vw;
+        margin: 0 0 0 3.47vw;
         &.guest {
             margin: 3.86vw 0 0 0;
         }
-        min-height: calc(100vh - 3.86vw - 7.5vw)
+        min-height: calc(100vh)
     }
     @include respond-between(tablet, desktop) {
-        margin: 4.86vw 0 0 4.31vw;
+        margin: 0 0 0 4.31vw;
         &.guest {
             margin: 4.86vw 0 0 0;
         }
-        min-height: calc(100vh - 4.86vw - 7.54vw)
+        min-height: calc(100vh)
     }
     @include respond-between(phone, tablet) {
         margin: 8.5vw 0 0 0;
-        min-height: calc(100vh - 8.6vw - 14.6vw)
+        min-height: calc(100vh - 8.6vw)
     }
     @include respond-below(phone) {
         margin: 13.2vw 0 0 0;
-        min-height: calc(100vh - 13.2vw - 20vw - 19vw)
+        min-height: calc(100vh - 13.2vw)
     }
 }
 
@@ -54,7 +53,7 @@
     }
 }
 
-@mixin highlight-backbground {
+@mixin highlight-background {
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
             background: map-get($map, highlight);

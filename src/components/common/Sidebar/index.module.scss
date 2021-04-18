@@ -58,7 +58,7 @@
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    color: $color-cerulean;
+    color: $color-affair;
     cursor: pointer;
 
     &.logo {
@@ -107,116 +107,87 @@
     z-index: 1;
 }
 
+.header {
+    @include highlight-background;
+}
+
 .icon {
     transition: none;
     @include respond-above(tablet) {
         &.dashboard {
             font-size: 1.6vw;
-        }
-        &.add_users {
-            font-size: 1.8vw;
-        }
-        &.call {
-            font-size: 1.2vw;
-        }
-        &.bulb {
-            font-size: 1.4vw;
-        }
-        &.flight {
-            font-size: 1.5vw;
-        }
+        }        
         &.user {
             font-size: 1.8vw;
-        }
-        &.info {
-            font-size: 1.1vw;
         }
         &.theme {
             font-size: 1.5vw;
         }
-        &.language {
-            font-size: 1.5vw;
-        }
-        &.help {
-            font-size: 1.5vw;
-        }
         &.logout {
-            font-size: 1.5vw;
+            font-size: 1.4vw;
         }
         &.comments  {
-            font-size: 1.5vw;
+            font-size: 1.7vw;
+        }
+        &.chats {
+            font-size: 1.7vw;
+        }
+        &.calendar {
+            font-size: 1.75vw;
+        }
+        &.users {
+            font-size: 1.6vw;
         }
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         &.dashboard {
-            font-size: 3.2vw
-        }
-        &.add_users {
-            font-size: 3.4vw
-        }
-        &.call {
-            font-size: 2.4vw
-        }
-        &.bulb {
-            font-size: 2.6vw
-        }
-        &.flight {
-            font-size: 2.8vw;
+            font-size: 3vw
         }
         &.user {
             font-size: 3vw;
         }
-        &.info {
+        &.theme {
+            font-size: 2.5vw;
+        }
+        &.logout {
             font-size: 2.4vw;
         }
-        &.theme {
-            font-size: 2.8vw;
-        }
-        &.language {
-            font-size: 2.8vw;
-        }
-        &.help {
-            font-size: 2.8vw;
-        }
-        &.logout {
-            font-size: 2.8vw;
-        }
         &.comments  {
-            font-size: 3.2vw;
+            font-size: 2.65vw;
+        }
+        &.chats {
+            font-size: 2.3vw;
+        }
+        &.calendar {
+            font-size: 2.2vw;
+        }
+        &.users {
+            font-size: 2.4vw;
         }
     }
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         &.dashboard {
-            font-size: 5.4vw
+            font-size: 4.5vw
         }
-        &.add_users {
-            font-size: 5.8vw
-        }
-        &.call {
-            font-size: 3.8vw
-        }
-        &.bulb {
-            font-size: 4.2vw
-        }
-        &.flight {
-            font-size: 4.6vw;
-        }
-        &.user {
+        &.users {
             font-size: 5.4vw;
         }
+        &.user {
+            font-size: 5vw;
+        }
         &.theme {
-            font-size: 4.6vw;
-        }
-        &.language {
-            font-size: 4.6vw;
-        }
-        &.help {
             font-size: 4.6vw;
         }
         &.logout {
             font-size: 4.6vw;
         }
         &.comments  {
+            font-size: 4.5vw;
+        }
+        &.chats {
+            font-size: 4.5vw;
+        }
+        &.calendar {
             font-size: 4.5vw;
         }
     }
@@ -230,7 +201,7 @@
     flex-grow: 1;
     transform: translateX(-300px);
     white-space: nowrap;
-    color: $color-cerulean;
+    color: $color-affair;
     transition: transform 0.4s ease;
     // opacity: 0;
 }
@@ -331,7 +302,7 @@
 }
 
 
-@include respond-below(phablet) {
+@include respond-below(phone) {
     .hamburger{
         height: 13.2vw;
     }

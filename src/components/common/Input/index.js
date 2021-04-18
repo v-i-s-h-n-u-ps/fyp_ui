@@ -7,7 +7,7 @@ const Input = props => {
     const {
         handleChange, label, value, onSecondaryAction, onBlur, name, onEnter, placeholder,
         readOnly = false, alwaysFloat = false, showEdit = false, type = "text", focusCallback,
-        secondaryText = "Edit", error = false, helperText = ""
+        secondaryText = "Edit", error = false, helperText = "", autoFocus = false
     } = props;
 
     const [focus, setFocus] = useState(!!value || alwaysFloat);
@@ -43,6 +43,10 @@ const Input = props => {
         setFocus(true);
         input.current.focus();
     }
+
+    useEffect(() => {
+        autoFocus && input.current.focus();
+    }, [])
 
     return (
         <div className={s.input}>
