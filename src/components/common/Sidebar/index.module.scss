@@ -3,6 +3,7 @@
 @import "../../../css/layouts/mediaQueries.scss";
 @import "../../../css/layouts/container.scss";
 @import "../../../css/layouts/flexBox.scss";
+@import "../../../css/layouts/boxShadows.scss";
 
 
 .hamburger {
@@ -19,9 +20,8 @@
 
     overflow-x: hidden;
     overflow-y: auto;
-    
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
-
+    // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    @include box-shadow-sidenav;
     z-index: 1007;
 
     @include respond-above(tablet){
@@ -130,10 +130,10 @@
             font-size: 1.7vw;
         }
         &.chats {
-            font-size: 1.7vw;
+            font-size: 1.5vw;
         }
         &.calendar {
-            font-size: 1.75vw;
+            font-size: 1.5vw;
         }
         &.users {
             font-size: 1.6vw;

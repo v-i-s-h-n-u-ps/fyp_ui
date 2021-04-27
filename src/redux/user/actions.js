@@ -1,7 +1,7 @@
 import { action, FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 import {
     LOGOUT, SIGNUP, LOGIN, AUTHENTICATE,
-    THEME_PREFERENCE
+    THEME_PREFERENCE, REFRESH
 } from "./types";
 
 export const signup = {
@@ -27,6 +27,13 @@ export const logout = {
     success: (data, response) => action(LOGOUT[SUCCESS], { data, response }),
     failure: (data, error) => action(LOGOUT[FAILURE], { data, error }),
 }
+
+export const refresh = {
+    request: data => action(REFRESH[REQUEST], { data }),
+    success: (data, response) => action(REFRESH[SUCCESS], { data, response }),
+    failure: (data, error) => action(REFRESH[FAILURE], { data, error }),
+}
+
 
 export const themePreference = {
     set: (theme) => action(THEME_PREFERENCE[SET], {theme})

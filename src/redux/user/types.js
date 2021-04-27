@@ -5,6 +5,7 @@ export const LOGIN = createRequestTypes("LOGIN");
 export const AUTHENTICATE = createRequestTypes("AUTHENTICATE");
 export const ME = createRequestTypes("ME");
 export const LOGOUT = createRequestTypes("LOGOUT");
+export const REFRESH = createRequestTypes("REFRESH");
 export const VERIFY_OTP = createRequestTypes("VERIFY_OTP");
 export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");
 export const FORCED_REDIRECTION_TO_LOGIN = createFlagTypes("FORCED_REDIRECTION_TO_LOGIN");

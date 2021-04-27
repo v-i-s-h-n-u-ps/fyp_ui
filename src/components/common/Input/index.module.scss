@@ -10,6 +10,7 @@
     padding: 10px 2px 3px;
     margin-top: 25px;
     margin-bottom: 10px;
+    flex-grow: 1;
     @include default-background;
     @include respond-above(tablet) {
         font-size: $font-size-desktop-s;
@@ -144,4 +145,17 @@
 
 .input {
     margin-bottom: 8px;
+}
+
+.userInput {
+    @include flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.icon {
+    width: 20px;
+    @include flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
 }

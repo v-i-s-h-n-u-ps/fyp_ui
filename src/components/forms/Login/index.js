@@ -52,6 +52,8 @@ const Login = props => {
                 error={errors.email && touched.email}
                 helperText={errors.email && touched.email ? errors.email : ''}
                 autoFocus={true}
+                showEdit={true}
+                secondaryText={<i className={`icon-user ${s.userIcon}`} />}
               />
               <Input
                 label="Password"
@@ -63,8 +65,8 @@ const Login = props => {
                 helperText={errors.password && touched.password ? errors.password : ''}
                 showEdit={true}
                 secondaryText={showPassword
-                  ? <i className={`icon-eye ${s.icon}`} />
-                  : <i className={`icon-eye_off ${s.icon}`} />
+                  ? <i className={`icon-eye ${s.iconOn}`} />
+                  : <i className={`icon-eye_off ${s.iconOff}`} />
                 }
                 onSecondaryAction={() => setShowPassword(!showPassword)}
               />

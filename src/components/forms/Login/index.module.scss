@@ -35,7 +35,20 @@
     @include flex-center;
 }
 
-.icon {
+.iconOn, .iconOff {
     @include heading-m;
     font-weight: bold;
+}
+
+.iconOff {
+    color: darkcyan
+}
+
+.iconOn {
+    @include subtext-color;
+}
+
+.userIcon {
+    font-size: 20px;
+    color: darkcyan;
 }

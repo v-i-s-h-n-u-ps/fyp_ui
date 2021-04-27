@@ -2,6 +2,7 @@
 $box-shadows: (
     light: (
         phone: (
+            sidenav: 0px 4px 12px rgba(0, 0, 0, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),
@@ -9,6 +10,7 @@ $box-shadows: (
             inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         tablet: (
+            sidenav: 0px 4px 12px rgba(0, 0, 0, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),
@@ -16,6 +18,7 @@ $box-shadows: (
             inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         desktop: (
+            sidenav: 0px 4px 12px rgba(0, 0, 0, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),
@@ -25,6 +28,7 @@ $box-shadows: (
     ),
     dark: (
         phone: (
+            sidenav: 0px 4px 12px rgba(255, 255, 255, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),
@@ -32,6 +36,7 @@ $box-shadows: (
             inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         tablet: (
+            sidenav: 0px 4px 12px rgba(255, 255, 255, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),
@@ -39,6 +44,7 @@ $box-shadows: (
             inset-default: inset 0px 0px 11px -2px rgba(0, 0, 0, 0.45)
         ),
         desktop: (
+            sidenav: 0px 4px 12px rgba(255, 255, 255, 0.08),
             default: 0px 0px 11px -2px rgba(0, 0, 0, 0.45),
             button: 0px 10px 10px -9px rgba(0, 0, 0, 0.75),
             button_hover: 0 4px 12px rgba(0, 0, 0, 0.55),

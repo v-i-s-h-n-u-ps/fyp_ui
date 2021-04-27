@@ -18,10 +18,10 @@
         width: 68vw;
     }
     @include respond-between(desktop, screen) {
-        width: 68vw;
+        width: 50vw;
     }
     @include respond-between(tablet, desktop) {
-        width: 68vw;
+        width: 75vw;
     }
     @include respond-between(phone, tablet) {
         width: 96vw;
@@ -45,7 +45,6 @@
 
 .form {
     position: absolute;
-    left: 0;
     top: 50%;
     transform: translate(0, -50%);
     @include box-shadow-default;
@@ -58,6 +57,7 @@
 }
 
 .right {
+    left: 20px;
     @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
@@ -65,6 +65,7 @@
 }
 
 .left {
+    left: 0px;
     @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
@@ -78,6 +79,7 @@
 }
 
 .noMember {
-    @include normal-content-size;
+    @include heading-m;
+
     @include heading-l-color;
 }
