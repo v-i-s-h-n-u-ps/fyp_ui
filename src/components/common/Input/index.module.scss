@@ -158,4 +158,11 @@
     @include flex;
     align-items: flex-end;
     margin-bottom: 10px;
+    &.padding {
+        padding-bottom: 15px;
+    }
+}
+
+.flexOne {
+    flex-grow: 1;
 }
