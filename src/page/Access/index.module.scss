@@ -42,7 +42,7 @@
         width: 100vw;
         @include default-background;
     }
-    max-height: 250px;
+    max-height: 300px;
     padding: 12px;
     border-radius: 3px;
 }
@@ -76,9 +76,6 @@
 .right {
     right: 30px;
     @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
-    @include respond-between(phone, tablet) {
-        right: -12px;
-    }
     @include respond-below(phone) {
         animation: none;
     }
@@ -87,9 +84,6 @@
 .left {
     left: 30px;
     @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
-    @include respond-between(phone, tablet) {
-        left: -12px;
-    }
     @include respond-below(phone) {
         animation: none;
     }
