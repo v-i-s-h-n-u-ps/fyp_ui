@@ -21,6 +21,8 @@ const Access = props => {
             )
             : (
               <div className={s.content}>
+                <h3>Have an Account?</h3><br></br>
+                <p>Already a member? Go on and login to explore and collaborate.</p><br></br>
                 <p onClick={() => setActive("login")}>
                   Login
                 </p>

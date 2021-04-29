@@ -47,43 +47,46 @@ const Signup = props => {
         }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
-              <Input
-                label="Name"
-                name="name"
-                handleChange={handleChange}
-                value={values.name}
-                error={errors.name && touched.name}
-                helperText={errors.name && touched.name ? errors.name : ''}
-                autoFocus={true}
-              />
-              <Input
-                label="Email"
-                name="email"
-                handleChange={handleChange}
-                value={values.email}
-                error={errors.email && touched.email}
-                helperText={errors.email && touched.email ? errors.email : ''}
-              />
-              <Input
-                label="Password"
-                name="password"
-                handleChange={handleChange}
-                value={values.password}
-                type="password"
-                error={errors.password && touched.password}
-                helperText={errors.password && touched.password ? errors.password : ''}
-              />
-              <Input
-                label="Confirm Password"
-                name="confirm"
-                handleChange={handleChange}
-                value={values.confirm}
-                error={errors.confirm && touched.confirm}
-                helperText={errors.confirm && touched.confirm ? errors.confirm : ''}
-              />
+              <h3 className={s.subHead}>SIGN UP</h3><br></br>
+              <div className={s.inputFields}>
+                <Input
+                  label="Name"
+                  name="name"
+                  handleChange={handleChange}
+                  value={values.name}
+                  error={errors.name && touched.name}
+                  helperText={errors.name && touched.name ? errors.name : ''}
+                  autoFocus={true}
+                />
+                <Input
+                  label="Email"
+                  name="email"
+                  handleChange={handleChange}
+                  value={values.email}
+                  error={errors.email && touched.email}
+                  helperText={errors.email && touched.email ? errors.email : ''}
+                />
+                <Input
+                  label="Password"
+                  name="password"
+                  handleChange={handleChange}
+                  value={values.password}
+                  type="password"
+                  error={errors.password && touched.password}
+                  helperText={errors.password && touched.password ? errors.password : ''}
+                />
+                <Input
+                  label="Confirm Password"
+                  name="confirm"
+                  handleChange={handleChange}
+                  value={values.confirm}
+                  error={errors.confirm && touched.confirm}
+                  helperText={errors.confirm && touched.confirm ? errors.confirm : ''}
+                />
+              </div>
               <div className={s.flexCenter}>
                 <Button
-                  type="secondary"
+                  type="message"
                   variant="hollow"
                   buttonType="submit"
                   text="Submit"
