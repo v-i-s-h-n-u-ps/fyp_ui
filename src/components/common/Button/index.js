@@ -17,6 +17,7 @@ const IndicatorMap = (type, variant) => {
             case "cautious": return "#eb1926";
             case "message": return "#8e4d99";
             case "whatsapp": return "#075e54";
+            case "grey": return '#383b40';
             default: return "#0097e6";
         }
     }

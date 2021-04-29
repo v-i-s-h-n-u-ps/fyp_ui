@@ -6,6 +6,8 @@ $border-transparent: 1px solid transparent;
 
 $border-light_gray: 1px solid #f7faff;
 $border-cod_gray:1px solid #111111;
+$border-tuna: 1px solid #383b40;
+$border-grey_chateau: 1px solid #9ea1a6;
 
 $border-facebook: 1px solid #4468b2;
 $border-whatsapp: 1px solid #075e54;
@@ -56,6 +58,10 @@ $borders: (
             wa: (
                 hollow: $border-whatsapp,
                 block: $border-whatsapp
+            ),
+            grey: (
+                hollow: $border-grey_chateau,
+                block: $border-grey_chateau
             )
         ),
     ),
@@ -92,6 +98,10 @@ $borders: (
             wa: (
                 hollow: $border-whatsapp,
                 block: $border-whatsapp
+            ),
+            grey: (
+                hollow: $border-grey_chateau,
+                block: $border-grey_chateau
             )
         ),
     )

@@ -31,7 +31,7 @@ const Input = props => {
     }
 
     const onClick = () => {
-        onSecondaryAction();
+        !!onSecondaryAction && onSecondaryAction();
         input.current.focus();
     }
 
@@ -79,7 +79,7 @@ const Input = props => {
                         />
                         {showEdit &&
                             <span
-                                className={s.editIcon}
+                                className={`${s.editIcon} ${!!onSecondaryAction ? '' : s.default}`}
                                 onClick={onClick}
                             >
                                 {secondaryText}

@@ -7,9 +7,7 @@
     display: block;
     border-radius: 3px;
     padding: 45px 30px;
-    height: 45vh;
     @include default-background;
-    @include default-border;
     @include respond-above(desktop) {
         width: 26vw;
         max-width: 1200px;
@@ -36,13 +34,27 @@
 }
 
 .flexCenter {
-    @include flex;
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 30px;
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+    @include respond-below(phone) {
+        flex-direction: column-reverse;
+        gap: 10px
+    }
+    
 }
 
 .forgotPassword {
-    padding-right: 48px;
-    padding-top: 10px;
+    @include heading-sm;
+    min-width: 50%;
+    cursor: pointer;
 }
 
 .iconOn, .iconOff {

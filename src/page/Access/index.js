@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import s from "./index.module.scss";
 import Signup from "../../components/forms/Signup";
 import Login from "../../components/forms/Login";
+import Button from "../../components/common/Button";
 
 const Access = props => {
 
@@ -22,10 +23,22 @@ const Access = props => {
             : (
               <div className={s.content}>
                 <h3>Have an Account?</h3><br></br>
-                <p>Already a member? Go on and login to explore and collaborate.</p><br></br>
-                <p onClick={() => setActive("login")}>
-                  Login
+                <p>
+                  Already a member?
                 </p>
+                <p>
+                  Go on and login to explore and collaborate.
+                </p>
+                <br></br>
+                <div>
+
+                  <Button
+                    text={'Login'}
+                    onClick={() => setActive("login")}
+                    variant="hollow"
+                    type="grey"
+                  />
+                </div>
               </div>
             )
           }
@@ -39,12 +52,15 @@ const Access = props => {
             )
             : (
               <div className={s.content}>
+                <h3 className={s.noMember}>Not a member?</h3>
                 <div>
-                  <p className={s.noMember}>Not a member?</p>
+                  <Button
+                    text={'Signup'}
+                    onClick={() => setActive("signup")}
+                    variant="hollow"
+                    type="grey"
+                  />
                 </div>
-                <p onClick={() => setActive("signup")}>
-                  Signup
-                </p>
               </div>
             )
           }

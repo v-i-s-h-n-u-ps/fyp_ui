@@ -78,7 +78,6 @@ const Login = props => {
                   variant="block"
                   buttonType="submit"
                   text="Login"
-                  width={"150px"}
                   disabled={selectIsFormSubmitting}
                   loading={selectIsFormSubmitting}
                 />

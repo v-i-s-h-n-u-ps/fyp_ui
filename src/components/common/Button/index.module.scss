@@ -80,6 +80,15 @@
     }
 }
 
+.grey {
+    &.block {
+        @include button-full(grey, block);
+    }
+    &.hollow {
+        @include button-full(grey, hollow);
+    }
+}
+
 .iconStyle {
     @include heading-lm;
     font-weight: bold;

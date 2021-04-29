@@ -87,10 +87,9 @@ const Signup = props => {
               <div className={s.flexCenter}>
                 <Button
                   type="message"
-                  variant="hollow"
+                  variant="block"
                   buttonType="submit"
-                  text="Submit"
-                  width={"150px"}
+                  text="Signup"
                   disabled={selectIsFormSubmitting}
                   loading={selectIsFormSubmitting}
                 />

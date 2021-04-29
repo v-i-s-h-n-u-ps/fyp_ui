@@ -5,10 +5,8 @@
     margin: auto;
     display: block;
     border-radius: 3px;
-    padding: 45px 30px;
-    height: 45vh;
+    padding: 30px;
     @include default-background;
-    @include default-border;
     @include respond-above(desktop) {
         width: 26vw;
         max-width: 1200px;
@@ -39,5 +37,9 @@
 }
 
 .flexCenter {
-    @include flex;
+    @include flex-center;
+    @include respond-above(phone) {
+        width: 30%;
+        margin: 0 0 0 auto;
+    }
 }
