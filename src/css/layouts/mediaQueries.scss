@@ -1,13 +1,13 @@
 @import '../theme/breakpoints';
 
-@mixin respond-above($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+@mixin respond-above($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    $breakpoint-value: map-get($breakpoints, $bp);
     @media (min-width: $breakpoint-value) {
       @content;
     }
   } @else {
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
+    @warn 'Invalid breakpoint: #{$bp}.';
   }
 }
 

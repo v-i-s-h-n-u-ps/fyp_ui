@@ -1,0 +1,520 @@
+@import "../../css/layouts/container.scss";
+@import "../../css/layouts/mediaQueries.scss";
+@import "../../css/layouts/flexBox.scss";
+@import "../../css/components/buttons.scss";
+@import "../../css/layouts/boxShadows.scss";
+@import "../../css/components/texts.scss";
+@import "../../css/components/tags.scss";
+
+.inside {
+    @include card-background;
+    width: 50%;
+    height: 50%;
+    // background-color: white
+}
+
+.mainContainer {
+    @include main-container;
+}
+
+.buttonAdd {
+    @include button-full(1, hollow);
+}
+
+.buttonAdd2 {
+    @include button-custom(1, block)
+}
+
+.buttonPrimary {
+    @include button-custom(2, block, 30%);
+}
+
+.buttonPrimary2 {
+    @include button-custom(2, block, 30%);
+}
+
+.buttonSecondary {
+    @include button-custom(3, block, 50%)
+}
+
+.buttonSecondary2 {
+    @include button-custom(3, hollow)
+}
+
+.headingMain {
+//     margin: 1em 0 0.5em 0;
+//     line-height: 40px;
+//     font-weight: normal;
+//     text-transform: uppercase;
+//     font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+//     letter-spacing: 1px;
+
+//     @include respond-above(desktop) {
+//         font-size: 24px;
+//     }
+//     @include respond-between(tablet, desktop) {
+//         font-size: 24px;
+//     }
+//     @include respond-between(phone, tablet) {
+//         font-size: 20px;
+//     }
+//     @include respond-below(phone) {
+//         font-size: 14px;
+//         font-weight: bold;
+//     }
+@include heading-l;
+}
+
+.headingSub {
+    @include heading-lm
+}
+
+.textNormal {
+    @include heading-m;
+}
+
+.textSub {
+    @include subText-l;
+}
+
+.textSub2 {
+    // margin: 1em 0 0.5em 0;
+    // color: #b5b7ba;
+    // line-height: 40px;
+    // font-weight: normal;
+    // font-family: Muli, Lato, sans-serif;
+    // letter-spacing: 1px;
+
+    // @include respond-above(desktop) {
+    //     font-size: 12px;
+    // }
+    // @include respond-between(tablet, desktop) {
+    //     font-size: 12px;
+    // }
+    // @include respond-between(phone, tablet) {
+    //     font-size: 10px;
+    // }
+    // @include respond-below(phone) {
+    //     font-size: 10px;
+    // }
+    @include small-content-size;
+}
+
+.header {
+    display: flex;
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.header2 {
+    display: flex;
+    h5 {
+        margin: 0px;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+}
+
+.name, .name2 {
+    @include heading-m;
+    @include default-color;
+}
+
+
+.content {
+    @include responsive-flex;
+    align-items: flex-end;
+    height: fit-content;
+    p {
+        @include default-color;
+        @include normal-content-size;
+        padding: 5px 40px 0px 0px;
+        margin: 0px;
+        flex-grow: 1;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        font-size: 10px;
+    }
+}
+
+.content2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: fit-content;
+    p {
+        @include default-color;
+        @include small-content-size;
+        padding: 5px 40px 0px 0px;
+        margin: 0px;
+        flex-grow: 1;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 10px;
+    }
+    @include respond-below(phone) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        font-size: 10px;
+    }
+}
+
+.cardContainer {
+    box-sizing: border-box;
+    border-radius: 10px;
+    @include box-shadow-default;
+    @include default-border;
+    @include card-container;
+    padding: 15px 15px 20px 15px;
+    width: 650px;
+    max-width: 100%;
+    text-align: left;
+    h6 {
+        @include normal-content-size;
+    }
+    .round {
+        border: 1px solid #03bfcb;
+        border-radius: 50%;
+        padding: 3px;
+        height: 50px;
+        width: 50px;
+        margin: 0px 10px 0px 0px;
+    }
+}
+
+.cardContainer2 {
+    box-sizing: border-box;
+    border-radius: 10px;
+    @include box-shadow-default;
+    @include default-border;
+    @include card-container;
+    padding: 15px 15px 20px 15px;
+    width: 650px;
+    max-width: 100%;
+    text-align: left;
+    h6 {
+        @include normal-content-size;
+    }
+    .round2 {
+        border: 1px solid #03bfcb;
+        border-radius: 50%;
+        padding: 3px;
+        height: 50px;
+        width: 50px;
+        margin: 0px 10px 0px 0px;
+    }
+}
+
+.buttonSend {
+    // align-items: center;
+    // background: #8e4d99;
+    // box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
+    // border-radius: 5px;
+    // height: 30px;
+    // width: 100%;
+    // padding: 0px;
+    // color: #ffffff;
+    // font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    // text-transform: uppercase;
+    // text-decoration: none;
+    // transition: transform 0.3s, box-shadow 0.3s;
+    // will-change: transform;
+    // border-width: 0px;
+    // border-color: #8e4d99;
+
+    // &:hover {
+    //     background: darken(#8e4d99, 10%);
+    //     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+    //     transform: translate3d(0, 0px, 0);
+    // }
+    // &:active {
+    //     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    //     transform: translate3d(0, 1px, 0);
+    // }
+
+    // @include respond-above(desktop) {
+    //     font-size: 12px;
+    //     padding: 0px 30px;
+    // }
+    // @include respond-between(tablet, desktop) {
+    //     font-size: 12px;
+    //     padding: 0px 30px;
+    // }
+    // @include respond-between(phone, tablet) {
+    //     font-size: 12px;
+    //     padding: 0px 20px;
+    // }
+    // @include respond-below(phone) {
+    //     font-size: 10px;
+    //     padding: 0px 20px;
+    // }
+    @include button-full(1, block);
+}
+
+.buttonSend2 {
+    align-items: center;
+    background: #8e4d99;
+    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    padding: 0px;
+    color: #ffffff;
+    font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+    border-width: 0px;
+    border-color: #8e4d99;
+
+    &:hover {
+        background: darken(#8e4d99, 10%);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+        transform: translate3d(0, 0px, 0);
+    }
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, 1px, 0);
+    }
+
+    @include respond-above(desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 12px;
+        padding: 0px 30px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.forumContainer {
+    display: flex;
+
+    .forumCard {
+        margin: 1rem;
+        width: 500px;
+        height: 100px;
+        padding: .5rem 1rem;
+        border-radius: 8px;
+        @include flex-column;
+        @include card-container;
+        @include heading-s;
+
+        justify-content: center;
+        transition: .2s;
+        
+        &:hover {
+        transform: translateY(-3px);
+        }
+    }
+    .tags ul {
+        @include flex;
+        list-style: none;
+        padding-left: 0;
+    }
+    .tags li + li {
+        margin-left: .5rem;
+    }
+    .tags a {
+        @include tag(1);
+    }
+}
+
+.forumContainer2 {
+    display: flex;
+
+    .forumCard2 {
+        margin: 1rem;
+        width: 500px;
+        height: 100px;
+        padding: .5rem 1rem;
+        border-radius: 8px;
+        @include flex-column;
+        @include card-container;
+        @include heading-sm;
+
+        justify-content: center;
+        transition: .2s;
+        
+        &:hover {
+        transform: translateY(-3px);
+        }
+
+    }
+    .tags2 ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding-left: 0;
+        
+    }
+    .tags2 li + li {
+        margin-left: .5rem;
+    }
+    .tags2 a {
+        @include tag(1);
+        // border: 1px solid #edf2f7;
+        // border-radius: 5px;
+        // background-color: #edf2f7;
+        // color: #4a5568;
+        // height: 2rem;
+        // padding: 2px 5px 2px 5px;
+        // text-align: center;
+        // text-decoration: none;
+        // &:hover {
+        // border-color: #ffefcd;
+        // background-color: #ffefcd;
+        // color: #ff8800;
+        // }
+
+        // @include respond-above(desktop) {
+        //     font-size: 12px;
+        // }
+        // @include respond-between(tablet, desktop) {
+        //     font-size: 12px;
+        // }
+        // @include respond-between(phone, tablet) {
+        //     font-size: 10px;
+        // }
+        // @include respond-below(phone) {
+        //     font-size: 8px;
+        // }
+    }
+}
+
+.calendarIcon {
+    color: red;
+}
+
+.message {
+    width: 400px;
+    padding: 10px;
+    background-color: white;
+    
+    .messageLight {
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #eee8fa;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #eee8fa;
+        border-radius: 20px 20px 20px 0px;
+    }
+    .messageDark {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: calc(100% - 240px);
+        padding: 10px;
+        background-color: #8e4d99;
+        color: #ffffff;
+        font-weight: lighter;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #8e4d99;
+        border-radius: 20px 20px 0px 20px;
+    }
+    .messageContent {
+        padding: 0;
+        margin: 0;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.message2 {
+    width: 400px;
+    padding: 10px;
+    background-color:#0d0911;
+    .messageLight2 {
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #36343b;
+        color: whitesmoke;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #36343b;
+        border-radius: 20px 20px 20px 0px;
+    }
+    .messageDark2 {
+        position: relative;
+        margin-bottom: 10px;
+        margin-left: calc(100% - 240px);
+        padding: 10px;
+        background-color: #8e4d99;
+        color: #ffffff;
+        font-weight: lighter;
+        width: 200px;
+        text-align: left;
+        border: 1px solid #8e4d99;
+        border-radius: 20px 20px 0px 20px;
+    }
+    .messageContent2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    @include respond-above(desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: 14px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 12px;
+    }
+    @include respond-below(phone) {
+        font-size: 10px;
+    }
+}
+
+.whatsapp {
+    @include button-custom(wa, block, 50%)
+}

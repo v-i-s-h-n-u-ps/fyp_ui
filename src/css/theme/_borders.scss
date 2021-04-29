@@ -1,0 +1,98 @@
+
+$border-white: 1px solid #ffffff;
+$border-black: 1px solid #000000;
+
+$border-transparent: 1px solid transparent;
+
+$border-light_gray: 1px solid #f7faff;
+$border-cod_gray:1px solid #111111;
+
+$border-facebook: 1px solid #4468b2;
+$border-whatsapp: 1px solid #075e54;
+
+$border-robin_egg_blue: #03bfcb;
+
+$border-input_radio: 1.5px solid #999999;
+$border-catskill_white: 1px solid #E1EAF1;
+$border-mine_shaft: 1px solid #222222;
+
+$border-cerulean: 1px solid #0097e6;
+$border-fruit_salad: 1px solid #50a354;
+$border-chestnut_rose: 1px solid #cf5248;
+$border-affair: 1px solid #8e4d99;
+$border-alizarin: 1px solid #eb1926;
+
+$borders: (
+    light: (
+        default: $border-catskill_white,
+        transparent: $border-transparent,
+        input_radio: $border-input_radio,
+        input_checked: $border-cerulean,
+        input: $border-cod_gray,
+
+        avatar_border: $border-robin_egg_blue,
+
+        button-full: (
+            1: (
+                hollow: $border-cerulean,
+                block: $border-cerulean
+            ),
+            2: (
+                hollow: $border-fruit_salad,
+                block: $border-fruit_salad
+            ),
+            3: (
+                hollow: $border-chestnut_rose,
+                block: $border-chestnut_rose
+            ),
+            4:(
+                hollow: $border-affair,
+                block: $border-affair
+            ),
+            caution: (
+                hollow: $border-alizarin,
+                block: $border-alizarin
+            ),
+            wa: (
+                hollow: $border-whatsapp,
+                block: $border-whatsapp
+            )
+        ),
+    ),
+    dark: (
+        default: $border-mine_shaft,
+        transparent: $border-transparent,
+        input_radio: $border-input_radio,
+        input_checked: $border-cerulean,
+        input: $border-catskill_white,
+        
+        avatar_border: $border-robin_egg_blue,
+
+        button-full: (
+            1: (
+                hollow: $border-cerulean,
+                block: $border-cerulean
+            ),
+            2: (
+                hollow: $border-fruit_salad,
+                block: $border-fruit_salad
+            ),
+            3: (
+                hollow: $border-chestnut_rose,
+                block: $border-chestnut_rose
+            ),
+            4:(
+                hollow: $border-affair,
+                block: $border-affair
+            ),
+            caution: (
+                hollow: $border-alizarin,
+                block: $border-alizarin
+            ),
+            wa: (
+                hollow: $border-whatsapp,
+                block: $border-whatsapp
+            )
+        ),
+    )
+);

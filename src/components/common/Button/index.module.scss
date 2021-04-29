@@ -1,0 +1,86 @@
+@import "../../../css/components/buttons.scss";
+@import "../../../css/layouts/flexBox.scss";
+@import "../../../css/components/texts.scss";
+
+.button {
+    display: block;
+    padding: 0 !important;
+    span {
+        @include flex-center;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 8px 0;
+    overflow: hidden;
+    @include flex-center;
+}
+
+.text {
+    &.withIcon {
+        @include flex;
+        justify-content: space-between;
+        width: 70%;
+    }
+}
+
+.primary {
+    &.block {
+        @include button-full(1, block);
+    }
+    &.hollow {
+        @include button-full(1, hollow);
+    }
+}
+
+.secondary {
+    &.block {
+        @include button-full(2, block);
+    }
+    &.hollow {
+        @include button-full(2, hollow);
+    }
+}
+
+.cancel {
+    &.block {
+        @include button-full(3, block);
+    }
+    &.hollow {
+        @include button-full(3, hollow);
+    }
+}
+
+.cautious {
+    &.block {
+        @include button-full(caution, block);
+    }
+    &.hollow {
+        @include button-full(caution, hollow);
+    }
+}
+
+.message {
+    &.block {
+        @include button-full(4, block);
+    }
+    &.hollow {
+        @include button-full(4, hollow);
+    }
+}
+
+.whatsapp {
+    &.block {
+        @include button-full(wa, block);
+    }
+    &.hollow {
+        @include button-full(wa, hollow);
+    }
+}
+
+.iconStyle {
+    @include heading-lm;
+    font-weight: bold;
+}

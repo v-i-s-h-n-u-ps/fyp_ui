@@ -1,0 +1,96 @@
+@import "../theme/fontSizes";
+@import "../theme/colors";
+@import "../theme/borders";
+@import "../theme/backgrounds";
+@import "../theme/breakpoints";
+@import "../layouts/mediaQueries.scss";
+@import "../theme/boxShadows";
+
+@mixin button($type: 1, $style: block, $variant: button-full) {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+
+            $button-type: map-get($button, $type);
+            $button-background: map-get($button-type, $style);
+            background: $button-background;
+
+            &:hover {
+                background: darken($button-background, 2%);
+                transform: translate3d(0, 0px, 0);
+                letter-spacing: 0.25px;
+            }
+            &:active {
+                transform: translate3d(0, 1px, 0);
+                font-weight: normal;
+                letter-spacing: normal;
+            }
+            &:disabled {
+                background: lighten($button-background, 10%);
+                cursor: not-allowed !important;
+            }
+        }
+    }
+    @each $theme, $map in $box-shadows {
+        :global(.#{$theme}) & {
+            $shadows: map-get($map, desktop);
+            box-shadow: map-get($shadows, button);
+            &:hover {
+                box-shadow: map-get($shadows, button_hover);
+            }
+            &:active {
+                box-shadow: map-get($shadows, button_active);
+            }
+            &:disabled {
+                box-shadow: map-get($shadows, button);
+            }
+        }
+    }
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+            $button-type: map-get($button, $type);
+            $button-color: map-get($button-type, $style);
+            color: $button-color;
+        }
+    }
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            $button: map-get($map, $variant);
+            $button-type: map-get($button, $type);
+            $button-border: map-get($button-type, $style);
+            border: $button-border;
+        }
+    }
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, $variant);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, $variant);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, $variant);
+        width: calc(100%);
+    }
+    font-family: "Muli";
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    will-change: background;
+    // padding: 10px 0;
+    width: calc(100%);
+}
+
+@mixin button-full($type, $style) {
+    @include button($type, $style, $variant: button-full);
+}
+
+@mixin button-custom($type, $style, $width: 25%) {
+    width: $width;
+    @include button($type, $style, $variant: button-full);
+}

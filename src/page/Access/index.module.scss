@@ -1,0 +1,85 @@
+@import "../../css/layouts/container.scss";
+@import "../../css/components/texts.scss";
+@import "../../css/layouts/mediaQueries.scss";
+@import "../../css/layouts/flexBox.scss";
+@import "../../css/layouts/boxShadows.scss";
+@import "../../css/components/animations.scss";
+
+.container {
+    @include full-container;
+    overflow: hidden;
+}
+
+.accessContainer {
+    @include card-background;
+    @include reverse-color;
+    @include responsive-flex;
+    @include respond-above(screen) {
+        width: 68vw;
+    }
+    @include respond-between(desktop, screen) {
+        width: 50vw;
+    }
+    @include respond-between(tablet, desktop) {
+        width: 75vw;
+    }
+    @include respond-between(phone, tablet) {
+        width: 96vw;
+    }
+    @include respond-below(phone) {
+        width: 100vw;
+        @include default-background;
+    }
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.formContainer {
+    flex: 0 0 50%;
+    @include respond-below(phone) {
+        flex: 0 0 100%;
+    }
+    height: 30px;
+    position: relative;
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    @include box-shadow-default;
+    border-radius: 8px;
+    overflow: hidden;
+    @include respond-below(phone) {
+        position: static;
+        transform: none
+    }
+}
+
+.right {
+    left: 20px;
+    @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
+    @include respond-below(phone) {
+        animation: none;
+    }
+}
+
+.left {
+    left: 0px;
+    @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
+    @include respond-below(phone) {
+        animation: none;
+    }
+}
+
+.content {
+    // background-color: green;
+    // @include default-background;
+    @include label-color;
+}
+
+.noMember {
+    @include heading-m;
+
+    @include heading-l-color;
+}

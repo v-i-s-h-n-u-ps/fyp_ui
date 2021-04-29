@@ -3,11 +3,13 @@ import Head from "next/head";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import GlobalPageLoader from "../Loader/PageLoader";
-import GlobalApiToast from "../handlerSuccessError/GlobalApiToast";
+import GlobalPageLoader from "../loader/PageLoader";
+import GlobalApiToast from "../../utils/snackbar/GlobalApiToast";
+import { selectThemePreference } from "../../redux/user/selectors";
+import { SET_THEME, GET_THEME } from "../../utils/services/user";
 
 const Layout = (props) => {
-    const { children } = props;
+    const { children, selectThemePreference } = props;
 
     const [theme, setTheme] = useState('light');
 
@@ -29,13 +31,24 @@ const Layout = (props) => {
                 setTheme(_theme);
                 document.body.setAttribute('class', _theme);
             }
-            themeChange.addEventListener && themeChange.addEventListener('change', (e) => themeChangeFunction(e));
+            themeChange.addEventListener && 
+                themeChange.addEventListener('change', (e) => themeChangeFunction(e));
         }
-
         return (() => {
-            themeChange && themeChange.removeEventListener && themeChange.removeEventListener('change', e => themeChangeFunction(e));
+            themeChange && 
+            themeChange.removeEventListener && 
+            themeChange.removeEventListener('change', e => themeChangeFunction(e));
         })
     }, []);
+
+    useEffect(() => {
+        let _theme = selectThemePreference.theme;
+        if (theme !== _theme) {
+            SET_THEME(_theme);
+            setTheme(_theme);
+            document.body.setAttribute('class', _theme);
+        }
+    }, [selectThemePreference])
 
     return (
         <>
@@ -55,6 +68,7 @@ const Layout = (props) => {
 }
 
 const mapStateToProps = createStructuredSelector({
+    selectThemePreference
 });
 
 const mapDispatchToProps = (dispatch) => {

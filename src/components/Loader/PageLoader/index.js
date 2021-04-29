@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import s from "./PageLoader.module.scss";
 import Router from "next/router";
+
+import s from "./index.module.scss";
 
 const GlobalPageLoader = () => {
 

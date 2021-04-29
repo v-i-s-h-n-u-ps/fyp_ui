@@ -1,0 +1,41 @@
+
+
+@keyframes bounce-left {
+    0% {
+        transform: scale(1.1, 0.9) translate(-100px, -50%);
+    }
+    22% {
+        transform: scale(0.95, 1.05) translate(0, -50%);
+    }
+    38% {
+        transform: scale(1, 1) translate(-7px, -50%);
+    }
+    64% {
+        transform: scale(1, 1) translate(0, -50%);
+    }
+    100% {
+        transform: scale(1, 1) translate(0, -50%);
+    }
+}
+
+@keyframes bounce-right {
+    0% {
+        transform: scale(1.1, 0.9) translate(100px, -50%);
+    }
+    22% {
+        transform: scale(0.95, 1.05) translate(0, -50%);
+    }
+    38% {
+        transform: scale(1, 1) translate(7px, -50%);
+    }
+    64% {
+        transform: scale(1, 1) translate(0, -50%);
+    }
+    100% {
+        transform: scale(1, 1) translate(0, -50%);
+    }
+}
+
+@mixin animation($name, $duration: 1s, $timing-function: ease-in, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: none) {
+    animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
+}

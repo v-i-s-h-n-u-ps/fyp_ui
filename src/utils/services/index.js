@@ -11,7 +11,6 @@ export const api = function (timeout = 10000, baseURL = config.apiUrl) {
     });
 };
 
-
 const GET = async (url, params = {}) => {
     const response = await api().get(url, { params });
     return response;
@@ -22,7 +21,12 @@ const POST = async (url, data, timeout) => {
     return response;
 };
 
-
-/**
- * desc: Hackathon services
- */
+export const signup = data => POST('user/signup/', data);
+export const login = data => POST('user/login/', data);
+export const me = () => GET('user/me');
+export const refresh = data => POST('user/refresh/', data);
+export const logout = data => POST('user/revoke/', data);
+export const activate = data => POST('user/activate', data);
+export const passwordResetRequest = data => GET('user/password-reset-request', data);
+export const passwordReset = data => POST('user/password-reset', data);
+export const passwordChange = data => POST('user/password-change', data);

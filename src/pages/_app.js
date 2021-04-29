@@ -3,11 +3,15 @@ import App from "next/app";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import { get as _get } from "lodash";
+import nextCookie from 'next-cookies';
 import 'lazysizes';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "../css/_main.scss";
 import { config } from "../config";
+import { GET_AUTH } from "../utils/services/auth";
+import { authentication, themePreference } from "../redux/user/actions"
+import { selectThemePreference } from "../redux/user/selectors"
 import createStore from "../redux/configureStore";
 import Layout from "../components/_App/Layout";
 import MidGuard from "../components/_App/MidGuard";
@@ -16,8 +20,17 @@ class MyApp extends App {
 
     static async getInitialProps({ Component, ctx }) {
         const { store, isServer } = ctx;
-        let pageProps = {};
 
+        let token = GET_AUTH({ isServer: isServer || false, ctx: ctx || null });
+
+        store.dispatch(authentication.request({ token, ctx }))
+
+        const { theme } = nextCookie(ctx);
+        if (theme && theme !== selectThemePreference.theme) {
+            store.dispatch(themePreference.set(theme));
+        }
+
+        let pageProps = {};
 
         if (Component.getInitialProps) {
             pageProps = await Component.getInitialProps({ ctx });

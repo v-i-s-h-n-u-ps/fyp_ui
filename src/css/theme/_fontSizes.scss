@@ -1,0 +1,114 @@
+
+$font-size-phone-xl: calc(min(6.4vw, 24px)); // 24
+$font-size-phone-l:calc(min(5.33vw, 20px));  // 20
+$font-size-phone-lm: calc(min(4.8vw, 18px));  // 18
+$font-size-phone-m: calc(min(4.27vw, 16px));  // 16
+$font-size-phone-sm: calc(min(3.73vw, 14px)); // 14
+$font-size-phone-xs: calc(min(3.01vw, 12px)); // 12
+$font-size-phone-xxs: calc(min(2.65vw, 10px)); // 10
+
+$font-size-tablet-xl: calc(min(3.39vw, 26px)); // 26
+$font-size-tablet-l: calc(min(2.73vw, 21px)); // 21
+$font-size-tablet-lm: calc(min(2.34vw, 18px)); // 18
+$font-size-tablet-m: calc(min(2.08vw, 16px)); // 16
+$font-size-tablet-sm: calc(min(1.82vw, 14px)); // 14
+$font-size-tablet-xs: calc(min(1.56vw, 12px)); // 12
+$font-size-tablet-xxs: calc(max(1vw, 10px)); // 10
+
+$font-size-desktop-xl: calc(min(2.23vw, 32px)); // 32
+$font-size-desktop-l: calc(min(1.8vw, 26px)); // 26
+$font-size-desktop-lm: calc(min(1.67vw, 24px)); // 24
+$font-size-desktop-m: calc(min(1.39vw, 20px)); // 20
+$font-size-desktop-sm: calc(min(1.11vw, 14px)); // 16
+$font-size-desktop-s: calc(min(0.97vw, 13px)); // 14
+$font-size-desktop-xs: calc(min(0.83vw, 12px)); // 12
+$font-size-desktop-xxs: calc(max(0.7vw, 10px)); // 10
+
+$font-size-screen-xl: calc(min(1.7vw, 32px)); // 32
+$font-size-screen-l: calc(min(1.4vw, 26px)); // 26
+$font-size-screen-lm: calc(min(1.22vw, 24px)); // 24
+$font-size-screen-m: calc(min(1.02vw, 20px)); // 20
+$font-size-screen-sm: calc(min(0.81vw, 16px)); // 16
+$font-size-screen-s: calc(min(0.7vw, 14px)); // 14
+$font-size-screen-xs: calc(min(0.67vw, 12px)); // 1
+$font-size-screen-xxs: calc(max(0.53vw, 10px)); // 102
+
+
+$font-sizes: (
+    phone: (
+        heading-l: $font-size-phone-xl,
+        heading-m: $font-size-phone-m,
+        heading-lm: $font-size-phone-lm,
+        heading-sm: $font-size-phone-sm,
+        heading-s: $font-size-phone-xs,
+
+        subText-l: $font-size-phone-m,
+        subText-s: $font-size-phone-xs,
+
+        button-full: $font-size-phone-sm,
+
+        header: $font-size-phone-lm,
+        topnav: $font-size-phone-lm,
+        sidenav: $font-size-phone-lm,
+        bottomnav: $font-size-phone-lm,
+        footer: $font-size-phone-lm,
+        tag: $font-size-phone-xxs
+    ),
+    tablet: (
+        heading-l: $font-size-tablet-xl,
+        heading-m: $font-size-tablet-m,
+        heading-lm: $font-size-tablet-lm,
+        heading-sm: $font-size-tablet-sm,
+        heading-s: $font-size-tablet-xs,
+
+        button-full: $font-size-tablet-sm,
+
+        subText-l: $font-size-tablet-m,
+        subText-s: $font-size-tablet-xs,
+
+        header: $font-size-tablet-l,
+        topnav: $font-size-tablet-sm,
+        sidenav: $font-size-tablet-sm,
+        bottomnav: $font-size-tablet-sm,
+        footer: $font-size-tablet-sm,
+        tag: $font-size-tablet-xxs
+    ),
+    desktop: (
+        heading-l: $font-size-desktop-xl,
+        heading-m: $font-size-desktop-m,
+        heading-lm: $font-size-desktop-lm,
+        heading-sm: $font-size-desktop-sm,
+        heading-s: $font-size-desktop-s,
+
+        button-full: $font-size-desktop-sm,
+
+        subText-l: $font-size-desktop-sm,
+        subText-s: $font-size-desktop-xs,
+
+        header: $font-size-desktop-l,
+        topnav: $font-size-desktop-s,
+        sidenav: $font-size-desktop-s,
+        bottomnav: $font-size-desktop-s,
+        footer: $font-size-desktop-s,
+        tag: $font-size-desktop-xxs
+    ),
+    screen: (
+        heading-l: $font-size-screen-xl,
+        heading-m: $font-size-screen-m,
+        heading-lm: $font-size-screen-lm,
+        heading-sm: $font-size-screen-sm,
+        heading-s: $font-size-screen-s,
+
+        button-full: $font-size-screen-sm,
+
+        subText-l: $font-size-screen-sm,
+        subText-s: $font-size-screen-xs,
+
+        header: $font-size-screen-l,
+        topnav: $font-size-screen-s,
+        sidenav: $font-size-screen-s,
+        bottomnav: $font-size-screen-s,
+        footer: $font-size-screen-s,
+        tag: $font-size-screen-xxs
+    ),
+)

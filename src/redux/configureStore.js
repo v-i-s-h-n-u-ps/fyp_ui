@@ -3,19 +3,21 @@ import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 
+import { refreshMiddleWare } from "./middlewares";
 import rootReducer from "./rootReducer";
 import rootSaga from "./rootSaga";
 
 function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
-  let middlewares = [sagaMiddleware];
-  // middlewares = [...middlewares, logger];
-  const middlewareEnhancer = applyMiddleware(...middlewares);
+  let middleware = [refreshMiddleWare, sagaMiddleware];
+  // middleware = [...middleware, logger];
+  const middlewareEnhancer = applyMiddleware(...middleware);
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = composeWithDevTools(...enhancers);
 
   const logoutResetEnhancer = rootReducer => (state, action) => {
-    if (action.type !== "LOGOUT_SUCCESS") return rootReducer(state, action);
+    if (action.type !== "LOGOUT_SUCCESS") 
+      return rootReducer(state, action);
     const newState = rootReducer(undefined, {});
     return newState;
   };

@@ -59,7 +59,7 @@
 .icon-bell:before {
   content: "\e948";
 }
-.icon-calendar_filled:before {
+.icon-calendar:before {
   content: "\e949";
 }
 .icon-certificate:before {
@@ -153,4 +153,13 @@
 }
 .icon-likes_outline:before {
   content: "\e901";
+}
+.icon-eye_off:before {
+  content: "\e905";
+}
+.icon-eye:before {
+  content: "\e904";
+}
+.icon-chats:before {
+  content: "\f086";
 }

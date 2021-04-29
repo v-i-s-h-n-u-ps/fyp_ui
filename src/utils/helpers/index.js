@@ -1,5 +1,5 @@
 import React from "react";
-import { get as _get } from "lodash";
+import _get from "lodash/get";
 
 export const trimNestedObject = values =>
     Object.keys(values).reduce((res, key) => {
@@ -56,7 +56,7 @@ export const getDialAndCountryCode = val => {
     return { dialCode, countryCode };
 };
 
-export const showFormikErrorCommunity = (props, val, successMsg = null) => {
+export const showFormHelperText = (props, val, successMsg = null) => {
     const error = _get(props, `errors.${val}`)
     const touched = _get(props, `touched.${val}`)
     return touched && error ?

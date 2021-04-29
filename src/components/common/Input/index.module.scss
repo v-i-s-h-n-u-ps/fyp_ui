@@ -1,0 +1,161 @@
+@import "../../../css/components/texts.scss";
+@import "../../../css/layouts/container.scss";
+@import "../../../css/layouts/flexBox.scss";
+@import "../../../css/layouts/mediaQueries.scss";
+@import "../../../css/theme/fontSizes";
+
+.inputArea {
+    position: relative;
+    will-change: border-width;
+    padding: 10px 2px 3px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    @include default-background;
+    @include respond-above(tablet) {
+        font-size: $font-size-desktop-s;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: $font-size-tablet-sm;
+    }
+    @include respond-below(phone) {
+        font-size: $font-size-phone-xs;
+    }
+    &:read-only {
+        border-width: 0px;
+    }
+    @include input-border-bottom;
+    input[type="password"],
+    input[type="text"],
+    input[type="number"],
+    select {
+        cursor: text;
+        overflow: hidden;
+        @include subtext-color;
+        @include default-background;
+        &:read-only {
+            @include read-only-color;
+        }
+        width: 100%;
+        @include respond-above(tablet) {
+            font-size: $font-size-desktop-s;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: $font-size-tablet-sm;
+        }
+        @include respond-below(phone) {
+            font-size: $font-size-phone-xs;
+        }
+    }
+}
+
+.editIcon {
+    position: absolute;
+    cursor: pointer;
+    right: 2px;
+    bottom: 3px;
+    @include flex-center;
+    @include flex-center;
+    @include subtext-color;
+    @include respond-above(tablet) {
+        font-size: $font-size-desktop-xs;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: $font-size-tablet-xs;
+    }
+    @include respond-below(phone) {
+        font-size: $font-size-phone-xxs;
+    }
+}
+
+.label {
+    display: inline-block;
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    transition: all 0.25s ease-in-out;
+    will-change: top, color;
+    cursor: text;
+    letter-spacing: 0.4px;
+    padding: 0 8px;
+    background: transparent;
+    @include default-color;
+    @include respond-above(screen) {
+        font-size: $font-size-screen-sm;
+    }
+    @include respond-between(desktop, screen) {
+        font-size: $font-size-desktop-s;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: $font-size-desktop-sm;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: $font-size-tablet-m;
+    }
+    @include respond-below(phone) {
+        font-size: $font-size-phone-sm;
+        top: 5px;
+    }
+    &.active {
+        transform: translate(8px, -22px);
+        @include label-color;
+        @include default-background;
+        padding: 0 2px;
+
+        @include respond-above(screen) {
+            font-size: $font-size-screen-s;
+            transform: translate(8px, -32px);
+        }
+        @include respond-above(desktop) {
+            font-size: $font-size-desktop-s;
+        }
+        @include respond-between(tablet, desktop) {
+            font-size: $font-size-desktop-sm;
+        }
+        @include respond-between(phone, tablet) {
+            font-size: $font-size-tablet-sm;
+        }
+        @include respond-below(phone) {
+            font-size: $font-size-phone-sm;
+        }
+        font-weight: 500;
+    }
+}
+
+.error {
+    border-color: $color-alizarin !important;
+    color: $color-alizarin !important;
+}
+
+.floatingLabel {
+    @include default-background;
+    @include default-color;
+    @include normal-content-size;
+    border: none;
+    letter-spacing: 0.24px;
+}
+
+.helper, .error {
+    @include normal-content-size;
+}
+
+.helper {
+    @include subText-l-color;
+}
+
+.input {
+    margin-bottom: 8px;
+}
+
+.userInput {
+    @include flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.icon {
+    width: 20px;
+    @include flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}

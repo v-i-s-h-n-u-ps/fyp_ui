@@ -1,0 +1,59 @@
+@import "../theme/fontSizes";
+@import "../theme/colors";
+@import "../theme/backgrounds";
+@import "../theme/breakpoints";
+@import "../layouts/mediaQueries.scss";
+
+@mixin tag($type: 1) {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            $tag-type: map-get($map, tag);
+            $tag-background: map-get($tag-type, $type);
+            background: $tag-background;
+            
+            $tag-hover: map-get($tag-type, hover);
+            $tag-hover-background: map-get($tag-hover, $type);
+
+            &:hover {
+                background: $tag-hover-background;
+            }
+        }
+    }
+
+    @each $theme, $map in $colors {
+        :global(.#{$theme}) & {
+            $tag-type: map-get($map, tag);
+            $tag-color: map-get($tag-type, $type);
+            color: $tag-color;
+            
+            $tag-hover: map-get($tag-type, hover);
+            $tag-hover-color: map-get($tag-hover, $type);
+
+            &:hover {
+                color: $tag-hover-color;
+            }
+        }
+    }
+
+    @include respond-above(tablet) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, tag);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, tag);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, tag);
+    }
+    font-family: "Muli";
+    text-transform: capitalize;
+    font-weight: bold;
+    letter-spacing: 0.4\px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    will-change: background, color;
+    padding: 2px 5px;
+}
