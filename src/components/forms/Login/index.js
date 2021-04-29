@@ -44,6 +44,7 @@ const Login = props => {
         }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
+              <h3 className={s.subHead}>LOG IN</h3><br></br>
               <Input
                 label="Email"
                 name="email"
@@ -71,8 +72,9 @@ const Login = props => {
                 onSecondaryAction={() => setShowPassword(!showPassword)}
               />
               <div className={s.flexCenter}>
+                <p className={s.forgotPassword}>Forgot Password?</p>
                 <Button
-                  type="whatsapp"
+                  type="message"
                   variant="block"
                   buttonType="submit"
                   text="Login"

@@ -5,14 +5,14 @@
 .container {
     margin: auto;
     display: block;
-    border-radius: 8px;
-    padding: 35px 15px;
+    border-radius: 3px;
+    padding: 45px 30px;
+    height: 45vh;
     @include default-background;
     @include default-border;
     @include respond-above(desktop) {
         width: 26vw;
         max-width: 1200px;
-
     }
     @include respond-between(tablet, desktop) {
         width: 33vw;
@@ -31,8 +31,18 @@
     width: 100%;
 }
 
+.subHead {
+    color: #8e4d99;
+}
+
 .flexCenter {
-    @include flex-center;
+    @include flex;
+    margin-top: 30px;
+}
+
+.forgotPassword {
+    padding-right: 48px;
+    padding-top: 10px;
 }
 
 .iconOn, .iconOff {
@@ -41,7 +51,7 @@
 }
 
 .iconOff {
-    color: darkcyan
+    color: rgb(167, 167, 167);
 }
 
 .iconOn {
@@ -50,5 +60,5 @@
 
 .userIcon {
     font-size: 20px;
-    color: darkcyan;
+    color: rgb(167, 167, 167);
 }
