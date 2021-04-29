@@ -3,10 +3,10 @@ import Head from "next/head";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import GlobalPageLoader from "../loader/PageLoader";
-import GlobalApiToast from "../../utils/snackbar/GlobalApiToast";
 import { selectThemePreference } from "../../redux/user/selectors";
 import { SET_THEME, GET_THEME } from "../../utils/services/user";
+import PageLoader from "../loader/PageLoader";
+import GlobalApiToast from "../../utils/snackbar/GlobalApiToast";
 
 const Layout = (props) => {
     const { children, selectThemePreference } = props;
@@ -60,7 +60,7 @@ const Layout = (props) => {
                 <meta name="google" content="notranslate" />
                 <link rel="preload" href={"/fonts/icomoon.woff"} as="font" type="font/woff" crossOrigin="anonymous" />
             </Head>
-            <GlobalPageLoader />
+            <PageLoader />
             <GlobalApiToast />
             {children}
         </>
