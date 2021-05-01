@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 
 import s from "./index.module.scss";
-import Signup from "../../components/forms/Signup";
-import Login from "../../components/forms/Login";
-import Button from "../../components/common/Button";
+import Signup from "@forms/Signup";
+import Login from "@forms/Login";
+import Button from "@common/Button";
 
 const Access = props => {
 

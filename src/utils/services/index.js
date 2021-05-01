@@ -1,7 +1,7 @@
 import axios from "axios";
 import { get as _get } from "lodash";
 
-import { config } from "../../config";
+import { config } from "@config";
 
 export const api = function (timeout = 10000, baseURL = config.apiUrl) {
     return axios.create({

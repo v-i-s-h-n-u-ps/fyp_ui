@@ -8,13 +8,13 @@ import 'lazysizes';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "../css/_main.scss";
-import { config } from "../config";
-import { GET_AUTH } from "../utils/services/auth";
-import { authentication, themePreference } from "../redux/user/actions"
-import { selectThemePreference } from "../redux/user/selectors"
-import createStore from "../redux/configureStore";
-import Layout from "../components/_App/Layout";
-import MidGuard from "../components/_App/MidGuard";
+import { config } from "@config";
+import { GET_AUTH } from "@services/auth";
+import { authentication, themePreference } from "@redux/user/actions"
+import { selectThemePreference } from "@redux/user/selectors"
+import createStore from "@redux/configureStore";
+import Layout from "@components/_App/Layout";
+import MidGuard from "@components/_App/MidGuard";
 
 class MyApp extends App {
 

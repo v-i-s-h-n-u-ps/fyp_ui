@@ -1,11 +1,16 @@
 import React from "react";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
 
 import withReduxSaga from "../../src";
-import Access from "@screens/Access";
+import ForgotPassword from "@screens/ForgotPassword";
 
-const AccessPage = (props) => <Access {...props} />
 
-AccessPage.getInitialProps = async (props) => {
+const ForgotPasswordPage = (props) => {
+    return <ForgotPassword {...props} />
+};
+
+ForgotPasswordPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -17,4 +22,4 @@ AccessPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(AccessPage);
+export default withReduxSaga(ForgotPasswordPage);

@@ -1,8 +1,8 @@
 import React from "react";
 
 import s from "./index.module.scss";
-import ActivityIndicator from "../../loaders/ActivityIndicator";
-import Ripple from "../../_hoc/Ripple";
+import ActivityIndicator from "@components/loaders/ActivityIndicator";
+import Ripple from "@hoc/Ripple";
 
 // include values: primary, secondary, cancel, cautious, message, whatsapp
 

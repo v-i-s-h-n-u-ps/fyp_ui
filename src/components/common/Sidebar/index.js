@@ -6,12 +6,12 @@ import Router from "next/router";
 import _omit from "lodash/omit";
 
 import s from "./index.module.scss";
-import { ROOT } from "../../../utils/constants/routes";
-import { sidebarLinks, otherLinks } from "../../../utils/constants/links";
+import { ROOT } from "@constants/routes";
+import { sidebarLinks, otherLinks } from "@constants/links";
 import {
   selectThemePreference
-} from "../../../redux/user/selectors";
-import { themePreference, logout } from "../../../redux/user/actions";
+} from "@edux/user/selectors";
+import { themePreference, logout } from "@redux/user/actions";
 
 const Sidebar = (props) => {
   const {

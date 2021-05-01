@@ -5,11 +5,11 @@ import _omit from "lodash/omit";
 import { createStructuredSelector } from "reselect";
 
 import s from "./index.module.scss";
-import { selectIsFormSubmitting } from "../../../redux/user/selectors";
-import { signup } from "../../../redux/user/actions";
-import { SIGNUP_VALIDATION } from "../../../utils/helpers/schemas.js";
-import Button from "../../common/Button";
-import Input from "../../common/Input";
+import { selectIsFormSubmitting } from "@redux/user/selectors";
+import { signup } from "@redux/user/actions";
+import { SIGNUP_VALIDATION } from "@utils/helpers/schemas";
+import Button from "@common/Button";
+import Input from "@common/Input";
 
 const init = {
   name: "",

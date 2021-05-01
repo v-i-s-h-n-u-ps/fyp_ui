@@ -3,10 +3,10 @@ import Head from "next/head";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import { selectThemePreference } from "../../redux/user/selectors";
-import { SET_THEME, GET_THEME } from "../../utils/services/user";
-import PageLoader from "../loaders/PageLoader";
-import GlobalApiToast from "../../utils/snackbar/GlobalApiToast";
+import { selectThemePreference } from "@redux/user/selectors";
+import { SET_THEME, GET_THEME } from "@services/user";
+import PageLoader from "@components/loaders/PageLoader";
+import GlobalApiToast from "@utils/snackbar/GlobalApiToast";
 
 const Layout = (props) => {
     const { children, selectThemePreference } = props;

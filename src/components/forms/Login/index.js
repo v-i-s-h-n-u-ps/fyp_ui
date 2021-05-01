@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
-import { login, authentication } from "../../../redux/user/actions";
-import { selectIsFormSubmitting } from "../../../redux/user/selectors";
-import { LOGIN_VALIDATION } from "../../../utils/helpers/schemas.js";
-import Button from "../../common/Button";
-import Input from "../../common/Input";
+import { login, authentication } from "@redux/user/actions";
+import { selectIsFormSubmitting } from "@redux/user/selectors";
+import { LOGIN_VALIDATION } from "@helpers/schemas";
+import { FORGOT_PASSWORD } from "@constants/routes";
+import Button from "@common/Button";
+import Input from "@common/Input";
 
 const init = {
   email: "",
@@ -20,6 +22,8 @@ const Login = props => {
   const { d__login, selectIsFormSubmitting } = props
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const onSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
@@ -72,7 +76,12 @@ const Login = props => {
                 onSecondaryAction={() => setShowPassword(!showPassword)}
               />
               <div className={s.flexCenter}>
-                <p className={s.forgotPassword}>Forgot Password?</p>
+                <p
+                  className={s.forgotPassword}
+                  onClick={() => router.push(FORGOT_PASSWORD)}
+                >
+                  Forgot Password?
+                </p>
                 <Button
                   type="message"
                   variant="block"

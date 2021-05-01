@@ -1,6 +1,6 @@
 import cookie from 'js-cookie'
 import { THEME, LOCALE } from "../constants";
-import { config } from "../../config";
+import { config } from "@config";
 
 export const SET_THEME = theme => cookie.set(THEME, theme, { domain: config["domain"] || "" });
 export const GET_THEME = () => cookie.get(THEME);

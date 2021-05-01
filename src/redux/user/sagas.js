@@ -6,7 +6,7 @@ import cookie from 'js-cookie'
 import Router from "next/router";
 
 import { config } from "../../config";
-import { REQUEST, SUCCESS } from "../actionCreator";
+import { REQUEST, SUCCESS, FAILURE } from "../actionCreator";
 import { sendPayload, sendPayloadFailure, isSuccess } from "../_helpers/helperSaga";
 import {
   ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
@@ -17,11 +17,10 @@ import {
 import {
   selectUserInfo
 } from "./selectors";
-import { REMOVE_AUTH, SET_AUTH } from "../../utils/services/auth";
+import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
-  api,
   login, signup, me
-} from "../../utils/services/index"
+} from "@services"
 
 function* handleLogoutUser() {
   try {
@@ -66,12 +65,13 @@ function* handleAuth({ data }) {
       }
       const user = yield select(selectUserInfo);
       if (_isEmpty(user) || !user) {
-        yield put({ type: ME[REQUEST] })
+        yield put({ type: ME[REQUEST] });
       }
+      yield put({ type: AUTHENTICATE[SUCCESS] });
     } else {
-      REMOVE_AUTH()
+      REMOVE_AUTH();
+      yield put({ type: AUTHENTICATE[FAILURE] });
     }
-    yield put({ type: AUTHENTICATE[SUCCESS] });
   } catch (e) {
     yield sendPayloadFailure(e, AUTHENTICATE);
   }
