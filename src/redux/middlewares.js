@@ -34,7 +34,7 @@ const refreshMiddleware = () => {
             return;
         } else if (action.type === 'REFRESH_FAILURE') {
             next(action);
-            next(logout.request());
+            next(logout.request())
             while (postponedCalls.length) {
                 postponedCalls.pop();
             }
