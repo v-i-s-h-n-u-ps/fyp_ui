@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
-import { login, authentication } from "@redux/user/actions";
+import { login } from "@redux/user/actions";
 import { selectIsFormSubmitting } from "@redux/user/selectors";
 import { LOGIN_VALIDATION } from "@helpers/schemas";
 import { FORGOT_PASSWORD } from "@constants/routes";
@@ -19,7 +19,7 @@ const init = {
 
 const Login = props => {
 
-  const { d__login, selectIsFormSubmitting } = props
+  const { d__login, selectIsFormSubmitting, setEmail } = props
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -27,6 +27,7 @@ const Login = props => {
 
   const onSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
+    setEmail(values.email)
     d__login({ ...values });
   }
 

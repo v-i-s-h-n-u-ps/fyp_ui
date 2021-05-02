@@ -4,7 +4,7 @@ import s from "./index.module.scss";
 import ActivityIndicator from "@components/loaders/ActivityIndicator";
 import Ripple from "@hoc/Ripple";
 
-// include values: primary, secondary, cancel, cautious, message, whatsapp
+// include values: primary, secondary, cancel, cautious, message, whatsapp, grey
 
 const IndicatorMap = (type, variant) => {
     if (variant === 'block') {
@@ -75,7 +75,6 @@ const Button = props => {
                 @media screen and (max-width: 640px) {
                     .button {
                         width: calc(${width} - 16px);
-                        margin: 3px auto;
                     }
                 }
             `}</style>

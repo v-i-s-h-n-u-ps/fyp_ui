@@ -2,45 +2,19 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@constants/*": [
-                "./src/utils/constants/*"
-            ],
-            "@helpers/*": [
-                "./src/utils/helpers/*"
-            ],
-            "@services/*": [
-                "./src/utils/services/*"
-            ],
-            "@utils/*": [
-                "./src/utils/*"
-            ],
-            "@hoc/*": [
-                "./src/components/_hoc/*"
-            ],
-            "@common/*": [
-                "./src/components/common/*"
-            ],
-            "@forms/*": [
-                "./src/components/forms/*"
-            ],
-            "@components/*": [
-                "./src/components/*"
-            ],
-            "@screens/*": [
-                "./src/page/*"
-            ],
-            "@redux/*": [
-                "./src/redux/*"
-            ],
-            "@css/*": [
-                "./src/css/*"
-            ],
-            "@hooks/*": [
-                "./src/hooks/*"
-            ],
-            "@config/*": [
-                "./src/config/*"
-            ]
+            "@constants/*": ["./src/utils/constants/*"],
+            "@helpers/*": ["./src/utils/helpers/*"],
+            "@services/*": ["./src/utils/services/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@hoc/*": ["./src/components/_hoc/*"],
+            "@common/*": ["./src/components/common/*"],
+            "@forms/*": ["./src/components/forms/*"],
+            "@components/*": ["./src/components/*"],
+            "@screens/*": ["./src/page/*"],
+            "@redux/*": ["./src/redux/*"],
+            "@css/*": ["./src/css/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@config/*": ["./src/config/*"]
         }
     }
 }

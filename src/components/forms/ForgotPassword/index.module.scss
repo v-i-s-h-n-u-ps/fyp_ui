@@ -1,0 +1,29 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.form {
+    padding-top: 25px;
+    margin: auto;
+    @include respond-above(tablet) {
+        max-width: 300px;
+    }
+    width: 100%;
+}
+
+.subHead {
+    color: #8e4d99;
+}
+
+.flexCenter {
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    @include respond-below(phone) {
+        flex-direction: column-reverse;
+        gap: 10px
+    }
+    
+}

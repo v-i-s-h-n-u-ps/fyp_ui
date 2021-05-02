@@ -1,8 +1,8 @@
-import { FAILURE } from "../../redux/actionCreator";
-import { LOGIN, SIGNUP, VERIFY_OTP } from "../../redux/user/types";
+import { FAILURE } from "@redux/actionCreator";
+import { LOGIN, SIGNUP, ACTIVATE } from "@redux/user/types";
 
 const GLOBAL_API_FAILURE_CONFIG = [
-    VERIFY_OTP[FAILURE],
+    ACTIVATE[FAILURE],
     SIGNUP[FAILURE],
     LOGIN[FAILURE],
 ];

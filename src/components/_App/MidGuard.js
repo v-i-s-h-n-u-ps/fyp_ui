@@ -11,15 +11,7 @@ const MidGuard = (props) => {
     const Router = useRouter();
 
     const { selectIsAuth, isServer } = props;
-
-    useEffect(() => {
-        if(!selectIsAuth && PRIVATE_ROUTES.includes(Router.pathname)) {
-            Router.push(ROOT);
-        } else if(PUBLIC_ROUTES.includes(Router.pathname) && selectIsAuth) {
-            Router.push(DASHBOARD);
-        }
-    }, [Router.pathname, selectIsAuth])
-
+    
     return (
         <>
             {props.children}

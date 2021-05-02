@@ -20,10 +20,11 @@ const init = {
 
 const Signup = props => {
 
-  const { d__signup, selectIsFormSubmitting } = props
+  const { d__signup, selectIsFormSubmitting, setEmail, email } = props
 
   const submit = (values, { setSubmitting }) => {
     setSubmitting(false);
+    !!setEmail && setEmail(values.email)
     d__signup({
       role: 'student',
       ..._omit(values, ['confirm']),

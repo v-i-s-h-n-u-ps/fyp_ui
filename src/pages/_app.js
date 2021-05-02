@@ -22,8 +22,9 @@ class MyApp extends App {
         const { store, isServer } = ctx;
 
         let token = GET_AUTH({ isServer: isServer || false, ctx: ctx || null });
+        const { loginTime } = nextCookie(ctx)
 
-        store.dispatch(authentication.request({ token, ctx }))
+        store.dispatch(authentication.request({ token, ctx, loginTime }))
 
         const { theme } = nextCookie(ctx);
         if (theme && theme !== selectThemePreference.theme) {

@@ -14,13 +14,12 @@ export function* sendPayload(apiResponse, event) {
         payload: apiResponse.data
             ? isSuccess(apiResponse)
                 ? apiResponse.data.data
-                : apiResponse.data.error
+                : apiResponse.data
             : {}
     });
 }
 
 export function* sendPayloadFailure(error, event) {
-    console.log(error)
     if (error.response) {
         yield put({
             type: event[FAILURE],
