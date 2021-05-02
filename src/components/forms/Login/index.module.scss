@@ -59,18 +59,17 @@
 
 .iconOn, .iconOff {
     @include heading-m;
-    font-weight: bold;
 }
 
 .iconOff {
-    color: rgb(167, 167, 167);
-}
-
-.iconOn {
     @include subtext-color;
 }
 
+.iconOn {
+    color: indianred;
+}
+
 .userIcon {
-    font-size: 20px;
-    color: rgb(167, 167, 167);
+    @include heading-m;
+    color: #0097e6;
 }

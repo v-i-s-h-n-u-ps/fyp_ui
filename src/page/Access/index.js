@@ -16,7 +16,7 @@ const Access = props => {
   return (
     <div className={s.container}>
       {selectIsOtpSent
-        ? <Otp email={email}/>
+        ? <Otp email={email} />
         : (
           <div className={s.accessContainer}>
             <div className={s.formContainer}>
@@ -37,7 +37,6 @@ const Access = props => {
                 </p>
                     <br></br>
                     <div>
-
                       <Button
                         text={'Login'}
                         onClick={() => setActive("login")}
@@ -59,6 +58,13 @@ const Access = props => {
                 : (
                   <div className={s.content}>
                     <h3 className={s.noMember}>Not a member?</h3>
+                    <p>
+                      Join us today!
+                </p>
+                    <p>
+                      Create projects, form collaborations and have fun.
+                </p>
+                    <br></br>
                     <div>
                       <Button
                         text={'Signup'}

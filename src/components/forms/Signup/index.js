@@ -58,6 +58,8 @@ const Signup = props => {
                   error={errors.name && touched.name}
                   helperText={errors.name && touched.name ? errors.name : ''}
                   autoFocus={true}
+                  showEdit={true}
+                  secondaryText={<i className={`icon-user_outline ${s.icon} ${s.user}`} />}
                 />
                 <Input
                   label="Email"
@@ -66,6 +68,8 @@ const Signup = props => {
                   value={values.email}
                   error={errors.email && touched.email}
                   helperText={errors.email && touched.email ? errors.email : ''}
+                  showEdit={true}
+                  secondaryText={<i className={`icon-mail ${s.icon} ${s.mail}`} />}
                 />
                 <Input
                   label="Password"
@@ -75,6 +79,8 @@ const Signup = props => {
                   type="password"
                   error={errors.password && touched.password}
                   helperText={errors.password && touched.password ? errors.password : ''}
+                  showEdit={true}
+                  secondaryText={<i className={`icon-lock ${s.icon} ${s.password}`} />}
                 />
                 <Input
                   label="Confirm Password"
@@ -83,6 +89,8 @@ const Signup = props => {
                   value={values.confirm}
                   error={errors.confirm && touched.confirm}
                   helperText={errors.confirm && touched.confirm ? errors.confirm : ''}
+                  showEdit={true}
+                  secondaryText={<i className={`icon-check_circle ${s.icon} ${(values.password === values.confirm && !!values.password) ? s.confirm : ""}`} />}
                 />
               </div>
               <div className={s.flexCenter}>
