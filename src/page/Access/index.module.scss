@@ -93,9 +93,11 @@
     padding-left: 30px;
     h3 {
         @include heading-lm;
+        @include subText-l-color;
     }
     p {
         @include normal-content-size;
+        @include subText-l-color;
     }
     button {
         width: 100px !important;

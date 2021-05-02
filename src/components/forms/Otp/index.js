@@ -139,6 +139,7 @@ const OTP = props => {
             <div className={`${s.buttonContainer}`}>
                 <Button
                     text="Verify"
+                    type={"message"}
                     onClick={onSubmit}
                     disabled={otp.length !== 6 || selectIsFormSubmitting}
                     loading={selectIsFormSubmitting}

@@ -83,9 +83,9 @@ function* handleAuthentication({ data }) {
         }
       }
       const user = yield select(selectUserInfo);
-      if (_isEmpty(user) || !user) {
+      // if (_isEmpty(user) || !user) {
         yield put({ type: ME[REQUEST] });
-      }
+      // }
       yield put({ type: AUTHENTICATE[SUCCESS], payload: { ...token, time: loginTime } });
     } else {
       REMOVE_AUTH();

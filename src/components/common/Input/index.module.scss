@@ -76,7 +76,7 @@
     position: absolute;
     left: -6px;
     top: 10px;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.4s ease-in-out;
     will-change: top, color;
     cursor: text;
     letter-spacing: 0.4px;
@@ -136,9 +136,26 @@
     @include normal-content-size;
     border: none;
     letter-spacing: 0.24px;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        @each $theme, $map in $backgrounds {
+            :global(.#{$theme}) & {
+                $background: map-get($map, highlight);
+                box-shadow: 0 0 0px 1000px $background inset !important;
+            }
+        }
+        @each $theme, $map in $colors {
+            :global(.#{$theme}) & {
+                -webkit-text-fill-color: map-get($map, default) !important;
+            }
+        }
+    }
 }
 
-.helper, .error {
+.helper,
+.error {
     @include normal-content-size;
 }
 

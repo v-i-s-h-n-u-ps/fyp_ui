@@ -58,12 +58,8 @@ const Access = props => {
                 : (
                   <div className={s.content}>
                     <h3 className={s.noMember}>Not a member?</h3>
-                    <p>
-                      Join us today!
-                </p>
-                    <p>
-                      Create projects, form collaborations and have fun.
-                </p>
+                    <p>Join us today!</p>
+                    <p>Create projects, form collaborations and have fun.</p>
                     <br></br>
                     <div>
                       <Button
