@@ -1,18 +1,16 @@
-@import "../../../css/layouts/flexBox.scss";
-@import "../../../css/layouts/container.scss";
-@import "../../../css/components/texts.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
 
 .container {
     margin: auto;
     display: block;
-    border-radius: 8px;
-    padding: 35px 15px;
+    border-radius: 3px;
+    padding: 45px 30px;
     @include default-background;
-    @include default-border;
     @include respond-above(desktop) {
         width: 26vw;
         max-width: 1200px;
-
     }
     @include respond-between(tablet, desktop) {
         width: 33vw;
@@ -31,24 +29,47 @@
     width: 100%;
 }
 
+.subHead {
+    color: #8e4d99;
+}
+
 .flexCenter {
-    @include flex-center;
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+    @include respond-below(phone) {
+        flex-direction: column-reverse;
+        gap: 10px
+    }
+    
+}
+
+.forgotPassword {
+    @include heading-sm;
+    min-width: 50%;
+    cursor: pointer;
 }
 
 .iconOn, .iconOff {
     @include heading-m;
-    font-weight: bold;
 }
 
 .iconOff {
-    color: darkcyan
-}
-
-.iconOn {
     @include subtext-color;
 }
 
+.iconOn {
+    color: indianred;
+}
+
 .userIcon {
-    font-size: 20px;
-    color: darkcyan;
+    @include heading-m;
+    color: #0097e6;
 }

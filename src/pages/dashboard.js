@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../src";
-import Dashboard from "../page/Dashboard";
+import Dashboard from "@screens/Dashboard";
 
 const DashboardPage = (props) => {
     return <Dashboard {...props} />

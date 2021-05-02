@@ -1,53 +1,81 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 
 import s from "./index.module.scss";
-import Signup from "../../components/forms/Signup";
-import Login from "../../components/forms/Login";
+import Signup from "@forms/Signup";
+import Login from "@forms/Login";
+import Otp from "@forms/Otp";
+import Button from "@common/Button";
 
 const Access = props => {
 
+  const { selectIsOtpSent } = props;
+
   const [active, setActive] = useState('login');
+  const [email, setEmail] = useState("");
 
   return (
     <div className={s.container}>
-      <div className={s.accessContainer}>
-        <div className={s.formContainer}>
-          {active === 'login'
-            ? (
-              <div className={`${s.form} ${s.left}`}>
-                <Login />
-              </div>
-            )
-            : (
-              <div className={s.content}>
-                <p onClick={() => setActive("login")}>
-                  Login
+      {selectIsOtpSent
+        ? <Otp email={email} />
+        : (
+          <div className={s.accessContainer}>
+            <div className={s.formContainer}>
+              {active === 'login'
+                ? (
+                  <div className={`${s.form} ${s.left}`}>
+                    <Login setEmail={setEmail} />
+                  </div>
+                )
+                : (
+                  <div className={s.content}>
+                    <h3>Have an Account?</h3><br></br>
+                    <p>
+                      Already a member?
                 </p>
-              </div>
-            )
-          }
-        </div>
-        <div className={s.formContainer}>
-          {active === 'signup'
-            ? (
-              <div className={`${s.form} ${s.right}`}>
-                <Signup />
-              </div>
-            )
-            : (
-              <div className={s.content}>
-                <div>
-                  <p className={s.noMember}>Not a member?</p>
-                </div>
-                <p onClick={() => setActive("signup")}>
-                  Signup
+                    <p>
+                      Go on and login to explore and collaborate.
                 </p>
-              </div>
-            )
-          }
-        </div>
-      </div>
+                    <br></br>
+                    <div>
+                      <Button
+                        text={'Login'}
+                        onClick={() => setActive("login")}
+                        variant="hollow"
+                        type="grey"
+                      />
+                    </div>
+                  </div>
+                )
+              }
+            </div>
+            <div className={s.formContainer}>
+              {active === 'signup'
+                ? (
+                  <div className={`${s.form} ${s.right}`}>
+                    <Signup setEmail={setEmail} email={email} />
+                  </div>
+                )
+                : (
+                  <div className={s.content}>
+                    <h3 className={s.noMember}>Not a member?</h3>
+                    <p>Join us today!</p>
+                    <p>Create projects, form collaborations and have fun.</p>
+                    <br></br>
+                    <div>
+                      <Button
+                        text={'Signup'}
+                        onClick={() => setActive("signup")}
+                        variant="hollow"
+                        type="grey"
+                      />
+                    </div>
+                  </div>
+                )
+              }
+            </div>
+          </div>
+        )
+      }
     </div>
   );
 };

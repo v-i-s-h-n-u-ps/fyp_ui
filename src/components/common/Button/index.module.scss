@@ -1,6 +1,6 @@
-@import "../../../css/components/buttons.scss";
-@import "../../../css/layouts/flexBox.scss";
-@import "../../../css/components/texts.scss";
+@import "@css/components/buttons.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
 
 .button {
     display: block;
@@ -77,6 +77,15 @@
     }
     &.hollow {
         @include button-full(wa, hollow);
+    }
+}
+
+.grey {
+    &.block {
+        @include button-full(grey, block);
+    }
+    &.hollow {
+        @include button-full(grey, hollow);
     }
 }
 

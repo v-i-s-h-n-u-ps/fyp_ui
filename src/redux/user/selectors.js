@@ -23,6 +23,11 @@ export const selectIsOtpSent = createSelector(
     val => _get(val, 'auth.isOtpSent')
 );
 
+export const selectIsRequestSuccess = createSelector(
+    [selectUsers],
+    val => _get(val, 'auth.requestSuccess')
+);
+
 export const selectThemePreference = createSelector(
     [selectUsers],
     val => _get(val, 'themePreference'),

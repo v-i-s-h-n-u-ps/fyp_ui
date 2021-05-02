@@ -1,0 +1,75 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/buttons.scss";
+@import "@css//layouts/flexBox.scss";
+
+.container {
+    @include flex-center;
+    flex-direction: column;
+    @include respond-below(phone) {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+.label {
+    padding-bottom: 10px;
+    @include heading-m;
+    @include subtext-color;
+}
+
+.otpContainer {
+    flex-grow: 1;
+    gap: 20px;
+    @include flex;
+    div {
+        input {
+            width: 100% !important;
+            text-align: center;
+        }
+    }
+}
+
+.otpCell {
+    font-weight: bolder;
+    padding: 3px;
+    border-radius: 4px;
+    @include default-border;
+    @include respond-above(desktop) {
+        font-size: $font-size-screen-m;
+    }
+    @include respond-between(tablet, desktop) {
+        font-size: $font-size-desktop-m;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: $font-size-tablet-m;
+    }
+    @include respond-below(phone) {
+        font-size: $font-size-phone-sm;
+    }
+    input {
+        background: inherit;
+        height: 100% !important;
+        @include heading-lm;
+        @include default-color;
+    }
+}
+
+.otpInputsContainer {
+    // @include flex;
+    .inputContainer {
+        flex-grow: 1;
+    }
+    .resendOtpCon {
+        max-width: 30%;
+        @include flex;
+        align-items: flex-start;
+        @include default-color;
+    }
+}
+
+.buttonContainer {
+    margin: 20px auto 0;
+    width: 100%;
+}

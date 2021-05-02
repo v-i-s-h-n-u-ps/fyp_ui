@@ -1,17 +1,16 @@
-@import "../../../css/layouts/flexBox.scss";
-@import "../../../css/layouts/container.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
 
 .container {
     margin: auto;
     display: block;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 30px;
     @include default-background;
-    @include default-border;
     @include respond-above(desktop) {
         width: 26vw;
         max-width: 1200px;
-
     }
     @include respond-between(tablet, desktop) {
         width: 33vw;
@@ -30,6 +29,45 @@
     width: 100%;
 }
 
+.subHead {
+    color: #8e4d99;
+}
+
+.inputFields {
+    margin-top: -10px;
+}
+
 .flexCenter {
     @include flex-center;
+    @include respond-above(phone) {
+        width: 30%;
+        margin: 20px 0 0 auto;
+    }
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+}
+
+.icon {
+    @include heading-m;
+    color: rgb(167, 167, 167);
+}
+
+.user{
+    color: #0097e6;
+}
+
+.mail{
+    color: indianred;
+}
+
+.password{
+    color: #e89d13;
+}
+
+.confirm{
+    color: green;
 }

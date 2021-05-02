@@ -8,13 +8,13 @@ import 'lazysizes';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "../css/_main.scss";
-import { config } from "../config";
-import { GET_AUTH } from "../utils/services/auth";
-import { authentication, themePreference } from "../redux/user/actions"
-import { selectThemePreference } from "../redux/user/selectors"
-import createStore from "../redux/configureStore";
-import Layout from "../components/_App/Layout";
-import MidGuard from "../components/_App/MidGuard";
+import { config } from "@config";
+import { GET_AUTH } from "@services/auth";
+import { authentication, themePreference } from "@redux/user/actions"
+import { selectThemePreference } from "@redux/user/selectors"
+import createStore from "@redux/configureStore";
+import Layout from "@components/_App/Layout";
+import MidGuard from "@components/_App/MidGuard";
 
 class MyApp extends App {
 
@@ -22,8 +22,9 @@ class MyApp extends App {
         const { store, isServer } = ctx;
 
         let token = GET_AUTH({ isServer: isServer || false, ctx: ctx || null });
+        const { loginTime } = nextCookie(ctx)
 
-        store.dispatch(authentication.request({ token, ctx }))
+        store.dispatch(authentication.request({ token, ctx, loginTime }))
 
         const { theme } = nextCookie(ctx);
         if (theme && theme !== selectThemePreference.theme) {

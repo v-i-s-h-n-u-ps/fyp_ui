@@ -17,7 +17,7 @@ const Input = props => {
     const handleBlur = (e) => {
         !!onBlur && onBlur(e);
         if (e.target.value === "") {
-            setFocus(false || alwaysFloat);
+            setFocus(!!value || alwaysFloat);
         }
     };
 
@@ -31,7 +31,7 @@ const Input = props => {
     }
 
     const onClick = () => {
-        onSecondaryAction();
+        !!onSecondaryAction && onSecondaryAction();
         input.current.focus();
     }
 
@@ -48,45 +48,50 @@ const Input = props => {
         autoFocus && input.current.focus();
     }, [])
 
+    useEffect(() => {
+        setFocus(!!value || alwaysFloat);
+    }, [value])
+
     return (
         <div className={s.input}>
             <div className={s.userInput}>
-                {icon && <div className={s.icon}>{icon}</div>}
-                <div className={`${s.inputArea} ${error ? s.error : ''}`}>
-                    <label
-                        onClick={activate}
-                        className={`${s.label} ${focus ? s.active : ""} ${error ? s.error : ''}`}
-                    >
-                        {label}
-                    </label>
-
-                    <input
-                        ref={input}
-                        className={`${s.floatingLabel}`}
-                        readOnly={readOnly}
-                        type={type}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                        placeholder={label ? alwaysFloat ? placeholder : '' : placeholder}
-                        onFocus={onFocus}
-                        onBlur={handleBlur}
-                        onKeyDown={e => checkEnter(e)}
-                    />
-                    {showEdit &&
-                        <span
-                            className={s.editIcon}
-                            onClick={onClick}
+                {icon && <div className={`${s.icon} ${!!helperText ? s.padding : ''}`}>{icon}</div>}
+                <div className={s.flexOne}>
+                    <div className={`${s.inputArea} ${error ? s.error : ''}`}>
+                        <label
+                            onClick={activate}
+                            className={`${s.label} ${focus ? s.active : ""} ${error ? s.error : ''}`}
                         >
-                            {secondaryText}
-                        </span>
+                            {label}
+                        </label>
+                        <input
+                            ref={input}
+                            className={`${s.floatingLabel}`}
+                            readOnly={readOnly}
+                            type={type}
+                            name={name}
+                            value={value}
+                            onChange={onChange}
+                            placeholder={label ? alwaysFloat ? placeholder : '' : placeholder}
+                            onFocus={onFocus}
+                            onBlur={handleBlur}
+                            onKeyDown={e => checkEnter(e)}
+                        />
+                        {showEdit &&
+                            <span
+                                className={`${s.editIcon} ${!!onSecondaryAction ? '' : s.default}`}
+                                onClick={onClick}
+                            >
+                                {secondaryText}
+                            </span>
+                        }
+                    </div>
+                    {!!helperText &&
+                        <p className={error ? s.error : s.helper}>
+                            {helperText}
+                        </p>
                     }
                 </div>
-                {!!helperText &&
-                    <p className={error ? s.error : s.helper}>
-                        {helperText}
-                    </p>
-                }
             </div>
         </div>
     )

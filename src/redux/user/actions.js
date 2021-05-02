@@ -1,7 +1,9 @@
 import { action, FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 import {
     LOGOUT, SIGNUP, LOGIN, AUTHENTICATE,
-    THEME_PREFERENCE, REFRESH
+    THEME_PREFERENCE, REFRESH, PASSWORD_RESET,
+    PASSWORD_RESET_REQUEST, RESET_OTP_SEND,
+    OTP_SEND, ACTIVATE
 } from "./types";
 
 export const signup = {
@@ -34,6 +36,33 @@ export const refresh = {
     failure: (data, error) => action(REFRESH[FAILURE], { data, error }),
 }
 
+export const passwordResetRequest = {
+    request: data => action(PASSWORD_RESET_REQUEST[REQUEST], { data }),
+    success: (data, response) => action(PASSWORD_RESET_REQUEST[SUCCESS], { data, response }),
+    failure: (data, error) => action(PASSWORD_RESET_REQUEST[FAILURE], { data, error }),
+}
+
+export const passwordReset = {
+    request: data => action(PASSWORD_RESET[REQUEST], { data }),
+    success: (data, response) => action(PASSWORD_RESET[SUCCESS], { data, response }),
+    failure: (data, error) => action(PASSWORD_RESET[FAILURE], { data, error }),
+}
+
+export const activate = {
+    request: data => action(ACTIVATE[REQUEST], { data }),
+    success: (data, response) => action(ACTIVATE[SUCCESS], { data, response }),
+    failure: (data, error) => action(ACTIVATE[FAILURE], { data, error }),
+}
+
+export const otpSend = {
+    set: () => action(OTP_SEND[SET]),
+    unset: () => action(OTP_SEND[UNSET])
+}
+
+export const resetOtpSend = {
+    set: () => action(RESET_OTP_SEND[SET]),
+    unset: () => action(RESET_OTP_SEND[UNSET])
+}
 
 export const themePreference = {
     set: (theme) => action(THEME_PREFERENCE[SET], {theme})

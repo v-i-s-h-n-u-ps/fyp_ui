@@ -2,8 +2,8 @@ import nextCookie from 'next-cookies'
 import cookie from 'js-cookie'
 import axios from "axios";
 
-import { tokenKey } from "../constants"
-import { config } from "../../config";
+import { tokenKey } from "@constants"
+import { config } from "@config";
 
 export const SET_AUTH = data => {
     if (!data) return;

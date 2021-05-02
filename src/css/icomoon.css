@@ -163,3 +163,21 @@
 .icon-chats:before {
   content: "\f086";
 }
+.icon-checkmark-outline:before {
+  content: "\e906";
+}
+.icon-check_circle:before {
+  content: "\e907";
+}
+.icon-key:before {
+  content: "\e908";
+}
+.icon-lock:before {
+  content: "\e909";
+}
+.icon-mail:before {
+  content: "\e90a";
+}
+.icon-user_outline:before {
+  content: "\e90b";
+}

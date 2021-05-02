@@ -6,12 +6,12 @@ import Router from "next/router";
 import _omit from "lodash/omit";
 
 import s from "./index.module.scss";
-import { ROOT } from "../../../utils/constants/routes";
-import { sidebarLinks, otherLinks } from "../../../utils/constants/links";
+import { ROOT } from "@constants/routes";
+import { sidebarLinks, otherLinks } from "@constants/links";
 import {
   selectThemePreference
-} from "../../../redux/user/selectors";
-import { themePreference, logout } from "../../../redux/user/actions";
+} from "@redux/user/selectors";
+import { themePreference, logout } from "@redux/user/actions";
 
 const Sidebar = (props) => {
   const {
@@ -85,7 +85,7 @@ const Sidebar = (props) => {
               </div>
               <div className={`${s.link}`}>
                 <img
-                  alt={"handyman full logo"} c
+                  alt={"handyman full logo"}
                   className={`${s.fullLogo} lazyload`}
                   src="/images/infohandyman.png"
                 />
@@ -94,7 +94,7 @@ const Sidebar = (props) => {
           </Link>
           {sideLinks.map((link, index) => {
             return (
-              <Link href={link.path} prefetch={false}>
+              <Link href={link.path} prefetch={false} key={link.path}>
                 <a
                   onClick={() => { setNavOpen(false) }}
                   key={index}

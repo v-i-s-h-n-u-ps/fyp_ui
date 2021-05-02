@@ -1,7 +1,7 @@
 import axios from "axios";
 import { get as _get } from "lodash";
 
-import { config } from "../../config";
+import { config } from "@config";
 
 export const api = function (timeout = 10000, baseURL = config.apiUrl) {
     return axios.create({
@@ -23,10 +23,10 @@ const POST = async (url, data, timeout) => {
 
 export const signup = data => POST('user/signup/', data);
 export const login = data => POST('user/login/', data);
-export const me = () => GET('user/me');
+export const me = () => GET('user/me/');
 export const refresh = data => POST('user/refresh/', data);
 export const logout = data => POST('user/revoke/', data);
-export const activate = data => POST('user/activate', data);
-export const passwordResetRequest = data => GET('user/password-reset-request', data);
-export const passwordReset = data => POST('user/password-reset', data);
-export const passwordChange = data => POST('user/password-change', data);
+export const activate = data => POST('user/activate/', data);
+export const passwordResetRequest = data => GET('user/password-reset-request/', data);
+export const passwordReset = data => POST('user/password-reset/', data);
+export const passwordChange = data => POST('user/password-change/', data);

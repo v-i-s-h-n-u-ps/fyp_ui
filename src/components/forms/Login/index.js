@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
+import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
-import { login, authentication } from "../../../redux/user/actions";
-import { selectIsFormSubmitting } from "../../../redux/user/selectors";
-import { LOGIN_VALIDATION } from "../../../utils/helpers/schemas.js";
-import Button from "../../common/Button";
-import Input from "../../common/Input";
+import { login } from "@redux/user/actions";
+import { selectIsFormSubmitting } from "@redux/user/selectors";
+import { LOGIN_VALIDATION } from "@helpers/schemas";
+import { FORGOT_PASSWORD } from "@constants/routes";
+import Button from "@common/Button";
+import Input from "@common/Input";
 
 const init = {
   email: "",
@@ -17,12 +19,15 @@ const init = {
 
 const Login = props => {
 
-  const { d__login, selectIsFormSubmitting } = props
+  const { d__login, selectIsFormSubmitting, setEmail } = props
 
   const [showPassword, setShowPassword] = useState(false);
 
+  const router = useRouter();
+
   const onSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
+    setEmail(values.email)
     d__login({ ...values });
   }
 
@@ -44,6 +49,7 @@ const Login = props => {
         }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
+              <h3 className={s.subHead}>LOG IN</h3><br></br>
               <Input
                 label="Email"
                 name="email"
@@ -53,7 +59,7 @@ const Login = props => {
                 helperText={errors.email && touched.email ? errors.email : ''}
                 autoFocus={true}
                 showEdit={true}
-                secondaryText={<i className={`icon-user ${s.userIcon}`} />}
+                secondaryText={<i className={`icon-user_outline ${s.userIcon}`} />}
               />
               <Input
                 label="Password"
@@ -71,12 +77,17 @@ const Login = props => {
                 onSecondaryAction={() => setShowPassword(!showPassword)}
               />
               <div className={s.flexCenter}>
+                <p
+                  className={s.forgotPassword}
+                  onClick={() => router.push(FORGOT_PASSWORD)}
+                >
+                  Forgot Password?
+                </p>
                 <Button
-                  type="whatsapp"
+                  type="message"
                   variant="block"
                   buttonType="submit"
                   text="Login"
-                  width={"150px"}
                   disabled={selectIsFormSubmitting}
                   loading={selectIsFormSubmitting}
                 />

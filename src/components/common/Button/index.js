@@ -1,10 +1,10 @@
 import React from "react";
 
 import s from "./index.module.scss";
-import ActivityIndicator from "../../loaders/ActivityIndicator";
-import Ripple from "../../_hoc/Ripple";
+import ActivityIndicator from "@components/loaders/ActivityIndicator";
+import Ripple from "@hoc/Ripple";
 
-// include values: primary, secondary, cancel, cautious, message, whatsapp
+// include values: primary, secondary, cancel, cautious, message, whatsapp, grey
 
 const IndicatorMap = (type, variant) => {
     if (variant === 'block') {
@@ -17,6 +17,7 @@ const IndicatorMap = (type, variant) => {
             case "cautious": return "#eb1926";
             case "message": return "#8e4d99";
             case "whatsapp": return "#075e54";
+            case "grey": return '#383b40';
             default: return "#0097e6";
         }
     }
@@ -74,7 +75,6 @@ const Button = props => {
                 @media screen and (max-width: 640px) {
                     .button {
                         width: calc(${width} - 16px);
-                        margin: 3px auto;
                     }
                 }
             `}</style>

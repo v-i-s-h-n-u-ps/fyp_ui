@@ -1,0 +1,57 @@
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+
+.navigateContainer {
+    background-color: transparent;
+    @include flex;
+    align-items: center;
+    grid-gap: 10px;
+    transition: all .3s ease-in-out;
+    justify-content: space-between;
+    @include respond-above(desktop) {
+        padding: 0 5.31vw 0 5.31vw;
+    }
+    @include respond-between(tablet, desktop) {
+        padding: 0 7.15vw 0 7.15vw;
+    }
+    @include respond-below(phablet) {
+        padding-top: 3.33vw;
+        justify-content: center;
+    }
+}
+
+.navigateTo {
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.navigate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include respond-above(desktop) {
+        padding: 0.81vw 1.125vw;
+    }
+    @include respond-between(tablet, desktop) {
+        padding: 1vw 1.5vw;
+    }
+    @include respond-between(phablet, tablet) {
+        padding: 1.2vw 1.75vw;
+    }
+    @include respond-below(phablet) {
+        display: none;
+    }
+    @include default-background;
+}
+
+.title {
+    @include subText-l;
+}
+
+.icon {
+    font-size: 28px;
+    margin-right: 0.8vw;
+    color: $color-affair;
+}

@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 import {
   LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
-  THEME_PREFERENCE
+  THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
+  PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
+  ACTIVATE, REFRESH
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -18,23 +20,46 @@ const users = () => {
   const auth = (state = initialState, action) => {
     switch (action.type) {
 
-      case SIGNUP[REQUEST]: return { ...state, isSubmitting: true }
+      case SIGNUP[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false }
       case SIGNUP[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: true }
-      case SIGNUP[FAILURE]: return { ...state, isSubmitting: false, error: action.payload.error }
+      case SIGNUP[FAILURE]: return { ...state, isSubmitting: false, error: action.payload.error, isOtpSent: false }
 
       case LOGIN[REQUEST]: return { ...state, isSubmitting: true, isAuthenticated: false }
       case LOGIN[SUCCESS]: return { ...state, isSubmitting: false, userInfo: action.payload.user_info }
       case LOGIN[FAILURE]: return { ...state, isSubmitting: false, error: '', isAuthenticated: false }
 
-      case AUTHENTICATE[REQUEST]: return { ...state, isAuthenticated: false }
-      case AUTHENTICATE[SUCCESS]: return { ...state, isSubmitting: false, error: '', isAuthenticated: true }
-      case AUTHENTICATE[FAILURE]: return { ...state, isAuthenticated: false }
+      case AUTHENTICATE[REQUEST]: return { ...state, isAuthenticated: false, isAuthenticating: true }
+      case AUTHENTICATE[SUCCESS]: return { ...state, isSubmitting: false, error: '', isAuthenticated: true, token: action.payload, isAuthenticating: false }
+      case AUTHENTICATE[FAILURE]: return { ...state, isAuthenticated: false, isAuthenticating: false }
 
       case ME[REQUEST]: return { ...state, isFetching: true, error: '' }
       case ME[SUCCESS]: return { ...state, isFetching: false, error: '', userInfo: action.payload }
       case ME[FAILURE]: return { ...state, isFetching: false, error: '' }
 
-      case LOGOUT[SUCCESS]: return { ...state, isSubmitting: false, isAuthenticated: false, isOtpSent: false };
+      case PASSWORD_RESET_REQUEST[REQUEST]: return { ...state, isSubmitting: true, requestSuccess: false }
+      case PASSWORD_RESET_REQUEST[SUCCESS]: return { ...state, isSubmitting: false, error: '', requestSuccess: true }
+      case PASSWORD_RESET_REQUEST[FAILURE]: return { ...state, isSubmitting: false, requestSuccess: false }
+
+      case PASSWORD_RESET[REQUEST]: return { ...state, isSubmitting: false }
+      case PASSWORD_RESET[SUCCESS]: return { ...state, isSubmitting: false, error: '', requestSuccess: false }
+      case PASSWORD_RESET[FAILURE]: return { ...state, isSubmitting: false }
+
+      case ACTIVATE[REQUEST]: return { ...state, isSubmitting: true }
+      case ACTIVATE[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: false }
+      case ACTIVATE[FAILURE]: return { ...state, isSubmitting: false }
+
+      case OTP_SEND[SET]: return { ...state, isOtpSent: true, isSubmitting: false, }
+      case OTP_SEND[UNSET]: return { ...state, isOtpSent: false, isSubmitting: false, }
+      case RESET_OTP_SEND[SET]: return { ...state, requestSuccess: true, isSubmitting: false, }
+      case RESET_OTP_SEND[UNSET]: return { ...state, requestSuccess: false, isSubmitting: false, }
+
+      case LOGOUT[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false };
+      case LOGOUT[SUCCESS]: return { ...state, isSubmitting: false, isAuthenticated: false };
+      case LOGOUT[FAILURE]: return { ...state, isSubmitting: false };
+
+      case REFRESH[REQUEST]: return { ...state, isRefreshing: true, isOtpSent: false };
+      case REFRESH[SUCCESS]: return { ...state, isRefreshing: false, isAuthenticated: true };
+      case REFRESH[FAILURE]: return { ...state, isRefreshing: false };
 
       default: return state;
     }

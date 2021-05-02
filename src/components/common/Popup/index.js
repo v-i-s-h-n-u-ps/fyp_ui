@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 
 import s from "./index.module.scss";
-import RenderIfTrue from "../../_hoc/RenderIfTrue";
-import onClickOutside from "../../../hooks/onClickOutside";
+import RenderIfTrue from "@hoc/RenderIfTrue";
+import onClickOutside from "@hooks/onClickOutside";
 
 const Popup = props => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 import s from "./index.module.scss";
-import Sidebar from "../common/Sidebar";
+import Sidebar from "@common/Sidebar";
 
 const PageContainer = props => {
 

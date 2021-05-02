@@ -4,30 +4,41 @@ import _omit from "lodash/omit";
 import _isEmpty from "lodash/isEmpty";
 import cookie from 'js-cookie'
 import Router from "next/router";
+import { toast } from "react-toastify";
 
 import { config } from "../../config";
-import { REQUEST, SUCCESS } from "../actionCreator";
+import { REQUEST, SUCCESS, FAILURE, SET } from "../actionCreator";
 import { sendPayload, sendPayloadFailure, isSuccess } from "../_helpers/helperSaga";
 import {
   ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
 } from "../../utils/constants/routes";
 import {
-  LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME
+  LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
+  PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
+  REFRESH
 } from "./types";
 import {
   selectUserInfo
 } from "./selectors";
-import { REMOVE_AUTH, SET_AUTH } from "../../utils/services/auth";
+import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
-  api,
-  login, signup, me
-} from "../../utils/services/index"
+  login, signup, me, passwordResetRequest,
+  passwordReset, activate, logout, refresh
+} from "@services"
+import { GET_AUTH } from "@services/auth";
 
 function* handleLogoutUser() {
   try {
-    REMOVE_AUTH();
-    yield call(Router.push, ROOT);
-    yield put({ type: LOGOUT[SUCCESS] });
+    const data = {
+      token: GET_AUTH({}).access_token
+    }
+    const apiResponse = yield call(logout, data);
+    if (isSuccess(apiResponse)) {
+      REMOVE_AUTH();
+      yield call(Router.push, ROOT);
+
+    }
+    yield sendPayload(apiResponse, LOGOUT);
   } catch (e) {
     yield sendPayloadFailure(e, LOGOUT);
   }
@@ -36,22 +47,29 @@ function* handleLogoutUser() {
 function* handleLogin({ data }) {
   try {
     const apiResponse = yield call(login, data);
-    if (isSuccess(apiResponse)) {
-      cookie.set('loginTime', new Date(), { domain: config["domain"] || "" });
-      yield put({
-        type: AUTHENTICATE[REQUEST],
-        data: { token: _omit(apiResponse.data.data, ['user_info']) }
-      })
+    if (apiResponse && apiResponse.status === 206 && apiResponse.data.code === "USER_NOT_ACTIVE") {
+      yield put({ type: OTP_SEND[SET] });
+      toast.info("Verify your account to login")
+    } else {
+      if (isSuccess(apiResponse)) {
+        const loginTime = new Date();
+        cookie.set('loginTime', loginTime, { domain: config["domain"] || "" });
+        const tokens = { token: {..._omit(apiResponse.data.data, ['user_info'])}, loginTime }
+        yield put({
+          type: AUTHENTICATE[REQUEST],
+          data: tokens,
+        })
+      }
+      yield sendPayload(apiResponse, LOGIN);
     }
-    yield sendPayload(apiResponse, LOGIN);
   } catch (e) {
     yield sendPayloadFailure(e, LOGIN);
   }
 }
 
-function* handleAuth({ data }) {
+function* handleAuthentication({ data }) {
   try {
-    const { token, ctx } = data;
+    const { token, ctx, loginTime } = data;
     const pathname = _get(ctx, 'pathname') || _get(Router, 'pathname');
     if (_get(token, 'access_token')) {
       SET_AUTH(token);
@@ -65,13 +83,14 @@ function* handleAuth({ data }) {
         }
       }
       const user = yield select(selectUserInfo);
-      if (_isEmpty(user) || !user) {
-        yield put({ type: ME[REQUEST] })
-      }
+      // if (_isEmpty(user) || !user) {
+        yield put({ type: ME[REQUEST] });
+      // }
+      yield put({ type: AUTHENTICATE[SUCCESS], payload: { ...token, time: loginTime } });
     } else {
-      REMOVE_AUTH()
+      REMOVE_AUTH();
+      yield put({ type: AUTHENTICATE[FAILURE] });
     }
-    yield put({ type: AUTHENTICATE[SUCCESS] });
   } catch (e) {
     yield sendPayloadFailure(e, AUTHENTICATE);
   }
@@ -95,13 +114,71 @@ function* handleSignup({ data }) {
   }
 }
 
+function* handlePasswordResetRequest({ data }) {
+  try {
+    const apiResponse = yield call(passwordResetRequest, data);
+    yield sendPayload(apiResponse, PASSWORD_RESET_REQUEST);
+  } catch (e) {
+    yield sendPayloadFailure(e, PASSWORD_RESET_REQUEST);
+  }
+}
+
+function* handlePasswordReset({ data }) {
+  try {
+    const apiResponse = yield call(passwordReset, data);
+    if (isSuccess(apiResponse)) {
+      toast.info("Password reset successful")
+      yield call(Router.push, ROOT);
+    }
+    yield sendPayload(apiResponse, PASSWORD_RESET);
+  } catch (e) {
+    yield sendPayloadFailure(e, PASSWORD_RESET);
+  }
+}
+
+function* handleActivate({ data }) {
+  try {
+    const apiResponse = yield call(activate, data);
+    if (isSuccess(apiResponse)) {
+      toast.info("Verification successful")
+      yield call(Router.push, ROOT);
+    }
+    yield sendPayload(apiResponse, ACTIVATE);
+  } catch (e) {
+    yield sendPayloadFailure(e, ACTIVATE);
+  }
+}
+
+function* handleRefresh() {
+  try {
+    const data = {
+      refresh_token: GET_AUTH({}).refresh_token
+    }
+    const apiResponse = yield call(refresh, data);
+    if (isSuccess(apiResponse)) {
+      const loginTime = new Date();
+      cookie.set('loginTime', loginTime, { domain: config["domain"] || "" });
+      yield put({
+        type: AUTHENTICATE[REQUEST],
+        data: { token: _omit(apiResponse.data.data, ['user_info']), loginTime },
+      })
+    }
+    yield sendPayload(apiResponse, REFRESH);
+  } catch (e) {
+    yield sendPayloadFailure(e, REFRESH);
+  }
+}
 
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
   watchSignup: takeLatest(SIGNUP[REQUEST], handleSignup),
-  watchAuth: takeLatest(AUTHENTICATE[REQUEST], handleAuth),
+  watchAuthentication: takeLatest(AUTHENTICATE[REQUEST], handleAuthentication),
   watchMe: takeLatest(ME[REQUEST], handleMe),
+  watchPasswordResetRequest: takeLatest(PASSWORD_RESET_REQUEST[REQUEST], handlePasswordResetRequest),
+  watchPasswordReset: takeLatest(PASSWORD_RESET[REQUEST], handlePasswordReset),
+  watchActivate: takeLatest(ACTIVATE[REQUEST], handleActivate),
+  watchRefresh: takeLatest(REFRESH[REQUEST], handleRefresh),
 }
 
 

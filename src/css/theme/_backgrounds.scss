@@ -6,6 +6,7 @@ $background-transparent: transparent;
 $background-light_gray:#f7faff;
 $background-cod_gray:#111111;
 $background-tuna: #383b40;
+$background-grey_chateau:#9ea1a6;
 
 $background-facebook: #4468b2;
 $background-whatsapp: #075e54;
@@ -64,6 +65,10 @@ $backgrounds: (
             wa: (
                 hollow: $background-transparent,
                 block: $background-whatsapp
+            ),
+            grey: (
+                hollow: $background-transparent,
+                block: $background-grey_chateau
             )
         ),
 
@@ -120,6 +125,10 @@ $backgrounds: (
             wa: (
                 hollow: $background-transparent,
                 block: $background-whatsapp
+            ),
+            grey: (
+                hollow: $background-transparent,
+                block: $background-grey_chateau
             )
         ),
     )

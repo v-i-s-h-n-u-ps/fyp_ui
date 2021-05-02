@@ -1,7 +1,7 @@
 export const ROOT = "/";
 export const DASHBOARD = "/dashboard";
 
-export const SERVICE_ROUTE = "/services/[id]";
+export const FORGOT_PASSWORD = "/forgot-password";
 
 export const USER_ENTRY = "/admin/user-entry";
 
@@ -16,7 +16,7 @@ export const ABOUT_US = "/about-us";
 export const TERMS_AND_CONDITIONS = "/terms-and-conditions";
 
 export const PUBLIC_ROUTES = [
-    ROOT
+    ROOT, FORGOT_PASSWORD
 ]
 
 export const PRIVATE_ROUTES = [

@@ -1,9 +1,9 @@
-@import "../../css/layouts/container.scss";
-@import "../../css/components/texts.scss";
-@import "../../css/layouts/mediaQueries.scss";
-@import "../../css/layouts/flexBox.scss";
-@import "../../css/layouts/boxShadows.scss";
-@import "../../css/components/animations.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/boxShadows.scss";
+@import "@css/components/animations.scss";
 
 .container {
     @include full-container;
@@ -15,31 +15,44 @@
     @include reverse-color;
     @include responsive-flex;
     @include respond-above(screen) {
-        width: 68vw;
+        width: 60vw;
+        justify-content: center;
+        align-items: center;
     }
     @include respond-between(desktop, screen) {
-        width: 50vw;
+        width: 60vw;
+        height: 18vw;
+        justify-content: center;
+        align-items: center;
     }
     @include respond-between(tablet, desktop) {
         width: 75vw;
+        height: 25vw;
+        justify-content: center;
+        align-items: center;
     }
     @include respond-between(phone, tablet) {
-        width: 96vw;
+        width: 100vw;
+        height: 30vw;
+        justify-content: center;
+        border-radius: 0;
+        align-items: center;
     }
     @include respond-below(phone) {
         width: 100vw;
         @include default-background;
     }
+    max-height: 300px;
     padding: 12px;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 .formContainer {
     flex: 0 0 50%;
     @include respond-below(phone) {
         flex: 0 0 100%;
+        flex-grow: 1;
     }
-    height: 30px;
     position: relative;
 }
 
@@ -47,17 +60,21 @@
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
+    @include default-border;
     @include box-shadow-default;
-    border-radius: 8px;
+    @include flex-center;
+    border-radius: 3px;
     overflow: hidden;
+    height: 450px;
     @include respond-below(phone) {
         position: static;
-        transform: none
+        border: none !important;
+        transform: none;
     }
 }
 
 .right {
-    left: 20px;
+    right: 30px;
     @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
@@ -65,7 +82,7 @@
 }
 
 .left {
-    left: 0px;
+    left: 30px;
     @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
@@ -73,13 +90,27 @@
 }
 
 .content {
-    // background-color: green;
-    // @include default-background;
-    @include label-color;
+    padding-left: 30px;
+    h3 {
+        @include heading-lm;
+        @include subText-l-color;
+    }
+    p {
+        @include normal-content-size;
+        @include subText-l-color;
+    }
+    button {
+        width: 100px !important;
+    } 
+    @include respond-below(phone) {
+        padding: 0;
+        @include flex-column;
+        justify-content: center;
+        align-items: center
+    }
 }
 
 .noMember {
-    @include heading-m;
-
-    @include heading-l-color;
+    @include heading-lm;
+    padding-bottom: 12px;
 }
