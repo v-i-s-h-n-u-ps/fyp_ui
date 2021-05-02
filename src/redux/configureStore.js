@@ -6,11 +6,12 @@ import logger from "redux-logger";
 import refreshMiddleWare from "./middlewares";
 import rootReducer from "./rootReducer";
 import rootSaga from "./rootSaga";
+import { config } from "@config";
 
 function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   let middleware = [refreshMiddleWare, sagaMiddleware];
-  middleware = [...middleware, logger];
+  if (config.env !== 'production') middleware = [...middleware, logger];
   const middlewareEnhancer = applyMiddleware(...middleware);
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = composeWithDevTools(...enhancers);

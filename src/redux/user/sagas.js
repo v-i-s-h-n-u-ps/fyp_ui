@@ -55,13 +55,10 @@ function* handleLogin({ data }) {
         const loginTime = new Date();
         cookie.set('loginTime', loginTime, { domain: config["domain"] || "" });
         const tokens = { token: {..._omit(apiResponse.data.data, ['user_info'])}, loginTime }
-        console.log(tokens)
         yield put({
           type: AUTHENTICATE[REQUEST],
           data: tokens,
         })
-        console.log('tokens')
-
       }
       yield sendPayload(apiResponse, LOGIN);
     }
