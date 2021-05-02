@@ -54,7 +54,7 @@ const Login = props => {
                 helperText={errors.email && touched.email ? errors.email : ''}
                 autoFocus={true}
                 showEdit={true}
-                secondaryText={<i className={`icon-user ${s.userIcon}`} />}
+                secondaryText={<i className={`icon-user_outline ${s.userIcon}`} />}
               />
               <Input
                 label="Password"

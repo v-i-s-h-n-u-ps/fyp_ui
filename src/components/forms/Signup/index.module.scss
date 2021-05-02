@@ -1,5 +1,6 @@
 @import "../../../css/layouts/flexBox.scss";
 @import "../../../css/layouts/container.scss";
+@import "../../../css/components/texts.scss";
 
 .container {
     margin: auto;
@@ -40,6 +41,33 @@
     @include flex-center;
     @include respond-above(phone) {
         width: 30%;
-        margin: 0 0 0 auto;
+        margin: 20px 0 0 auto;
     }
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+}
+
+.icon {
+    @include heading-m;
+    color: rgb(167, 167, 167);
+}
+
+.user{
+    color: #0097e6;
+}
+
+.mail{
+    color: indianred;
+}
+
+.password{
+    color: #e89d13;
+}
+
+.confirm{
+    color: green;
 }
