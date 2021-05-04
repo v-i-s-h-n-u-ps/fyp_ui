@@ -3,6 +3,8 @@ export const DASHBOARD = "/dashboard";
 
 export const FORGOT_PASSWORD = "/forgot-password";
 
+export const FILL_STUDENT_DETAILS = "/student/details-form";
+
 export const USER_ENTRY = "/admin/user-entry";
 
 export const ADMIN_MANAGE = "/admin/manage";
@@ -20,5 +22,5 @@ export const PUBLIC_ROUTES = [
 ]
 
 export const PRIVATE_ROUTES = [
-    DASHBOARD
+    DASHBOARD, FILL_STUDENT_DETAILS
 ]

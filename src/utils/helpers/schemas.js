@@ -56,3 +56,26 @@ export const FORGOT_PASSWORD_VALIDATION = yup.object().shape({
         .oneOf([yup.ref('password'), null], 'Passwords must match')
     })
 })
+
+export const STUDENT_VALIDATION = yup.object().shape({
+  university: yup.string()
+    .trim()
+    .required('University is required'),
+  dateOfBirth: yup.date()
+    .required('Date of birth is required'),
+  gender: yup.string()
+    .trim()
+    .required('Gender is required'),
+  about: yup.string()
+    .trim()
+    .required('Write something about you'),
+  facebook: yup.string(),
+  resumeUrl: yup.string()
+    .trim()
+    .required('Please upload a resume'),
+  linkedIn: yup.string(),
+  gmail: yup.string(),
+  categories: yup.array()
+    .of(yup.string())
+    .required("Select at least one category")
+})

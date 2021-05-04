@@ -30,3 +30,10 @@ export const activate = data => POST('user/activate/', data);
 export const passwordResetRequest = data => GET('user/password-reset-request/', data);
 export const passwordReset = data => POST('user/password-reset/', data);
 export const passwordChange = data => POST('user/password-change/', data);
+export const createStudent = data => POST('user/post-student-details/', data);
+
+
+export const getUniversity = data => GET('resources/get-university/');
+export const getRole = data => GET('resources/get-role/');
+export const getType = data => GET('resources/get-types/');
+export const getCategory = data => GET('resources/get-category/');
