@@ -181,3 +181,6 @@
 .icon-user_outline:before {
   content: "\e90b";
 }
+.icon-map_pin:before {
+  content: "\e90c";
+}

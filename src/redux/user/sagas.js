@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all, select } from "redux-saga/effects";
+import { takeLatest, call, put, select } from "redux-saga/effects";
 import _get from "lodash/get";
 import _omit from "lodash/omit";
 import _isEmpty from "lodash/isEmpty";
@@ -6,31 +6,33 @@ import cookie from 'js-cookie'
 import Router from "next/router";
 import { toast } from "react-toastify";
 
-import { config } from "../../config";
+import { config } from "@config";
 import { REQUEST, SUCCESS, FAILURE, SET } from "../actionCreator";
-import { sendPayload, sendPayloadFailure, isSuccess } from "../_helpers/helperSaga";
+import { 
+  sendPayload, sendPayloadFailure, isSuccess, reRoute 
+} from "../_helpers/helperSaga";
 import {
   ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
-} from "../../utils/constants/routes";
+} from "@constants/routes";
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
   REFRESH
 } from "./types";
 import {
-  selectUserInfo
+  selectUserInfo, selectTokens
 } from "./selectors";
 import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh
-} from "@services"
-import { GET_AUTH } from "@services/auth";
+} from "@services";
 
 function* handleLogoutUser() {
   try {
+    const tokens = yield select(selectTokens);
     const data = {
-      token: GET_AUTH({}).access_token
+      token: tokens.access_token
     }
     const apiResponse = yield call(logout, data);
     if (isSuccess(apiResponse)) {
@@ -54,7 +56,7 @@ function* handleLogin({ data }) {
       if (isSuccess(apiResponse)) {
         const loginTime = new Date();
         cookie.set('loginTime', loginTime, { domain: config["domain"] || "" });
-        const tokens = { token: {..._omit(apiResponse.data.data, ['user_info'])}, loginTime }
+        const tokens = { token: { ..._omit(apiResponse.data.data, ['user_info']) }, loginTime }
         yield put({
           type: AUTHENTICATE[REQUEST],
           data: tokens,
@@ -70,25 +72,16 @@ function* handleLogin({ data }) {
 function* handleAuthentication({ data }) {
   try {
     const { token, ctx, loginTime } = data;
-    const pathname = _get(ctx, 'pathname') || _get(Router, 'pathname');
     if (_get(token, 'access_token')) {
       SET_AUTH(token);
-      if (PUBLIC_ROUTES.includes(pathname)) {
-        if (ctx && ctx.req) {
-          ctx.res.writeHead(302, { Location: DASHBOARD });
-          ctx.res.end();
-          return;
-        } else {
-          yield call(Router.push, DASHBOARD);
-        }
-      }
+      yield reRoute(ctx, PUBLIC_ROUTES, DASHBOARD);
       const user = yield select(selectUserInfo);
-      // if (_isEmpty(user) || !user) {
+      if(_isEmpty(user))
         yield put({ type: ME[REQUEST] });
-      // }
       yield put({ type: AUTHENTICATE[SUCCESS], payload: { ...token, time: loginTime } });
     } else {
       REMOVE_AUTH();
+      yield reRoute(ctx, PRIVATE_ROUTES, ROOT)
       yield put({ type: AUTHENTICATE[FAILURE] });
     }
   } catch (e) {
@@ -151,8 +144,9 @@ function* handleActivate({ data }) {
 
 function* handleRefresh() {
   try {
+    const tokens = yield select(selectTokens);
     const data = {
-      refresh_token: GET_AUTH({}).refresh_token
+      refresh_token: tokens.refresh_token
     }
     const apiResponse = yield call(refresh, data);
     if (isSuccess(apiResponse)) {

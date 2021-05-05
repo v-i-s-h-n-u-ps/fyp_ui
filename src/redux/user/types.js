@@ -1,4 +1,4 @@
-import {createFlagTypes, createRequestTypes} from "../actionCreator";
+import { createFlagTypes, createRequestTypes } from "../actionCreator";
 
 export const SIGNUP = createRequestTypes("SIGNUP");
 export const LOGIN = createRequestTypes("LOGIN");
@@ -10,6 +10,7 @@ export const PASSWORD_RESET = createRequestTypes("PASSWORD_RESET");
 export const OTP_SEND = createFlagTypes("OTP_SEND");
 export const RESET_OTP_SEND = createFlagTypes("RESET_OTP_SEND");
 export const ACTIVATE = createRequestTypes("ACTIVATE");
+export const SAVE_STUDENT = createRequestTypes("SAVE_STUDENT")
 
 export const REFRESH = createRequestTypes("REFRESH");
 export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");

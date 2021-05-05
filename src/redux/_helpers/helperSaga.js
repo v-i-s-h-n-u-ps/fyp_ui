@@ -1,10 +1,12 @@
-import { put } from "redux-saga/effects";
+import { put, call } from "redux-saga/effects";
+import _get from "lodash/get";
+import Router from "next/router";
 
 import { FAILURE, SUCCESS } from "../actionCreator";
 
 export const isSuccess = apiResponse => {
-    return !!apiResponse.data.success || 
-        apiResponse.status === 200 || 
+    return !!apiResponse.data.success ||
+        apiResponse.status === 200 ||
         apiResponse.status === 201
 }
 
@@ -36,6 +38,19 @@ export function* sendPayloadFailure(error, event) {
                 type: event[FAILURE],
                 payload: error.error
             });
+        }
+    }
+}
+
+export function* reRoute(ctx, guard, redirect) {
+    const pathname = _get(ctx, 'pathname') || _get(Router, 'pathname');
+    if (guard.includes(pathname)) {
+        if (ctx && ctx.req) {
+            ctx.res.writeHead(302, { Location: redirect });
+            ctx.res.end();
+            return;
+        } else {
+            yield call(Router.push, redirect);
         }
     }
 }

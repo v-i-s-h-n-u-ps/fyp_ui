@@ -75,7 +75,7 @@
 
 .right {
     right: 30px;
-    @include animation($name:bounce-left, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
+    @include animation($name:bounce-left, $duration: 2.5s, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
     }
@@ -83,7 +83,7 @@
 
 .left {
     left: 30px;
-    @include animation($name:bounce-right, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
+    @include animation($name:bounce-right, $duration: 2.5s, $timing-function: cubic-bezier(0.28, 0.84, 0.42, 1));
     @include respond-below(phone) {
         animation: none;
     }

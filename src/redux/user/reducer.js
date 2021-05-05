@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
+
 import {
   LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
-  ACTIVATE, REFRESH
+  ACTIVATE, REFRESH, SAVE_STUDENT
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -14,7 +15,11 @@ const initialState = {
   isFetching: false,
 };
 
-import { get as _get } from "lodash";
+const initState = {
+  isLoading: false,
+  isLoaded: false,
+  data: {}
+};
 
 const users = () => {
   const auth = (state = initialState, action) => {
@@ -33,7 +38,7 @@ const users = () => {
       case AUTHENTICATE[FAILURE]: return { ...state, isAuthenticated: false, isAuthenticating: false }
 
       case ME[REQUEST]: return { ...state, isFetching: true, error: '' }
-      case ME[SUCCESS]: return { ...state, isFetching: false, error: '', userInfo: action.payload }
+      case ME[SUCCESS]: return { ...state, isFetching: false, error: '', user: action.payload }
       case ME[FAILURE]: return { ...state, isFetching: false, error: '' }
 
       case PASSWORD_RESET_REQUEST[REQUEST]: return { ...state, isSubmitting: true, requestSuccess: false }
@@ -65,6 +70,15 @@ const users = () => {
     }
   };
 
+  const student = (state=initState, action) => {
+    switch(action.type) {
+      case SAVE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case SAVE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
+      case SAVE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      default: return state;
+    }
+  }
+
   const themePreference = (state = {
     theme:
       typeof window === 'undefined'
@@ -79,7 +93,8 @@ const users = () => {
   };
 
   return combineReducers({
-    auth, themePreference
+    auth, themePreference,
+    student
   });
 };
 

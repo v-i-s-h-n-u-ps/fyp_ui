@@ -1,0 +1,68 @@
+@import "@css/layouts/container";
+@import "@css/components/texts.scss";
+@import "@css/layouts/boxShadows.scss";
+@import "@css/layouts/mediaQueries";
+
+.select {
+    position: relative;
+    div {
+        @include default-background;
+        border: none !important;
+        padding-left: 0 !important;
+        div:first-child {
+            padding: 0 !important;
+        }
+    }
+    span {
+        @include heading-sm;
+    }
+    input {
+        @include default-color;
+        &::-webkit-input-placeholder,
+        &:-ms-input-placeholder,
+        &::placeholder {
+            @include default-color;
+            @include heading-sm;
+            letter-spacing: 0.4px;
+        }
+        @include respond-below(phone) {
+            width: 100% !important;
+            @include card-background;
+        }
+    }
+    ul {
+        @include heading-sm;
+        @include highlight-background;
+        @include default-border;
+        @include box-shadow-default;
+        border-top-width: 0px !important;
+        border-radius: 0 0 4px 4px !important;
+        padding-bottom: 4px !important;
+    }
+    li {
+        padding: 8px 16px !important;
+    }
+    @include input-border-bottom;
+    margin: 24px 0 8px;
+}
+
+.label {
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    transition: all 0.25s ease-in-out;
+    will-change: top, color, display;
+    cursor: text;
+    letter-spacing: 0.4px;
+    padding: 0 8px;
+    display: none;
+    background: transparent;
+    margin-bottom: 6px;
+    @include heading-sm;
+    &.active {
+        display: block;
+        @include label-color;
+        @include heading-sm;
+        transform: translate(8px, -30px);
+    }
+}

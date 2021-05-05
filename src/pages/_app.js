@@ -7,11 +7,12 @@ import nextCookie from 'next-cookies';
 import 'lazysizes';
 import 'react-toastify/dist/ReactToastify.css';
 
-import "../css/_main.scss";
+import "@css/_main.scss";
 import { config } from "@config";
 import { GET_AUTH } from "@services/auth";
-import { authentication, themePreference } from "@redux/user/actions"
-import { selectThemePreference } from "@redux/user/selectors"
+import { university, role, type, category } from "@redux/resources/actions";
+import { authentication, themePreference } from "@redux/user/actions";
+import { selectThemePreference } from "@redux/user/selectors";
 import createStore from "@redux/configureStore";
 import Layout from "@components/_App/Layout";
 import MidGuard from "@components/_App/MidGuard";
@@ -48,7 +49,13 @@ class MyApp extends App {
     }
 
     componentDidMount() {
-        const { isAuth } = this.props;
+        const { store } = this.props;
+
+        store.dispatch(university.request());
+        store.dispatch(role.request());
+        store.dispatch(type.request());
+        store.dispatch(category.request());
+
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
                 .register('/service-worker.js')
@@ -58,13 +65,6 @@ class MyApp extends App {
                 .catch(err => {
                     console.error('service worker registration failed', err.message)
                 })
-        }
-        if (config.env === "production") {
-            let isPWA = false;
-            if ((window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
-                || (window.navigator && window.navigator.standalone)) {
-                isPWA = true;
-            }
         }
     }
 

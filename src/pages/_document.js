@@ -25,7 +25,9 @@ class MyDocument extends Document {
         const { locale, direction, theme } = this.props;
         return (
             <Html lang={locale} dir={direction}>
-                <Head />
+                <Head >
+                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+                </Head>
                 <body className={theme}>
                     <Main />
                     <NextScript />

@@ -76,52 +76,27 @@
     position: absolute;
     left: -6px;
     top: 10px;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.25s ease-in-out;
     will-change: top, color;
     cursor: text;
     letter-spacing: 0.4px;
     padding: 0 8px;
     background: transparent;
     @include default-color;
-    @include respond-above(screen) {
-        font-size: $font-size-screen-sm;
-    }
-    @include respond-between(desktop, screen) {
-        font-size: $font-size-desktop-s;
-    }
-    @include respond-between(tablet, desktop) {
-        font-size: $font-size-desktop-sm;
-    }
-    @include respond-between(phone, tablet) {
-        font-size: $font-size-tablet-m;
-    }
+    @include heading-sm;
     @include respond-below(phone) {
-        font-size: $font-size-phone-sm;
         top: 5px;
     }
     &.active {
         transform: translate(8px, -22px);
+        padding: 0 2px;
+        font-weight: 500;
         @include label-color;
         @include default-background;
-        padding: 0 2px;
-
+        @include heading-sm;
         @include respond-above(screen) {
-            font-size: $font-size-screen-s;
             transform: translate(8px, -32px);
         }
-        @include respond-above(desktop) {
-            font-size: $font-size-desktop-s;
-        }
-        @include respond-between(tablet, desktop) {
-            font-size: $font-size-desktop-sm;
-        }
-        @include respond-between(phone, tablet) {
-            font-size: $font-size-tablet-sm;
-        }
-        @include respond-below(phone) {
-            font-size: $font-size-phone-sm;
-        }
-        font-weight: 500;
     }
 }
 
