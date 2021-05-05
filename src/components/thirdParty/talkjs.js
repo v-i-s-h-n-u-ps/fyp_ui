@@ -37,7 +37,7 @@ class TalkJS extends Component {
                     id: selectUserInfo.id,
                     name: selectUserInfo.name,
                     email: selectUserInfo.email,
-                    photoUrl: selectUserInfo.avatar,
+                    photoUrl: selectUserInfo.avatar || "https://talkjs.com/docs/img/ronald.jpg",
                 });
                 const conversationId = Talk.oneOnOneId(me, other);
                 const conversation = window.talkSession.getOrCreateConversation(conversationId);

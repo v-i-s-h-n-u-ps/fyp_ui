@@ -32,7 +32,7 @@ const FillStudentDetails = props => {
     return (
         <PageContainer>
             <div className={s.container}>
-                {/* <TalkJS /> */}
+                <TalkJS/>
                 <Student
                     universityList={selectUniversity}
                     categoryList={selectCategory}
