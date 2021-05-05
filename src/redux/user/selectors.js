@@ -5,7 +5,12 @@ export const selectUsers = state => state.users;
 
 export const selectUserInfo = createSelector(
     [selectUsers],
-    val => _get(val, 'auth.userInfo'),
+    val => _get(val, 'auth.user.user_info'),
+);
+
+export const selectStudentInfo = createSelector(
+    [selectUsers],
+    val => _get(val, 'auth.user.student', { default: true }),
 );
 
 export const selectIsFormSubmitting = createSelector(
@@ -32,3 +37,13 @@ export const selectThemePreference = createSelector(
     [selectUsers],
     val => _get(val, 'themePreference'),
 );
+
+export const selectTokens = createSelector(
+    [selectUsers],
+    val => _get(val, 'auth.token', {})
+)
+
+export const selectIsSavingStudent = createSelector(
+    [selectUsers],
+    val => _get(val, 'student.isLoading')
+)
