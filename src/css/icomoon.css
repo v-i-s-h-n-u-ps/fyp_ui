@@ -184,3 +184,15 @@
 .icon-map_pin:before {
   content: "\e90c";
 }
+.icon-shield:before {
+  content: "\f132";
+}
+.icon-fiber_pin:before {
+  content: "\e90f";
+}
+.icon-phonelink_lock:before {
+  content: "\e90d";
+}
+.icon-verified_user:before {
+  content: "\e90e";
+}

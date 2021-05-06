@@ -31,7 +31,7 @@ export const passwordResetRequest = data => GET('user/password-reset-request/', 
 export const passwordReset = data => POST('user/password-reset/', data);
 export const passwordChange = data => POST('user/password-change/', data);
 export const createStudent = data => POST('user/post-student-details/', data);
-
+export const resendOTP = data => GET('user/resend/', data);
 
 export const getUniversity = data => GET('resources/get-university/');
 export const getRole = data => GET('resources/get-role/');

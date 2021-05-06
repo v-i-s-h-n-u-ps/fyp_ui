@@ -39,8 +39,8 @@ const ForgotPasswordPage = props => {
                 <div className={s.forgotPassword}>
                     <h3 className={s.header}>Forgot Password</h3>
                     {selectIsRequestSuccess
-                        ? <p className={s.description}>Enter your registered email address</p>
-                        : <p className={s.description}>Verify your otp and enter new password</p>
+                        ? <p className={s.description}>Verify your otp and enter new password</p>
+                        : <p className={s.description}>Enter your registered email address</p>
                     }
                     <ForgotPassword
                         values={{ ...init, email: email }}

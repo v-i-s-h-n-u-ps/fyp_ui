@@ -1,4 +1,5 @@
 
+$font-size-phone-xxl: calc(min(25.6vw, 96px));
 $font-size-phone-xl: calc(min(6.4vw, 24px)); // 24
 $font-size-phone-l:calc(min(5.33vw, 20px));  // 20
 $font-size-phone-lm: calc(min(4.8vw, 18px));  // 18
@@ -7,6 +8,7 @@ $font-size-phone-sm: calc(min(3.73vw, 14px)); // 14
 $font-size-phone-xs: calc(min(3.01vw, 12px)); // 12
 $font-size-phone-xxs: calc(min(2.65vw, 10px)); // 10
 
+$font-size-tablet-xxl: calc(min(13.56vw, 104px));
 $font-size-tablet-xl: calc(min(3.39vw, 26px)); // 26
 $font-size-tablet-l: calc(min(2.73vw, 21px)); // 21
 $font-size-tablet-lm: calc(min(2.34vw, 18px)); // 18
@@ -15,6 +17,7 @@ $font-size-tablet-sm: calc(min(1.82vw, 14px)); // 14
 $font-size-tablet-xs: calc(min(1.56vw, 12px)); // 12
 $font-size-tablet-xxs: calc(max(1vw, 10px)); // 10
 
+$font-size-desktop-xxl: calc(min(8.92vw, 128px));
 $font-size-desktop-xl: calc(min(2.23vw, 32px)); // 32
 $font-size-desktop-l: calc(min(1.8vw, 26px)); // 26
 $font-size-desktop-lm: calc(min(1.67vw, 24px)); // 24
@@ -24,6 +27,7 @@ $font-size-desktop-s: calc(min(0.97vw, 13px)); // 14
 $font-size-desktop-xs: calc(min(0.83vw, 12px)); // 12
 $font-size-desktop-xxs: calc(max(0.7vw, 10px)); // 10
 
+$font-size-screen-xxl: calc(min(6.8vw, 128px));
 $font-size-screen-xl: calc(min(1.7vw, 32px)); // 32
 $font-size-screen-l: calc(min(1.4vw, 26px)); // 26
 $font-size-screen-lm: calc(min(1.22vw, 24px)); // 24
@@ -52,7 +56,8 @@ $font-sizes: (
         sidenav: $font-size-phone-lm,
         bottomnav: $font-size-phone-lm,
         footer: $font-size-phone-lm,
-        tag: $font-size-phone-xxs
+        tag: $font-size-phone-xxs,
+        super-large: $font-size-phone-xxl,
     ),
     tablet: (
         heading-l: $font-size-tablet-xl,
@@ -71,7 +76,8 @@ $font-sizes: (
         sidenav: $font-size-tablet-sm,
         bottomnav: $font-size-tablet-sm,
         footer: $font-size-tablet-sm,
-        tag: $font-size-tablet-xxs
+        tag: $font-size-tablet-xxs,
+        super-large: $font-size-tablet-xxl,
     ),
     desktop: (
         heading-l: $font-size-desktop-xl,
@@ -90,7 +96,8 @@ $font-sizes: (
         sidenav: $font-size-desktop-s,
         bottomnav: $font-size-desktop-s,
         footer: $font-size-desktop-s,
-        tag: $font-size-desktop-xxs
+        tag: $font-size-desktop-xxs,
+        super-large: $font-size-desktop-xxl,
     ),
     screen: (
         heading-l: $font-size-screen-xl,
@@ -109,6 +116,7 @@ $font-sizes: (
         sidenav: $font-size-screen-s,
         bottomnav: $font-size-screen-s,
         footer: $font-size-screen-s,
-        tag: $font-size-screen-xxs
+        tag: $font-size-screen-xxs,
+        super-large: $font-size-screen-xxl,
     ),
 )

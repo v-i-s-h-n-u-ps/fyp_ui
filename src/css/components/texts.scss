@@ -3,6 +3,26 @@
 @import "../theme/breakpoints";
 @import "../layouts/mediaQueries.scss";
 
+@mixin text-super-large {
+    @include respond-above(desktop) {
+        $breakpoint-font-size: map-get($font-sizes, screen);
+        font-size: map-get($breakpoint-font-size, super-large);
+    }
+    @include respond-between(tablet, desktop) {
+        $breakpoint-font-size: map-get($font-sizes, desktop);
+        font-size: map-get($breakpoint-font-size, super-large);
+    }
+    @include respond-between(phone, tablet) {
+        $breakpoint-font-size: map-get($font-sizes, tablet);
+        font-size: map-get($breakpoint-font-size, super-large);
+    }
+    @include respond-below(phone) {
+        $breakpoint-font-size: map-get($font-sizes, phone);
+        font-size: map-get($breakpoint-font-size, super-large);
+    }
+    font-weight: 500;
+}
+
 @mixin heading-l {
     @include respond-above(desktop) {
         $breakpoint-font-size: map-get($font-sizes, screen);

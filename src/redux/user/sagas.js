@@ -17,7 +17,7 @@ import {
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
-  REFRESH
+  REFRESH, RESEND_OTP
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -25,7 +25,8 @@ import {
 import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
-  passwordReset, activate, logout, refresh
+  passwordReset, activate, logout, refresh, 
+  resendOTP
 } from "@services";
 
 function* handleLogoutUser() {
@@ -116,6 +117,15 @@ function* handlePasswordResetRequest({ data }) {
   }
 }
 
+function* handleResendOTP({ data }) {
+  try {
+    const apiResponse = yield call(resendOTP, data);
+    yield sendPayload(apiResponse, RESEND_OTP);
+  } catch (e) {
+    yield sendPayloadFailure(e, RESEND_OTP);
+  }
+}
+
 function* handlePasswordReset({ data }) {
   try {
     const apiResponse = yield call(passwordReset, data);
@@ -173,6 +183,7 @@ export const userSaga = {
   watchPasswordReset: takeLatest(PASSWORD_RESET[REQUEST], handlePasswordReset),
   watchActivate: takeLatest(ACTIVATE[REQUEST], handleActivate),
   watchRefresh: takeLatest(REFRESH[REQUEST], handleRefresh),
+  watchResendOTP: takeLatest(RESEND_OTP[REQUEST], handleResendOTP),
 }
 
 

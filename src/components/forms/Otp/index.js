@@ -3,13 +3,13 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
-import { activate } from "@redux/user/actions";
+import { activate, resendOTP} from "@redux/user/actions";
 import { selectIsFormSubmitting } from "@redux/user/selectors";
 import Button from "@common/Button";
 
 const OTP = props => {
 
-    const { email, d__activate, selectIsFormSubmitting } = props;
+    const { email, d__activate, selectIsFormSubmitting, d__resendOTP } = props;
 
     const [otp, setOtp] = useState('');
     const [value, setValue] = useState(["", "", "", "", "", ""]);
@@ -56,7 +56,12 @@ const OTP = props => {
 
     return (
         <div className={s.container}>
-            <p className={s.label}>Verify OTP</p>
+            <div className={s.shieldContainer}>
+                <i className={`icon-verified_user ${s.shieldIcon}`}/>
+            </div>
+            <p className={s.labelMain}>Please Enter the OTP to Verify Your Account</p>
+            <p className={s.labelSub}><i>Your One-Time Password has been sent to {email}</i></p>
+            <br></br><br></br>
             <div className={`${s.otpInputsContainer}`}>
                 <div className={`${s.inputContainer}`}>
                     <div className={s.otpContainer}>
@@ -136,6 +141,7 @@ const OTP = props => {
                     </div>
                 </div>
             </div>
+            <br></br>
             <div className={`${s.buttonContainer}`}>
                 <Button
                     text="Verify"
@@ -144,6 +150,14 @@ const OTP = props => {
                     disabled={otp.length !== 6 || selectIsFormSubmitting}
                     loading={selectIsFormSubmitting}
                 />
+            </div>
+            <div className={s.flexCenter}>
+                <p
+                className={s.resendOTP}
+                onClick={() => d__resendOTP({email})}
+                >
+                Resent One-Time Password?
+                </p>
             </div>
         </div>
     )
@@ -156,8 +170,8 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => {
     return {
         d__activate: data => dispatch(activate.request(data)),
+        d__resendOTP: data => dispatch(resendOTP.request(data))
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(OTP);
