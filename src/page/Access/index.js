@@ -33,10 +33,10 @@ const Access = props => {
                       <h3>Have an Account?</h3><br></br>
                       <p>
                         Already a member?
-                </p>
+                      </p>
                       <p>
                         Go on and login to explore and collaborate.
-                </p>
+                      </p>
                       <br></br>
                       <div>
                         <Button
