@@ -1,8 +1,8 @@
-@import './mediaQueries';
-@import '../theme/backgrounds';
-@import './mediaQueries.scss';
-@import './flexBox.scss';
-@import '../theme/borders';
+@import "./mediaQueries";
+@import "../theme/backgrounds";
+@import "./mediaQueries.scss";
+@import "./flexBox.scss";
+@import "../theme/borders";
 
 @mixin full-container {
     width: 100vw;
@@ -18,22 +18,22 @@
         &.guest {
             margin: 3.86vw 0 0 0;
         }
-        min-height: calc(100vh)
+        min-height: calc(100vh);
     }
     @include respond-between(tablet, desktop) {
         margin: 0 0 0 4.31vw;
         &.guest {
             margin: 4.86vw 0 0 0;
         }
-        min-height: calc(100vh)
+        min-height: calc(100vh);
     }
     @include respond-between(phone, tablet) {
         margin: 8.5vw 0 0 0;
-        min-height: calc(100vh - 8.6vw)
+        min-height: calc(100vh - 8.6vw);
     }
     @include respond-below(phone) {
         margin: 13.2vw 0 0 0;
-        min-height: calc(100vh - 13.2vw)
+        min-height: calc(100vh - 13.2vw);
     }
 }
 
@@ -57,6 +57,14 @@
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
             background: map-get($map, highlight);
+        }
+    }
+}
+
+@mixin default-border_radio {
+    @each $theme, $map in $borders {
+        :global(.#{$theme}) & {
+            border: map-get($map, input_radio);
         }
     }
 }

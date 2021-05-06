@@ -8,16 +8,16 @@ import { toast } from "react-toastify";
 
 import { config } from "@config";
 import { REQUEST, SUCCESS, FAILURE, SET } from "../actionCreator";
-import { 
-  sendPayload, sendPayloadFailure, isSuccess, reRoute 
+import {
+  sendPayload, sendPayloadFailure, isSuccess, reRoute
 } from "../_helpers/helperSaga";
 import {
-  ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
+  ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES,
 } from "@constants/routes";
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
-  REFRESH
+  REFRESH, RESEND_OTP, SAVE_STUDENT
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -25,7 +25,8 @@ import {
 import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
-  passwordReset, activate, logout, refresh
+  passwordReset, activate, logout, refresh,
+  resendOTP, createStudent
 } from "@services";
 
 function* handleLogoutUser() {
@@ -76,8 +77,7 @@ function* handleAuthentication({ data }) {
       SET_AUTH(token);
       yield reRoute(ctx, PUBLIC_ROUTES, DASHBOARD);
       const user = yield select(selectUserInfo);
-      if(_isEmpty(user))
-        yield put({ type: ME[REQUEST] });
+      if (_isEmpty(user)) yield put({ type: ME[REQUEST] });
       yield put({ type: AUTHENTICATE[SUCCESS], payload: { ...token, time: loginTime } });
     } else {
       REMOVE_AUTH();
@@ -113,6 +113,15 @@ function* handlePasswordResetRequest({ data }) {
     yield sendPayload(apiResponse, PASSWORD_RESET_REQUEST);
   } catch (e) {
     yield sendPayloadFailure(e, PASSWORD_RESET_REQUEST);
+  }
+}
+
+function* handleResendOTP({ data }) {
+  try {
+    const apiResponse = yield call(resendOTP, data);
+    yield sendPayload(apiResponse, RESEND_OTP);
+  } catch (e) {
+    yield sendPayloadFailure(e, RESEND_OTP);
   }
 }
 
@@ -163,6 +172,18 @@ function* handleRefresh() {
   }
 }
 
+function* handleSaveStudent({ data }) {
+  try {
+    const apiResponse = yield call(createStudent, data);
+    if (isSuccess(apiResponse)) {
+      yield put({ type: ME[REQUEST] });
+    }
+    yield sendPayload(apiResponse, SAVE_STUDENT);
+  } catch (e) {
+    yield sendPayloadFailure(e, SAVE_STUDENT);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -173,6 +194,8 @@ export const userSaga = {
   watchPasswordReset: takeLatest(PASSWORD_RESET[REQUEST], handlePasswordReset),
   watchActivate: takeLatest(ACTIVATE[REQUEST], handleActivate),
   watchRefresh: takeLatest(REFRESH[REQUEST], handleRefresh),
+  watchResendOTP: takeLatest(RESEND_OTP[REQUEST], handleResendOTP),
+  watchSaveStudent: takeLatest(SAVE_STUDENT[REQUEST], handleSaveStudent),
 }
 
 

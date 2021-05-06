@@ -4,7 +4,7 @@ import {
   LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
-  ACTIVATE, REFRESH, SAVE_STUDENT
+  ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -52,6 +52,10 @@ const users = () => {
       case ACTIVATE[REQUEST]: return { ...state, isSubmitting: true }
       case ACTIVATE[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: false }
       case ACTIVATE[FAILURE]: return { ...state, isSubmitting: false }
+
+      case RESEND_OTP[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false, requestSuccess: false}
+      case RESEND_OTP[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: true }
+      case RESEND_OTP[FAILURE]: return { ...state, isSubmitting: false, isOtpSent: false }
 
       case OTP_SEND[SET]: return { ...state, isOtpSent: true, isSubmitting: false, }
       case OTP_SEND[UNSET]: return { ...state, isOtpSent: false, isSubmitting: false, }

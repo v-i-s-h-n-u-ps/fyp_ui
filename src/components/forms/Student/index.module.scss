@@ -1,0 +1,170 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/animations.scss";
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 15px 10px;
+}
+
+.flexCenter {
+    @include flex-center;
+    @include respond-above(phone) {
+        width: 30%;
+        margin: auto;
+    }
+    @include respond-above(phone) {
+        button {
+            width: 150px !important;
+            // float: right;
+        }
+    }
+}
+
+.header {
+    @include flex-center;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    p {
+        @include heading-sm;
+        margin-right: 8px;
+    }
+    div {
+        flex-grow: 1;
+        @include default-border;
+        border-width: 2px;
+    }
+}
+
+.multiInput {
+    @include flex;
+    gap: 25px;
+    justify-content: space-between;
+    .social {
+        flex-grow: 1;
+    }
+}
+
+.icon {
+    @include heading-lm;
+}
+
+.dropDownContainer {
+    margin-bottom: 40px;
+}
+
+.uploader {
+    margin-top: 16px;
+}
+
+.aboutYouContainer {
+    margin-bottom: 15px;
+    margin-top: 8px;
+    @include flex-column;
+    textarea {
+        font-family: Muli;
+        resize: none;
+        // width: 95%;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        @include highlight-background;
+        @include default-border;
+        @include default-color;
+    }
+}
+
+.textareaBottom {
+    @include flex;
+    justify-content: space-between;
+    p {
+        flex-grow: 1;
+        @include heading-s;
+    }
+    span {
+        @include heading-s;
+        @include subtext-color;
+        flex-grow: 1;
+        text-align: right;
+    }
+}
+
+.label {
+    letter-spacing: 0.4px;
+    padding: 0 2px;
+    background: transparent;
+    @include default-color;
+    @include heading-sm;
+    &.active {
+        font-weight: 500;
+        @include label-color;
+        @include default-background;
+        @include heading-sm;
+    }
+}
+
+.error {
+    textarea {
+        border-color: $color-alizarin !important;
+    }
+    color: $color-alizarin !important;
+}
+
+.typeValue {
+    @include flex;
+    cursor: pointer;
+    width: fit-content;
+    align-items: center;
+    margin: 15px 0 0;
+    span {
+        @include normal-content-size;
+        font-weight: 500;
+    }
+}
+
+.inputRadio {
+    @include default-border_radio;
+    cursor: pointer;
+    position: relative;
+    margin-right: 7px;
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+    }
+    &:checked {
+        border-color: $color-affair;
+        position: relative;
+        @include animation(pulse, $duration: 0.3s, $timing-function: ease);
+        &:before {
+            width: 10px;
+            height: 10px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            background: $color-affair;
+            transition: all 0.15s ease;
+        }
+    }
+}
+
+.genderContainer {
+    flex-grow: 0.5;
+    .genders {
+        justify-content: space-around;
+        @include flex;
+    }
+}
+
+.helperText {
+    @include heading-s;
+}

@@ -2,16 +2,17 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import withReduxSaga from "..";
-import { selectUniversity } from "@redux/resources/selectors";
-import Dashboard from "@screens/Dashboard";
+import withReduxSaga from "../..";
+import Profile from "@screens/Profile";
 
-const DashboardPage = props => <Dashboard {...props} />;
+const DashboardPage = (props) => {
+    return <Profile {...props} />
+};
 
 DashboardPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
-    
+
     req = req || { headers: { host: window.location.host } };
 
     let hostURL = `https://${req.headers.host}`;
@@ -20,8 +21,4 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-const mapStateToProps = createStructuredSelector({
-    selectUniversity
-})
-
-export default withReduxSaga(connect(mapStateToProps)(DashboardPage));
+export default withReduxSaga(DashboardPage);

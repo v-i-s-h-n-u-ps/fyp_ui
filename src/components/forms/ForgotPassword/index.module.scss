@@ -25,5 +25,25 @@
         flex-direction: column-reverse;
         gap: 10px
     }
-    
+}
+
+.icon {
+    @include heading-m;
+    color: rgb(167, 167, 167);
+}
+
+.otp{
+    color: #0097e6;
+}
+
+.mail{
+    color: indianred;
+}
+
+.password{
+    color: #e89d13;
+}
+
+.confirm{
+    color: green;
 }

@@ -22,9 +22,11 @@
 }
 
 .navigateTo {
+    background-color: transparent;
     cursor: pointer;
     border-radius: 4px;
     overflow: hidden;
+    padding: 20px 0px 0px 20px;
 }
 
 .navigate {
@@ -43,11 +45,10 @@
     @include respond-below(phablet) {
         display: none;
     }
-    @include default-background;
 }
 
 .title {
-    @include subText-l;
+    @include heading-m;
 }
 
 .icon {

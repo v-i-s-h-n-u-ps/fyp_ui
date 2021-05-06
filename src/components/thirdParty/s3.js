@@ -1,6 +1,7 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { uploadFile } from 'react-s3';
+import dayjs from "dayjs";
 
 import { config } from "@config";
 import Input from '@common/Input';
@@ -8,8 +9,12 @@ import Input from '@common/Input';
 const S3Upload = props => {
 
   const {
-    multiple = false, onUpload, accept = "*", error, helperText
+    multiple = false, onUpload, accept = "*", error, helperText,
+    label="Upload Resume", value, disabled = false, directory="resume",
+    fileName
   } = props;
+
+  const [uploading, setUploading] = useState(false);
 
   const file = useRef(null)
 
@@ -18,31 +23,41 @@ const S3Upload = props => {
     region: config.AMAZON_REGION,
     accessKeyId: config.AMAZON_ACCESS_KEY,
     secretAccessKey: config.AMAZON_SECRET_KEY,
-    dirName: "resume"
+    dirName: directory
   }
 
   const handleUpload = async (file) => {
+    setUploading(true);
     uploadFile(file, s3config)
-      .then(data => console.log(data))
-      .catch(err => console.error(err))
+      .then(data => {
+        setUploading(false);
+        onUpload(data);
+      })
+      .catch(err => {
+        setUploading(false);
+        console.error(err)
+      })
   }
 
   const handleFileInput = ({ target }) => {
     let files = Array.from(target.files);
     for (let i = 0; i < files.length; i++) {
-      handleUpload(files[i])
+      const name = fileName ? `${fileName}.${files[i].name.split(".")[1]}` : files[i].name;
+      const new_file = new File([files[i]], name);
+      handleUpload(new_file)
     }
   }
 
   return (
     <div onClick={() => file.current.click()}>
       <Input
-        label="Resume"
+        label={label}
         name="file"
-        value={''}
+        value={!!value ? value : (uploading ? 'uploading...' : '')}
         readOnly={true}
         error={error}
         helperText={helperText}
+        disabled={disabled}
       />
       <input
         multiple={multiple}
@@ -50,6 +65,7 @@ const S3Upload = props => {
         onChange={handleFileInput}
         accept={accept}
         ref={file}
+        disabled={uploading || disabled}
         hidden
       />
     </div>

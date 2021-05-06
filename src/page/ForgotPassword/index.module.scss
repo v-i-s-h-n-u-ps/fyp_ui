@@ -2,40 +2,49 @@
 @import "@css/layouts/mediaQueries.scss";
 @import "@css/layouts/flexBox.scss";
 @import "@css/layouts/container.scss";
+@import "@css/layouts/boxShadows.scss";
+
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    @include default-background;
+    @include full-container;
     overflow: hidden;
+    position: relative;
 }
 
+.background {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-image: url("https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/resources/test.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
 .content {
     width: 100%;
-    height: 100%;
+    height: 85%;
     @include flex-center;
 }
 
 .forgotPassword {
-    @include respond-above(tablet) {
-        width: 75%;
-        margin: auto;
-        padding: 15px 0;
-    }
-    @include respond-between(phone, tablet) {
-        width: 85%;
-        margin: auto;
-        padding: 15px 0;
-    }
+    border-radius: 5px;
+    padding: 60px 50px 60px 50px;
+    @include default-background;
+    @include box-shadow-default;
     @include respond-below(phone) {
-        width: 100%;
+        width: 80%;
         padding: 20px;
     }
 }
 
 .header {
     text-align: center;
-    @include heading-l;
+    @include heading-lm;
 }
 
 .description {

@@ -2,7 +2,7 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import withReduxSaga from "../../src";
+import withReduxSaga from "../";
 import Access from "@screens/Access";
 import { otpSend } from "@redux/user/actions";
 import {

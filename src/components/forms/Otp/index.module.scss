@@ -2,21 +2,48 @@
 @import "@css/layouts/mediaQueries.scss";
 @import "@css/components/texts.scss";
 @import "@css/components/buttons.scss";
-@import "@css//layouts/flexBox.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/boxShadows.scss";
 
 .container {
     @include flex-center;
+    @include default-background;
     flex-direction: column;
+    border-radius: 5px;
+    padding: 25px 30px 40px 30px;
+    @include box-shadow-default;
     @include respond-below(phone) {
         width: 80%;
         margin: auto;
     }
 }
 
-.label {
-    padding-bottom: 10px;
-    @include heading-m;
+.shieldContainer {
+    padding-bottom: 20px;
+}
+
+.shieldIcon {
+    @include text-super-large;
+    transform: scale(1.5);
     @include subtext-color;
+}
+
+.labelMain {
+    padding-bottom: 10px;
+    @include heading-lm;
+    @include default-color;
+    @include respond-below(phone){
+        @include heading-m;
+    }
+}
+
+.labelSub {
+    padding-bottom: 10px;
+    @include heading-sm;
+    @include subtext-color;
+    @include respond-below(phone){
+        @include heading-s;
+    }
 }
 
 .otpContainer {
@@ -34,7 +61,7 @@
 .otpCell {
     font-weight: bolder;
     padding: 3px;
-    border-radius: 4px;
+    border-radius: 8px;
     @include default-border;
     @include respond-above(desktop) {
         font-size: $font-size-screen-m;
@@ -72,4 +99,29 @@
 .buttonContainer {
     margin: 20px auto 0;
     width: 100%;
+}
+
+.flexCenter {
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+    @include respond-below(phone) {
+        flex-direction: column-reverse;
+        gap: 10px
+    }
+    
+}
+
+.resendOTP {
+    @include heading-sm;
+    @include subtext-color;
+    min-width: 50%;
+    cursor: pointer;
 }

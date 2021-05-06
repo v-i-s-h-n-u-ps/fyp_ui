@@ -1,9 +1,9 @@
 import React from "react";
+import _get from "lodash/get";
 
 import s from "./index.module.scss";
 import PageContainer from "@hoc/PageContainer";
 import Student from "@forms/Student";
-import TalkJS from "@components/thirdParty/talkjs";
 
 const init = {
     university: '',
@@ -15,7 +15,8 @@ const init = {
     linkedIn: '',
     gmail: '',
     categories: [],
-    dateOfBirth: ''
+    dateOfBirth: '',
+    twitter: ''
 }
 
 const FillStudentDetails = props => {
@@ -32,15 +33,32 @@ const FillStudentDetails = props => {
     return (
         <PageContainer>
             <div className={s.container}>
-                <TalkJS/>
-                <Student
-                    universityList={selectUniversity}
-                    categoryList={selectCategory}
-                    values={init}
-                    submit={onSubmit}
-                    selectIsSavingStudent={selectIsSavingStudent}
-                    theme={theme}
-                />
+                <div className={s.formContainer}>
+                    <div className={s.detailsArea}>
+                        <h2>student information</h2>
+                        <div>
+                            <p>Hi, <b>{_get(selectUserInfo, 'name')}</b></p>
+                            <br />
+                            <p>Welcome to The Auxiliar</p>
+                            <p>Let us know more about you...</p>
+                            <p>Engage in our community and</p>
+                            <p>collaborate with people near you...</p>
+                        </div>
+                    </div>
+                    <div className={s.form}>
+                        <div className={s.studentForm}>
+                            <Student
+                                universityList={selectUniversity}
+                                categoryList={selectCategory}
+                                values={init}
+                                submit={onSubmit}
+                                selectIsSavingStudent={selectIsSavingStudent}
+                                theme={theme}
+                                selectUserInfo={selectUserInfo}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </PageContainer>
     )

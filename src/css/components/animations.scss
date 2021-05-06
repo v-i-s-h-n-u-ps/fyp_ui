@@ -36,6 +36,13 @@
     }
 }
 
+@keyframes pulse {
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 6px $color-affair;
+    }
+}
+
 @mixin animation($name, $duration: 1s, $timing-function: ease-in, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: none) {
     animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
 }

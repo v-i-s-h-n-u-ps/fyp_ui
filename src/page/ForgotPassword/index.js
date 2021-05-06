@@ -31,23 +31,26 @@ const ForgotPasswordPage = props => {
 
     return (
         <div className={s.container}>
-            <NavigateTo
-                title={"Back"}
-                link={ROOT}
-            />
-            <div className={s.content}>
-                <div className={s.forgotPassword}>
-                    <h3 className={s.header}>Forgot Password</h3>
-                    {selectIsRequestSuccess
-                        ? <p className={s.description}>Enter your registered email address</p>
-                        : <p className={s.description}>Verify your otp and enter new password</p>
-                    }
-                    <ForgotPassword
-                        values={{ ...init, email: email }}
-                        selectIsFormSubmitting={selectIsFormSubmitting}
-                        selectIsRequestSuccess={selectIsRequestSuccess}
-                        onSubmit={onSubmit}
-                    />
+            <div className={s.background} />
+            <div className={s.main}>
+                <NavigateTo
+                    title={"Back"}
+                    link={ROOT}
+                />
+                <div className={s.content}>
+                    <div className={s.forgotPassword}>
+                        <h3 className={s.header}>Forgot Password</h3>
+                        {selectIsRequestSuccess
+                            ? <p className={s.description}>Verify your otp and enter new password</p>
+                            : <p className={s.description}>Enter your registered email address</p>
+                        }
+                        <ForgotPassword
+                            values={{ ...init, email: email }}
+                            selectIsFormSubmitting={selectIsFormSubmitting}
+                            selectIsRequestSuccess={selectIsRequestSuccess}
+                            onSubmit={onSubmit}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

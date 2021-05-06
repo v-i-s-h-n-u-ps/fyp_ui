@@ -27,7 +27,7 @@
         }
         @include respond-below(phone) {
             width: 100% !important;
-            @include card-background;
+            @include highlight-background;
         }
     }
     ul {
@@ -35,6 +35,7 @@
         @include highlight-background;
         @include default-border;
         @include box-shadow-default;
+        @include default-color;
         border-top-width: 0px !important;
         border-radius: 0 0 4px 4px !important;
         padding-bottom: 4px !important;
@@ -43,7 +44,12 @@
         padding: 8px 16px !important;
     }
     @include input-border-bottom;
-    margin: 24px 0 8px;
+    margin: 24px 0 2px;
+    :global {
+        ._32r8xHW3WLH5mygPuyDIBF {
+            padding: 0 0 0 2px !important;
+        }
+    }
 }
 
 .label {
@@ -65,4 +71,18 @@
         @include heading-sm;
         transform: translate(8px, -30px);
     }
+}
+
+.error {
+    border-color: $color-alizarin !important;
+    color: $color-alizarin;
+}
+
+.helper,
+.error {
+    @include normal-content-size;
+}
+
+.helper {
+    @include subText-l-color;
 }

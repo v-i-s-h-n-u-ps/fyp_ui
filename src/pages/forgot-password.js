@@ -2,16 +2,14 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import withReduxSaga from "../../src";
+import withReduxSaga from "..";
 import ForgotPassword from "@screens/ForgotPassword";
 import { passwordReset, passwordResetRequest, resetOtpSend } from "@redux/user/actions";
 import { 
     selectIsFormSubmitting, selectIsRequestSuccess
 } from "@redux/user/selectors";
 
-const ForgotPasswordPage = (props) => {
-    return <ForgotPassword {...props} />
-};
+const ForgotPasswordPage = (props) => <ForgotPassword {...props} />
 
 const mapStateToProps = createStructuredSelector({
     selectIsFormSubmitting,

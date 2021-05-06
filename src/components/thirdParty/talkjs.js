@@ -18,14 +18,10 @@ class TalkJS extends Component {
         Talk.ready
             .then(() => {
                 const me = new Talk.User({
-                    // id: selectUserInfo.id,
-                    // name: selectUserInfo.name,
-                    // email: selectUserInfo.email,
-                    // photoUrl: selectUserInfo.avatar,
-                    id: "54221",
-                    name: "Vishnu",
-                    email: "admasd@teflon.com",
-                    photoUrl: "https://talkjs.com/docs/img/ronald.jpg",
+                    id: selectUserInfo.id,
+                    name: selectUserInfo.name,
+                    email: selectUserInfo.email,
+                    photoUrl: selectUserInfo.avatar,
                 });
                 if (!window.talkSession) {
                     window.talkSession = new Talk.Session({
@@ -34,10 +30,14 @@ class TalkJS extends Component {
                     });
                 }
                 const other = new Talk.User({
-                    id: selectUserInfo.id,
-                    name: selectUserInfo.name,
-                    email: selectUserInfo.email,
-                    photoUrl: selectUserInfo.avatar || "https://talkjs.com/docs/img/ronald.jpg",
+                    // id: selectUserInfo.id,
+                    // name: selectUserInfo.name,
+                    // email: selectUserInfo.email,
+                    // photoUrl: selectUserInfo.avatar,
+                    id: "54221",
+                    name: "Vishnu",
+                    email: "admasd@teflon.com",
+                    photoUrl: "https://talkjs.com/docs/img/ronald.jpg",
                 });
                 const conversationId = Talk.oneOnOneId(me, other);
                 const conversation = window.talkSession.getOrCreateConversation(conversationId);
@@ -60,8 +60,8 @@ class TalkJS extends Component {
 
     render() {
         return (
-            <div style={{ height: "100vh", width: "100%"}} ref={c => this.container = c}>Loading...</div>
-     );
+            <div style={{ height: "80vh", width: "100%" }} ref={c => this.container = c}>Loading...</div>
+        );
     }
 }
 

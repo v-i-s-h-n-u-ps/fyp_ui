@@ -68,13 +68,15 @@ export const STUDENT_VALIDATION = yup.object().shape({
     .required('Gender is required'),
   about: yup.string()
     .trim()
-    .required('Write something about you'),
+    .required('Write something about you')
+    .max(300, "Write in less than 300 characters"),
   facebook: yup.string(),
   resumeUrl: yup.string()
     .trim()
     .required('Please upload a resume'),
   linkedIn: yup.string(),
   gmail: yup.string(),
+  twitter: yup.string(),
   categories: yup.array()
     .of(yup.string())
     .required("Select at least one category")

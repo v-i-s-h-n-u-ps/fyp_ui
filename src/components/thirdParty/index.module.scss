@@ -1,0 +1,12 @@
+@import "@css/components/texts.scss";
+@import "@css/components/animations.scss";
+
+.iconMapPin {
+    @include heading-l;
+    color: red;
+    border-radius: 50%;
+    font-weight: bold;
+    &:hover {
+        @include animation(pulse);
+    }
+}

@@ -40,3 +40,18 @@ export const dateConfig = {
         step: 1,
     },
 };
+
+export const GENDERS = [
+    {
+        value: "Male",
+        key: 'male'
+    },
+    {
+        value: "Female",
+        key: 'female'
+    },
+    // {
+    //     value: "Other",
+    //     key: 'other'
+    // },
+]

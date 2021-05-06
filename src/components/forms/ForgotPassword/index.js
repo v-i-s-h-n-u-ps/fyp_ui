@@ -42,6 +42,8 @@ const ForgotPassword = props => {
               helperText={errors.email && touched.email ? errors.email : ''}
               autoFocus={true}
               readOnly={selectIsRequestSuccess}
+              showEdit={true}
+              secondaryText={<i className={`icon-mail ${s.icon} ${s.mail}`} />}
             />
             <RenderIfTrue condition={selectIsRequestSuccess}>
               <Input
@@ -52,6 +54,8 @@ const ForgotPassword = props => {
                 value={values.otp}
                 error={errors.otp && touched.otp}
                 helperText={errors.otp && touched.otp ? errors.otp : ''}
+                showEdit={true}
+                secondaryText={<i className={`icon-phonelink_lock ${s.icon} ${s.otp}`} />}
               />
               <Input
                 label="Password"
@@ -61,6 +65,8 @@ const ForgotPassword = props => {
                 value={values.password}
                 error={errors.password && touched.password}
                 helperText={errors.password && touched.password ? errors.password : ''}
+                showEdit={true}
+                secondaryText={<i className={`icon-lock ${s.icon} ${s.password}`} />}
               />
               <Input
                 label="Confirm Password"
@@ -70,6 +76,8 @@ const ForgotPassword = props => {
                 value={values.confirm}
                 error={errors.confirm && touched.confirm}
                 helperText={errors.confirm && touched.confirm ? errors.confirm : ''}
+                showEdit={true}
+                secondaryText={<i className={`icon-check_circle ${s.icon} ${(values.password === values.confirm && !!values.password) ? s.confirm : ""}`} />}
               />
             </RenderIfTrue>
             <div className={s.flexCenter}>
@@ -77,7 +85,7 @@ const ForgotPassword = props => {
                 type="message"
                 variant="block"
                 buttonType="submit"
-                text={selectIsRequestSuccess ? 'Update Password' : 'Submit'}
+                text={selectIsRequestSuccess ? 'Update Password' : 'Continue'}
                 disabled={selectIsFormSubmitting}
                 loading={selectIsFormSubmitting}
               />
