@@ -49,7 +49,7 @@ const Input = props => {
     }, [])
 
     useEffect(() => {
-        setFocus(!!value || alwaysFloat);
+        setFocus(!!value || alwaysFloat || focus);
     }, [value])
 
     return (

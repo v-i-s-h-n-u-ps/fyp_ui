@@ -17,7 +17,7 @@ import {
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
-  REFRESH, RESEND_OTP
+  REFRESH, RESEND_OTP, SAVE_STUDENT
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -26,7 +26,7 @@ import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh, 
-  resendOTP
+  resendOTP, createStudent
 } from "@services";
 
 function* handleLogoutUser() {
@@ -173,6 +173,18 @@ function* handleRefresh() {
   }
 }
 
+function* handleSaveStudent({ data }) {
+  try {
+    const apiResponse = yield call(createStudent, data);
+    if (isSuccess(apiResponse)) {
+      yield put({ type: ME[REQUEST] })
+    }
+    yield sendPayload(apiResponse, SAVE_STUDENT);
+  } catch (e) {
+    yield sendPayloadFailure(e, SAVE_STUDENT);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -184,6 +196,7 @@ export const userSaga = {
   watchActivate: takeLatest(ACTIVATE[REQUEST], handleActivate),
   watchRefresh: takeLatest(REFRESH[REQUEST], handleRefresh),
   watchResendOTP: takeLatest(RESEND_OTP[REQUEST], handleResendOTP),
+  watchSaveStudent: takeLatest(SAVE_STUDENT[REQUEST], handleSaveStudent),
 }
 
 

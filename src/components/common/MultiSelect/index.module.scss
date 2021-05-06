@@ -45,6 +45,11 @@
     }
     @include input-border-bottom;
     margin: 24px 0 2px;
+    :global {
+        ._32r8xHW3WLH5mygPuyDIBF {
+            padding: 0 0 0 2px !important;
+        }
+    }
 }
 
 .label {

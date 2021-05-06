@@ -69,11 +69,11 @@ export const STUDENT_VALIDATION = yup.object().shape({
   about: yup.string()
     .trim()
     .required('Write something about you')
-    .min(300, "Write in less than 300 characters"),
+    .max(300, "Write in less than 300 characters"),
   facebook: yup.string(),
   resumeUrl: yup.string()
-    .trim()
-    .required('Please upload a resume'),
+    .trim(),
+    // .required('Please upload a resume'),
   linkedIn: yup.string(),
   gmail: yup.string(),
   twitter: yup.string(),
