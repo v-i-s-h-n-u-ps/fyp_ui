@@ -3,11 +3,11 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "..";
-import Profile from "@screens/Profile";
+import Chats from "@screens/Chats";
 
-const DashboardPage = (props) => <Profile {...props} />;
+const ChatsPage = (props) => <Chats {...props} />;
 
-DashboardPage.getInitialProps = async (props) => {
+ChatsPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -19,4 +19,4 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(DashboardPage);
+export default withReduxSaga(ChatsPage);
