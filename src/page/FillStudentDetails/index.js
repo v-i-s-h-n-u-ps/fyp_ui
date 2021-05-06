@@ -15,7 +15,8 @@ const init = {
     linkedIn: '',
     gmail: '',
     categories: [],
-    dateOfBirth: ''
+    dateOfBirth: '',
+    twitter: ''
 }
 
 const FillStudentDetails = props => {
@@ -32,15 +33,28 @@ const FillStudentDetails = props => {
     return (
         <PageContainer>
             <div className={s.container}>
-                {/* <TalkJS /> */}
-                <Student
-                    universityList={selectUniversity}
-                    categoryList={selectCategory}
-                    values={init}
-                    submit={onSubmit}
-                    selectIsSavingStudent={selectIsSavingStudent}
-                    theme={theme}
-                />
+                <div className={s.formContainer}>
+                    <div className={s.detailsArea}>
+                        <h2>student information</h2>
+                        <div>
+                            <p>Let us know more about you...</p>
+                            <p>Engage in our community and</p>
+                            <p>collaborate with people near you...</p>
+                        </div>
+                    </div>
+                    <div className={s.form}>
+                        <div className={s.studentForm}>
+                            <Student
+                                universityList={selectUniversity}
+                                categoryList={selectCategory}
+                                values={init}
+                                submit={onSubmit}
+                                selectIsSavingStudent={selectIsSavingStudent}
+                                theme={theme}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </PageContainer>
     )

@@ -75,6 +75,7 @@ export const STUDENT_VALIDATION = yup.object().shape({
     .required('Please upload a resume'),
   linkedIn: yup.string(),
   gmail: yup.string(),
+  twitter: yup.string(),
   categories: yup.array()
     .of(yup.string())
     .required("Select at least one category")

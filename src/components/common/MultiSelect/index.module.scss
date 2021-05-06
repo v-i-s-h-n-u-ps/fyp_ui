@@ -27,7 +27,7 @@
         }
         @include respond-below(phone) {
             width: 100% !important;
-            @include card-background;
+            @include highlight-background;
         }
     }
     ul {

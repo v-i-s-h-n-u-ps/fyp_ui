@@ -8,7 +8,8 @@ import Input from '@common/Input';
 const S3Upload = props => {
 
   const {
-    multiple = false, onUpload, accept = "*", error, helperText
+    multiple = false, onUpload, accept = "*", error, helperText,
+    label="Upload Resume"
   } = props;
 
   const file = useRef(null)
@@ -37,7 +38,7 @@ const S3Upload = props => {
   return (
     <div onClick={() => file.current.click()}>
       <Input
-        label="Resume"
+        label={label}
         name="file"
         value={''}
         readOnly={true}
