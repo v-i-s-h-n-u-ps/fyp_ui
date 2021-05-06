@@ -1,6 +1,7 @@
 @import "@css/layouts/flexBox.scss";
 @import "@css/layouts/container.scss";
 @import "@css/components/texts.scss";
+@import "@css/components/animations.scss";
 
 .container {
     width: 100%;
@@ -142,7 +143,7 @@
     &:checked {
         border-color: $color-affair;
         position: relative;
-        animation: pulse 0.3s ease 1;
+        @include animation(pulse, $duration: 0.3s, $timing-function: ease);
         &:before {
             width: 10px;
             height: 10px;
@@ -161,13 +162,6 @@
     .genders {
         justify-content: space-around;
         @include flex;
-    }
-}
-
-@keyframes pulse {
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 6px $color-affair;
     }
 }
 

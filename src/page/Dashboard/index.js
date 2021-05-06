@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import s from "./index.module.scss";
 import PageContainer from "@hoc/PageContainer";
-import Button from "@common/Button";
 import Map from "@components/thirdParty/maps";
-import Input from "@common/Input";
 
 const Dashboard = props => {
     
-    console.log("dashboard", props)
+    const { selectUniversity } = props;
 
     return (
         <PageContainer active={"dashboard"}>
@@ -17,7 +15,11 @@ const Dashboard = props => {
                     
                 </div>
                 <div className={s.maps}>
-                    <Map />
+                    <Map 
+                        locations={selectUniversity} 
+                        latKey = "latitude"
+                        longKey = "longitude"
+                    />
                 </div>
             </div>
         </PageContainer>

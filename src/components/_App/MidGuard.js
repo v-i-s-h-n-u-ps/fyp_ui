@@ -25,9 +25,9 @@ const MidGuard = (props) => {
     useEffect(() => {
         if (selectIsAuth && !selectStudentInfo.default) {
             if (_isEmpty(selectStudentInfo)){
-                router.push(FILL_STUDENT_DETAILS)
+                router.push(FILL_STUDENT_DETAILS);
             } else if(router.pathname === FILL_STUDENT_DETAILS && _isEmpty(router.query)) {
-                router.push(DASHBOARD)
+                router.push(DASHBOARD);
             }
         }
     }, [selectStudentInfo, router.pathname])
@@ -40,7 +40,6 @@ const MidGuard = (props) => {
     }, [selectIsAuth])
 
     return props.children
-
 }
 
 const mapStateToProps = createStructuredSelector({

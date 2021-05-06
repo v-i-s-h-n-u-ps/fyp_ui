@@ -2,9 +2,10 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import controllable from 'react-controllables';
 
+import s from "./index.module.scss";
 import { config } from "@config";
 
-const Marker = ({ text }) => <div style={{ background: "red", width: "25px", height: "25px" }}>{text}</div>;
+const Marker = () => <i className={`icon-map_pin ${s.iconMapPin}`} />
 
 const defaultProps = {
     center: {
@@ -44,7 +45,6 @@ const Map = props => {
                     <Marker
                         lat={location[latKey]}
                         lng={location[longKey]}
-                        text="My Marker"
                     />
                 ))}
             </GoogleMapReact>
