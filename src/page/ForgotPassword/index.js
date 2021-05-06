@@ -4,7 +4,7 @@ import _omit from "lodash/omit";
 import s from "./index.module.scss";
 import { ROOT } from "@constants/routes";
 import ForgotPassword from "@forms/ForgotPassword";
-import NavigateTo from "@common/NavigateTo";
+import NavigateTo from "@common/navigateTo";
 
 const init = {
     email: '',
