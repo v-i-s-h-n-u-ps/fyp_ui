@@ -196,3 +196,12 @@
 .icon-verified_user:before {
   content: "\e90e";
 }
+.icon-mail_circle:before {
+  content: "\ea86";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}

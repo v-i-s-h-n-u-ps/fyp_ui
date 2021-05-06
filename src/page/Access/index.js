@@ -15,67 +15,70 @@ const Access = props => {
 
   return (
     <div className={s.container}>
-      {selectIsOtpSent
-        ? <Otp email={email} />
-        : (
-          <div className={s.accessContainer}>
-            <div className={s.formContainer}>
-              {active === 'login'
-                ? (
-                  <div className={`${s.form} ${s.left}`}>
-                    <Login setEmail={setEmail} />
-                  </div>
-                )
-                : (
-                  <div className={s.content}>
-                    <h3>Have an Account?</h3><br></br>
-                    <p>
-                      Already a member?
-                </p>
-                    <p>
-                      Go on and login to explore and collaborate.
-                </p>
-                    <br></br>
-                    <div>
-                      <Button
-                        text={'Login'}
-                        onClick={() => setActive("login")}
-                        variant="hollow"
-                        type="grey"
-                      />
+      <div className={s.background} />
+      <div className={s.main}>
+        {selectIsOtpSent
+          ? <Otp email={email} />
+          : (
+            <div className={s.accessContainer}>
+              <div className={s.formContainer}>
+                {active === 'login'
+                  ? (
+                    <div className={`${s.form} ${s.left}`}>
+                      <Login setEmail={setEmail} />
                     </div>
-                  </div>
-                )
-              }
-            </div>
-            <div className={s.formContainer}>
-              {active === 'signup'
-                ? (
-                  <div className={`${s.form} ${s.right}`}>
-                    <Signup setEmail={setEmail} email={email} />
-                  </div>
-                )
-                : (
-                  <div className={s.content}>
-                    <h3 className={s.noMember}>Not a member?</h3>
-                    <p>Join us today!</p>
-                    <p>Create projects, form collaborations and have fun.</p>
-                    <br></br>
-                    <div>
-                      <Button
-                        text={'Signup'}
-                        onClick={() => setActive("signup")}
-                        variant="hollow"
-                        type="grey"
-                      />
+                  )
+                  : (
+                    <div className={s.content}>
+                      <h3>Have an Account?</h3><br></br>
+                      <p>
+                        Already a member?
+                </p>
+                      <p>
+                        Go on and login to explore and collaborate.
+                </p>
+                      <br></br>
+                      <div>
+                        <Button
+                          text={'Login'}
+                          onClick={() => setActive("login")}
+                          variant="hollow"
+                          type="grey"
+                        />
+                      </div>
                     </div>
-                  </div>
-                )
-              }
+                  )
+                }
+              </div>
+              <div className={s.formContainer}>
+                {active === 'signup'
+                  ? (
+                    <div className={`${s.form} ${s.right}`}>
+                      <Signup setEmail={setEmail} email={email} />
+                    </div>
+                  )
+                  : (
+                    <div className={s.content}>
+                      <h3 className={s.noMember}>Not a member?</h3>
+                      <p>Join us today!</p>
+                      <p>Create projects, form collaborations and have fun.</p>
+                      <br></br>
+                      <div>
+                        <Button
+                          text={'Signup'}
+                          onClick={() => setActive("signup")}
+                          variant="hollow"
+                          type="grey"
+                        />
+                      </div>
+                    </div>
+                  )
+                }
+              </div>
             </div>
-          </div>
-        )
-      }
+          )
+        }
+      </div>
     </div>
   );
 };

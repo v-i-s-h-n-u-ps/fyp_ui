@@ -74,7 +74,7 @@
 .label {
     display: inline-block;
     position: absolute;
-    left: -6px;
+    left: -8px;
     top: 10px;
     transition: all 0.25s ease-in-out;
     will-change: top, color;
@@ -96,6 +96,9 @@
         @include heading-sm;
         @include respond-above(screen) {
             transform: translate(8px, -32px);
+        }
+        @include respond-below(phone) {
+            transform: translate(10px, -22px);
         }
     }
 }

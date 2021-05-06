@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
-import _remove from "lodash/remove";
-import _includes from "lodash/includes";
+import _last from "lodash/last";
 import _get from "lodash/get";
 import DatePicker from "react-mobile-datepicker";
 import dayjs from "dayjs";
@@ -9,6 +8,7 @@ import dynamic from 'next/dynamic'
 
 import s from "./index.module.scss";
 import { STUDENT_VALIDATION } from "@helpers/schemas";
+import { GENDERS } from "@constants/config";
 import { dateConfig } from "@constants/config";
 import Button from "@common/Button";
 import Input from "@common/Input";
@@ -20,7 +20,7 @@ const Student = props => {
 
   const {
     submit, selectIsSavingStudent, values, categoryList, universityList = [],
-    theme = "light"
+    theme = "light", selectUserInfo
   } = props
 
   const [open, setOpen] = useState(false);
@@ -74,8 +74,6 @@ const Student = props => {
             setFieldValue("dateOfBirth", dayjs(val).format("YYYY-MM-DD"))
           }
 
-          console.log(universityList, 'university')
-
           return (
             <form onSubmit={handleSubmit} className={s.form}>
               <div className={s.header}>
@@ -83,7 +81,7 @@ const Student = props => {
                 <div />
               </div>
               <div className={s.multiInput}>
-                <div>
+              <div className={s.social}>
                   <Input
                     label="Date of Birth"
                     name="dateOfBirth"
@@ -106,6 +104,30 @@ const Student = props => {
                     showCaption={true}
                     showHeader={false}
                   />
+                </div>
+                <div className={s.genderContainer}>
+                  <div className={s.genders}>
+                    {GENDERS.map((type, index) => (
+                      <div
+                        key={index}
+                        className={`${s.typeValue} ${errors.university && touched.university ? s.error : ''}`}
+                        onClick={() => setFieldValue('gender', type.key)}
+                      >
+                        <input
+                          type="radio"
+                          name={"gender"}
+                          className={s.inputRadio}
+                          checked={values.gender === type.key}
+                          value={type.key}
+                          onChange={() => setFieldValue('gender', type.key)}
+                        />
+                        <span>{type.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className={`${s.helperText} ${errors.about && touched.about ? s.error : ''}`}>
+                    {errors.gender && touched.gender ? errors.gender : ''}
+                  </p>
                 </div>
               </div>
               <div className={s.dropDownContainer}>
@@ -143,10 +165,13 @@ const Student = props => {
               <div className={s.uploader}>
                 <S3Upload
                   onUpload={data => setFieldValue("resumeUrl", _get(data, ''))}
-                  accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
-                text/plain, application/pdf"
+                  accept="application/msword, application/vnd.ms-excel, 
+                    application/vnd.ms-powerpoint,text/plain, application/pdf"
+                  onUpload={data => setFieldValue('resumeUrl', _get(data, 'location'))}
+                  value={values.resumeUrl ? _last(values.resumeUrl.split("/")) : ''}
                   error={errors.resumeUrl && touched.resumeUrl}
                   helperText={errors.resumeUrl && touched.resumeUrl ? errors.resumeUrl : ''}
+                  directory={`user/${selectUserInfo.id}/resume`}
                 />
               </div>
               <div className={s.header}>
@@ -163,7 +188,7 @@ const Student = props => {
                     error={errors.gmail && touched.gmail}
                     helperText={errors.gmail && touched.gmail ? errors.gmail : ''}
                     showEdit={true}
-                    secondaryText={<i className={`icon-calendar ${s.icon}`} />}
+                    secondaryText={<i className={`icon-mail_circle ${s.icon}`} />}
                   />
                 </div>
                 <div className={s.social}>
@@ -175,7 +200,7 @@ const Student = props => {
                     helperText={errors.linkedIn && touched.linkedIn ? errors.linkedIn : ''}
                     showEdit={true}
                     handleChange={handleChange}
-                    secondaryText={<i className={`icon-calendar ${s.icon}`} />}
+                    secondaryText={<i className={`icon-linkedin ${s.icon}`} />}
                   />
                 </div>
               </div>
@@ -201,12 +226,12 @@ const Student = props => {
                     helperText={errors.twitter && touched.twitter ? errors.twitter : ''}
                     showEdit={true}
                     handleChange={handleChange}
-                    secondaryText={<i className={`icon-calendar ${s.icon}`} />}
+                    secondaryText={<i className={`icon-twitter ${s.icon}`} />}
                   />
                 </div>
               </div>
-              <div className={`${s.typeDescription} ${errors.about && touched.about ? s.error : ''}`}>
-                <p className={`${s.label} ${errors.about && touched.about ? s.error : ''}`}>About you</p>
+              <div className={`${s.aboutYouContainer} ${errors.about && touched.about ? s.error : ''}`}>
+                <p className={`${s.label} ${!!values.about ? s.active : ''} ${errors.about && touched.about ? s.error : ''}`}>About you</p>
                 <textarea
                   rows={3}
                   placeholder={'Write something about you...'}

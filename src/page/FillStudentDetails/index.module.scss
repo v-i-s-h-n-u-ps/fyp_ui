@@ -65,10 +65,10 @@
         @include default-border;
         @include default-background;
         @include box-shadow-default;
-        top: -200px;
-        height: 750px;
+        transform: translate(0, -25%);
         overflow: auto;
         @include respond-below(tablet) {
+            transform: none;
             position: relative;
             width: 100%;
             top: 0px;

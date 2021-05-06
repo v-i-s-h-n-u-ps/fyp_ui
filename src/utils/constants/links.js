@@ -1,37 +1,11 @@
 import { useSelector } from "react-redux";
 
 import { 
-    DASHBOARD, USER_ENTRY, ADMIN_MANAGE, ABOUT_US,
-    CONTACT_US, TERMS_AND_CONDITIONS, PROFILE,
-    MY_SERVICES
+    DASHBOARD, FILL_STUDENT_DETAILS,
+    CHATS, TASKS, FORUM, FORUMS,
+    GROUP, GROUPS, PROJECTS,
+    PROJECT, PROFILE
 } from "./routes";
-
-// export const bottomNavLinks = [
-//     {
-//         text: 'Services',
-//         path: ROOT,
-//         icon: 'home',
-//         sameTab: true
-//     },
-//     {
-//         text: 'Contact Us',
-//         path: CONTACT_US,
-//         icon: 'call',
-//         sameTab: true
-//     },
-//     {
-//         text: 'Terms & Conditions',
-//         path: TERMS_AND_CONDITIONS,
-//         icon: 'terms',
-//         sameTab: true
-//     },
-//     {
-//         text: 'About Us',
-//         path: ABOUT_US,
-//         icon: 'users',
-//         sameTab: true
-//     },
-// ];
 
 export const sidebarLinks = () => {
 
@@ -44,31 +18,31 @@ export const sidebarLinks = () => {
         },
         {
             text: 'Groups',
-            path: CONTACT_US,
+            path: GROUPS,
             icon: 'users',
             sameTab: true
         },
         {
             text: 'Forums',
-            path: TERMS_AND_CONDITIONS,
+            path: FORUMS,
             icon: 'comments',
             sameTab: true
         },
         {
             text: 'Chats',
-            path: ABOUT_US,
+            path: CHATS,
             icon: 'chats',
             sameTab: true
         },
         {
-            text: 'Calendar',
-            path: ABOUT_US,
+            text: 'Tasks',
+            path: TASKS,
             icon: 'calendar',
             sameTab: true
         },
         {
             text: 'Profile',
-            path: ABOUT_US,
+            path: PROFILE,
             icon: 'user',
             sameTab: true
         },

@@ -14,7 +14,7 @@
         width: 30%;
         margin: auto;
     }
-    @include respond-above (phone) {
+    @include respond-above(phone) {
         button {
             width: 150px !important;
             // float: right;
@@ -27,7 +27,7 @@
     margin-bottom: 16px;
     margin-top: 20px;
     p {
-        @include heading-m;
+        @include heading-sm;
         margin-right: 8px;
     }
     div {
@@ -47,7 +47,7 @@
 }
 
 .icon {
-    @include heading-lm
+    @include heading-lm;
 }
 
 .dropDownContainer {
@@ -58,8 +58,9 @@
     margin-top: 16px;
 }
 
-.typeDescription {
+.aboutYouContainer {
     margin-bottom: 15px;
+    margin-top: 8px;
     @include flex-column;
     textarea {
         font-family: Muli;
@@ -91,11 +92,17 @@
 }
 
 .label {
+    letter-spacing: 0.4px;
     padding: 0 2px;
-    font-weight: 500;
-    @include label-color;
-    @include default-background;
+    background: transparent;
+    @include default-color;
     @include heading-sm;
+    &.active {
+        font-weight: 500;
+        @include label-color;
+        @include default-background;
+        @include heading-sm;
+    }
 }
 
 .error {
@@ -103,5 +110,67 @@
         border-color: $color-alizarin !important;
     }
     color: $color-alizarin !important;
-    
+}
+
+.typeValue {
+    @include flex;
+    cursor: pointer;
+    width: fit-content;
+    align-items: center;
+    margin: 15px 0 0;
+    span {
+        @include normal-content-size;
+        font-weight: 500;
+    }
+}
+
+.inputRadio {
+    @include default-border_radio;
+    cursor: pointer;
+    position: relative;
+    margin-right: 7px;
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+    }
+    &:checked {
+        border-color: $color-affair;
+        position: relative;
+        animation: pulse 0.3s ease 1;
+        &:before {
+            width: 10px;
+            height: 10px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            background: $color-affair;
+            transition: all 0.15s ease;
+        }
+    }
+}
+
+.genderContainer {
+    flex-grow: 0.5;
+    .genders {
+        justify-content: space-around;
+        @include flex;
+    }
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 6px $color-affair;
+    }
+}
+
+.helperText {
+    @include heading-s;
 }
