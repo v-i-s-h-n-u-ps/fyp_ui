@@ -57,3 +57,51 @@
 .uploader {
     margin-top: 16px;
 }
+
+.typeDescription {
+    margin-bottom: 15px;
+    @include flex-column;
+    textarea {
+        font-family: Muli;
+        resize: none;
+        // width: 95%;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        @include highlight-background;
+        @include default-border;
+        @include default-color;
+    }
+}
+
+.textareaBottom {
+    @include flex;
+    justify-content: space-between;
+    p {
+        flex-grow: 1;
+        @include heading-s;
+    }
+    span {
+        @include heading-s;
+        @include subtext-color;
+        flex-grow: 1;
+        text-align: right;
+    }
+}
+
+.label {
+    padding: 0 2px;
+    font-weight: 500;
+    @include label-color;
+    @include default-background;
+    @include heading-sm;
+}
+
+.error {
+    textarea {
+        border-color: $color-alizarin !important;
+    }
+    color: $color-alizarin !important;
+    
+}

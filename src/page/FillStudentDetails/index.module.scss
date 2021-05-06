@@ -66,7 +66,7 @@
         @include default-background;
         @include box-shadow-default;
         top: -200px;
-        height: 700px;
+        height: 750px;
         overflow: auto;
         @include respond-below(tablet) {
             position: relative;

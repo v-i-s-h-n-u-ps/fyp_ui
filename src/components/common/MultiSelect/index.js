@@ -10,29 +10,37 @@ const MultiSelect = props => {
     options = [], selectedValues, onSelect, onRemove, keepSearchTerm = false,
     display, name, emptyMessage = "", closeOnSelect = false, showArrow = true,
     avoidHighlightFirstOption = true, placeholder = "Select", label = "", key = "id",
-    multiple=true
+    multiple = true, error, helperText
   } = props
 
   const selected = options.filter(category => _includes(selectedValues, category[key]));
 
   return (
-    <div className={s.select}>
-      <div className={`${s.label} ${selected.length ? s.active : ''}`}>{label}</div>
-      <Select
-        name={name}
-        options={options}
-        selectedValues={selected}
-        onSelect={onSelect}
-        onRemove={onRemove}
-        displayValue={display}
-        emptyRecordMsg={emptyMessage}
-        closeOnSelect={closeOnSelect}
-        avoidHighlightFirstOption={avoidHighlightFirstOption}
-        placeholder={placeholder}
-        keepSearchTerm={keepSearchTerm}
-        showArrow={showArrow}
-        singleSelect={!multiple}
-      />
+    <div>
+      <div className={`${s.select} ${error ? s.error : ''}`} >
+        <div className={`${s.label} ${selected.length ? s.active : ''} ${error ? s.error : ''}`}>{label}</div>
+        <Select
+          name={name}
+          options={options}
+          selectedValues={selected}
+          onSelect={onSelect}
+          onRemove={onRemove}
+          displayValue={display}
+          emptyRecordMsg={emptyMessage}
+          closeOnSelect={closeOnSelect}
+          avoidHighlightFirstOption={avoidHighlightFirstOption}
+          placeholder={placeholder}
+          keepSearchTerm={keepSearchTerm}
+          showArrow={showArrow}
+          singleSelect={!multiple}
+        />
+      </div>
+      {
+        !!helperText &&
+        <p className={error ? s.error : s.helper}>
+          {helperText}
+        </p>
+      }
     </div>
   )
 }

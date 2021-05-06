@@ -118,6 +118,8 @@ const Student = props => {
                   name="university"
                   emptyMessage="No universities available. Please contact admin."
                   placeholder={!values.university.length ? 'University' : ''}
+                  error={errors.university && touched.university}
+                  helperText={errors.university && touched.university ? errors.university : ''}
                   key="id"
                   label="University"
                   multiple={false}
@@ -133,6 +135,8 @@ const Student = props => {
                 name="categories"
                 emptyMessage="No other categories available. Please contact admin to add."
                 placeholder={!values.categories.length ? 'Select Category' : ''}
+                error={errors.categories && touched.categories}
+                helperText={errors.categories && touched.categories ? errors.categories : ''}
                 key="id"
                 label="Category"
               />
@@ -155,6 +159,7 @@ const Student = props => {
                     label="GMail"
                     name="gmail"
                     value={values.gmail}
+                    handleChange={handleChange}
                     error={errors.gmail && touched.gmail}
                     helperText={errors.gmail && touched.gmail ? errors.gmail : ''}
                     showEdit={true}
@@ -169,6 +174,7 @@ const Student = props => {
                     error={errors.linkedIn && touched.linkedIn}
                     helperText={errors.linkedIn && touched.linkedIn ? errors.linkedIn : ''}
                     showEdit={true}
+                    handleChange={handleChange}
                     secondaryText={<i className={`icon-calendar ${s.icon}`} />}
                   />
                 </div>
@@ -182,6 +188,7 @@ const Student = props => {
                     error={errors.facebook && touched.facebook}
                     helperText={errors.facebook && touched.facebook ? errors.facebook : ''}
                     showEdit={true}
+                    handleChange={handleChange}
                     secondaryText={<i className={`icon-facebook ${s.icon}`} />}
                   />
                 </div>
@@ -193,8 +200,25 @@ const Student = props => {
                     error={errors.twitter && touched.twitter}
                     helperText={errors.twitter && touched.twitter ? errors.twitter : ''}
                     showEdit={true}
+                    handleChange={handleChange}
                     secondaryText={<i className={`icon-calendar ${s.icon}`} />}
                   />
+                </div>
+              </div>
+              <div className={`${s.typeDescription} ${errors.about && touched.about ? s.error : ''}`}>
+                <p className={`${s.label} ${errors.about && touched.about ? s.error : ''}`}>About you</p>
+                <textarea
+                  rows={3}
+                  placeholder={'Write something about you...'}
+                  name={"about"}
+                  value={values.about}
+                  onChange={handleChange}
+                />
+                <div className={s.textareaBottom}>
+                  <p>{errors.about && touched.about ? errors.about : ''}</p>
+                  <span>
+                    {values.about.length}/300
+                                </span>
                 </div>
               </div>
               <div className={s.flexCenter}>

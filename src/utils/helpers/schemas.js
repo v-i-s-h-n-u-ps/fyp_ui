@@ -68,7 +68,8 @@ export const STUDENT_VALIDATION = yup.object().shape({
     .required('Gender is required'),
   about: yup.string()
     .trim()
-    .required('Write something about you'),
+    .required('Write something about you')
+    .min(300, "Write in less than 300 characters"),
   facebook: yup.string(),
   resumeUrl: yup.string()
     .trim()
