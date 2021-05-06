@@ -8,11 +8,11 @@ import { toast } from "react-toastify";
 
 import { config } from "@config";
 import { REQUEST, SUCCESS, FAILURE, SET } from "../actionCreator";
-import { 
-  sendPayload, sendPayloadFailure, isSuccess, reRoute 
+import {
+  sendPayload, sendPayloadFailure, isSuccess, reRoute
 } from "../_helpers/helperSaga";
 import {
-  ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES
+  ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES,
 } from "@constants/routes";
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
@@ -25,7 +25,7 @@ import {
 import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
-  passwordReset, activate, logout, refresh, 
+  passwordReset, activate, logout, refresh,
   resendOTP, createStudent
 } from "@services";
 
@@ -77,8 +77,7 @@ function* handleAuthentication({ data }) {
       SET_AUTH(token);
       yield reRoute(ctx, PUBLIC_ROUTES, DASHBOARD);
       const user = yield select(selectUserInfo);
-      if(_isEmpty(user))
-        yield put({ type: ME[REQUEST] });
+      if (_isEmpty(user)) yield put({ type: ME[REQUEST] });
       yield put({ type: AUTHENTICATE[SUCCESS], payload: { ...token, time: loginTime } });
     } else {
       REMOVE_AUTH();
@@ -177,7 +176,7 @@ function* handleSaveStudent({ data }) {
   try {
     const apiResponse = yield call(createStudent, data);
     if (isSuccess(apiResponse)) {
-      yield put({ type: ME[REQUEST] })
+      yield put({ type: ME[REQUEST] });
     }
     yield sendPayload(apiResponse, SAVE_STUDENT);
   } catch (e) {

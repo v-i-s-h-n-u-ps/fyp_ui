@@ -8,10 +8,10 @@ const Marker = ({ text }) => <div style={{ background: "red", width: "25px", hei
 
 const defaultProps = {
     center: {
-        lat: 59.95,
-        lng: 30.33
+        lat: 3.140853,
+        lng: 101.693207
     },
-    zoom: 11
+    zoom: 12
 };
 
 const createMapOptions = (maps) => {

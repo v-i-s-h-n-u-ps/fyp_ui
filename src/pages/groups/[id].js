@@ -2,11 +2,11 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import withReduxSaga from "../../../src";
-import Dashboard from "@screens/Dashboard";
+import withReduxSaga from "../..";
+import Profile from "@screens/Profile";
 
 const DashboardPage = (props) => {
-    return <Dashboard {...props} />
+    return <Profile {...props} />
 };
 
 DashboardPage.getInitialProps = async (props) => {

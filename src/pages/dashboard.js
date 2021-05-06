@@ -2,12 +2,10 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import withReduxSaga from "../../src";
+import withReduxSaga from "..";
 import Dashboard from "@screens/Dashboard";
 
-const DashboardPage = (props) => {
-    return <Dashboard {...props} />
-};
+const DashboardPage = props => <Dashboard {...props} />;
 
 DashboardPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;

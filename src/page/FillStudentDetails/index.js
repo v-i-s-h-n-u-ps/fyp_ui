@@ -10,7 +10,7 @@ const init = {
     gender: '',
     about: '',
     facebook: '',
-    resumeUrl: 'https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/user/6a654704-6e3f-4464-a80f-a9e7d3c6d8ac/resume/requirement.txt',
+    resumeUrl: '',
     about: '',
     linkedIn: '',
     gmail: '',

@@ -171,7 +171,7 @@ const Student = props => {
                   value={values.resumeUrl ? _last(values.resumeUrl.split("/")) : ''}
                   error={errors.resumeUrl && touched.resumeUrl}
                   helperText={errors.resumeUrl && touched.resumeUrl ? errors.resumeUrl : ''}
-                  directory={`user/${selectUserInfo.id}/resume`}
+                  directory={`user/${_get(selectUserInfo, 'id')}/resume`}
                 />
               </div>
               <div className={s.header}>
