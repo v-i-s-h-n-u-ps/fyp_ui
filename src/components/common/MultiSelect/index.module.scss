@@ -74,6 +74,14 @@
 }
 
 .error {
+    input {
+        color: $color-alizarin;;
+        &::-webkit-input-placeholder,
+        &:-ms-input-placeholder,
+        &::placeholder {
+            color: $color-alizarin !important;
+        }
+    }
     border-color: $color-alizarin !important;
     color: $color-alizarin;
 }
@@ -81,6 +89,7 @@
 .helper,
 .error {
     @include normal-content-size;
+    padding-left: 2px
 }
 
 .helper {

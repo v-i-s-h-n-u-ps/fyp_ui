@@ -15,7 +15,7 @@
     @include respond-between(tablet, desktop) {
         padding: 0 7.15vw 0 7.15vw;
     }
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         padding-top: 3.33vw;
         justify-content: center;
     }
@@ -39,10 +39,10 @@
     @include respond-between(tablet, desktop) {
         padding: 1vw 1.5vw;
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         padding: 1.2vw 1.75vw;
     }
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         display: none;
     }
 }
