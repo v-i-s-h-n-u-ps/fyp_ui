@@ -18,7 +18,16 @@
 .maps {
     height: 100vh;
     width: 55%;
-    @include respond-below(tablet) {
+    @include respond-between(phone, tablet) {
+        position: fixed; 
+        padding: 4px;
+        @include box-shadow-default;
+        right: 10px;
+        bottom: 0;
+        height: 50vw;
+        width: 50vw;
+    }
+    @include respond-below(phone) {
         display: none;
     }
 }

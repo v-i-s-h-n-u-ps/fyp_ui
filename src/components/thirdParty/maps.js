@@ -34,7 +34,7 @@ const Map = props => {
     const { locations = [], latKey = "lat", longKey = "lng", hoverComponent = "" } = props;
 
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '100%', width: '100%' }}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: config.GOOGLE_MAPS_KEY }}
                 defaultCenter={defaultProps.center}
