@@ -145,7 +145,6 @@ const Student = props => {
                   key="id"
                   label="University"
                   multiple={false}
-
                 />
               </div>
               <MultiSelect

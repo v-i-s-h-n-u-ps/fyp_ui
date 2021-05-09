@@ -1,4 +1,5 @@
 export const apiUrl = "https://www.domained.co.in:8000/";
+
 export const AMAZON_SECRET_KEY = "IIaf8t94z7Z85GXimpkVZTwBS5UA5HDcGkveUpWK";
 export const AMAZON_ACCESS_KEY = "AKIAU4LFJD6KN7AY7Y57";
 export const AMAZON_S3_BUCKET = "fyp-images-narvitaa";
