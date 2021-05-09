@@ -21,8 +21,8 @@ const S3Upload = props => {
   const s3config = {
     bucketName: config.AMAZON_S3_BUCKET,
     region: config.AMAZON_REGION,
-    accessKeyId: config.AMAZON_ACCESS_KEY,
-    secretAccessKey: config.AMAZON_SECRET_KEY,
+    accessKeyId: process.env.AMAZON_ACCESS_KEY,
+    secretAccessKey: process.env.AMAZON_SECRET_KEY,
     dirName: directory
   }
 

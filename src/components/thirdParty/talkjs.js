@@ -25,7 +25,7 @@ class TalkJS extends Component {
                 });
                 if (!window.talkSession) {
                     window.talkSession = new Talk.Session({
-                        appId: config.TALKJS_APP_ID,
+                        appId: process.env.TALKJS_APP_ID,
                         me: me
                     });
                 }
