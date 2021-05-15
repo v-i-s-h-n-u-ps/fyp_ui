@@ -1,0 +1,29 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/buttons.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/boxShadows.scss";
+
+.header {
+    background-color: rgb(212, 198, 211);
+    padding: 100px;
+    color: white;
+}
+
+.imageCover {
+    @include responsive-flex;
+    align-items: center !important;
+    border-radius: 50%;
+    object-fit: cover;
+    position: fixed;
+
+    @include respond-above (phone) {
+        width: 150px;
+        top: 120px;
+    }
+    @include respond-below(phone) {
+        width: 120px;
+        top: 200px;
+    }
+}

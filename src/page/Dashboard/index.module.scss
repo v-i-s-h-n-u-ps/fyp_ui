@@ -13,11 +13,102 @@
 
 .projectContainer {
     flex-grow: 1;
+
+    margin: auto;
+    display: block;
+    border-radius: 3px;
+    padding: 20px 25px;
+    @include box-shadow-default;
+    @include default-background;
+    @include respond-above(desktop) {
+        width: 26vw;
+        max-width: 1200px;
+    }
+    @include respond-between(tablet, desktop) {
+        width: 33vw;
+        max-width: 1000px;
+    }
+    @include respond-between(phone, tablet) {
+        width: 45vw;
+        max-width: 800px;
+    }
+    @include respond-below(phone) {
+        width: 100%;
+    }
+
+    .projectCard {
+        @include default-background;
+        width: 100%;
+    }
+}
+
+.flexTop{
+    @include responsive-flex;
+    align-items: center;
+    
+    .subHead {
+        color: #8e4d99;
+        padding: 0px 0px 0px 10px;
+    }
+    @include respond-above (phone) {
+        .image {
+            width: 40px !important;
+            
+        }
+        flex-flow: nowrap !important;
+    }
+    @include respond-below(phone) {
+        .image {
+            width: 40px !important;
+        }
+        gap: 1px;
+        flex-flow: nowrap !important;
+    }
+}
+
+.flexCenter {
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    @include respond-above (phone) {
+        button {
+            width: 150px !important;
+            float: right;
+        }
+    }
+    @include respond-below(phone) {
+        gap: 10px;
+    }
+    
+}
+
+.projectLocation{
+    @include heading-sm;
+    min-width: 50%;
+    padding-left: 10px;
+}
+
+.projectLeader{
+    @include heading-sm;
+    min-width: 50%;
+}
+
+.projectDetails {
+    @include heading-sm;
+    min-width: 50%;
+}
+
+.pinIcon {
+    @include heading-m;
+    color: #8e4d99;
+    padding-right: 5px;
 }
 
 .maps {
     height: 100vh;
     width: 55%;
+    padding: 80px 20px 20px 20px;
     @include respond-between(phone, tablet) {
         position: fixed; 
         padding: 4px;
