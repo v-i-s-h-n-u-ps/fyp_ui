@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import withReduxSaga from "..";
 import { selectUniversity } from "@redux/resources/selectors";
+import { selectThemePreference } from "@redux/user/selectors";
 import Dashboard from "@screens/Dashboard";
 
 const DashboardPage = props => <Dashboard {...props} />;
@@ -21,7 +22,7 @@ DashboardPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    selectUniversity
+    selectUniversity, selectThemePreference
 })
 
 export default withReduxSaga(connect(mapStateToProps)(DashboardPage));

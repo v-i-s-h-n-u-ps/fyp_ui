@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import controllable from 'react-controllables';
 
 import s from "./index.module.scss";
+import { light, dark } from "./mapsThemes";
 
 const Marker = () => <i className={`icon-map_pin ${s.iconMapPin}`} />
 
@@ -14,7 +15,13 @@ const defaultProps = {
     zoom: 12
 };
 
-const createMapOptions = (maps) => {
+const createMapOptions = theme => maps => {
+
+    const themes = {
+        "light": light,
+        "dark": dark
+    }
+
     return {
         zoomControlOptions: {
             position: maps.ControlPosition.RIGHT_CENTER,
@@ -23,14 +30,18 @@ const createMapOptions = (maps) => {
         mapTypeControlOptions: {
             position: maps.ControlPosition.TOP_RIGHT
         },
-        mapTypeControl: true
+        mapTypeControl: true,
+        styles: themes[theme]
     };
 }
 
 // @controllable(['center', 'zoom', 'hoverKey', 'clickKey']) 
 const Map = props => {
 
-    const { locations = [], latKey = "lat", longKey = "lng", hoverComponent = "" } = props;
+    const {
+        locations = [], latKey = "lat", longKey = "lng", hoverComponent = "",
+        theme = "light"
+    } = props;
 
     return (
         <div style={{ height: '100%', width: '100%' }}>
@@ -38,7 +49,7 @@ const Map = props => {
                 bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_KEY }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
-                options={createMapOptions}
+                options={createMapOptions(theme)}
             >
                 {locations.map((location, index) => (
                     <Marker

@@ -21,7 +21,7 @@
         min-height: calc(100vh);
     }
     @include respond-between(tablet, desktop) {
-        margin: 0 0 0 4.31vw;
+        margin: 0 0 0 3.31vw;
         &.guest {
             margin: 4.86vw 0 0 0;
         }
