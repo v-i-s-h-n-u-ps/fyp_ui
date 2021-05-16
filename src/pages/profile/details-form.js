@@ -7,9 +7,10 @@ import {
     selectUniversity, selectCategory
 } from "@redux/resources/selectors";
 import { 
-    selectIsSavingStudent, selectUserInfo, selectThemePreference
+    selectIsSavingStudent, selectUserInfo, selectThemePreference,
+    selectStudentInfo
 } from "@redux/user/selectors";
-import { saveStudent } from "@redux/user/actions";
+import { saveStudent, updateStudent } from "@redux/user/actions";
 import FillStudentDetails from "@screens/FillStudentDetails";
 
 const FillStudentDetailsPage = props => <FillStudentDetails {...props} />
@@ -28,12 +29,13 @@ FillStudentDetailsPage.getInitialProps = async (props) => {
 
 const mapStateToProps = createStructuredSelector({
     selectUniversity, selectIsSavingStudent, selectCategory,
-    selectUserInfo, selectThemePreference
+    selectUserInfo, selectThemePreference, selectStudentInfo
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        d__saveStudent: data => dispatch(saveStudent.request(data))
+        d__saveStudent: data => dispatch(saveStudent.request(data)),
+        d__updateStudent: data => dispatch(updateStudent.request(data))
     }
 } 
 

@@ -3,7 +3,8 @@ import {
     LOGOUT, SIGNUP, LOGIN, AUTHENTICATE,
     THEME_PREFERENCE, REFRESH, PASSWORD_RESET,
     PASSWORD_RESET_REQUEST, RESET_OTP_SEND,
-    OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP
+    OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP,
+    UPDATE_STUDENT
 } from "./types";
 
 export const signup = {
@@ -58,6 +59,12 @@ export const saveStudent = {
     request: data => action(SAVE_STUDENT[REQUEST], { data }),
     success: (data, response) => action(SAVE_STUDENT[SUCCESS], { data, response }),
     failure: (data, error) => action(SAVE_STUDENT[FAILURE], { data, error }),
+}
+
+export const updateStudent = {
+    request: data => action(UPDATE_STUDENT[REQUEST], { data }),
+    success: (data, response) => action(UPDATE_STUDENT[SUCCESS], { data, response }),
+    failure: (data, error) => action(UPDATE_STUDENT[FAILURE], { data, error }),
 }
 
 export const resendOTP = {

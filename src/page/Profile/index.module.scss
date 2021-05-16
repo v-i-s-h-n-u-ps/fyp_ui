@@ -18,13 +18,61 @@
         transform: translate(-50%, 50%);
         border-radius: 50%;
         @include respond-above(phone) {
-            width: 150px;
+            width: 140px;
         }
         @include respond-below(phone) {
-            width: 120px;
+            width: 130px;
         }
         img {
             @include image-cover;
         }
+    }
+}
+
+.account {
+    padding: 80px 0 20px;
+    width: 85%;
+    margin: auto;
+    @include respond-below(tablet) {
+        width: 94%;
+    }
+}
+
+.name {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+}
+
+.email {
+    text-align: center;
+    @include normal-content-size;
+    @include subtext-color;
+}
+
+.aboutMe {
+    @include default-border;
+    margin: 25px 0;
+    border-radius: 4px;
+    padding: 16px;
+    label {
+        font-style: italic;
+        @include heading-sm;
+        @include subtext-color;
+        padding-bottom: 12px;
+    }
+    p {
+        @include normal-content-size;
+    }
+}
+
+.social {
+    @include flex;
+    justify-content: flex-end;
+    gap: 16px;
+    .icon {
+        @include default-color;
+        opacity: 0.8;
     }
 }

@@ -4,7 +4,8 @@ import {
   LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
-  ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP
+  ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
+  UPDATE_STUDENT
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -79,6 +80,9 @@ const users = () => {
       case SAVE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
       case SAVE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
       case SAVE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      case UPDATE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case UPDATE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
+      case UPDATE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
       default: return state;
     }
   }

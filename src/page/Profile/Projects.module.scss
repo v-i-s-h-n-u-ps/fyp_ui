@@ -1,0 +1,28 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.container {
+    width: 100%;
+    padding: 16px 4px
+}
+
+.projectsContainer {
+    @include flex;
+    justify-content: space-between;
+    > div {
+        @include respond-below(phone) {
+            flex: 0 0 100%
+        }
+        @include respond-between(phone, desktop) {
+            flex: 0 0 48%
+        }
+        @include respond-above(desktop) {
+            flex: 0 0 31%
+        }
+    }
+}
+
+.buttonContainer{
+    @include flex;
+    justify-content: flex-end;
+}

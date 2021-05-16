@@ -81,3 +81,22 @@ export const STUDENT_VALIDATION = yup.object().shape({
     .of(yup.string())
     .required("Select at least one category")
 })
+
+export const PROJECT_VALIDATION = yup.object().shape({
+  name: yup.string()
+    .trim()
+    .required('name is required'),
+  description: yup.string()
+    .trim()
+    .required('Description is required'),
+  location: yup.string()
+    .trim()
+    .required('Select a university'),
+  startDate: yup.date()
+    .required('Start date is required'),
+  endDate: yup.date()
+    .required('End date is required'),
+  categories: yup.array()
+    .of(yup.string())
+    .required("Select at least one category")
+})

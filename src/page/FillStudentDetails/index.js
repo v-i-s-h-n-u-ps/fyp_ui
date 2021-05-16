@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import _get from "lodash/get";
+import _omit from "lodash/omit";
+import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
 import PageContainer from "@hoc/PageContainer";
@@ -23,12 +25,37 @@ const FillStudentDetails = props => {
 
     const {
         selectUniversity, selectIsSavingStudent, d__saveStudent,
-        selectCategory, selectUserInfo, selectThemePreference: { theme }
+        selectCategory, selectUserInfo, selectThemePreference: { theme },
+        selectStudentInfo, d__updateStudent
     } = props;
 
+    const router = useRouter();
+
+    const [values, setValues] = useState(init);
+
     const onSubmit = values => {
-        d__saveStudent({ ...values });
+        if(router.query.edit) {
+            d__updateStudent({ ...values })
+        } else {
+            d__saveStudent({ ...values });
+        }
     }
+
+    useEffect(() => {
+        if(router.query.edit) {
+            const val = _omit(selectStudentInfo, ['user', 'activeProjects', 'createdAt', 'universityDetails'])
+            const categories = selectStudentInfo.categories.map(category => category.category);
+            const university = selectStudentInfo.universityDetails.id;
+            setValues({
+                ...val,
+                categories,
+                university
+            })
+        }
+    }, [])
+
+
+    console.log(values)
 
     return (
         <PageContainer>
@@ -50,7 +77,7 @@ const FillStudentDetails = props => {
                             <Student
                                 universityList={selectUniversity}
                                 categoryList={selectCategory}
-                                values={init}
+                                values={values}
                                 submit={onSubmit}
                                 selectIsSavingStudent={selectIsSavingStudent}
                                 theme={theme}

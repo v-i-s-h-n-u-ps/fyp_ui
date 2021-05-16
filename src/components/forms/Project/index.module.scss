@@ -1,0 +1,32 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.flex {
+    @include flex;
+    justify-content: space-between;
+    gap: 15px;
+    > div {
+        width: 48%;
+    }
+}
+
+.flexCenter {
+    margin-top: 30px;
+    @include flex-center;
+    @include respond-below(phone) {
+        justify-content: flex-end;
+    }
+    gap: 30px;
+}
+
+.subHead {
+    color: $color-affair;
+    @include heading-m;
+}
+
+.cancel {
+    @include heading-m;
+    cursor: pointer;
+}

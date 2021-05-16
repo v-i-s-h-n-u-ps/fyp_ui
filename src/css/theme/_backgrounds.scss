@@ -1,5 +1,5 @@
 $background-white: #f8f8f8;
-$background-black: #121212;
+$background-black: #000000;
 
 $background-transparent: transparent;
 
@@ -85,7 +85,7 @@ $backgrounds: (
 
         overlay:  rgba(99, 99, 99, 0.6),
 
-        highlight: $background-cod_gray,
+        highlight: $background-tuna,
 
         cardLoader: linear-gradient(to right, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.6) 50%, transparent 60%, transparent 100%),
         textLoader: $background-cod_gray,

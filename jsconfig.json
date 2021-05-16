@@ -23,6 +23,9 @@
       "@forms/*": [
         "./src/components/forms/*"
       ],
+      "@cards/*": [
+        "./src/components/cards/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],

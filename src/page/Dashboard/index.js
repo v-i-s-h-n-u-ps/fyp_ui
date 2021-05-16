@@ -39,9 +39,6 @@ const Dashboard = props => {
                                 variant="hollow"
                                 buttonType="submit"
                                 text="Send Message"
-                            // disabled={selectIsFormSubmitting}
-                            // loading={selectIsFormSubmitting}
-                            // secondaryText={<i className={`icon-map_pin ${s.pinIcon}`} />
                             />
                         </div>
                     </div>

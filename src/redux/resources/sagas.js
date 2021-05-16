@@ -1,9 +1,8 @@
 import { takeLatest, call, put, select } from "redux-saga/effects";
 
-import { config } from "@config";
-import { REQUEST, SUCCESS, FAILURE } from "../actionCreator";
+import { REQUEST } from "../actionCreator";
 import {
-    sendPayload, sendPayloadFailure, isSuccess
+    sendPayload, sendPayloadFailure
 } from "../_helpers/helperSaga";
 import {
     CATEGORY, ROLE, TYPE, UNIVERSITY
