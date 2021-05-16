@@ -1,9 +1,8 @@
-import { action, FAILURE, REQUEST, SUCCESS } from "../actionCreator";
+import { action, FAILURE, REQUEST, SUCCESS, UNSET } from "../actionCreator";
 import {
-    CREATE_PROJECT,
+    CREATE_PROJECT, MY_PROJECTS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS, 
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
-    MY_PROJECTS
 } from "./types";
 
 export const getMyProjects = {

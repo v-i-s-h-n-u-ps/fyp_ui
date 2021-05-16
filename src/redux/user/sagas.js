@@ -18,7 +18,8 @@ import {
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
-  REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT
+  REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT,
+  SEARCH_USERS
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -27,7 +28,8 @@ import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh,
-  resendOTP, createStudent, updateStudent
+  resendOTP, createStudent, updateStudent,
+  searchUsers
 } from "@services";
 
 function* handleLogoutUser() {
@@ -198,6 +200,15 @@ function* handleUpdateStudent({ data }) {
   }
 }
 
+function* handleSearchStudent({ data }) {
+  try {
+    const apiResponse = yield call(searchUsers, data);
+    yield sendPayload(apiResponse, SEARCH_USERS);
+  } catch (e) {
+    yield sendPayloadFailure(e, SEARCH_USERS);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -211,6 +222,7 @@ export const userSaga = {
   watchResendOTP: takeLatest(RESEND_OTP[REQUEST], handleResendOTP),
   watchSaveStudent: takeLatest(SAVE_STUDENT[REQUEST], handleSaveStudent),
   watchUpdateStudent: takeLatest(UPDATE_STUDENT[REQUEST], handleUpdateStudent),
+  watchSearchStudent: takeLatest(SEARCH_USERS[REQUEST], handleSearchStudent),
 }
 
 

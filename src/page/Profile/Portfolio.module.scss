@@ -9,6 +9,7 @@
 .projectsContainer {
     @include flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     > div {
         @include respond-below(phone) {
             flex: 0 0 100%
@@ -19,5 +20,6 @@
         @include respond-above(desktop) {
             flex: 0 0 31%
         }
+        margin-bottom: 16px;
     }
 }

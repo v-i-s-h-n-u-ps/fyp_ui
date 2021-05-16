@@ -19,3 +19,5 @@ export const projectCard = Array(10).fill({
     },
     _default: true
 })
+
+export const avatar = "https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/default_avatar.png";

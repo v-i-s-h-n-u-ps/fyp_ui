@@ -13,6 +13,7 @@ export const ACTIVATE = createRequestTypes("ACTIVATE");
 export const SAVE_STUDENT = createRequestTypes("SAVE_STUDENT");
 export const UPDATE_STUDENT = createRequestTypes("UPDATE_STUDENT");
 export const RESEND_OTP = createRequestTypes("RESEND_OTP")
+export const SEARCH_USERS = createRequestTypes("SEARCH_USERS")
 
 export const REFRESH = createRequestTypes("REFRESH");
 export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");

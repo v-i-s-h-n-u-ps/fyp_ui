@@ -33,6 +33,7 @@ export const passwordChange = data => POST('user/password-change/', data);
 export const createStudent = data => POST('user/post-student-details/', data);
 export const updateStudent = data => POST('user/update-student-details/', data);
 export const resendOTP = data => GET('user/resend/', data);
+export const searchUsers = data => GET('user/search-users/', data);
 
 export const getUniversity = data => GET('resources/get-university/');
 export const getRole = data => GET('resources/get-role/');

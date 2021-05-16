@@ -5,7 +5,7 @@ import controllable from 'react-controllables';
 import s from "./index.module.scss";
 import { light, dark } from "./mapsThemes";
 
-const Marker = () => <i className={`icon-map_pin ${s.iconMapPin}`} />
+const Marker = ({ focus }) => <i className={`icon-map_pin ${s.iconMapPin} ${focus ? s.focus : ''}`} />
 
 const defaultProps = {
     center: {
@@ -39,8 +39,8 @@ const createMapOptions = theme => maps => {
 const Map = props => {
 
     const {
-        locations = [], latKey = "lat", longKey = "lng", hoverComponent = "",
-        theme = "light"
+        locations = [], latKey = "lat", longKey = "lng",
+        theme = "light", focusItem
     } = props;
 
     return (
@@ -56,6 +56,7 @@ const Map = props => {
                         lat={location[latKey]}
                         lng={location[longKey]}
                         key={`marker-${index}`}
+                        focus={focusItem === location.id}
                     />
                 ))}
             </GoogleMapReact>

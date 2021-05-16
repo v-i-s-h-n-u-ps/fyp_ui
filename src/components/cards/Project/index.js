@@ -1,23 +1,35 @@
 import React from "react";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import dayjs from "dayjs";
+import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
+import { CHATS } from "@constants/routes";
 import Button from "@common/Button";
+
 
 const Project = props => {
 
     dayjs.extend(isSameOrAfter);
 
-    const { project = {}, isLeader = false } = props;
+    const { project = {}, isLeader = false, showMessage, onClick } = props;
 
     const { _default } = project;
 
-    const isComplete =  project.isComplete;
+    const router = useRouter();
+    const isComplete = project.isComplete;
     const isDeferred = project.isDeferred;
-    const notStarted = dayjs().isSameOrAfter(dayjs("2021-02-19"))
+    const notStarted = dayjs().isSameOrAfter(dayjs("2021-02-19"));
 
-    console.log(isLeader)
+    const sendMessage = () => {
+        onClick({
+            id: project.created_id,
+            name: project.createdBy,
+            avatar: project.avatar,
+            email: project.email
+        })
+        router.push(CHATS);
+    }
 
     return (
         <div className={`${s.projectContainer}`}>
@@ -49,14 +61,16 @@ const Project = props => {
                         <p><i>Project Details</i></p>
                         <p>{project.description}</p>
                     </span>
-                    <div className={s.button}>
-                        <Button
-                            type="message"
-                            variant="hollow"
-                            buttonType="submit"
-                            text="Send Message"
-                        />
-                    </div>
+                    {showMessage && (
+                        <div className={s.button}>
+                            <Button
+                                type="message"
+                                variant="hollow"
+                                text="Send Message"
+                                onClick={sendMessage}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

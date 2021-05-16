@@ -3,17 +3,25 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "..";
-import { selectUniversity } from "@redux/resources/selectors";
 import { selectThemePreference } from "@redux/user/selectors";
+import { getProjectHome } from "@redux/projects/actions";
+import {
+    selectHomeData, selectHomePageInfo, selectIsHomeDataLoading
+} from "@redux/projects/selectors";
+import {
+    newChat
+} from "@redux/miscellaneous/actions";
 import Dashboard from "@screens/Dashboard";
 
 const DashboardPage = props => <Dashboard {...props} />;
 
 DashboardPage.getInitialProps = async (props) => {
-    const { isServer } = props.ctx;
+    const { isServer, store } = props.ctx;
     let { req, asPath } = props.ctx;
-    
+
     req = req || { headers: { host: window.location.host } };
+
+    store.dispatch(getProjectHome.unset())
 
     let hostURL = `https://${req.headers.host}`;
     let fullURL = `https://${req.headers.host}${asPath}`;
@@ -22,7 +30,15 @@ DashboardPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    selectUniversity, selectThemePreference
+    selectThemePreference,
+    selectHomeData, selectHomePageInfo, selectIsHomeDataLoading
 })
 
-export default withReduxSaga(connect(mapStateToProps)(DashboardPage));
+const mapDispatchToProps = dispatch => {
+    return {
+        d__getProjectHome: data => dispatch(getProjectHome.request(data)),
+        d__newChat: data => dispatch(newChat.set(data))
+    }
+}
+
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(DashboardPage));

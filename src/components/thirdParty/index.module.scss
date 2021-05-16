@@ -9,4 +9,7 @@
     &:hover {
         @include animation(pulse);
     }
+    &.focus {
+        @include animation(pulse); 
+    }
 }

@@ -70,8 +70,6 @@ const Profile = props => {
         'details': <Details selectStudentInfo={selectStudentInfo} />,
     }
 
-    console.log(completedProjects, currentProjects)
-
     return (
         <PageContainer active={"home"}>
             <div className={s.imageCover}>

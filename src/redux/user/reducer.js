@@ -5,7 +5,7 @@ import {
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
   ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
-  UPDATE_STUDENT
+  UPDATE_STUDENT, SEARCH_USERS
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -19,7 +19,7 @@ const initialState = {
 const initState = {
   isLoading: false,
   isLoaded: false,
-  data: {}
+  data: null
 };
 
 const users = () => {
@@ -87,6 +87,17 @@ const users = () => {
     }
   }
 
+  const search = (state=initState, action) => {
+    switch(action.type) {
+      case SEARCH_USERS[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case SEARCH_USERS[SUCCESS]: return { ...state, isLoading: false, isLoaded: true, data: action.payload }
+      case SEARCH_USERS[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      default: return state;
+    }
+  }
+
+  // SEARCH_USERS
+
   const themePreference = (state = {
     theme:
       typeof window === 'undefined'
@@ -102,7 +113,7 @@ const users = () => {
 
   return combineReducers({
     auth, themePreference,
-    student
+    student, search
   });
 };
 

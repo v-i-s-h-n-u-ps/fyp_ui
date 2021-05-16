@@ -54,9 +54,6 @@ const FillStudentDetails = props => {
         }
     }, [])
 
-
-    console.log(values)
-
     return (
         <PageContainer>
             <div className={s.container}>

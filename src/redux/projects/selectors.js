@@ -19,3 +19,18 @@ export const selectIsLoadingProjects = createSelector(
     [selectProjects],
     val => _get(val, 'myProjects.isLoading', false)
 )
+
+export const selectIsHomeDataLoading = createSelector(
+    [selectProjects],
+    val => _get(val, 'dashboardProjects.isLoading', false),
+)
+
+export const selectHomeData = createSelector(
+    [selectProjects],
+    val => _get(val, 'dashboardProjects.data.data', []),
+)
+
+export const selectHomePageInfo = createSelector(
+    [selectProjects],
+    val => _get(val, 'dashboardProjects.data.pageInfo', {}),
+)

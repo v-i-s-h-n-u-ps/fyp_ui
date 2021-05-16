@@ -67,7 +67,6 @@ const Project = props => {
                 }) => {
                     const dateSelect = val => {
                         setOpen(false);
-                        console.log(open.field, "field")
                         setFieldValue(open.field, dayjs(val).format("YYYY-MM-DD"))
                     }
                     return (

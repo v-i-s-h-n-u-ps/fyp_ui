@@ -10,7 +10,7 @@ const MultiSelect = props => {
     options = [], selectedValues, onSelect, onRemove, keepSearchTerm = false,
     display, name, emptyMessage = "", closeOnSelect = false, showArrow = true,
     avoidHighlightFirstOption = true, placeholder = "Select", label = "", key = "id",
-    multiple = true, error, helperText
+    multiple = true, error, helperText, onSearch
   } = props
 
   const selected = options.filter(category => _includes(selectedValues, category[key]));
@@ -33,6 +33,7 @@ const MultiSelect = props => {
           keepSearchTerm={keepSearchTerm}
           showArrow={showArrow}
           singleSelect={!multiple}
+          onSearch={onSearch}
         />
       </div>
       {
