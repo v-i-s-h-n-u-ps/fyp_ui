@@ -34,3 +34,8 @@ export const selectHomePageInfo = createSelector(
     [selectProjects],
     val => _get(val, 'dashboardProjects.data.pageInfo', {}),
 )
+
+export const selectProjectDetails = createSelector(
+    [selectProjects],
+    val =>_get(val, 'projectDetails.data', {})
+)

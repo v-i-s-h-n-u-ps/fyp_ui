@@ -9,9 +9,9 @@ const MultiSelect = dynamic(() => import('@common/MultiSelect'), { ssr: false })
 
 const Chats = props => {
 
-    const { 
+    const {
         selectSearchResults = [], d__searchUsers, selectIsSearching, selectUserInfo,
-        selectNewChat = {}
+        selectNewChat = {}, selectThemePreference: { theme }
     } = props;
 
     const [search, setSearch] = useState('');
@@ -51,6 +51,7 @@ const Chats = props => {
                 <Talkjs
                     chatWith={user}
                     selectUserInfo={selectUserInfo}
+                    theme={theme}
                 />
             </div>
         </PageContainer>

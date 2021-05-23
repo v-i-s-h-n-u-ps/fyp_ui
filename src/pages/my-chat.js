@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 
 import withReduxSaga from "..";
 import { 
-    selectSearchResults, selectIsSearching, selectUserInfo
+    selectSearchResults, selectIsSearching, selectUserInfo,
+    selectThemePreference
 } from "@redux/user/selectors"
 import { searchUsers } from "@redux/user/actions";
 import {
@@ -28,7 +29,7 @@ ChatsPage.getInitialProps = async (props) => {
 
 const mapStateToProps = createStructuredSelector({
     selectSearchResults, selectIsSearching, selectUserInfo,
-    selectNewChat
+    selectNewChat, selectThemePreference
 })
 
 const mapDispatchToProps = dispatch => {

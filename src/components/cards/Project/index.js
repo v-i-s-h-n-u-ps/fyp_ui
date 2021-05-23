@@ -59,7 +59,9 @@ const Project = props => {
                 <div className={s.flexCenter}>
                     <span className={s.projectDetails}>
                         <p><i>Project Details</i></p>
-                        <p>{project.description}</p>
+                        <p className={s.description}>
+                            {project.description}
+                        </p>
                     </span>
                     {showMessage && (
                         <div className={s.button}>

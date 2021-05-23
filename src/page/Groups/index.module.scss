@@ -1,0 +1,21 @@
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+
+.container {
+    @include flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project {
+    @include respond-above (tablet) {
+        width: 48%;
+    }
+    @include respond-below (tablet) {
+        width: 98%;
+    }
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+

@@ -3,13 +3,11 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../../src";
-import Dashboard from "@screens/Dashboard";
+import ProjectDetails from "@screens/ProjectDetails";
 
-const DashboardPage = (props) => {
-    return <Dashboard {...props} />
-};
+const ProjectDetailsPage = (props) => <ProjectDetails {...props} />;
 
-DashboardPage.getInitialProps = async (props) => {
+ProjectDetailsPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -21,4 +19,4 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(DashboardPage);
+export default withReduxSaga(ProjectDetailsPage);

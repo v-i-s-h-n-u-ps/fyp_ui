@@ -1,6 +1,6 @@
 import { action, FAILURE, REQUEST, SUCCESS, UNSET } from "../actionCreator";
 import {
-    CREATE_PROJECT, MY_PROJECTS,
+    CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS, 
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
 } from "./types";
@@ -34,6 +34,7 @@ export const getProjectDetails = {
     request: data => action(PROJECT_DETAILS[REQUEST], { data }),
     success: (data, response) => action(PROJECT_DETAILS[SUCCESS], { data, response }),
     failure: (data, error) => action(PROJECT_DETAILS[FAILURE], { data, error }),
+    unset: () => action(SET_PROJECT_DETAILS[UNSET])
 }
 
 export const getProjectParticipants = {

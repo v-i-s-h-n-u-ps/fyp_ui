@@ -3,17 +3,26 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../..";
-import Profile from "@screens/Profile";
+import {
+    getMyProjects
+} from "@redux/projects/actions";
+import { 
+    selectMyProjects
+} from "@redux/projects/selectors";
+import {
+    selectUserInfo
+} from "@redux/user/selectors";
+import Groups from "@screens/Groups";
 
-const DashboardPage = (props) => {
-    return <Profile {...props} />
-};
+const GroupsPage = (props) => <Groups {...props} />
 
-DashboardPage.getInitialProps = async (props) => {
-    const { isServer } = props.ctx;
+GroupsPage.getInitialProps = async (props) => {
+    const { isServer, store } = props.ctx;
     let { req, asPath } = props.ctx;
 
     req = req || { headers: { host: window.location.host } };
+
+    await store.dispatch(getMyProjects.request())
 
     let hostURL = `https://${req.headers.host}`;
     let fullURL = `https://${req.headers.host}${asPath}`;
@@ -21,4 +30,9 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(DashboardPage);
+const mapStateToProps = createStructuredSelector({ 
+    selectMyProjects,
+    selectUserInfo
+})
+
+export default withReduxSaga(connect(mapStateToProps)(GroupsPage));

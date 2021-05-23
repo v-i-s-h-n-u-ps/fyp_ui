@@ -15,7 +15,7 @@ const refreshMiddleware = () => {
         const isAuthenticating = _get(getState(), 'users.auth.isAuthenticating', false);
         const isAuthenticated = _get(getState(), 'users.auth.isAuthenticated', false);
         const isRefreshing = _get(getState(), 'users.auth.isRefreshing', false);
-        if (action.type.endsWith('_REQUEST') && action.type !== 'AUTHENTICATE_REQUEST' && isAuthenticated) {
+        if (_get(action, 'type', "").endsWith('_REQUEST') && action.type !== 'AUTHENTICATE_REQUEST' && isAuthenticated) {
             const loggedInTime = token.time;
             const validity = token.expires_in * 1000;
             const difference = dayjs(loggedInTime).diff(dayjs(), 'millisecond');

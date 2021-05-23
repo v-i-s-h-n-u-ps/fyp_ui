@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import _get from "lodash/get";
 
 import {
-    CREATE_PROJECT, MY_PROJECTS,
+    CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS,
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS
 } from "./types";
@@ -62,9 +62,12 @@ const projects = () => {
             case PROJECT_PARTICIPANTS[REQUEST]:
                 return { ...state, isLoading: true, isLoaded: false }
             case PROJECT_PARTICIPANTS[SUCCESS]:
-                return { ...state, isLoading: false, isLoaded: true, data: { ...state.data, participants: action.payload } }
+                let data = Object.assign({}, state.data);
+                data['participants'] = action.payload;
+                return { ...state, isLoading: false, isLoaded: true, data: data }
             case PROJECT_PARTICIPANTS[FAILURE]:
                 return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
+            case SET_PROJECT_DETAILS[UNSET]: return initialState
             default: return state;
         }
     };
