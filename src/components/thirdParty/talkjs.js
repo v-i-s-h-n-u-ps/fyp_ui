@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import _isEmpty from "lodash/isEmpty";
 
 import { selectUserInfo } from "@redux/user/selectors";
+import { avatar } from "@constants/defaults";
+import ActivityIndicator from '@components/loaders/ActivityIndicator';
 
 class TalkJS extends Component {
 
@@ -14,7 +16,7 @@ class TalkJS extends Component {
     }
 
     setConversation = _ => {
-        const { selectUserInfo, chatWith, theme = "light", mode = "single", project = {} } = this.props;
+        const { selectUserInfo = {}, chatWith, theme = "light", mode = "single", project = {} } = this.props;
         const otherUser = _isEmpty(chatWith) ? selectUserInfo : chatWith;
         Talk.ready
             .then(() => {
@@ -23,6 +25,7 @@ class TalkJS extends Component {
                     name: selectUserInfo.name,
                     email: selectUserInfo.email,
                     photoUrl: selectUserInfo.avatar,
+                    role: 'user'
                 });
                 if (!window.talkSession) {
                     window.talkSession = new Talk.Session({
@@ -36,6 +39,7 @@ class TalkJS extends Component {
                         name: otherUser.name,
                         email: otherUser.email,
                         photoUrl: otherUser.avatar,
+                        role: 'user'
                     });
                     const conversationId = Talk.oneOnOneId(me, other);
                     const conversation = window.talkSession.getOrCreateConversation(conversationId);
@@ -45,6 +49,7 @@ class TalkJS extends Component {
                         selected: conversation,
                         theme: theme,
                     });
+                    this.inbox.mount(this.container);
                 }
                 if (mode === "group") {
                     const conversation = window.talkSession.getOrCreateConversation(project.id);
@@ -57,6 +62,7 @@ class TalkJS extends Component {
                                 name: user.name,
                                 email: user.email,
                                 photoUrl: user.avatar || avatar,
+                                role: 'user'
                             });
                         }
                     })
@@ -66,26 +72,32 @@ class TalkJS extends Component {
                         subject: project.name,
                         showChatHeader: false
                     });
-                    this.inbox = window.talkSession.createInbox({
-                        selected: conversation,
+                    this.inbox = window.talkSession.createChatbox(conversation, {
                         theme: theme,
+                        chatSubtitleMode: 'participants',
                         chatTitleMode: 'subject',
                         showMobileBackButton: false
                     });
+                    this.inbox.mount(this.container);
                 }
-                this.inbox.mount(this.container);
             })
             .catch(e => console.error(e));
     }
 
     componentDidMount() {
-        this.setConversation();
+        const { mode, project, chatWith } = this.props;
+        if (mode === 'group' && !_isEmpty(project) && !!chatWith.length) {
+            this.setConversation();
+        } else if (mode === 'single' || !mode) {
+            this.setConversation();
+        }
     }
 
     componentDidUpdate(prevProps) {
         const { chatWith, theme } = this.props;
-        if (chatWith !== prevProps.chatWith || theme !== prevProps.theme)
+        if (chatWith !== prevProps.chatWith || theme !== prevProps.theme) {
             this.setConversation();
+        }
     }
 
     componentWillUnmount() {
@@ -100,7 +112,16 @@ class TalkJS extends Component {
                 style={{ height: "80vh", width: "100%" }}
                 ref={c => this.container = c}
             >
-                Loading...
+                <ActivityIndicator 
+                    show={true} 
+                    r={30} 
+                    strokeWidth={8} 
+                    cx={"50"}
+                    cy={"50"}
+                    viewBox="0 0 100 100"
+                    height={45}
+                    width={45}
+                />
             </div>
         );
     }

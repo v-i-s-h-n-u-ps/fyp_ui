@@ -11,7 +11,7 @@ const ProjectDetails = props => {
 
     const {
         selectProjectDetails, id, d__getProjectParticipants,
-        selectUserInfo, selectThemePreference: { theme }
+        selectUserInfo = {}, selectThemePreference: { theme }
     } = props;
 
     const [open, setOpen] = useState(false);
@@ -39,121 +39,7 @@ const ProjectDetails = props => {
                     </div>
                     <div className={s.participants}>
                         {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
-                                <div>
-                                    <img src={item.avatar} />
-                                    <p>{item.name}</p>
-                                </div>
-                                {userIsLeader && (
-                                    <div className={s.icon}>
-                                        <i
-                                            className={`icon-triple_vertical_dots`}
-                                            onClick={() => setOpen(true)}
-                                        />
-                                        <PopUp open={open} onClose={() => setOpen(false)}>
-                                            asdasdada adsadada da dadasda
-                                        </PopUp>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} >
+                            <div className={s.participant} key={item.userId}>
                                 <div>
                                     <img src={item.avatar} />
                                     <p>{item.name}</p>
@@ -174,15 +60,18 @@ const ProjectDetails = props => {
                     </div>
                 </div>
                 <div className={s.talkjs}>
-                    <TalkJS
-                        chatWith={_get(selectProjectDetails, 'participants', [])}
-                        project={{
-                            id: _get(selectProjectDetails, "id"),
-                            name: _get(selectProjectDetails, "name")
-                        }}
-                        theme={theme}
-                        mode="group"
-                    />
+                    {!!_get(selectProjectDetails, "id") && (
+                        <TalkJS
+                            chatWith={_get(selectProjectDetails, 'participants', [])}
+                            project={{
+                                id: _get(selectProjectDetails, "id"),
+                                name: _get(selectProjectDetails, "name")
+                            }}
+                            theme={theme}
+                            mode="group"
+                        />
+                    )}
+
                 </div>
             </div>
         </PageContainer>
