@@ -58,6 +58,9 @@
     padding: 8px;
     justify-content: space-between;
     min-width: 175px;
+    &:not(:last-child) {
+        margin-right: 12px;
+    }
     div {
         @include flex;
         p {

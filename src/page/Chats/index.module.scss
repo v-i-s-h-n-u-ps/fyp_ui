@@ -1,0 +1,12 @@
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+
+.search {
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+.talkjs {
+    @include flex;
+    padding-top: 16px;
+}

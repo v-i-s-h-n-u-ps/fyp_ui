@@ -17,7 +17,7 @@ const Groups = props => {
         <PageContainer>
             <div className={s.container}>
                 {selectMyProjects.map((project, index) => (
-                    <Link href={GROUP} as={`/groups/${project.id}`}>
+                    <Link href={GROUP} as={`/groups/${project.id}`} key={project._default ? undefined : project.id}>
                         <div className={s.project}>
                             <ProjectCard
                                 project={project}

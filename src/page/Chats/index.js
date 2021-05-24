@@ -33,21 +33,22 @@ const Chats = props => {
 
     return (
         <PageContainer active={"home"}>
-            <div style={{ marginLeft: "20px" }}>
+            <div className={s.search}>
                 <MultiSelect
                     options={selectSearchResults}
                     onSelect={(_, item) => onSelect(item)}
                     display="name"
                     onSearch={e => setSearch(e)}
                     name="location"
-                    emptyMessage="No users available"
+                    emptyMessage={!!search ? "No users available" : ''}
                     key="id"
                     multiple={true}
                     selectionLimit={1}
                     closeOnSelect={true}
+                    placeholder={"Search"}
                 />
             </div>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "85vh" }}>
+            <div className={s.talkjs}>
                 <Talkjs
                     chatWith={user}
                     selectUserInfo={selectUserInfo}

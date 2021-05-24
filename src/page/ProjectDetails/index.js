@@ -39,7 +39,7 @@ const ProjectDetails = props => {
                     </div>
                     <div className={s.participants}>
                         {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <div className={s.participant} key={item.userId}>
+                            <div className={s.participant} key={item._default ? undefined : item.userId}>
                                 <div>
                                     <img src={item.avatar} />
                                     <p>{item.name}</p>
@@ -71,7 +71,6 @@ const ProjectDetails = props => {
                             mode="group"
                         />
                     )}
-
                 </div>
             </div>
         </PageContainer>

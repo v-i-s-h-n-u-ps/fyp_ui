@@ -43,8 +43,8 @@ class TalkJS extends Component {
                     });
                     const conversationId = Talk.oneOnOneId(me, other);
                     const conversation = window.talkSession.getOrCreateConversation(conversationId);
-                    conversation.setParticipant(me);
-                    conversation.setParticipant(other);
+                    conversation.setParticipant(me, { notify: true });
+                    conversation.setParticipant(other, { notify: true });
                     this.inbox = window.talkSession.createInbox({
                         selected: conversation,
                         theme: theme,
@@ -53,7 +53,7 @@ class TalkJS extends Component {
                 }
                 if (mode === "group") {
                     const conversation = window.talkSession.getOrCreateConversation(project.id);
-                    conversation.setParticipant(me);
+                    conversation.setParticipant(me, { notify: true });
                     let others = {}
                     chatWith.forEach(user => {
                         if (user.userId !== selectUserInfo.id) {
@@ -62,11 +62,12 @@ class TalkJS extends Component {
                                 name: user.name,
                                 email: user.email,
                                 photoUrl: user.avatar || avatar,
-                                role: 'user'
+                                role: 'user',
+                                welcomeMessage: "Hey, how can I help?"
                             });
                         }
                     })
-                    Object.values(others).forEach(other => conversation.setParticipant(other))
+                    Object.values(others).forEach(other => conversation.setParticipant(other, { notify: true }))
                     conversation.setAttributes({
                         photoUrl: "https://demo.talkjs.com/img/11.jpg",
                         subject: project.name,
@@ -109,18 +110,19 @@ class TalkJS extends Component {
     render() {
         return (
             <div
-                style={{ height: "80vh", width: "100%" }}
+                style={{ height: "85vh", width: "100%" }}
                 ref={c => this.container = c}
+
             >
                 <ActivityIndicator 
                     show={true} 
-                    r={30} 
-                    strokeWidth={8} 
-                    cx={"50"}
-                    cy={"50"}
-                    viewBox="0 0 100 100"
-                    height={45}
-                    width={45}
+                    r={20} 
+                    strokeWidth={4}
+                    cx={"20"}
+                    cy={"20"}
+                    viewBox="0 0 40 40"
+                    height={30}
+                    width={30}
                 />
             </div>
         );
