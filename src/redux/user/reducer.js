@@ -5,7 +5,7 @@ import {
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
   ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
-  UPDATE_STUDENT, SEARCH_USERS
+  UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -70,6 +70,10 @@ const users = () => {
       case REFRESH[REQUEST]: return { ...state, isRefreshing: true, isOtpSent: false };
       case REFRESH[SUCCESS]: return { ...state, isRefreshing: false, isAuthenticated: true };
       case REFRESH[FAILURE]: return { ...state, isRefreshing: false };
+
+      case UPDATE_USER[REQUEST]: return { ...state, isSubmitting: true };
+      case UPDATE_USER[SUCCESS]: return { ...state, isSubmitting: false };
+      case UPDATE_USER[FAILURE]: return { ...state, isSubmitting: false };
 
       default: return state;
     }

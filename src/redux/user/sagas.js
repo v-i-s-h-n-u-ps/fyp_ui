@@ -29,7 +29,7 @@ import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh,
   resendOTP, createStudent, updateStudent,
-  searchUsers
+  searchUsers, updateUser
 } from "@services";
 
 function* handleLogoutUser() {

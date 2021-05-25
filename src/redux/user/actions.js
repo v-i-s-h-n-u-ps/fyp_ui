@@ -4,7 +4,7 @@ import {
     THEME_PREFERENCE, REFRESH, PASSWORD_RESET,
     PASSWORD_RESET_REQUEST, RESET_OTP_SEND,
     OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP,
-    UPDATE_STUDENT, SEARCH_USERS
+    UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER
 } from "./types";
 
 export const signup = {
@@ -77,6 +77,12 @@ export const searchUsers = {
     request: data => action(SEARCH_USERS[REQUEST], { data }),
     success: (data, response) => action(SEARCH_USERS[SUCCESS], { data, response }),
     failure: (data, error) => action(SEARCH_USERS[FAILURE], { data, error }),
+}
+
+export const updateUser = {
+    request: data => action(UPDATE_USER[REQUEST], { data }),
+    success: (data, response) => action(UPDATE_USER[SUCCESS], { data, response }),
+    failure: (data, error) => action(UPDATE_USER[FAILURE], { data, error }),
 }
 
 export const otpSend = {
