@@ -3,6 +3,14 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "..";
+import { 
+    selectSearchResults, selectIsSearching, selectUserInfo,
+    selectThemePreference
+} from "@redux/user/selectors"
+import { searchUsers } from "@redux/user/actions";
+import {
+    selectNewChat
+} from "@redux/miscellaneous/selectors";
 import Chats from "@screens/Chats";
 
 const ChatsPage = (props) => <Chats {...props} />;
@@ -19,4 +27,15 @@ ChatsPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(ChatsPage);
+const mapStateToProps = createStructuredSelector({
+    selectSearchResults, selectIsSearching, selectUserInfo,
+    selectNewChat, selectThemePreference
+})
+
+const mapDispatchToProps = dispatch => {
+    return {
+        d__searchUsers: data => dispatch(searchUsers.request(data))
+    }
+}
+
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(ChatsPage));

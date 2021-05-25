@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import withReduxSaga from ".."
 import Profile from "@screens/Profile";
 
-const DashboardPage = (props) => <Profile {...props} />
+const DashboardPage = (props) => <> </>
 
 DashboardPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;

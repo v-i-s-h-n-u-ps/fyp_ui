@@ -4,7 +4,7 @@ import _last from "lodash/last";
 import _get from "lodash/get";
 import DatePicker from "react-mobile-datepicker";
 import dayjs from "dayjs";
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 import s from "./index.module.scss";
 import { STUDENT_VALIDATION } from "@helpers/schemas";
@@ -145,7 +145,6 @@ const Student = props => {
                   key="id"
                   label="University"
                   multiple={false}
-
                 />
               </div>
               <MultiSelect

@@ -1,5 +1,3 @@
-
-
 @keyframes bounce-left {
     0% {
         transform: scale(1.1, 0.9) translate(-100px, -50%);
@@ -43,6 +41,23 @@
     }
 }
 
-@mixin animation($name, $duration: 1s, $timing-function: ease-in, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: none) {
+@keyframes placeholderShimmer {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+@mixin animation(
+    $name,
+    $duration: 1s,
+    $timing-function: ease-in,
+    $delay: 0s,
+    $iteration-count: 1,
+    $direction: normal,
+    $fill-mode: none
+) {
     animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
 }

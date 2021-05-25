@@ -1,0 +1,67 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/buttons.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/boxShadows.scss";
+@import "@css/components/images.scss";
+
+.container {
+    @include responsive-flex;
+}
+
+.projectDetails {
+    width: 60%;
+    padding: 16px;
+    overflow: hidden;
+    @include respond-below(phone) {
+        width: 100%;
+    }
+}
+
+.talkjs {
+    width: 35%;
+    margin: auto;
+    @include respond-below(phone) {
+        width: 100%;
+    }
+}
+
+.descriptionContainer {
+    @include default-border;
+    border-radius: 8px;
+    padding: 8px;
+    .heading {
+        @include heading-m;
+        @include subtext-color;
+        text-transform: uppercase;
+    }
+    .description {
+        @include normal-content-size;
+        @include heading-sm;
+        padding: 8px 0 0;
+    }
+}
+
+.participants {
+    margin: 16px 0;
+    @include flex;
+    flex-wrap: nowrap;
+    // overflow-y: scroll;
+    // overflow-x: scroll
+}
+
+.tasksContainer {
+    width: 100%;
+}
+
+.addParticipant {
+    @include flex;
+    align-items: flex-end;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.search {
+    flex: 0 0 60%;
+}

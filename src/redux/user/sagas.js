@@ -13,11 +13,13 @@ import {
 } from "../_helpers/helperSaga";
 import {
   ROOT, DASHBOARD, PRIVATE_ROUTES, PUBLIC_ROUTES,
+  PROFILE
 } from "@constants/routes";
 import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
-  REFRESH, RESEND_OTP, SAVE_STUDENT
+  REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT,
+  SEARCH_USERS
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -26,7 +28,8 @@ import { REMOVE_AUTH, SET_AUTH } from "@services/auth";
 import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh,
-  resendOTP, createStudent
+  resendOTP, createStudent, updateStudent,
+  searchUsers
 } from "@services";
 
 function* handleLogoutUser() {
@@ -184,6 +187,28 @@ function* handleSaveStudent({ data }) {
   }
 }
 
+function* handleUpdateStudent({ data }) {
+  try {
+    const apiResponse = yield call(updateStudent, data);
+    if (isSuccess(apiResponse)) {
+      yield put({ type: ME[REQUEST] });
+      yield call(Router.push, { pathname: PROFILE, query: { tab: 'details' } });
+    }
+    yield sendPayload(apiResponse, UPDATE_STUDENT);
+  } catch (e) {
+    yield sendPayloadFailure(e, UPDATE_STUDENT);
+  }
+}
+
+function* handleSearchStudent({ data }) {
+  try {
+    const apiResponse = yield call(searchUsers, data);
+    yield sendPayload(apiResponse, SEARCH_USERS);
+  } catch (e) {
+    yield sendPayloadFailure(e, SEARCH_USERS);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -196,6 +221,8 @@ export const userSaga = {
   watchRefresh: takeLatest(REFRESH[REQUEST], handleRefresh),
   watchResendOTP: takeLatest(RESEND_OTP[REQUEST], handleResendOTP),
   watchSaveStudent: takeLatest(SAVE_STUDENT[REQUEST], handleSaveStudent),
+  watchUpdateStudent: takeLatest(UPDATE_STUDENT[REQUEST], handleUpdateStudent),
+  watchSearchStudent: takeLatest(SEARCH_USERS[REQUEST], handleSearchStudent),
 }
 
 

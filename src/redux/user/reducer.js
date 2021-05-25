@@ -4,7 +4,8 @@ import {
   LOGOUT, LOGIN, SIGNUP, ME, AUTHENTICATE,
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
-  ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP
+  ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
+  UPDATE_STUDENT, SEARCH_USERS
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -18,7 +19,7 @@ const initialState = {
 const initState = {
   isLoading: false,
   isLoaded: false,
-  data: {}
+  data: null
 };
 
 const users = () => {
@@ -79,9 +80,23 @@ const users = () => {
       case SAVE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
       case SAVE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
       case SAVE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      case UPDATE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case UPDATE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
+      case UPDATE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
       default: return state;
     }
   }
+
+  const search = (state=initState, action) => {
+    switch(action.type) {
+      case SEARCH_USERS[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case SEARCH_USERS[SUCCESS]: return { ...state, isLoading: false, isLoaded: true, data: action.payload }
+      case SEARCH_USERS[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      default: return state;
+    }
+  }
+
+  // SEARCH_USERS
 
   const themePreference = (state = {
     theme:
@@ -98,7 +113,7 @@ const users = () => {
 
   return combineReducers({
     auth, themePreference,
-    student
+    student, search
   });
 };
 

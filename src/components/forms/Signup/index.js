@@ -85,6 +85,7 @@ const Signup = props => {
                 <Input
                   label="Confirm Password"
                   name="confirm"
+                  type="password"
                   handleChange={handleChange}
                   value={values.confirm}
                   error={errors.confirm && touched.confirm}

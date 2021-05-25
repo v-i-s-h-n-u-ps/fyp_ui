@@ -11,7 +11,7 @@ import { config } from "@config";
 function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   let middleware = [refreshMiddleWare, sagaMiddleware];
-  // if (config.env !== 'production') middleware = [...middleware, logger];
+  if (config.env !== 'production') middleware = [...middleware, logger];
   const middlewareEnhancer = applyMiddleware(...middleware);
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = composeWithDevTools(...enhancers);

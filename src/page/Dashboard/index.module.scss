@@ -9,16 +9,35 @@
 .container {
     @include main-container;
     @include flex;
+    height: 100%;
 }
 
-.projectContainer {
-    flex-grow: 1;
+.projectsContainer {
+    > div {
+        margin: 8px auto 16px;
+    }
+}
+
+.infiniteLoader {
+    max-height: 100vh;
+    overflow: scroll;
+    max-width: 45%;
 }
 
 .maps {
     height: 100vh;
     width: 55%;
-    @include respond-below(tablet) {
+    padding: 0px 20px 20px 20px;
+    @include respond-between(phone, tablet) {
+        position: fixed;
+        padding: 4px;
+        @include box-shadow-default;
+        right: 10px;
+        bottom: 0;
+        height: 50vw;
+        width: 50vw;
+    }
+    @include respond-below(phone) {
         display: none;
     }
 }

@@ -1,0 +1,139 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/boxShadows.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/animations.scss";
+
+.projectContainer {
+    display: block;
+    border-radius: 3px;
+    @include default-border;
+    @include box-shadow-default;
+    @include highlight-background;
+    @include respond-below(phone) {
+        width: 100%;
+    }
+    .projectCard {
+        padding: 16px 20px;
+        overflow: hidden;
+    }
+}
+
+.flexTop {
+    @include flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    > div {
+        @include flex;
+        flex-grow: 1;
+        align-items: center;
+    }
+    .subHead {
+        color: #8e4d99;
+        @include heading-m;
+        font-weight: 500;
+        @include respond-above(desktop) {
+            @include heading-sm;
+        }
+    }
+    .image {
+        max-height: 50px;
+    }
+}
+
+.projectLeaderDetails {
+    padding: 0px 0px 0px 10px;
+}
+
+.flexCenter {
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    @include respond-above(phone) {
+        .button {
+            width: 150px;
+            float: right;
+        }
+    }
+    @include respond-below(phone) {
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start;
+        .button {
+            float: right;
+            width: 100%;
+        }
+    }
+}
+
+.projectLocation {
+    @include heading-sm;
+    padding-left: 10px;
+}
+
+.projectLeader {
+    @include heading-sm;
+    min-width: 50%;
+}
+
+.projectDetails {
+    @include heading-sm;
+    min-width: 50%;
+    max-width: calc(100% - 160px);
+}
+
+.pinIcon {
+    @include heading-m;
+    color: #8e4d99;
+    padding-right: 5px;
+}
+
+.default {
+    position: relative;
+    overflow: none;
+    @include default-background;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: -5%;
+        width: 100%;
+        height: 110%;
+        z-index: 1;
+        pointer-events: none;
+        transform: rotate(-7deg);
+        @include card-loader-background;
+        @include animation(
+            placeholderShimmer,
+            $duration: 2.35s,
+            $timing-function: linear,
+            $iteration-count: infinite,
+            $fill-mode: forwards
+        );
+    }
+    .defaultImage,
+    .subHead,
+    .projectLeader,
+    .projectLocation,
+    .projectDetails > p,
+    i {
+        @include text-loader-background;
+        color: transparent;
+    }
+    .defaultImage {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    padding-top: 4px;
+}

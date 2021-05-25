@@ -22,24 +22,24 @@ export const sidebarLinks = () => {
             icon: 'users',
             sameTab: true
         },
-        {
-            text: 'Forums',
-            path: FORUMS,
-            icon: 'comments',
-            sameTab: true
-        },
+        // {
+        //     text: 'Forums',
+        //     path: FORUMS,
+        //     icon: 'comments',
+        //     sameTab: true
+        // },
         {
             text: 'Chats',
             path: CHATS,
             icon: 'chats',
             sameTab: true
         },
-        {
-            text: 'Tasks',
-            path: TASKS,
-            icon: 'calendar',
-            sameTab: true
-        },
+        // {
+        //     text: 'Tasks',
+        //     path: TASKS,
+        //     icon: 'calendar',
+        //     sameTab: true
+        // },
         {
             text: 'Profile',
             path: PROFILE,

@@ -47,3 +47,14 @@ export const selectIsSavingStudent = createSelector(
     [selectUsers],
     val => _get(val, 'student.isLoading')
 )
+
+export const selectSearchResults = createSelector(
+    [selectUsers],
+    val => _get(val, 'search.data') || []
+)
+
+export const selectIsSearching = createSelector(
+    [selectUsers],
+    val => _get(val, 'search.isLoading')
+)
+

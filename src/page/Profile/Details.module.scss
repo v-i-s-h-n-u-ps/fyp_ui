@@ -1,0 +1,58 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/components/texts.scss";
+@import "@css/components/tags.scss";
+@import "@css/layouts/flexBox.scss";
+
+
+.container {
+    width: 100%;
+    padding: 16px 4px
+}
+
+.flex {
+    @include flex;
+    justify-content: space-between;
+}
+
+.details {
+    flex-grow: 1;
+    padding-bottom: 16px;
+    label {
+        @include heading-s;
+        @include subtext-color;
+        // color: $color-affair;
+        font-style: italic;
+        padding-bottom: 4px
+    }
+    p {
+        @include heading-sm;
+        @include default-color;
+        @include flex;
+        align-items: flex-end;
+        // color: $color-affair;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-weight: normal !important;
+        text-transform: capitalize;
+    }
+}
+
+.header {
+    @include flex-center;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    p {
+        @include heading-sm;
+        margin-right: 8px;
+    }
+    div {
+        flex-grow: 1;
+        @include default-border;
+        border-width: 2px;
+    }
+}
+
+.tag {
+    @include tag;
+}

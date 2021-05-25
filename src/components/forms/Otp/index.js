@@ -3,16 +3,20 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import s from "./index.module.scss";
-import { activate, resendOTP} from "@redux/user/actions";
-import { selectIsFormSubmitting } from "@redux/user/selectors";
+import { leadingZero } from "@helpers/";
+import { activate, resendOTP } from "@redux/user/actions";
+import { selectIsFormSubmitting, selectIsOtpSent } from "@redux/user/selectors";
 import Button from "@common/Button";
 
 const OTP = props => {
 
-    const { email, d__activate, selectIsFormSubmitting, d__resendOTP } = props;
+    const {
+        email, d__activate, selectIsFormSubmitting, d__resendOTP, selectIsOtpSent
+    } = props;
 
     const [otp, setOtp] = useState('');
     const [value, setValue] = useState(["", "", "", "", "", ""]);
+    const [timer, setTimer] = useState(0);
 
     const input1 = useRef();
     const input2 = useRef();
@@ -54,10 +58,24 @@ const OTP = props => {
         setOtp(value.join(""));
     }, [value])
 
+    useEffect(() => {
+        if (selectIsOtpSent) {
+            setTimer(60);
+        }
+    }, [selectIsOtpSent])
+
+    useEffect(() => {
+        if(timer) {
+            setTimeout(() => {
+                setTimer(timer - 1);
+            }, 1000);
+        }
+    }, [timer])
+
     return (
         <div className={s.container}>
             <div className={s.shieldContainer}>
-                <i className={`icon-verified_user ${s.shieldIcon}`}/>
+                <i className={`icon-verified_user ${s.shieldIcon}`} />
             </div>
             <p className={s.labelMain}>Please Enter the OTP to Verify Your Account</p>
             <p className={s.labelSub}><i>Your One-Time Password has been sent to {email}</i></p>
@@ -152,19 +170,26 @@ const OTP = props => {
                 />
             </div>
             <div className={s.flexCenter}>
-                <p
-                className={s.resendOTP}
-                onClick={() => d__resendOTP({email})}
-                >
-                Resent One-Time Password?
+                {timer
+                    ? <p
+                        className={s.resendOTP}
+                    >
+                        Resend in: 00:{leadingZero(timer)}
+                    </p>
+                    : <p
+                        className={s.resendOTP}
+                        onClick={() => d__resendOTP({ email })}
+                    >
+                        Resend One-Time Password?
                 </p>
+                }
             </div>
         </div>
     )
 }
 
 const mapStateToProps = createStructuredSelector({
-    selectIsFormSubmitting
+    selectIsFormSubmitting, selectIsOtpSent
 })
 
 const mapDispatchToProps = dispatch => {
