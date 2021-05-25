@@ -3,12 +3,12 @@ import App from "next/app";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import { get as _get } from "lodash";
+import cookie from "js-cookie";
 import nextCookie from 'next-cookies';
 import 'lazysizes';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "@css/_main.scss";
-import { config } from "@config";
 import { GET_AUTH } from "@services/auth";
 import { university, role, type, category } from "@redux/resources/actions";
 import { authentication, themePreference } from "@redux/user/actions";
@@ -50,7 +50,10 @@ class MyApp extends App {
 
     componentDidMount() {
         const { store } = this.props;
+        const token = GET_AUTH({});
+        const loginTime = cookie.get('loginTime');
 
+        store.dispatch(authentication.request({ token, ctx: {}, loginTime }));
         store.dispatch(university.request());
         store.dispatch(role.request());
         store.dispatch(type.request());
