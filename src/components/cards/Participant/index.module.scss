@@ -39,4 +39,5 @@
     cursor: pointer;
     flex-grow: 1;
     padding-left: 8px;
+    @include small-content-size
 }
