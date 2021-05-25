@@ -46,7 +46,7 @@ const Dashboard = props => {
     useEffect(() => {
         let locs = []
         selectHomeData.forEach(item => {
-            if(locs.filter(location => location.id === item.university.id).length) 
+            if (locs.filter(location => location.id === item.university.id).length)
                 return;
             else {
                 locs.push(item.university)
@@ -58,29 +58,37 @@ const Dashboard = props => {
     return (
         <PageContainer active={"dashboard"}>
             <div className={s.container}>
-                <div className={s.infiniteLoader}>
-                    <div className={s.projectsContainer}>
-                        {selectHomeData.map(project => (
-                            <div 
-                                onMouseOver={() => setHoverItem(project.university.id)}
-                                onMouseLeave={() => setHoverItem('')}
-                            >
-                                <Project
-                                    project={project}
-                                    key={project.default ? undefined : project.id}
-                                    showMessage={true}
-                                    onClick={d__newChat}
-                                />
+                {(selectHomeData && !selectHomeData.length) || selectIsHomeDataLoading
+                    ? (
+                        <div className={s.infiniteLoader}>
+                            <div className={s.projectsContainer}>
+                                {selectHomeData.map(project => (
+                                    <div
+                                        onMouseOver={() => setHoverItem(project.university.id)}
+                                        onMouseLeave={() => setHoverItem('')}
+                                    >
+                                        <Project
+                                            project={project}
+                                            key={project.default ? undefined : project.id}
+                                            showMessage={true}
+                                            onClick={d__newChat}
+                                        />
+                                    </div>
+                                ))}
+                                {!!selectHomePageInfo.next &&
+                                    <Waypoint fireOnRapidScroll={false} onEnter={() => { incrementPage() }} />
+                                }
                             </div>
-                        ))}
-                        {!!selectHomePageInfo.next &&
-                            <Waypoint fireOnRapidScroll={false} onEnter={() => { incrementPage() }} />
-                        }
-                    </div>
-                    <div className={s.spinnerContainer}>
-                        <ActivityIndicator showCondition={selectIsHomeDataLoading} />
-                    </div>
-                </div>
+                            <div className={s.spinnerContainer}>
+                                <ActivityIndicator showCondition={selectIsHomeDataLoading} />
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            No Projects Available
+                        </div>
+                    )}
+
                 <div className={s.maps}>
                     <Map
                         locations={locations}
