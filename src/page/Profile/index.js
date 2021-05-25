@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import s from "./index.module.scss";
 import { PROFILE } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
-import Tabs from "@components/tabs";
+import Tabs from "@components/tabModule";
 import Details from "./Details";
 import Portfolio from "./Portfolio";
 import Projects from "./Projects";
