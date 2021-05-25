@@ -66,7 +66,6 @@ class TalkJS extends Component {
                                 email: user.email,
                                 photoUrl: user.avatar || avatar,
                                 role: 'user',
-                                welcomeMessage: "Hey, how can I help?"
                             });
                         }
                     })
