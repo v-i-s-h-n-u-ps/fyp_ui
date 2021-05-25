@@ -70,8 +70,6 @@ const ProjectDetails = props => {
             d__searchUsers({ search });
     }, [search])
 
-    console.log("selectProjectDetails", selectProjectTasks)
-
     return (
         <PageContainer>
             <NavigateTo title={"Back"} />

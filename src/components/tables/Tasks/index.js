@@ -78,8 +78,6 @@ const Tasks = props => {
         }
     }, [open])
 
-    console.log(data)
-
     return (
         <div className={s.tableContainer}>
             <DatePicker
