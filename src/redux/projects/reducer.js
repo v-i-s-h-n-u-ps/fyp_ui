@@ -4,7 +4,8 @@ import _get from "lodash/get";
 import {
     CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS,
-    SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS
+    SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
+    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK
 } from "./types";
 import { FAILURE, REQUEST, SUCCESS, UNSET } from "../actionCreator";
 
@@ -96,11 +97,36 @@ const projects = () => {
         }
     };
 
+    const projectTasks = (state = initialState, action) => {
+        switch (action.type) {
+            case ADD_PROJECT_TASK[REQUEST]:
+                return { ...state, isLoading: true, isLoaded: false }
+            case ADD_PROJECT_TASK[SUCCESS]:
+                return { ...state, isLoading: false, isLoaded: true }
+            case ADD_PROJECT_TASK[FAILURE]:
+                return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
+            case UPDATE_PROJECT_TASK[REQUEST]:
+                return { ...state, isLoading: true, isLoaded: false }
+            case UPDATE_PROJECT_TASK[SUCCESS]:
+                return { ...state, isLoading: false, isLoaded: true }
+            case UPDATE_PROJECT_TASK[FAILURE]:
+                return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
+            case GET_PROJECT_TASK[REQUEST]:
+                return { ...state, isLoading: true, isLoaded: false }
+            case GET_PROJECT_TASK[SUCCESS]:
+                return { ...state, isLoading: false, isLoaded: true, data: action.payload }
+            case GET_PROJECT_TASK[FAILURE]:
+                return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
+            default: return state;
+        }
+    };
+
     return combineReducers({
         myProjects,
         manageProject,
         projectDetails,
-        dashboardProjects
+        dashboardProjects,
+        projectTasks
     });
 };
 

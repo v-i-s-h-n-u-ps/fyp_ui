@@ -16,6 +16,11 @@
     span {
         @include heading-sm;
     }
+    &.noInput {
+        input {
+            display: none !important
+        }
+    }
     input {
         @include default-color;
         &::-webkit-input-placeholder,

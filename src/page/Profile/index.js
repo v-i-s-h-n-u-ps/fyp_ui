@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import _get from "lodash/get";
 import { useRouter } from "next/router";
 
@@ -17,7 +17,7 @@ const Profile = props => {
     const {
         selectUserInfo = {}, selectStudentInfo = {}, selectMyProjects = [], selectIsLoadingProjects,
         selectIsProjectSubmitting, d__createProject, d__updateProject, selectUniversity,
-        selectThemePreference: { theme }, selectCategory
+        selectThemePreference, selectCategory
     } = props;
 
     const [activeTabValue, setActiveTabValue] = useState(_get(router, 'query.tab', 'portfolio'));
@@ -63,7 +63,7 @@ const Profile = props => {
             projects={currentProjects}
             onSubmit={onSubmit}
             selectUniversity={selectUniversity}
-            theme={theme}
+            theme={_get(selectThemePreference, 'theme', 'light')}
             selectCategory={selectCategory}
             selectUserInfo={selectUserInfo}
         />,

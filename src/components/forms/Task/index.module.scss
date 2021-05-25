@@ -1,0 +1,32 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.form {
+    @include flex;
+    width: 100%;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    @include respond-below(phone) {
+        justify-content: space-between;
+    }
+}
+
+.input {
+    flex: 0 0 25%;
+    &.multi {
+        margin-top: -4px;
+    }
+    @include respond-below(tablet) {
+        flex: 0 0 46%;
+    }
+}
+
+.inputButton {
+    flex: 0 0 20%;
+    @include respond-below(phone) {
+        flex: 0 0 46%;
+    }
+}

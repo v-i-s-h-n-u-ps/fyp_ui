@@ -17,6 +17,9 @@ class TalkJS extends Component {
 
     setConversation = _ => {
         const { selectUserInfo = {}, chatWith, theme = "light", mode = "single", project = {} } = this.props;
+        if (this.inbox) {
+            this.inbox.destroy();
+        }
         const otherUser = _isEmpty(chatWith) ? selectUserInfo : chatWith;
         Talk.ready
             .then(() => {

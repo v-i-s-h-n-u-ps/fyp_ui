@@ -7,12 +7,14 @@ import {
 import {
     CREATE_PROJECT, MANAGE_PARTICIPANTS, MY_PROJECTS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS,
-    UPDATE_PROJECT,
+    UPDATE_PROJECT, ADD_PROJECT_TASK, GET_PROJECT_TASK,
+    UPDATE_PROJECT_TASK
 } from "./types";
 import {
     getFilteredProjects, createProjects, updateProjects,
     getProjectDetails, getProjects, getParticipants,
-    manageParticipants, getMyProjects
+    manageParticipants, getMyProjects, getProjectTask,
+    updateProjectTask, addProjectTask
 } from "@services/";
 
 
@@ -76,9 +78,54 @@ function* handleProjectParticipants({ data }) {
 function* handleManageParticipants({ data }) {
     try {
         const apiResponse = yield call(manageParticipants, data);
+        if (isSuccess) {
+            yield put({
+                type: PROJECT_PARTICIPANTS[REQUEST],
+                data: { id: data.project }
+            })
+        }
         yield sendPayload(apiResponse, MANAGE_PARTICIPANTS);
     } catch (e) {
         yield sendPayloadFailure(e, MANAGE_PARTICIPANTS);
+    }
+}
+
+function* handleAddProjectTask({ data }) {
+    try {
+        const apiResponse = yield call(addProjectTask, data);
+        if (isSuccess) {
+            yield put({
+                type: GET_PROJECT_TASK[REQUEST],
+                data: { project: data.project }
+            })
+        }
+        yield sendPayload(apiResponse, ADD_PROJECT_TASK);
+    } catch (e) {
+        yield sendPayloadFailure(e, ADD_PROJECT_TASK);
+    }
+}
+
+function* handleUpdateProjectTask({ data }) {
+    try {
+        const apiResponse = yield call(updateProjectTask, data);
+        if (isSuccess) {
+            yield put({
+                type: GET_PROJECT_TASK[REQUEST],
+                data: { project: data.project }
+            })
+        }
+        yield sendPayload(apiResponse, UPDATE_PROJECT_TASK);
+    } catch (e) {
+        yield sendPayloadFailure(e, UPDATE_PROJECT_TASK);
+    }
+}
+
+function* handleGetProjectTask({ data }) {
+    try {
+        const apiResponse = yield call(getProjectTask, data);
+        yield sendPayload(apiResponse, GET_PROJECT_TASK);
+    } catch (e) {
+        yield sendPayloadFailure(e, GET_PROJECT_TASK);
     }
 }
 
@@ -90,4 +137,7 @@ export const projectSaga = {
     watchProjectDetails: takeLatest(PROJECT_DETAILS[REQUEST], handleProjectDetails),
     watchProjectParticipants: takeLatest(PROJECT_PARTICIPANTS[REQUEST], handleProjectParticipants),
     watchManageParticipants: takeLatest(MANAGE_PARTICIPANTS[REQUEST], handleManageParticipants),
+    watchAddProjectTask: takeLatest(ADD_PROJECT_TASK[REQUEST], handleAddProjectTask),
+    watchUpdateProjectTask: takeLatest(UPDATE_PROJECT_TASK[REQUEST], handleUpdateProjectTask),
+    watchGetParticipants: takeLatest(GET_PROJECT_TASK[REQUEST], handleGetProjectTask),
 }

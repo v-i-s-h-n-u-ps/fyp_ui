@@ -51,31 +51,17 @@
     // overflow-x: scroll
 }
 
-.participant {
+.tasksContainer {
+    width: 100%;
+}
+
+.addParticipant {
     @include flex;
-    @include default-border;
-    border-radius: 4px;
-    padding: 8px;
+    align-items: flex-end;
+    gap: 12px;
     justify-content: space-between;
-    min-width: 175px;
-    &:not(:last-child) {
-        margin-right: 12px;
-    }
-    div {
-        @include flex;
-        p {
-            @include heading-m;
-            margin-left: 4px;
-        }
-    }
-    .icon {
-        position: relative;
-        i {
-            cursor: pointer;
-        }
-    }
-    img {
-        width: 40px;
-        border-radius: 50%;
-    }
+}
+
+.search {
+    flex: 0 0 60%;
 }

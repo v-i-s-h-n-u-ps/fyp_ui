@@ -1,0 +1,88 @@
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.tableContainer {
+    width: 100%;
+    table {
+        width: 100%;
+        border-spacing: 0px;
+        th,
+        td {
+            padding: 8px 0 8px 5px;
+            text-align: left;
+            @include default-color;
+        }
+        th {
+            @include normal-content-size;
+            font-weight: bolder;
+            @include highlight-background;
+            &:first-child {
+                border-radius: 4px 0 0 4px;
+            }
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+            }
+        }
+        td {
+            @include normal-content-size;
+            @include default-border-bottom;
+        }
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.role {
+    text-transform: capitalize;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.noPhone {
+    @include respond-below(phablet) {
+        display: none;
+    }
+}
+
+.sort {
+    &.active {
+        font-size: 15px;
+        color: $color-affair;
+        transition: all .2s linear;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    font-size: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.type {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    @include default-border;
+}
+
+.Low {
+    background-color: darkgreen;
+}
+
+.Medium {
+    background-color: darkgoldenrod;
+}
+
+.High {
+    background-color: darkred;
+}
+
+.flex {
+    @include flex;
+    gap: 12px;
+    align-items: center;
+}

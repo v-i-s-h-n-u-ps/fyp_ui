@@ -100,3 +100,15 @@ export const PROJECT_VALIDATION = yup.object().shape({
     .of(yup.string())
     .required("Select at least one category")
 })
+
+export const TASK_VALIDATION = yup.object().shape({
+  task: yup.string()
+    .trim()
+    .required('name is required'),
+  type: yup.string()
+    .trim()
+    .required('Select a university'),
+  dueDate: yup.date()
+    .required('Start date is required'),
+    
+})

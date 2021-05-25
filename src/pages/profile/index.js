@@ -18,11 +18,9 @@ import {
 } from "@redux/resources/selectors";
 import Profile from "@screens/Profile";
 
-const DashboardPage = (props) => {
-    return <Profile {...props} />
-};
+const ProfilePage = (props) =>  <Profile {...props} />
 
-DashboardPage.getInitialProps = async (props) => {
+ProfilePage.getInitialProps = async (props) => {
     const { isServer, store } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -50,4 +48,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(DashboardPage));
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(ProfilePage));

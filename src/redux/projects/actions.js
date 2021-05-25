@@ -3,6 +3,7 @@ import {
     CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS, 
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
+    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK
 } from "./types";
 
 export const getMyProjects = {
@@ -47,4 +48,22 @@ export const manageProjectParticipants = {
     request: data => action(MANAGE_PARTICIPANTS[REQUEST], { data }),
     success: (data, response) => action(MANAGE_PARTICIPANTS[SUCCESS], { data, response }),
     failure: (data, error) => action(MANAGE_PARTICIPANTS[FAILURE], { data, error }),
+}
+
+export const addProjectTask = {
+    request: data => action(ADD_PROJECT_TASK[REQUEST], { data }),
+    success: (data, response) => action(ADD_PROJECT_TASK[SUCCESS], { data, response }),
+    failure: (data, error) => action(ADD_PROJECT_TASK[FAILURE], { data, error }),
+}
+
+export const updateProjectTask = {
+    request: data => action(UPDATE_PROJECT_TASK[REQUEST], { data }),
+    success: (data, response) => action(UPDATE_PROJECT_TASK[SUCCESS], { data, response }),
+    failure: (data, error) => action(UPDATE_PROJECT_TASK[FAILURE], { data, error }),
+}
+
+export const getProjectTask = {
+    request: data => action(GET_PROJECT_TASK[REQUEST], { data }),
+    success: (data, response) => action(GET_PROJECT_TASK[SUCCESS], { data, response }),
+    failure: (data, error) => action(GET_PROJECT_TASK[FAILURE], { data, error }),
 }

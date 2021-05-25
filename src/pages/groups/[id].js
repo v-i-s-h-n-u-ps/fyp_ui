@@ -3,13 +3,23 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../../src";
+import { searchUsers } from "@redux/user/actions";
 import { 
-    getProjectDetails, getProjectParticipants
+    getProjectDetails, getProjectParticipants,
+    getProjectTask, addProjectTask, updateProjectTask,
+    manageProjectParticipants
 } from "@redux/projects/actions";
-import { selectProjectDetails } from "@redux/projects/selectors";
 import { 
-    selectUserInfo, selectThemePreference
+    selectProjectDetails, selectProjectTasks,
+    selectProjectTasksIsUpdating
+} from "@redux/projects/selectors";
+import { 
+    selectUserInfo, selectThemePreference, selectSearchResults,
+    selectIsSearching
 } from "@redux/user/selectors";
+import {
+    selectType
+} from "@redux/resources/selectors";
 import ProjectDetails from "@screens/ProjectDetails";
 
 const ProjectDetailsPage = (props) => <ProjectDetails {...props} />;
@@ -33,12 +43,19 @@ ProjectDetailsPage.getInitialProps = async (props) => {
 
 const mapStateToProps = createStructuredSelector({
     selectProjectDetails, selectUserInfo,
-    selectThemePreference
+    selectThemePreference, selectProjectTasks,
+    selectProjectTasksIsUpdating, selectType,
+    selectSearchResults, selectIsSearching
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        d__getProjectParticipants: data => dispatch(getProjectParticipants.request(data))
+        d__getProjectParticipants: data => dispatch(getProjectParticipants.request(data)),
+        d__getProjectTask: data => dispatch(getProjectTask.request(data)),
+        d__updateProjectTask: data => dispatch(updateProjectTask.request(data)),
+        d__addProjectTask: data => dispatch(addProjectTask.request(data)),
+        d__searchUsers: data => dispatch(searchUsers.request(data)),
+        d__manageProjectParticipants: data => dispatch(manageProjectParticipants.request(data)),
     }
 }
 

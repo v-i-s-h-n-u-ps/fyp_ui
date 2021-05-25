@@ -48,3 +48,6 @@ export const getProjectDetails = data => GET('projects/get-project-details/', da
 export const getProjects = data => GET('projects/list-projects/', data);
 export const getParticipants = data => GET('projects/get-project-participants/', data);
 export const manageParticipants = data => POST('projects/manage-project-users/', data);
+export const getProjectTask = data => GET('projects/get-project-task/', data);
+export const updateProjectTask = data => POST('projects/update-project-task/', data);
+export const addProjectTask = data => POST('projects/add-project-task/', data);

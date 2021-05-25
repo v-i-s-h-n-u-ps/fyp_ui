@@ -39,3 +39,13 @@ export const selectProjectDetails = createSelector(
     [selectProjects],
     val =>_get(val, 'projectDetails.data', {})
 )
+
+export const selectProjectTasks = createSelector(
+    [selectProjects],
+    val => _get(val, 'projectTasks.data', [])
+)
+
+export const selectProjectTasksIsUpdating = createSelector(
+    [selectProjects],
+    val => _get(val, 'projectTasks.isLoading', [])
+)
