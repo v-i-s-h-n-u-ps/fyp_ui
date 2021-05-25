@@ -37,7 +37,11 @@ const ProjectDetails = props => {
     }
 
     const remove = data => {
-
+        d__manageProjectParticipants({
+            project: id,
+            user: data.id,
+            action: 0
+        })
     }
 
     const addTask = values => {
@@ -102,9 +106,11 @@ const ProjectDetails = props => {
                         />
                     </div>
                     <div className={s.participants}>
-                        {_get(selectProjectDetails, 'participants', []).map(item => (
-                            <Participant item={item} isLeader={userIsLeader} onRemove={remove} />
-                        ))}
+                        <div>
+                            {_get(selectProjectDetails, 'participants', []).map(item => (
+                                <Participant item={item} isLeader={userIsLeader} onRemove={remove} />
+                            ))}
+                        </div>
                     </div>
                     <div className={s.tasksContainer}>
                         <TaskForm
