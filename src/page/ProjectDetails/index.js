@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import s from "./index.module.scss";
 import PageContainer from "@hoc/PageContainer";
 import TalkJS from "@components/thirdParty/talkjs";
-import NavigateTo from "@common/NavigateTo";
+import NavigateTo from "@common/navigateTo";
 import Participant from "@cards/Participant";
 import TasksTable from "@components/tables/Tasks";
 import TaskForm from "@forms/Task";
