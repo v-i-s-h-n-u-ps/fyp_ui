@@ -55,10 +55,12 @@ const Dashboard = props => {
         setLocations(locs);
     }, [selectHomeData])
 
+    console.log((selectHomeData && !selectHomeData.length) || selectIsHomeDataLoading)
+
     return (
         <PageContainer active={"dashboard"}>
             <div className={s.container}>
-                {(selectHomeData && !selectHomeData.length) || selectIsHomeDataLoading
+                {(selectHomeData && !!selectHomeData.length) || selectIsHomeDataLoading
                     ? (
                         <div className={s.infiniteLoader}>
                             <div className={s.projectsContainer}>
@@ -84,7 +86,7 @@ const Dashboard = props => {
                             </div>
                         </div>
                     ) : (
-                        <div>
+                        <div className={s.noProjects}>
                             No Projects Available
                         </div>
                     )}

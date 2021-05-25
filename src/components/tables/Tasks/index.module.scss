@@ -29,6 +29,8 @@
             @include default-border-bottom;
         }
     }
+    max-height: 50vh;
+    overflow: scroll;
 }
 
 .pointer {
