@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";
 import Signup from "@forms/Signup";
-import Login from "@forms/Login";
+// import Login from "@forms/Login";
 import Otp from "@forms/Otp";
 import Button from "@common/Button";
+
+const Login = dynamic(() => import("@forms/Login"), { ssr: false })
 
 const Access = props => {
 

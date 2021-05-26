@@ -35,7 +35,7 @@ const Project = props => {
         <div className={`${s.projectContainer}`}>
             <div className={`${s.projectCard} ${_default ? s.default : ''}`}>
                 <div className={s.flexTop}>
-                    <div>
+                    <div className={s.details}>
                         {_default
                             ? <div className={s.defaultImage} />
                             : <img src={project.avatar} className={s.image} />
@@ -49,10 +49,12 @@ const Project = props => {
                             </p>
                         </div>
                     </div>
-                    <h5 className={s.projectLocation}>
-                        <i className={`icon-map_pin ${s.pinIcon}`} />
-                        {project.university.name}
-                    </h5>
+                    <div className={s.projectLocation}>
+                        <h5>
+                            <i className={`icon-map_pin ${s.pinIcon}`} />
+                            {project.university.name}
+                        </h5>
+                    </div>
                     <br></br>
                 </div>
                 <hr></hr>

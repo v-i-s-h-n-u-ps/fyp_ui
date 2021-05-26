@@ -10,8 +10,8 @@ const S3Upload = props => {
 
   const {
     multiple = false, onUpload, accept = "*", error, helperText,
-    label="Upload Resume", value, disabled = false, directory="resume",
-    fileName
+    label = "Upload Resume", value, disabled = false, directory = "resume",
+    fileName, showChildren = false, children
   } = props;
 
   const [uploading, setUploading] = useState(false);
@@ -50,15 +50,18 @@ const S3Upload = props => {
 
   return (
     <div onClick={() => file.current.click()}>
-      <Input
-        label={label}
-        name="file"
-        value={!!value ? value : (uploading ? 'uploading...' : '')}
-        readOnly={true}
-        error={error}
-        helperText={helperText}
-        disabled={disabled}
-      />
+      {showChildren
+        ? children
+        : <Input
+          label={label}
+          name="file"
+          value={!!value ? value : (uploading ? 'uploading...' : '')}
+          readOnly={true}
+          error={error}
+          helperText={helperText}
+          disabled={disabled}
+        />
+      }
       <input
         multiple={multiple}
         type="file"

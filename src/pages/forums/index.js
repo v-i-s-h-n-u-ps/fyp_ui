@@ -3,13 +3,19 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../..";
-import Profile from "@screens/Profile";
+import { 
+    selectSearchResults, selectIsSearching, selectUserInfo,
+    selectThemePreference
+} from "@redux/user/selectors"
+import { searchUsers } from "@redux/user/actions";
+import {
+    selectNewChat
+} from "@redux/miscellaneous/selectors";
+import Forum from "@screens/Forum";
 
-const DashboardPage = (props) => {
-    return <Profile {...props} />
-};
+const ForumPage = (props) => <Forum {...props} />;
 
-DashboardPage.getInitialProps = async (props) => {
+ForumPage.getInitialProps = async (props) => {
     const { isServer } = props.ctx;
     let { req, asPath } = props.ctx;
 
@@ -21,4 +27,15 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(DashboardPage);
+const mapStateToProps = createStructuredSelector({
+    selectSearchResults, selectIsSearching, selectUserInfo,
+    selectNewChat, selectThemePreference
+})
+
+const mapDispatchToProps = dispatch => {
+    return {
+        d__searchUsers: data => dispatch(searchUsers.request(data))
+    }
+}
+
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(ForumPage));

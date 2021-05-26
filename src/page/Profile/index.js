@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import _get from "lodash/get";
 import { useRouter } from "next/router";
+import dynamic from 'next/dynamic';
 
 import s from "./index.module.scss";
 import { PROFILE } from "@constants/routes";
@@ -9,6 +10,10 @@ import Tabs from "@components/tabModule";
 import Details from "./Details";
 import Portfolio from "./Portfolio";
 import Projects from "./Projects";
+import Input from "@common/Input";
+import { toast } from "react-toastify";
+
+const S3Upload = dynamic(() => import('@components/thirdParty/s3'), { ssr: false });
 
 const Profile = props => {
 
@@ -17,10 +22,13 @@ const Profile = props => {
     const {
         selectUserInfo = {}, selectStudentInfo = {}, selectMyProjects = [], selectIsLoadingProjects,
         selectIsProjectSubmitting, d__createProject, d__updateProject, selectUniversity,
-        selectThemePreference, selectCategory
+        selectThemePreference, selectCategory, d__updateUser
     } = props;
 
     const [activeTabValue, setActiveTabValue] = useState(_get(router, 'query.tab', 'portfolio'));
+    const [edit, setEdit] = useState(false);
+    const [name, setName] = useState(_get(selectUserInfo, "name"));
+    const [avatar, setAvatar] = useState(_get(selectUserInfo, "avatar"));
 
     const completedProjects = selectMyProjects.filter(item => item.isComplete);
     const currentProjects = selectMyProjects.filter(item => !item.isComplete);
@@ -52,6 +60,22 @@ const Profile = props => {
         }
     }
 
+    const cancel = () => {
+        setEdit(false);
+        setName(_get(selectUserInfo, "name"));
+        setAvatar(_get(selectUserInfo, "avatar"));
+    }
+
+    const save = () => {
+        if (!name) {
+            toast.warn("Name cannot be empty")
+        }
+        d__updateUser({ avatar, name })
+        setEdit(false);
+        setName(_get(selectUserInfo, "name"));
+        setAvatar(_get(selectUserInfo, "avatar"));
+    }
+
     const components = {
         'portfolio': <Portfolio
             isLoading={selectIsLoadingProjects}
@@ -70,16 +94,56 @@ const Profile = props => {
         'details': <Details selectStudentInfo={selectStudentInfo} />,
     }
 
+    useEffect(() => {
+        setName(_get(selectUserInfo, "name"));
+        setAvatar(_get(selectUserInfo, "avatar"));
+    }, [edit, selectUserInfo])
+
     return (
         <PageContainer active={"home"}>
             <div className={s.imageCover}>
                 <div className={s.image}>
-                    <img src={selectUserInfo.avatar} />
+                    <div className={s.imageArea}>
+                        <img src={avatar} />
+                        {(
+                            <S3Upload
+                                accept="image/*"
+                                onUpload={data => setAvatar(_get(data, 'location'))}
+                                directory={`user/${_get(selectUserInfo, 'id')}`}
+                                showChildren={true}
+                            >
+                                <div className={s.edit} onClick={() => setEdit(true)}>
+                                    <span>
+                                        <i className={`icon-pencil ${s.icon}`} />
+                                        Edit
+                                    </span>
+                                </div>
+                            </S3Upload>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className={s.account}>
                 <div className={s.name}>
-                    {_get(selectUserInfo, "name")}
+                    {edit
+                        ? <div className={s.editName}>
+                            <div className={s.input}>
+                                <Input
+                                    handleChange={e => setName(e.target.value)}
+                                    value={name}
+                                    label={"Name"}
+                                />
+                            </div>
+                            <div>
+                                <i className={`icon-close ${s.icon} ${s.action}`} onClick={cancel} />
+                                <i className={`icon-check ${s.icon} ${s.action}`} onClick={save} />
+                            </div>
+                        </div>
+                        : <div className={s.nameArea}>
+                            {_get(selectUserInfo, "name")}
+                            <i className={`icon-pencil ${s.icon}`} onClick={() => setEdit(true)} />
+                        </div>
+                    }
                 </div>
                 <div className={s.email}>
                     {_get(selectUserInfo, "email")}

@@ -40,7 +40,6 @@ const ForgotPassword = props => {
               value={values.email}
               error={errors.email && touched.email}
               helperText={errors.email && touched.email ? errors.email : ''}
-              autoFocus={true}
               readOnly={selectIsRequestSuccess}
               showEdit={true}
               secondaryText={<i className={`icon-mail ${s.icon} ${s.mail}`} />}

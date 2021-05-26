@@ -17,6 +17,8 @@
         left: 50%;
         transform: translate(-50%, 50%);
         border-radius: 50%;
+        overflow: hidden;
+        @include default-border_radio;
         @include respond-above(phone) {
             width: 140px;
         }
@@ -74,5 +76,71 @@
     .icon {
         @include default-color;
         opacity: 0.8;
+    }
+}
+
+.editName {
+    .input {
+        width: 250px;
+    }
+    @include flex-column;
+    align-items: center;
+    > div {
+        @include flex-center;
+        gap: 16px;
+    }
+    text-transform: none;
+    margin-bottom: 24px;
+    gap: 10px;
+}
+
+.nameArea {
+    padding-left: 16px;
+    @include flex-center;
+    gap: 16px;
+    padding-bottom: 8px;
+}
+.icon {
+    cursor: pointer;
+    @include heading-m;
+}
+
+.imageArea {
+    position: relative;
+}
+
+.edit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    opacity: 0.1;
+    @include box-shadow-default;
+    @include default-overlay-background;
+    // @include default-color;
+    @include flex-center;
+    i {
+        @include heading-lm;
+        color: white;
+    }
+    &:hover {
+        opacity: 0.8;
+        transition: all 0.2s ease;
+        span {
+            opacity: 1;
+        }
+    }
+}
+
+.action {
+    font-weight: bold;
+    @include heading-lm;
+    &:first-child {
+        color: red;
+    }
+    &:last-child {
+        color: green;
     }
 }

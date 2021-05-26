@@ -208,3 +208,6 @@
 .icon-triple_vertical_dots:before {
   content: "\e910";
 }
+.icon-check:before {
+  content: "\e911";
+}

@@ -13,6 +13,7 @@ import {
 import {
     selectUserInfo, selectStudentInfo, selectThemePreference
 } from "@redux/user/selectors";
+import { updateUser } from "@redux/user/actions";
 import {
     selectUniversity, selectCategory
 } from "@redux/resources/selectors";
@@ -45,6 +46,7 @@ const mapDispatchToProps = dispatch => {
     return {
         d__createProject: data => dispatch(createProject.request(data)),
         d__updateProject: data => dispatch(updateProject.request(data)),
+        d__updateUser: data => dispatch(updateUser.request(data)),
     }
 }
 
