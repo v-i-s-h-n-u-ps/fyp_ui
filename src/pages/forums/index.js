@@ -3,17 +3,30 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../..";
-import Profile from "@screens/Profile";
+import { 
+    selectUserInfo,
+} from "@redux/user/selectors"
+import { searchUsers } from "@redux/user/actions";
+import {
+    selectForums
+} from "@redux/forums/selectors";
+import {
+    getForums
+} from "@redux/forums/actions";
+import {
+    globalModalFlag
+} from "@redux/auxiliary/actions";
+import Forums from "@screens/Forums";
 
-const DashboardPage = (props) => {
-    return <Profile {...props} />
-};
+const ForumsPage = props => <Forums {...props} />;
 
-DashboardPage.getInitialProps = async (props) => {
-    const { isServer } = props.ctx;
+ForumsPage.getInitialProps = async (props) => {
+    const { isServer, store } = props.ctx;
     let { req, asPath } = props.ctx;
 
     req = req || { headers: { host: window.location.host } };
+    
+    await store.dispatch(getForums.request());
 
     let hostURL = `https://${req.headers.host}`;
     let fullURL = `https://${req.headers.host}${asPath}`;
@@ -21,4 +34,14 @@ DashboardPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
-export default withReduxSaga(DashboardPage);
+const mapStateToProps = createStructuredSelector({
+    selectUserInfo, selectForums
+})
+
+const mapDispatchToProps = dispatch => {
+    return {
+        d__globalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data))
+    }
+}
+
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(ForumsPage));

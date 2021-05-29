@@ -1,0 +1,205 @@
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+
+.modal {
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &.hide {
+        .dialog {
+            @include respond-above(tablet) {
+                animation: slideUp 0.4s ease forwards;
+            }
+            @include respond-between(phone, tablet) {
+                animation: slidedown 0.4s ease forwards;
+            }
+            @include respond-below(phone) {
+                animation: slidedown 0.4s ease forwards;
+            }
+        }
+        .overlay {
+            animation: fadeOut 0.6s ease forwards;
+        }
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include default-overlay-background;
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+        z-index: 1;
+    }
+    .dialog {
+        position: absolute;
+
+        z-index: 2;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+
+        overflow: auto;
+        @include respond-above(tablet) {
+            animation: slideDown 0.4s ease forwards;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: 90vh;
+        }
+        @include respond-between(phone, tablet) {
+            animation: slideup 0.4s ease forwards;
+            bottom: -100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            max-height: 90vh;
+        }
+        @include respond-below(phone) {
+            animation: slideup 0.4s ease forwards;
+            bottom: -100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            max-height: 90vh;
+        }
+    }
+    &.forum {
+        .dialog {
+            overflow: hidden;
+        }
+    }
+    &.none {
+        .dialog {
+            left: 0;
+            transform: none;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            animation: none;
+            max-height: 100vh;
+        }
+    }
+    &.loader {
+        &.hide {
+            .dialog {
+                animation-duration: 0.3s;
+            }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 4vw;
+            background: transparent;
+            z-index: 1;
+        }
+        .dialog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            width: 0;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            background: #ff6c0d;
+            animation: progressBar 16s ease forwards;
+        }
+    }
+}
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    opacity: 0.7;
+    @include subtext-color;
+
+    @include respond-above(tablet) {
+        font-size: 24px;
+    }
+    @include respond-between(phone, tablet) {
+        font-size: 20px;
+    }
+    @include respond-below(phone) {
+        font-size: 16px;
+    }
+}
+
+@keyframes progressBar {
+    100% {
+        width: 99vw;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        top: 50%;
+    }
+    100% {
+        top: -50%;
+    }
+}
+
+@keyframes blur {
+    0% {
+        -webkit-filter: blur(0);
+        filter: blur(0);
+    }
+    100% {
+        -webkit-filter: blur(7px);
+        filter: blur(7px);
+    }
+}
+
+@keyframes slideup {
+    0% {
+        bottom: -100%;
+    }
+    100% {
+        bottom: 0%;
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        bottom: 0%;
+    }
+    100% {
+        bottom: -100%;
+    }
+}

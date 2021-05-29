@@ -67,3 +67,7 @@
 .search {
     flex: 0 0 60%;
 }
+
+.completed {
+    @include label-color;
+}

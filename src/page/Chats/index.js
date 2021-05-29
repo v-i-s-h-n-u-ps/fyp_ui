@@ -37,7 +37,7 @@ const Chats = props => {
                 <MultiSelect
                     options={selectSearchResults}
                     onSelect={(_, item) => onSelect(item)}
-                    display="name"
+                    display="email"
                     onSearch={e => setSearch(e)}
                     name="location"
                     emptyMessage={!!search ? "No users available" : ''}

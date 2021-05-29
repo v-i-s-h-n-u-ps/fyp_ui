@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import s from "./index.module.scss";
-import PopUp from "@common/Popup";
 
 const Participant = props => {
 
     const { item, isLeader, onRemove } = props;
 
-    const [open, setOpen] = useState(false);
-
     const remove = data => {
         onRemove(data)
-        setOpen(false)
     }
 
     return (
@@ -23,17 +19,9 @@ const Participant = props => {
             {isLeader && !item.isLeader && (
                 <div className={s.icon}>
                     <i
-                        className={`icon-triple_vertical_dots`}
-                        onClick={() => setOpen(true)}
+                        className={`icon-close`}
+                        onClick={() => remove({ id: item.userId, name: item.name })}
                     />
-                    <PopUp open={open} onClose={() => setOpen(false)}>
-                        <div 
-                            className={s.popup} 
-                            onClick={() => remove({ id: item.userId })}
-                        >
-                            Remove
-                        </div>
-                    </PopUp>
                 </div>
             )}
         </div>

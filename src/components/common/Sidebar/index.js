@@ -81,14 +81,22 @@ const Sidebar = (props) => {
               className={`${s.linkContainer} ${s.logo}`}
             >
               <div className={`${s.shortLogo}`}>
-                <img alt={"logo"} src="/images/handyman-icon.png" />
+                <img alt={"logo"} src="https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/resources/imageedit_12_4117756647.png" />
               </div>
-              <div className={`${s.link}`}>
-                <img
-                  alt={"handyman full logo"}
-                  className={`${s.fullLogo} lazyload`}
-                  src="/images/infohandyman.png"
-                />
+              <div className={`${s.link} ${s.loggo}`}>
+                {selectThemePreference.theme === 'light'
+                  ? <img
+                    alt={"auxiliar full logo"}
+                    className={`${s.fullLogo} lazyload`}
+                    src="https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/resources/uxiliar+(2).png"
+                  />
+                  : <img
+                    alt={"auxiliar full logo"}
+                    className={`${s.fullLogo} lazyload`}
+                    src="https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/resources/logoDark.png"
+                  />
+                }
+
               </div>
             </a>
           </Link>

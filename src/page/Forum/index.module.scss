@@ -1,0 +1,66 @@
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/container.scss";
+
+.talkjs {
+    width: calc(100%);
+    overflow: hidden;
+    direction: rtl;
+    @include respond-below(phone) {
+        width: 98%;
+        margin: auto;
+    }
+}
+
+.talkjsMain {
+    width: calc(94vw + 20px);
+    @include respond-below(phone) {
+        width: 96vw;
+        margin: auto;
+    }
+}
+
+.actionButton {
+    @include flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    @include respond-below(phone) {
+        margin-bottom: 24px;
+    }
+}
+
+.forumDetails {
+    width: 100%;
+}
+
+.detailsContainer {
+    margin: 16px 0;
+    padding: 12px;
+}
+
+.nameContainer {
+    @include flex;
+    justify-content: space-between;
+    p {
+        @include default-color;
+        font-style: italic
+    }
+    small {
+        @include small-content-size;
+        @include subText-s-color;
+    }
+    span {
+        @include heading-sm;
+    }
+}
+
+.date {
+    @include subtext-color;
+    @include normal-content-size;
+}
+
+.description {
+    @include heading-m;
+    padding-top: 8px;
+}

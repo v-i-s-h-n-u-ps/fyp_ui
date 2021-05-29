@@ -52,3 +52,9 @@ export const manageParticipants = data => POST('projects/manage-project-users/',
 export const getProjectTask = data => GET('projects/get-project-task/', data);
 export const updateProjectTask = data => POST('projects/update-project-task/', data);
 export const addProjectTask = data => POST('projects/add-project-task/', data);
+
+export const getForums = data => GET('others/get-forums/', data);
+export const createForums = data => POST('others/create-forum/', data);
+export const updateForums = data => POST('others/update-forums/', data);
+export const manageForumMembers = data => POST('others/manage-forum-users/', data);
+export const getForumDetails = data => GET('others/get-forum/', data);

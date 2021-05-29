@@ -19,7 +19,7 @@ import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
   REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT,
-  SEARCH_USERS
+  SEARCH_USERS, UPDATE_USER
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -209,6 +209,18 @@ function* handleSearchStudent({ data }) {
   }
 }
 
+function* handleUpdateUser({ data }) {
+  try {
+    const apiResponse = yield call(updateUser, data);
+    if (isSuccess) {
+      yield put({ type: ME[REQUEST] });
+    }
+    yield sendPayload(apiResponse, UPDATE_USER);
+  } catch (e) {
+    yield sendPayloadFailure(e, UPDATE_USER);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -223,6 +235,7 @@ export const userSaga = {
   watchSaveStudent: takeLatest(SAVE_STUDENT[REQUEST], handleSaveStudent),
   watchUpdateStudent: takeLatest(UPDATE_STUDENT[REQUEST], handleUpdateStudent),
   watchSearchStudent: takeLatest(SEARCH_USERS[REQUEST], handleSearchStudent),
+  watchUpdateUser: takeLatest(UPDATE_USER[REQUEST], handleUpdateUser),
 }
 
 

@@ -20,6 +20,9 @@
     -webkit-filter: blur(8px);
     background-repeat: no-repeat;
     object-fit: cover;
+    @include respond-below(phone) {
+        background-image: none
+    }
 }
 
 .main {
@@ -27,6 +30,11 @@
     width: 100%;
     z-index: 2;
     @include flex-center;
+    @include respond-below(phone) {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 20vw;
+    }
 }
 
 .accessContainer {
@@ -126,7 +134,8 @@
         padding: 0;
         @include flex-column;
         justify-content: center;
-        align-items: center
+        align-items: center;
+        padding-bottom: 12px;
     }
 }
 

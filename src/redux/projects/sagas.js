@@ -42,6 +42,7 @@ function* handleCreateProject({ data }) {
 function* handleUpdateProject({ data }) {
     try {
         const apiResponse = yield call(updateProjects, data);
+        yield put({ type: PROJECT_DETAILS[REQUEST], data: { id: data.id }});
         yield sendPayload(apiResponse, UPDATE_PROJECT);
     } catch (e) {
         yield sendPayloadFailure(e, UPDATE_PROJECT);

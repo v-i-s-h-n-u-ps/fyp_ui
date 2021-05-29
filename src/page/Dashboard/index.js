@@ -55,8 +55,6 @@ const Dashboard = props => {
         setLocations(locs);
     }, [selectHomeData])
 
-    console.log((selectHomeData && !selectHomeData.length) || selectIsHomeDataLoading)
-
     return (
         <PageContainer active={"dashboard"}>
             <div className={s.container}>

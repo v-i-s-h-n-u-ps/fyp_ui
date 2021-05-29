@@ -7,6 +7,7 @@ import { selectThemePreference } from "@redux/user/selectors";
 import { SET_THEME, GET_THEME } from "@services/user";
 import PageLoader from "@components/loaders/PageLoader";
 import GlobalApiToast from "@utils/snackbar/GlobalApiToast";
+import GlobalModal from "@components/modal";
 
 const Layout = (props) => {
     const { children, selectThemePreference } = props;
@@ -63,6 +64,7 @@ const Layout = (props) => {
             </Head>
             <PageLoader />
             <GlobalApiToast />
+            <GlobalModal />
             {children}
         </>
     );

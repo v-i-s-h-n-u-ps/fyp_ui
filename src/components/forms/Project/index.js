@@ -31,6 +31,9 @@ const Project = props => {
 
     useEffect(() => {
         if (open.open) {
+            let modal = document.querySelector(
+                "body > div.Modal-Portal > div"
+            );
             let picker = document.querySelector(
                 "body > div.Modal-Portal > div > .datepicker"
             );
@@ -42,6 +45,7 @@ const Project = props => {
             );
             picker.style.maxWidth = "650px";
             picker.style.left = "50%";
+            modal.style.zIndex = "1011";
             picker.style.transform = "translate(-50%, 0)"
             confirm.innerHTML = "Confirm";
             cancel.innerHTML = "Cancel";
@@ -126,8 +130,8 @@ const Project = props => {
                                         value={values.endDate}
                                         readOnly={true}
                                         focusCallback={() => setOpen({ open: true, field: 'endDate' })}
-                                        error={errors.startDate && touched.startDate}
-                                        helperText={errors.startDate && touched.startDate ? errors.startDate : ''}
+                                        error={errors.endDate && touched.endDate}
+                                        helperText={errors.endDate && touched.endDate ? errors.endDate : ''}
                                     />
                                 </div>
                             </div>

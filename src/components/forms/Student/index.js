@@ -142,9 +142,10 @@ const Student = props => {
                   placeholder={!values.university.length ? 'University' : ''}
                   error={errors.university && touched.university}
                   helperText={errors.university && touched.university ? errors.university : ''}
+                  selectionLimit={1}
                   key="id"
                   label="University"
-                  multiple={false}
+                  multiple={true}
                 />
               </div>
               <MultiSelect
@@ -163,7 +164,6 @@ const Student = props => {
               />
               <div className={s.uploader}>
                 <S3Upload
-                  onUpload={data => setFieldValue("resumeUrl", _get(data, ''))}
                   accept="application/msword, application/vnd.ms-excel, 
                     application/vnd.ms-powerpoint,text/plain, application/pdf"
                   onUpload={data => setFieldValue('resumeUrl', _get(data, 'location'))}

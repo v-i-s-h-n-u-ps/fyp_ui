@@ -22,12 +22,12 @@ export const sidebarLinks = () => {
             icon: 'users',
             sameTab: true
         },
-        // {
-        //     text: 'Forums',
-        //     path: FORUMS,
-        //     icon: 'comments',
-        //     sameTab: true
-        // },
+        {
+            text: 'Forums',
+            path: FORUMS,
+            icon: 'comments',
+            sameTab: true
+        },
         {
             text: 'Chats',
             path: CHATS,

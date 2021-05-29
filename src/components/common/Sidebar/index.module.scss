@@ -67,7 +67,8 @@
 
     .fullLogo {
         height: 5vw;
-        padding: 1vw 0;
+        transform: scale(1.4);
+        // padding: 1vw 0;
     }
 
     .shortLogo {
@@ -275,7 +276,7 @@
         }
         .fullLogo {
             height: 8.6vw;
-            padding: 2vw 0;
+            // padding: 2vw 0;
         }
     
         .shortLogo {
@@ -313,7 +314,7 @@
         }
         .fullLogo {
             height: 13.2vw;
-            padding: 2vw 0;
+            // padding: 2vw 0;
         }
     
         .shortLogo {
@@ -337,4 +338,10 @@
 
 .menu {
     @include default-color;
+}
+
+.loggo {
+    flex-grow: 1;
+    @include flex-center;
+    margin-right: 30px;
 }

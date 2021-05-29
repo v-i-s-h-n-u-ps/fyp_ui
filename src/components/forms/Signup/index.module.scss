@@ -22,6 +22,7 @@
     }
     @include respond-below(phone) {
         width: 100%;
+        margin-top: 0
     }
 }
 
@@ -40,14 +41,14 @@
 .flexCenter {
     @include flex-center;
     @include respond-above(phone) {
-        width: 30%;
+        width: 150px;
         margin: 20px 0 0 auto;
     }
-    @include respond-above (phone) {
+    @include respond-below (phone) {
         button {
-            width: 150px !important;
             float: right;
         }
+        margin-top: 32px
     }
 }
 

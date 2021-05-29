@@ -16,11 +16,15 @@ class TalkJS extends Component {
     }
 
     setConversation = _ => {
-        const { selectUserInfo = {}, chatWith, theme = "light", mode = "single", project = {} } = this.props;
+        const { 
+            selectUserInfo = {}, chatWith, theme = "light", mode = "single", 
+            project = {}, themeType = '', settings = {}, type = "project"
+        } = this.props;
         if (this.inbox) {
             this.inbox.destroy();
         }
         const otherUser = _isEmpty(chatWith) ? selectUserInfo : chatWith;
+        const _theme = !!themeType ? `${themeType}${theme}` : theme
         Talk.ready
             .then(() => {
                 const me = new Talk.User({
@@ -49,13 +53,14 @@ class TalkJS extends Component {
                     conversation.setParticipant(me, { notify: true });
                     conversation.setParticipant(other, { notify: true });
                     this.inbox = window.talkSession.createInbox({
+                        ...settings,
                         selected: conversation,
-                        theme: theme,
+                        theme: _theme,
                     });
                     this.inbox.mount(this.container);
                 }
                 if (mode === "group") {
-                    const conversation = window.talkSession.getOrCreateConversation(project.id);
+                    const conversation = window.talkSession.getOrCreateConversation(`${type}-${project.id}`);
                     conversation.setParticipant(me, { notify: true });
                     let others = {}
                     chatWith.forEach(user => {
@@ -76,7 +81,8 @@ class TalkJS extends Component {
                         showChatHeader: false
                     });
                     this.inbox = window.talkSession.createChatbox(conversation, {
-                        theme: theme,
+                        ...settings,
+                        theme: _theme,
                         chatSubtitleMode: 'participants',
                         chatTitleMode: 'subject',
                         showMobileBackButton: false
@@ -114,11 +120,10 @@ class TalkJS extends Component {
             <div
                 style={{ height: "85vh", width: "100%" }}
                 ref={c => this.container = c}
-
             >
-                <ActivityIndicator 
-                    show={true} 
-                    r={20} 
+                <ActivityIndicator
+                    show={true}
+                    r={20}
                     strokeWidth={4}
                     cx={"20"}
                     cy={"20"}

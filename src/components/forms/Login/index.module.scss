@@ -22,6 +22,8 @@
     }
     @include respond-below(phone) {
         width: 100%;
+        // padding-bottom: 0;
+        margin-bottom: 0
     }
 }
 
@@ -56,6 +58,9 @@
     @include heading-sm;
     min-width: 50%;
     cursor: pointer;
+    @include respond-below(phone) {
+        min-width: max-content;
+    }
 }
 
 .iconOn, .iconOff {

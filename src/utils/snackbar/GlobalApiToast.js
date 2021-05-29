@@ -17,7 +17,8 @@ const GlobalApiToast = (props) => {
 
     const setErrorMessage = () => {
         if (_get(selectGlobalAPIError, 'message')) {
-            globalErrorMsg = _get(selectGlobalAPIError, 'message.message') || _get(selectGlobalAPIError, 'message.error')
+            globalErrorMsg = _get(selectGlobalAPIError, 'message.message') || 
+            _get(selectGlobalAPIError, 'message.error_description') || _get(selectGlobalAPIError, 'message.error')
         } else {
             globalErrorMsg = "😓 Something went wrong!";
         }
