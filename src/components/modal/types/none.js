@@ -1,5 +1,5 @@
-const None = () =>{
-    return <></>
+const None = () => {
+  return <></>
 }
 
 export default None;

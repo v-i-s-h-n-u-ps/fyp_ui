@@ -6,31 +6,31 @@ import Link from "next/link";
 
 import s from "./index.module.scss";
 import { selectUserInfo } from "@redux/user/selectors";
-import { avatar } from "@constants/defaults";
+import { avatar } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 
 const Navbar = props => {
 
-    const { selectUserInfo } = props;
+  const { selectUserInfo } = props;
 
-    return (
-        <div className={s.container}>
-            <div className={s.navContainer}>
-                <Link href={PROFILE}>
-                    <div className={s.loggedInUser}>
-                        Welcome, <span>{_get(selectUserInfo, 'name', "").split(" ")[0]}</span>
-                        <div className={s.avatar}>
-                            <img src={_get(selectUserInfo, 'avatar', avatar)} />
-                        </div>
-                    </div>
-                </Link>
+  return (
+    <div className={s.container}>
+      <div className={s.navContainer}>
+        <Link href={PROFILE}>
+          <div className={s.loggedInUser}>
+            Welcome, <span>{_get(selectUserInfo, 'name', "").split(" ")[0]}</span>
+            <div className={s.avatar}>
+              <img src={_get(selectUserInfo, 'avatar', avatar)} />
             </div>
-        </div>
-    )
+          </div>
+        </Link>
+      </div>
+    </div>
+  )
 }
 
 const mapStateToProps = createStructuredSelector({
-    selectUserInfo
+  selectUserInfo
 })
 
 export default connect(mapStateToProps)(Navbar)

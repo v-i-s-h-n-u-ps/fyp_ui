@@ -25,7 +25,9 @@ class MyDocument extends Document {
         const { locale, direction, theme } = this.props;
         return (
             <Html lang={locale} dir={direction}>
-                <Head />
+                <Head>
+                    <link rel="shortcut icon" id="favicon" href='/favicon.ico' />
+                </Head>
                 <body className={theme}>
                     <Main />
                     <NextScript />

@@ -6,17 +6,17 @@ import Navbar from "@common/Navbar";
 
 const PageContainer = props => {
 
-    const { active, showNav = true } = props;
+  const { active, showNav = true } = props;
 
-    return (
-        <>
-            { showNav && <Navbar />}
-            <Sidebar isServer={false} isAuth={true} userInfo={{}} authUser={{}} active={active} />
-            <main className={`${s.mainContainer} ${s[active]}`} >
-                {props.children}
-            </main>
-        </>
-    );
+  return (
+    <>
+      { showNav && <Navbar />}
+      <Sidebar isServer={false} isAuth={true} userInfo={{}} authUser={{}} active={active} />
+      <main className={`${s.mainContainer} ${s[active]}`} >
+        {props.children}
+      </main>
+    </>
+  );
 };
 
 export default PageContainer;

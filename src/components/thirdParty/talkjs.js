@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import _isEmpty from "lodash/isEmpty";
 
 import { selectUserInfo } from "@redux/user/selectors";
-import { avatar } from "@constants/defaults";
+import { avatar } from "@constants/images";
 import ActivityIndicator from '@components/loaders/ActivityIndicator';
 
 class TalkJS extends Component {

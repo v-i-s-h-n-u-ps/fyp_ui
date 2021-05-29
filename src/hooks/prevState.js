@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 
 const prevState = value => {
-    const ref = useRef();
+  const ref = useRef();
 
-    useEffect(() => {
-        ref.current = value;
-    });
+  useEffect(() => {
+    ref.current = value;
+  });
 
-    return ref.current;
+  return ref.current;
 }
 
 export default prevState

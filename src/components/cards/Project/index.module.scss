@@ -10,7 +10,7 @@
     border-radius: 3px;
     @include default-border;
     @include box-shadow-default;
-    @include highlight-background;
+    @include default-background;
     @include respond-below(phone) {
         width: 100%;
     }

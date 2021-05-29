@@ -5,6 +5,7 @@
 @import "@css/layouts/boxShadows.scss";
 @import "@css/components/texts.scss";
 @import "@css/components/tags.scss";
+@import "@css/theme/colors";
 
 .container {
     @include flex;
@@ -21,6 +22,7 @@
     max-height: 100vh;
     overflow: scroll;
     max-width: 45%;
+    padding-left: 8px;
     @include respond-below(tablet) {
         max-width: 100%;
     }
@@ -28,7 +30,7 @@
 
 .maps {
     width: 55%;
-    padding: 0px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     @include respond-above(desktop) {
         height: calc(100vh - 5vw);
         @include box-shadow-sidenav;
@@ -54,4 +56,23 @@
 .noProjects,
 .infiniteLoader {
     flex-grow: 1;
+}
+
+.noProjects {
+    padding-top: 23vw;
+    height: 100%;
+    // width: 100%;
+    align-items: center;
+    text-align: center;
+    @include flex-column;
+    @include subText-s-color;
+    @include heading-m;
+    p {
+        padding-top: 16px;
+        @include label-color;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
