@@ -11,8 +11,6 @@ const Forums = props => {
         selectForums, selectUserInfo, d__globalModalFlag
     } = props
 
-    console.log(selectForums)
-
     return (
         <PageContainer active={"forums"}>
             <div className={s.container}>

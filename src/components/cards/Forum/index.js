@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import Link from "next/link";
@@ -13,8 +13,6 @@ const Forum = props => {
     const { item } = props;
 
     const { isMember, isAdmin, _default } = item;
-
-    console.log(item)
 
     return (
         <div className={s.participant} key={_default ? undefined : item.userId}>

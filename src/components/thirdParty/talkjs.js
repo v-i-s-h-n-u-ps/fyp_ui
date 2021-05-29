@@ -18,7 +18,7 @@ class TalkJS extends Component {
     setConversation = _ => {
         const { 
             selectUserInfo = {}, chatWith, theme = "light", mode = "single", 
-            project = {}, themeType = '', settings = {} 
+            project = {}, themeType = '', settings = {}, type = "project"
         } = this.props;
         if (this.inbox) {
             this.inbox.destroy();
@@ -60,7 +60,7 @@ class TalkJS extends Component {
                     this.inbox.mount(this.container);
                 }
                 if (mode === "group") {
-                    const conversation = window.talkSession.getOrCreateConversation(project.id);
+                    const conversation = window.talkSession.getOrCreateConversation(`${type}-${project.id}`);
                     conversation.setParticipant(me, { notify: true });
                     let others = {}
                     chatWith.forEach(user => {
@@ -120,7 +120,6 @@ class TalkJS extends Component {
             <div
                 style={{ height: "85vh", width: "100%" }}
                 ref={c => this.container = c}
-
             >
                 <ActivityIndicator
                     show={true}

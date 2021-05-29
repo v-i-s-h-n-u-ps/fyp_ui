@@ -95,7 +95,11 @@ export const PROJECT_VALIDATION = yup.object().shape({
   startDate: yup.date()
     .required('Start date is required'),
   endDate: yup.date()
-    .required('End date is required'),
+    .required('End date is required')
+    .min(
+      yup.ref('startDate'),
+      "End date can't be before start date"
+    ),
   categories: yup.array()
     .of(yup.string())
     .required("Select at least one category")

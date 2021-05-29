@@ -7,12 +7,12 @@ import Forum from "@forms/Forum";
 const Forums = props => {
 
     const {
-        selectForums, selectUserInfo, modalData = {}
+        modalData = {}
     } = props
 
     return(
         <div className={s.container}>
-            <Forum value={modalData.values} />
+            <Forum value={modalData} />
         </div>
     )
 }

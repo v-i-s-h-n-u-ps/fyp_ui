@@ -22,7 +22,7 @@ const Profile = props => {
     const {
         selectUserInfo = {}, selectStudentInfo = {}, selectMyProjects = [], selectIsLoadingProjects,
         selectIsProjectSubmitting, d__createProject, d__updateProject, selectUniversity,
-        selectThemePreference, selectCategory, d__updateUser
+        selectThemePreference, selectCategory, d__updateUser, d__globalModalFlag, d__globalModalFlagUnset
     } = props;
 
     const [activeTabValue, setActiveTabValue] = useState(_get(router, 'query.tab', 'portfolio'));
@@ -90,6 +90,8 @@ const Profile = props => {
             theme={_get(selectThemePreference, 'theme', 'light')}
             selectCategory={selectCategory}
             selectUserInfo={selectUserInfo}
+            setGlobalModal={d__globalModalFlag}
+            unsetGlobalModal={d__globalModalFlagUnset}
         />,
         'details': <Details selectStudentInfo={selectStudentInfo} />,
     }

@@ -54,8 +54,6 @@ const GlobalModal = (props) => {
     const closeOnBlur = _get(selectGlobalModal, 'modalData.closeOnBlur', true);
     const showCloseButton = _get(selectGlobalModal, 'modalData.showCloseButton', true);
 
-    console.log("here")
-
     return (
         <>
             { selectGlobalModal.isModal && selectGlobalModal.modalType ?

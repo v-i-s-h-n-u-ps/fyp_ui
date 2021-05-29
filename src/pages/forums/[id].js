@@ -3,23 +3,27 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../..";
-import { 
-    selectSearchResults, selectIsSearching, selectUserInfo,
-    selectThemePreference
-} from "@redux/user/selectors"
-import { searchUsers } from "@redux/user/actions";
 import {
-    selectNewChat
-} from "@redux/miscellaneous/selectors";
+    selectUserInfo, selectThemePreference
+} from "@redux/user/selectors"
+import { globalModalFlag } from "@redux/auxiliary/actions";
+import {
+    selectForumDetails
+} from "@redux/forums/selectors";
+import {
+    getForumDetails, manageForumMembers
+} from "@redux/forums/actions";
 import Forum from "@screens/Forum";
 
 const ForumPage = (props) => <Forum {...props} />;
 
 ForumPage.getInitialProps = async (props) => {
-    const { isServer } = props.ctx;
-    let { req, asPath } = props.ctx;
+    const { isServer, store } = props.ctx;
+    let { req, asPath, query } = props.ctx;
 
     req = req || { headers: { host: window.location.host } };
+
+    await store.dispatch(getForumDetails.request({ id: query.id }))
 
     let hostURL = `https://${req.headers.host}`;
     let fullURL = `https://${req.headers.host}${asPath}`;
@@ -28,13 +32,13 @@ ForumPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    selectSearchResults, selectIsSearching, selectUserInfo,
-    selectNewChat, selectThemePreference
+    selectUserInfo, selectThemePreference, selectForumDetails
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        d__searchUsers: data => dispatch(searchUsers.request(data))
+        d__globalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data)),
+        d__manageForumMembers: data => dispatch(manageForumMembers.request(data))
     }
 }
 

@@ -21,7 +21,8 @@ const ProjectDetails = props => {
         d__getProjectTask, d__updateProjectTask, d__addProjectTask,
         selectProjectTasks, selectProjectTasksIsUpdating, selectType,
         selectSearchResults, d__searchUsers, selectIsSearching,
-        d__manageProjectParticipants
+        d__manageProjectParticipants, d__setGlobalModalFlag,
+        d__unsetGlobalModalFlag
     } = props;
 
     const [search, setSearch] = useState('');
@@ -37,11 +38,20 @@ const ProjectDetails = props => {
     }
 
     const remove = data => {
-        d__manageProjectParticipants({
-            project: id,
-            user: data.id,
-            action: 0
-        })
+        const modalData = {
+            primaryText: <>Remove <i>{data.name}</i></>,
+            secondaryText: "Are you sure you want remove the member?",
+            primaryActionText: "Confirm",
+            secondaryActionText: "Cancel",
+            primaryAction: () => d__manageProjectParticipants({
+                project: id,
+                user: data.id,
+                action: 0
+            }),
+            secondaryAction: d__unsetGlobalModalFlag,
+            closeOnBlur: false,
+        }
+        d__setGlobalModalFlag('confirm', modalData)
     }
 
     const addTask = values => {
@@ -106,7 +116,11 @@ const ProjectDetails = props => {
                     <div className={s.participants}>
                         <div>
                             {_get(selectProjectDetails, 'participants', []).map(item => (
-                                <Participant item={item} isLeader={userIsLeader} onRemove={remove} />
+                                <Participant
+                                    item={item}
+                                    isLeader={userIsLeader}
+                                    onRemove={remove}
+                                />
                             ))}
                         </div>
                     </div>

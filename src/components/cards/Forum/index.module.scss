@@ -37,6 +37,9 @@
         @include text-ellipsis;
         flex-grow: 1;
         cursor: pointer;
+        &:hover {
+            @include label-color;
+        }
     }
     span {
         @include heading-s;

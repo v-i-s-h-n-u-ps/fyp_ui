@@ -1,0 +1,88 @@
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/container.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
+@import "@css/theme/colors";
+@import "@css/theme/borders";
+
+.mainContainer {
+    overflow: hidden;
+    @include default-background;
+    @include default-color;
+    @include respond-below(phablet) {
+        width: 100vw;
+        padding: 5vw 2.45vw 2.65vw;
+    }
+    @include respond-between(phablet, tablet) {
+        width: 75vw;
+        border-radius: 8px 8px 0 0;
+        padding: 3.2vw 2.5vw 2.5vw;
+    }
+    @include respond-between(tablet, desktop) {
+        width: 40vw;
+        border-radius: 8px;
+        padding: 2.25vw 2.2vw 1.4vw;
+    }
+    @include respond-above(desktop) {
+        width: 28vw;
+        border-radius: 8px;
+        padding: 2.52vw 1.9vw 1vw;
+    }
+}
+
+.primaryText,
+.secondaryText {
+    @include respond-below(phablet) {
+        padding: 0 0 2.65vw;
+    }
+    @include respond-between(phablet, tablet) {
+        padding: 0 0 2.5vw;
+    }
+    @include respond-between(tablet, desktop) {
+        padding: 0 0 1.4vw;
+    }
+    @include respond-above(desktop) {
+        padding: 0 0 1vw;
+    }
+}
+
+.primaryText {
+    @include heading-lm;
+}
+
+.secondaryText {
+    @include subtext-color;
+    @include heading-sm;
+}
+
+.ctaContainer {
+    @include default-border-top;
+    @include flex;
+    padding: 10px 0 0;
+    margin-top: 10px;
+}
+
+.button {
+    flex-grow: 1;
+    padding: 5px 0;
+    background: transparent;
+    border: none;
+    font-family: "Muli";
+    cursor: pointer;
+    @include flex-center;
+    @include heading-m;
+    @include default-color;
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.85;
+    }
+}
+
+.separator {
+    @include default-border-right;
+}
+
+.primary {
+    color: $color-affair !important;
+    font-weight: 500;
+}

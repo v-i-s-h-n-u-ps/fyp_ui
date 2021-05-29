@@ -3,6 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../../../src";
+import { globalModalFlag } from "@redux/auxiliary/actions";
 import { searchUsers } from "@redux/user/actions";
 import { 
     getProjectDetails, getProjectParticipants,
@@ -56,6 +57,8 @@ const mapDispatchToProps = dispatch => {
         d__addProjectTask: data => dispatch(addProjectTask.request(data)),
         d__searchUsers: data => dispatch(searchUsers.request(data)),
         d__manageProjectParticipants: data => dispatch(manageProjectParticipants.request(data)),
+        d__setGlobalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data)),
+        d__unsetGlobalModalFlag: () => dispatch(globalModalFlag.unset()),
     }
 }
 

@@ -38,9 +38,9 @@ const Forum = props => {
       d__createForums({ ...values })
   }
 
-  // useEffect(() => {
-  //   setValues({ ...init, ...value })
-  // }, [])
+  useEffect(() => {
+    setValues({ ...init, ...value })
+  }, [value])
 
   return (
     <div className={s.container}>
