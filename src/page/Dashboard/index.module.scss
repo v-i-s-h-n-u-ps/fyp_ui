@@ -7,7 +7,6 @@
 @import "@css/components/tags.scss";
 
 .container {
-    @include main-container;
     @include flex;
     height: 100%;
 }
@@ -28,9 +27,17 @@
 }
 
 .maps {
-    height: 100vh;
     width: 55%;
     padding: 0px 20px 20px 20px;
+    @include respond-above(desktop) {
+        height: calc(100vh - 5vw);
+        left: 4.47vw;
+        @include box-shadow-sidenav;
+    }
+    @include respond-between(tablet, desktop) {
+        height: calc(100vh - 6vw);
+        @include box-shadow-sidenav;
+    }
     @include respond-between(phone, tablet) {
         position: fixed;
         padding: 4px;
