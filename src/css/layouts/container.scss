@@ -14,18 +14,18 @@
 
 @mixin main-container {
     @include respond-above(desktop) {
-        margin: 0 0 0 4.47vw;
+        margin: 5vw 0 0 4.47vw;
         &.guest {
             margin: 3.86vw 0 0 0;
         }
-        min-height: calc(100vh);
+        min-height: calc(100vh - 5vw);
     }
     @include respond-between(tablet, desktop) {
-        margin: 0 0 0 4.31vw;
+        margin: 5.8vw 0 0 4.31vw;
         &.guest {
             margin: 4.86vw 0 0 0;
         }
-        min-height: calc(100vh);
+        min-height: calc(100vh - 5.8);
     }
     @include respond-between(phone, tablet) {
         margin: 8.5vw 0 0 0;

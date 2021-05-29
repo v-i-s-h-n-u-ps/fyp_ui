@@ -3,6 +3,7 @@ import _get from "lodash/get";
 import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";
+import { GROUPS } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
 import TalkJS from "@components/thirdParty/talkjs";
 import NavigateTo from "@common/navigateTo";
@@ -22,7 +23,7 @@ const ProjectDetails = props => {
         selectProjectTasks, selectProjectTasksIsUpdating, selectType,
         selectSearchResults, d__searchUsers, selectIsSearching,
         d__manageProjectParticipants, d__setGlobalModalFlag,
-        d__unsetGlobalModalFlag
+        d__unsetGlobalModalFlag, d__updateProject
     } = props;
 
     const [search, setSearch] = useState('');
@@ -55,6 +56,15 @@ const ProjectDetails = props => {
         d__setGlobalModalFlag('confirm', modalData)
     }
 
+    const markCompleted = () => {
+        const categories = selectProjectDetails.categories.map(category => category.category)
+        d__updateProject({
+            ...selectProjectDetails,
+            categories: categories,
+            isComplete: true,
+        })
+    }
+
     const addTask = values => {
         d__addProjectTask({
             ...values,
@@ -81,9 +91,21 @@ const ProjectDetails = props => {
             d__searchUsers({ search });
     }, [search])
 
+    console.log(selectProjectDetails, "project")
+
     return (
         <PageContainer>
-            <NavigateTo title={"Back"} />
+            <NavigateTo title={"Back"} link={GROUPS}>
+                {userIsLeader && !_get(selectProjectDetails, 'isComplete', false)
+                    ? <Button
+                        text="Complete Project"
+                        variant="hollow"
+                        onClick={markCompleted}
+                        width="250px"
+                    />
+                    : <p className={s.completed}>Completed</p>
+                }
+            </NavigateTo>
             <div className={s.container}>
                 <div className={s.projectDetails}>
                     <div className={s.descriptionContainer}>
@@ -144,6 +166,11 @@ const ProjectDetails = props => {
                 <div className={s.talkjs}>
                     {!!_get(selectProjectDetails, "id") && (
                         <TalkJS
+                            settings={{
+                                messageField: {
+                                    visible: !selectProjectDetails.isComplete
+                                }
+                            }}
                             chatWith={_get(selectProjectDetails, 'participants', [])}
                             project={{
                                 id: _get(selectProjectDetails, "id"),

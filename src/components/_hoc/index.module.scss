@@ -2,6 +2,9 @@
 
 .mainContainer {
     @include main-container;
+    &.profile {
+        margin-top: 0 !important;
+    }
 }
 
 .mainTarget {

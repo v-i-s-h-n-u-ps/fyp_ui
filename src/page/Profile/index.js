@@ -102,7 +102,7 @@ const Profile = props => {
     }, [edit, selectUserInfo])
 
     return (
-        <PageContainer active={"home"}>
+        <PageContainer active={"profile"} showNav={false}>
             <div className={s.imageCover}>
                 <div className={s.image}>
                     <div className={s.imageArea}>
