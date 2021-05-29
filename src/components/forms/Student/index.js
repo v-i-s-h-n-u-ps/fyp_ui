@@ -142,9 +142,10 @@ const Student = props => {
                   placeholder={!values.university.length ? 'University' : ''}
                   error={errors.university && touched.university}
                   helperText={errors.university && touched.university ? errors.university : ''}
+                  selectionLimit={1}
                   key="id"
                   label="University"
-                  multiple={false}
+                  multiple={true}
                 />
               </div>
               <MultiSelect

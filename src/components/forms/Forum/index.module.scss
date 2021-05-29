@@ -1,0 +1,24 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+
+.container {
+    margin: auto;
+    display: block;
+    border-radius: 3px;
+    @include default-background;
+}
+
+.form {
+    @include default-background;
+    width: 100%;
+}
+
+.subHead {
+    @include heading-m;
+}
+
+.flexCenter {
+    width: 80%;
+    margin: 32px auto 0;
+}

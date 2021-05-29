@@ -4,6 +4,7 @@ import aux from "./auxiliary/reducer";
 import resources from "./resources/reducer";
 import projects from "./projects/reducer";
 import miscellaneous from "./miscellaneous/reducer";
+import forums from "./forums/reducer";
 
 const rootReducer = combineReducers({
   users: users(),
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   resources: resources(),
   projects: projects(),
   miscellaneous: miscellaneous(),
+  forums: forums(),
 });
 
 export default rootReducer;

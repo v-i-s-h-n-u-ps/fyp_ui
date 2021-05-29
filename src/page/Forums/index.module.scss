@@ -1,0 +1,33 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
+    @include respond-above(desktop) {
+        width: 70%;
+    }
+    @include respond-between(tablet, desktop) {
+        width: 80%;
+    }
+    @include respond-between(phone, tablet) {
+        width: 90%
+    }
+    @include respond-below(phone) {
+        width: 96%;
+    }
+}
+
+.buttonContainer {
+    @include flex;
+    justify-content: flex-end;
+    
+}
+
+.forumContainer {
+    padding: 16px 0;
+}

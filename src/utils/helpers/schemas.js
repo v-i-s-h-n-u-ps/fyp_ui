@@ -110,5 +110,18 @@ export const TASK_VALIDATION = yup.object().shape({
     .required('Select a university'),
   dueDate: yup.date()
     .required('Start date is required'),
-    
+
+})
+
+export const FORUM_VALIDATION = yup.object().shape({
+  name: yup.string()
+    .trim()
+    .required('Name is required')
+    .max(250, "Can only 250 characters"),
+  description: yup.string()
+    .trim()
+    .required('Description is required'),
+  categories: yup.array()
+    .of(yup.string())
+    .required("Select at least one category")
 })

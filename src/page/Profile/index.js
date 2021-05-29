@@ -145,9 +145,11 @@ const Profile = props => {
                         </div>
                     }
                 </div>
-                <div className={s.email}>
-                    {_get(selectUserInfo, "email")}
-                </div>
+                {!edit && (
+                    <div className={s.email}>
+                        {_get(selectUserInfo, "email")}
+                    </div>
+                )}
                 <div className={s.aboutMe}>
                     <label>About</label>
                     <p>{_get(selectStudentInfo, "about")}</p>
