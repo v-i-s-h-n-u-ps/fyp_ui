@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Waypoint } from "react-waypoint";
+import Link from "next/link";
 
 import s from "./index.module.scss";
+import { PROFILE } from "@constants/routes";
 import ActivityIndicator from "@components/loaders/ActivityIndicator";
 import PageContainer from "@hoc/PageContainer";
 import Map from "@components/thirdParty/maps";
@@ -85,7 +87,10 @@ const Dashboard = props => {
                         </div>
                     ) : (
                         <div className={s.noProjects}>
-                            No Projects Available
+                            There are no projects available. Be the first one to create.
+                            <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
+                                <p>Create Project</p>
+                            </Link>
                         </div>
                     )}
 

@@ -8,18 +8,17 @@
     position: fixed;
     right: 0;
     top: 0;
-    margin-right: 16px;
+    padding-right: 16px;
     @include default-background;
-    @include default-border-bottom;
     @include respond-above(desktop) {
         height: 4.11vw;
-        left: 4.47vw;
-        @include box-shadow-sidenav;
+        left: 4.11vw;
+        @include default-border-bottom;
     }
     @include respond-between(tablet, desktop) {
         height: 5.12vw;
         left: 4.31vw;
-        @include box-shadow-sidenav;
+        @include default-border-bottom;
     }
     @include respond-between(phone, tablet) {
         height: 8.5vw;
@@ -33,6 +32,7 @@
     height: 100%;
     width: max-content;
     float: right;
+    @include default-background;
 }
 
 .loggedInUser {
@@ -41,6 +41,7 @@
     align-items: center;
     gap: 4px;
     height: 100%;
+    @include default-background;
     @include heading-sm;
     @include flex;
     @include subText-s-color;
@@ -48,7 +49,7 @@
 
 .avatar {
     border-radius: 50px;
-    overflow: hidden;;
+    overflow: hidden;
     @include respond-above(desktop) {
         height: 2.8vw;
         width: 2.8vw;

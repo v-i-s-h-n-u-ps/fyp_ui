@@ -3,6 +3,7 @@ import Head from "next/head";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
+import { themePreference } from "@redux/user/actions";
 import { selectThemePreference } from "@redux/user/selectors";
 import { SET_THEME, GET_THEME } from "@services/user";
 import PageLoader from "@components/loaders/PageLoader";
@@ -10,7 +11,9 @@ import GlobalApiToast from "@utils/snackbar/GlobalApiToast";
 import GlobalModal from "@components/modal";
 
 const Layout = (props) => {
-    const { children, selectThemePreference } = props;
+    const { 
+        children, selectThemePreference, themePreference
+    } = props;
 
     const [theme, setTheme] = useState('light');
 
@@ -32,13 +35,18 @@ const Layout = (props) => {
                 setTheme(_theme);
                 document.body.setAttribute('class', _theme);
             }
-            themeChange.addEventListener && 
+            themeChange.addEventListener &&
                 themeChange.addEventListener('change', (e) => themeChangeFunction(e));
         }
+        if (theme !== _theme) {
+            setTheme(_theme);
+            themePreference(_theme);
+            document.body.setAttribute('class', _theme);
+        }
         return (() => {
-            themeChange && 
-            themeChange.removeEventListener && 
-            themeChange.removeEventListener('change', e => themeChangeFunction(e));
+            themeChange &&
+                themeChange.removeEventListener &&
+                themeChange.removeEventListener('change', e => themeChangeFunction(e));
         })
     }, []);
 
@@ -76,6 +84,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        themePreference: data => dispatch(themePreference.set(data))
     };
 };
 
