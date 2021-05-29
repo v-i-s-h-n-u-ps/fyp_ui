@@ -6,15 +6,15 @@ import Forum from "@forms/Forum";
 
 const Forums = props => {
 
-    const {
-        modalData = {}
-    } = props
+  const {
+    modalData = {}
+  } = props
 
-    return(
-        <div className={s.container}>
-            <Forum value={modalData} />
-        </div>
-    )
+  return (
+    <div className={s.container}>
+      <Forum value={modalData} />
+    </div>
+  )
 }
 
 export default Forums
