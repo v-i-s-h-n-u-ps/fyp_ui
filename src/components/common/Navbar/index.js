@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import s from "./index.module.scss";
 import { selectUserInfo } from "@redux/user/selectors";
-import { avatar } from "@constants/defaults";
+import { avatar } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 
 const Navbar = props => {

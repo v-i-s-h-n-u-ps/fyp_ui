@@ -34,12 +34,6 @@ export const sidebarLinks = () => {
             icon: 'chats',
             sameTab: true
         },
-        // {
-        //     text: 'Tasks',
-        //     path: TASKS,
-        //     icon: 'calendar',
-        //     sameTab: true
-        // },
         {
             text: 'Profile',
             path: PROFILE,
@@ -57,20 +51,6 @@ export const otherLinks = {
         },
         dark: {
             text: 'Light Mode'
-        }
-    },
-    locale: {
-        text: {
-            en: 'Select Language',
-            hi: 'भाषा का चयन करें'
-        }
-    },
-    languages: {
-        en: {
-            text: [{ languageName: 'हिन्दी', locale: 'hi' }]
-        },
-        hi: {
-            text: [{ languageName: 'English', locale: 'en' }]
         }
     },
 }

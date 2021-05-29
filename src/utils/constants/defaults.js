@@ -1,5 +1,7 @@
+import { avatar } from "@constants/images"
+
 export const projectCard = Array(10).fill({
-    avatar: "https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/default_avatar.png",
+    avatar: avatar,
     createdBy: "string",
     created_id: "6a654704-6e3f-4464-a80f-a9e7d3c6d8ac",
     description: "This is a new contest regarding something",
@@ -19,5 +21,3 @@ export const projectCard = Array(10).fill({
     },
     _default: true
 })
-
-export const avatar = "https://fyp-images-narvitaa.s3.ap-south-1.amazonaws.com/default_avatar.png";
