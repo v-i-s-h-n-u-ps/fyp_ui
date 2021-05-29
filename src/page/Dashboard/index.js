@@ -16,7 +16,7 @@ const Dashboard = props => {
   const {
     selectThemePreference: { theme }, d__getProjectHome,
     selectHomeData, selectHomePageInfo, selectIsHomeDataLoading,
-    d__newChat
+    d__newChat, d__unsetProjectHome
   } = props;
 
   const [page, setPage] = useState(1);
@@ -42,6 +42,7 @@ const Dashboard = props => {
   }
 
   useEffect(() => {
+    d__unsetProjectHome();
     fetchData();
   }, [])
 

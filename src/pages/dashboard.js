@@ -21,8 +21,6 @@ DashboardPage.getInitialProps = async (props) => {
 
     req = req || { headers: { host: window.location.host } };
 
-    store.dispatch(getProjectHome.unset())
-
     let hostURL = `https://${req.headers.host}`;
     let fullURL = `https://${req.headers.host}${asPath}`;
 
@@ -37,6 +35,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => {
     return {
         d__getProjectHome: data => dispatch(getProjectHome.request(data)),
+        d__unsetProjectHome: () => dispatch(getProjectHome.unset()),
         d__newChat: data => dispatch(newChat.set(data))
     }
 }
