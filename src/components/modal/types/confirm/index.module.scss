@@ -48,11 +48,12 @@
 
 .primaryText {
     @include heading-lm;
+    @include subtext-color;
 }
 
 .secondaryText {
-    @include subtext-color;
     @include heading-sm;
+    @include default-color;
 }
 
 .ctaContainer {

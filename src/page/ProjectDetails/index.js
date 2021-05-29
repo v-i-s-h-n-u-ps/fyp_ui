@@ -50,6 +50,7 @@ const ProjectDetails = props => {
             }),
             secondaryAction: d__unsetGlobalModalFlag,
             closeOnBlur: false,
+            showCloseButton: false,
         }
         d__setGlobalModalFlag('confirm', modalData)
     }

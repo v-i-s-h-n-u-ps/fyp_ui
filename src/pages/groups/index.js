@@ -7,7 +7,7 @@ import {
     getMyProjects
 } from "@redux/projects/actions";
 import { 
-    selectMyProjects
+    selectMyProjects, selectIsLoadingProjects
 } from "@redux/projects/selectors";
 import {
     selectUserInfo
@@ -31,7 +31,7 @@ GroupsPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({ 
-    selectMyProjects,
+    selectMyProjects, selectIsLoadingProjects,
     selectUserInfo
 })
 
