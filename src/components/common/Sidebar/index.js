@@ -77,66 +77,70 @@ const Sidebar = (props) => {
 
       <aside id={`sideNav`} className={`${s.aside} ${!!navOpen ? s.open : ''} aside`}>
         <nav className={`${s.sidebar}`} >
-          <Link href={ROOT} prefetch={false}>
-            <a
-              onClick={() => { setNavOpen(false) }}
-              href={ROOT}
-              className={`${s.linkContainer} ${s.logo}`}
-            >
-              <div className={`${s.shortLogo}`}>
-                <img alt={"logo"} src={shortLogo} />
-              </div>
-              <div className={`${s.link} ${s.loggo}`}>
-                {selectThemePreference.theme === 'light'
-                  ? <img
-                    alt={"auxiliar full logo"}
-                    className={`${s.fullLogo} lazyload`}
-                    src={longLogoLight}
-                  />
-                  : <img
-                    alt={"auxiliar full logo"}
-                    className={`${s.fullLogo} lazyload`}
-                    src={longLogoDark}
-                  />
-                }
-              </div>
-            </a>
-          </Link>
-          {sideLinks.map((link, index) => {
-            return (
-              <Link href={link.path} prefetch={false} key={link.path}>
-                <a
-                  onClick={() => { setNavOpen(false) }}
-                  key={index}
-                  className={`${s.linkContainer}`}
-                  href={link.path}
-                  target={link.sameTab ? '' : '_blank'}
-                >
-                  <div className={`${s.iconContainer}`}>
-                    <i className={`${s.icon} icon-${link.icon} ${s[link.icon]}`} />
-                  </div>
-                  <div className={`${s.link}`}>{link.text}</div>
-                </a>
-              </Link>
-            )
-          })}
+          <div className={s.contents}>
+            <Link href={ROOT} prefetch={false}>
+              <a
+                onClick={() => { setNavOpen(false) }}
+                href={ROOT}
+                className={`${s.linkContainer} ${s.logo}`}
+              >
+                <div className={`${s.shortLogo}`}>
+                  <img alt={"logo"} src={shortLogo} />
+                </div>
+                <div className={`${s.link} ${s.loggo}`}>
+                  {selectThemePreference.theme === 'light'
+                    ? <img
+                      alt={"auxiliar full logo"}
+                      className={`${s.fullLogo} lazyload`}
+                      src={longLogoLight}
+                    />
+                    : <img
+                      alt={"auxiliar full logo"}
+                      className={`${s.fullLogo} lazyload`}
+                      src={longLogoDark}
+                    />
+                  }
+                </div>
+              </a>
+            </Link>
+            {sideLinks.map((link, index) => {
+              return (
+                <Link href={link.path} prefetch={false} key={link.path}>
+                  <a
+                    onClick={() => { setNavOpen(false) }}
+                    key={index}
+                    className={`${s.linkContainer}`}
+                    href={link.path}
+                    target={link.sameTab ? '' : '_blank'}
+                  >
+                    <div className={`${s.iconContainer}`}>
+                      <i className={`${s.icon} icon-${link.icon} ${s[link.icon]}`} />
+                    </div>
+                    <div className={`${s.link}`}>{link.text}</div>
+                  </a>
+                </Link>
+              )
+            })}
 
-          <div
-            className={`${s.linkContainer} ${s.theme}`}
-            onClick={() => { changeTheme() }}
-          >
-            <div className={`${s.iconContainer}`}>
-              <i className={`${s.icon} icon-theme ${s.theme}`} />
-            </div>
-            <div className={`${s.link}`}>
-              {otherLinks['theme'][theme]['text']}
+            <div
+              className={`${s.linkContainer} ${s.theme}`}
+              onClick={() => { changeTheme() }}
+            >
+              <div className={`${s.iconContainer}`}>
+                <i className={`${s.icon} icon-${otherLinks['theme'][theme]['icon']} ${s.theme}`} />
+              </div>
+              <div className={`${s.link}`}>
+                {otherLinks['theme'][theme]['text']}
+              </div>
             </div>
           </div>
-          <div onClick={() => { setNavOpen(false); d__logout() }} className={`${s.linkContainer}`} >
-            <div className={`${s.iconContainer}`}>
-              <i className={`${s.icon} icon-logout ${s.logout}`} />
+          <div className={s.logoutArea}>
+            <div onClick={() => { setNavOpen(false); d__logout() }} className={`${s.linkContainer}`} >
+              <div className={`${s.iconContainer} ${s.logoutContainer}`}>
+                <i className={`${s.icon} icon-logout_material ${s.logout}`} />
+              </div>
+              <div className={`${s.link}`}>Logout</div>
             </div>
-            <div className={`${s.link}`}>Logout</div>
           </div>
         </nav>
       </aside>

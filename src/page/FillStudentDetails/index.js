@@ -55,7 +55,7 @@ const FillStudentDetails = props => {
   }, [])
 
   return (
-    <PageContainer>
+    <PageContainer name="Student Details">
       <div className={s.container}>
         <div className={s.formContainer}>
           <div className={s.detailsArea}>

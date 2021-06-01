@@ -1,10 +1,13 @@
 $background-white: #ffffff;
 $background-black: #121212;
+$background-scorpion: rgba(59, 59, 59, 0.3);
+$background-alabaster: #fafafa;
 
 $background-transparent: transparent;
 
 $background-light_gray:#f7faff;
 $background-cod_gray:#111111;
+$background-cod_gray2:#1a1a1a;
 $background-tuna: #383b40;
 $background-grey_chateau:#9ea1a6;
 
@@ -40,6 +43,8 @@ $backgrounds: (
         card-background: $background-ship_gray,
         chat-from-background: $background-moon_raker,
         chat-to-background: $background-affair,
+        sidebar-background: $background-white,
+        project-card: $background-alabaster,
 
         button-full: (
             1: (
@@ -93,6 +98,8 @@ $backgrounds: (
         card-background: $background-tuna,
         chat-from-background: $background-ship_gray,
         chat-to-background: $background-affair,
+        sidebar-background: $background-cod_gray2,
+        project-card: $background-scorpion,
         
         tag: (
             1: $background-catskill_white,

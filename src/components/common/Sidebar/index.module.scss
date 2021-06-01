@@ -16,12 +16,11 @@
 
 .aside {
     @include position-fixed-left;
-    @include default-background;
+    @include sidebar-background;
 
     overflow-x: hidden;
     overflow-y: auto;
-    // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
-    @include box-shadow-sidenav;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
     z-index: 1007;
 
     @include respond-above(tablet){
@@ -45,11 +44,23 @@
 .sidebar {
     width: 4.31vw;
     display: flex;
+    height: 100%;
+    // align-items: center;
+    flex-flow: column;
+    // justify-content: center;
+    // transition: width 0.4s ease;
+    // will-change: width;
+}
+
+.contents {
+    display: flex;
     align-items: center;
     flex-flow: column;
-    justify-content: center;
+    // justify-content: center;
     transition: width 0.4s ease;
     will-change: width;
+    flex-grow: 1;
+    // height: 100vh;
 }
 
 .linkContainer {
@@ -73,9 +84,13 @@
 
     .shortLogo {
         min-width: 4.31vw;
-        padding: 1vw;
-        height: 5vw;
         width: 4.31vw;
+        padding: 1.3vw 1.3vw 1.3vw 0.3vw;
+        // padding: 1vw;
+        height: 5vw;
+        @include respond-below(desktop) {
+            padding: 1vw;
+        }
     }
 
     &.active, &:hover {
@@ -98,12 +113,12 @@
     height: 4vw;
     @include flex-center;
     // height: 4vw;
-    @include default-background;
+    @include sidebar-background;
     position: relative;
     z-index: 1;
 }
 .shortLogo {
-    @include default-background;
+    @include sidebar-background;
     position: relative;
     z-index: 1;
 }
@@ -115,7 +130,7 @@
 .icon {
     transition: none;
     @include respond-above(tablet) {
-        &.dashboard {
+        &.dashboard_material {
             font-size: 1.6vw;
         }        
         &.user {
@@ -124,10 +139,10 @@
         &.theme {
             font-size: 1.5vw;
         }
-        &.logout {
+        &.logout_material {
             font-size: 1.4vw;
         }
-        &.comments  {
+        &.forum  {
             font-size: 1.7vw;
         }
         &.chats {
@@ -136,12 +151,12 @@
         &.calendar {
             font-size: 1.5vw;
         }
-        &.users {
+        &.groups {
             font-size: 1.6vw;
         }
     }
     @include respond-between(phone, tablet) {
-        &.dashboard {
+        &.dashboard_material {
             font-size: 3vw
         }
         &.user {
@@ -150,10 +165,10 @@
         &.theme {
             font-size: 2.5vw;
         }
-        &.logout {
+        &.logout_material {
             font-size: 2.4vw;
         }
-        &.comments  {
+        &.forum  {
             font-size: 2.65vw;
         }
         &.chats {
@@ -162,15 +177,15 @@
         &.calendar {
             font-size: 2.2vw;
         }
-        &.users {
+        &.groups {
             font-size: 2.4vw;
         }
     }
     @include respond-below(phone) {
-        &.dashboard {
+        &.dashboard_material {
             font-size: 4.5vw
         }
-        &.users {
+        &.groups {
             font-size: 5.4vw;
         }
         &.user {
@@ -179,10 +194,10 @@
         &.theme {
             font-size: 4.6vw;
         }
-        &.logout {
+        &.logout_material {
             font-size: 4.6vw;
         }
-        &.comments  {
+        &.forum  {
             font-size: 4.5vw;
         }
         &.chats {
@@ -248,7 +263,6 @@
         box-shadow: none;
         transition: transform 0.4s ease;
         will-change: transform;
-
 
         &.open.open {
             transform: translateX(0);
@@ -344,4 +358,12 @@
     flex-grow: 1;
     @include flex-center;
     margin-right: 30px;
+}
+
+.logoutContainer {
+    transform: rotate(180deg);
+}
+
+.logoutArea {
+    padding-bottom: 32px;
 }

@@ -9,11 +9,11 @@
     overflow: hidden;
     @include default-background;
     @include default-color;
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         width: 100vw;
         padding: 5vw 2.45vw 2.65vw;
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         width: 75vw;
         border-radius: 8px 8px 0 0;
         padding: 3.2vw 2.5vw 2.5vw;
@@ -32,10 +32,10 @@
 
 .primaryText,
 .secondaryText {
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         padding: 0 0 2.65vw;
     }
-    @include respond-between(phablet, tablet) {
+    @include respond-between(phone, tablet) {
         padding: 0 0 2.5vw;
     }
     @include respond-between(tablet, desktop) {

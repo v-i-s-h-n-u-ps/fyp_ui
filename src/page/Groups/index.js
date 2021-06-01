@@ -14,7 +14,7 @@ const Groups = props => {
   } = props;
 
   return (
-    <PageContainer>
+    <PageContainer name="Your Projects">
       <div className={s.container}>
         {!selectMyProjects.length && !selectIsLoadingProjects
           ? <div className={s.noProjects}>

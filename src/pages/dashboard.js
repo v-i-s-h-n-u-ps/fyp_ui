@@ -11,6 +11,9 @@ import {
 import {
     newChat
 } from "@redux/miscellaneous/actions";
+import {
+    selectCategory, selectUniversity
+} from "@redux/resources/selectors";
 import Dashboard from "@screens/Dashboard";
 
 const DashboardPage = props => <Dashboard {...props} />;
@@ -28,7 +31,7 @@ DashboardPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    selectThemePreference,
+    selectThemePreference, selectCategory, selectUniversity,
     selectHomeData, selectHomePageInfo, selectIsHomeDataLoading
 })
 

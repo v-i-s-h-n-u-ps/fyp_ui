@@ -21,6 +21,10 @@
     @include respond-below(phone) {
         font-size: $font-size-phone-xs;
     }
+    &.noBorder {
+        border: 0px !important;
+        margin-top: 4px;
+    }
     &:read-only {
         border-width: 0px;
     }
@@ -120,7 +124,7 @@
     &:-webkit-autofill:active {
         @each $theme, $map in $backgrounds {
             :global(.#{$theme}) & {
-                $background: map-get($map, highlight);
+                $background: map-get($map, default);
                 box-shadow: 0 0 0px 1000px $background inset !important;
             }
         }

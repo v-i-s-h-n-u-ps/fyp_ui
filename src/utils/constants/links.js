@@ -13,19 +13,19 @@ export const sidebarLinks = () => {
         {
             text: 'Dashboard',
             path: DASHBOARD,
-            icon: 'dashboard',
+            icon: 'dashboard_material',
             sameTab: true
         },
         {
             text: 'Groups',
             path: GROUPS,
-            icon: 'users',
+            icon: 'groups',
             sameTab: true
         },
         {
             text: 'Forums',
             path: FORUMS,
-            icon: 'comments',
+            icon: 'forum',
             sameTab: true
         },
         {
@@ -47,10 +47,12 @@ export const sidebarLinks = () => {
 export const otherLinks = {
     theme: {
         light: {
-            text: 'Dark Mode'
+            text: 'Dark Mode',
+            icon: 'nightlight_round'
         },
         dark: {
-            text: 'Light Mode'
+            text: 'Light Mode',
+            icon: 'theme'
         }
     },
 }

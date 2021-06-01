@@ -22,7 +22,10 @@
     &.withIcon {
         @include flex;
         justify-content: space-between;
-        width: 70%;
+        align-items: center;
+        width: 100%;
+        padding: 0 16px;
+        max-width: 200px;
     }
 }
 

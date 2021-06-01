@@ -57,7 +57,6 @@ const Project = props => {
           </div>
           <br></br>
         </div>
-        <hr></hr>
         <div className={s.flexCenter}>
           <span className={s.projectDetails}>
             <p><i>Project Details</i></p>
@@ -72,6 +71,7 @@ const Project = props => {
                 variant="hollow"
                 text="Send Message"
                 onClick={sendMessage}
+                icon="send"
               />
             </div>
           )}

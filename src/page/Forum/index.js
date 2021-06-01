@@ -45,7 +45,7 @@ const Forum = props => {
   }
 
   return (
-    <PageContainer active={"forum"}>
+    <PageContainer active={"forum"} name={selectForumDetails.name}>
       <NavigateTo title="Back" link={FORUMS}>
         <div className={s.actionButton}>
           {isAdmin

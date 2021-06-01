@@ -2,14 +2,20 @@
 @import "@css/components/animations.scss";
 
 .iconMapPin {
-    @include heading-l;
-    color: #8d4e99;
+    @include heading-lm;
+    color: #8d4e9999;
     border-radius: 50%;
     font-weight: bold;
     &:hover {
         @include animation(pulse);
+        @include heading-l;
+        transition: all 0.3s linear;
+        color: #8d4e99;
     }
     &.focus {
-        @include animation(pulse); 
+        @include animation(pulse);
+        @include heading-l;
+        transition: all 0.3s linear;
+        color: #8d4e99;
     }
 }

@@ -7,6 +7,34 @@
 @import "@css/components/tags.scss";
 @import "@css/theme/colors";
 
+.dashboard {
+    width: 100%
+}
+
+.filterAndSearch {
+    gap: 16px;
+    width: 100%;
+    margin: auto;
+}
+
+.search {
+    @include default-border;
+    border-radius: 20px;
+    padding: 0 4px;
+}
+
+.filter {
+    @include flex;
+    gap: 16px;
+    > div {
+        flex-grow: 1
+    }
+}
+
+.searchIcon {
+    font-size: 18px
+}
+
 .container {
     @include flex;
     height: 100%;
@@ -16,10 +44,11 @@
     > div {
         margin: 8px auto 16px;
     }
+    height: calc(100% - 40px);
 }
 
 .infiniteLoader {
-    max-height: 100vh;
+    max-height: 94vh;
     overflow: scroll;
     max-width: 45%;
     padding-left: 8px;
@@ -30,19 +59,16 @@
 
 .maps {
     width: 55%;
-    padding: 20px 20px 20px 20px;
+    padding: 10px 20px 20px 20px;
     @include respond-above(desktop) {
         height: calc(100vh - 5vw);
-        @include box-shadow-sidenav;
     }
     @include respond-between(tablet, desktop) {
         height: calc(100vh - 6vw);
-        @include box-shadow-sidenav;
     }
     @include respond-between(phone, tablet) {
         position: fixed;
         padding: 4px;
-        @include box-shadow-default;
         right: 10px;
         bottom: 0;
         height: 50vw;

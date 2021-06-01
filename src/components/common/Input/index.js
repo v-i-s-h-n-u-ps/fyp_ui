@@ -8,6 +8,7 @@ const Input = props => {
     handleChange, label, value, onSecondaryAction, onBlur, name, onEnter, placeholder,
     readOnly = false, alwaysFloat = false, showEdit = false, type = "text", focusCallback,
     secondaryText = "Edit", error = false, helperText = "", autoFocus = false, icon = false,
+    noBorder = false
   } = props;
 
   const [focus, setFocus] = useState(!!value || alwaysFloat);
@@ -57,7 +58,7 @@ const Input = props => {
       <div className={s.userInput}>
         {icon && <div className={`${s.icon} ${!!helperText ? s.padding : ''}`}>{icon}</div>}
         <div className={s.flexOne}>
-          <div className={`${s.inputArea} ${error ? s.error : ''}`}>
+          <div className={`${s.inputArea} ${noBorder ? s.noBorder : ''} ${error ? s.error : ''}`}>
             <label
               onClick={activate}
               className={`${s.label} ${focus ? s.active : ""} ${error ? s.error : ''}`}

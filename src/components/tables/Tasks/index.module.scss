@@ -46,7 +46,7 @@
 }
 
 .noPhone {
-    @include respond-below(phablet) {
+    @include respond-below(phone) {
         display: none;
     }
 }

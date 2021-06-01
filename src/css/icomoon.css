@@ -211,3 +211,24 @@
 .icon-check:before {
   content: "\e911";
 }
+.icon-forum:before {
+  content: "\e913";
+}
+.icon-dashboard_material:before {
+  content: "\e914";
+}
+.icon-logout_material:before {
+  content: "\e915";
+}
+.icon-nightlight_round:before {
+  content: "\e916";
+}
+.icon-groups:before {
+  content: "\e917";
+}
+.icon-send:before {
+  content: "\e918";
+}
+.icon-search:before {
+  content: "\e919";
+}

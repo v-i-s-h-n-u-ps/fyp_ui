@@ -62,13 +62,13 @@ const Layout = (props) => {
   return (
     <>
       <Head>
+        {/* <title>Auxiliar</title> */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content={theme === 'dark' ? '#000000' : '#FFFFFF'} />
         <meta name="theme-color" content={theme === 'dark' ? '#000000' : '#FFFFFF'} />
         <meta name="google" content="notranslate" />
         <link rel="preload" href={"/fonts/icomoon.woff"} as="font" type="font/woff" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
       </Head>
       <PageLoader />
       <GlobalApiToast />

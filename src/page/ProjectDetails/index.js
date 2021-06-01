@@ -32,6 +32,7 @@ const ProjectDetails = props => {
   const participants = _get(selectProjectDetails, 'participants', []);
   const leader = participants.filter(item => item.isLeader)[0];
   const userIsLeader = selectUserInfo.id === _get(leader, 'userId');
+  const isComplete = _get(selectProjectDetails, 'isComplete', false);
 
   const onSelect = _user => {
     setUser(_user);
@@ -94,9 +95,9 @@ const ProjectDetails = props => {
   console.log(selectProjectDetails, "project")
 
   return (
-    <PageContainer>
+    <PageContainer name={_get(selectProjectDetails, 'name')}>
       <NavigateTo title={"Back"} link={GROUPS}>
-        {userIsLeader && !_get(selectProjectDetails, 'isComplete', false)
+        {userIsLeader && !isComplete
           ? <Button
             text="Complete Project"
             variant="hollow"
@@ -133,7 +134,7 @@ const ProjectDetails = props => {
             <Button
               text="Add Participant"
               onClick={addParticipant}
-              disabled={!user}
+              disabled={!user || isComplete}
             />
           </div>
           <div className={s.participants}>
@@ -148,12 +149,14 @@ const ProjectDetails = props => {
             </div>
           </div>
           <div className={s.tasksContainer}>
-            <TaskForm
-              selectIsFormSubmitting={selectProjectTasksIsUpdating}
-              selectType={selectType}
-              theme={theme}
-              submit={addTask}
-            />
+            {!isComplete &&
+              <TaskForm
+                selectIsFormSubmitting={selectProjectTasksIsUpdating}
+                selectType={selectType}
+                theme={theme}
+                submit={addTask}
+              />
+            }
             <TasksTable
               data={selectProjectTasks}
               isUpdating={selectProjectTasksIsUpdating}

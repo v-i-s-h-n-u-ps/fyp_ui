@@ -32,7 +32,7 @@ const Chats = props => {
   }, [selectNewChat])
 
   return (
-    <PageContainer active={"home"}>
+    <PageContainer active={"chats"} name="Chats">
       <div className={s.search}>
         <MultiSelect
           options={selectSearchResults}

@@ -10,7 +10,7 @@
     border-radius: 3px;
     @include default-border;
     @include box-shadow-default;
-    @include default-background;
+    @include project-card-background;
     @include respond-below(phone) {
         width: 100%;
     }
@@ -25,6 +25,8 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    padding-bottom: 8px;
+    @include default-border-bottom;
     .details {
         @include flex;
         flex-grow: 1;
@@ -55,7 +57,7 @@
     margin-top: 5px;
     @include respond-above(phone) {
         .button {
-            width: 150px;
+            width: 190px;
             float: right;
         }
     }
@@ -100,7 +102,7 @@
 .default {
     position: relative;
     overflow: none;
-    @include default-background;
+    @include project-card-background;
     &:before {
         content: "";
         position: absolute;

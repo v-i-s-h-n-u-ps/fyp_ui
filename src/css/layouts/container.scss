@@ -37,6 +37,14 @@
     }
 }
 
+@mixin sidebar-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, sidebar-background);
+        }
+    }
+}
+
 @mixin default-background {
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
@@ -49,6 +57,14 @@
     @each $theme, $map in $backgrounds {
         :global(.#{$theme}) & {
             background: map-get($map, card-background);
+        }
+    }
+}
+
+@mixin project-card-background {
+    @each $theme, $map in $backgrounds {
+        :global(.#{$theme}) & {
+            background: map-get($map, project-card);
         }
     }
 }

@@ -9,7 +9,8 @@
     right: 0;
     top: 0;
     padding-right: 16px;
-    @include default-background;
+    z-index: 1000;
+    @include sidebar-background;
     @include respond-above(desktop) {
         height: 4.11vw;
         left: 4.11vw;
@@ -22,17 +23,20 @@
     }
     @include respond-between(phone, tablet) {
         height: 8.5vw;
+        left: 0;
     }
     @include respond-below(phone) {
         height: 13.2vw;
+        left: 0;
     }
 }
 
 .navContainer {
     height: 100%;
-    width: max-content;
-    float: right;
-    @include default-background;
+    @include sidebar-background;
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .loggedInUser {
@@ -41,7 +45,7 @@
     align-items: center;
     gap: 4px;
     height: 100%;
-    @include default-background;
+    @include sidebar-background;
     @include heading-sm;
     @include flex;
     @include subText-s-color;
@@ -65,5 +69,17 @@
     @include respond-below(phone) {
         width: 5vw;
         height: 5vw;
+    }
+}
+
+.pageName {
+    @include heading-m;
+    padding-left: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 50%;
+    overflow: hidden;
+    @include respond-below(tablet) {
+        padding-left: 12vw;
     }
 }

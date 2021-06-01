@@ -12,7 +12,7 @@ const Forums = props => {
   } = props
 
   return (
-    <PageContainer active={"forums"}>
+    <PageContainer active={"forums"} name="Forums">
       <div className={s.container}>
         <div className={s.buttonContainer}>
           <Button

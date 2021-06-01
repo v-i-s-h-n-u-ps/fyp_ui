@@ -11,11 +11,12 @@ import { PROFILE } from "@constants/routes";
 
 const Navbar = props => {
 
-  const { selectUserInfo } = props;
+  const { selectUserInfo, name } = props;
 
   return (
     <div className={s.container}>
       <div className={s.navContainer}>
+        <div className={s.pageName}>{name}</div>
         <Link href={PROFILE}>
           <div className={s.loggedInUser}>
             Welcome, <span>{_get(selectUserInfo, 'name', "").split(" ")[0]}</span>
