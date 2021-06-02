@@ -13,7 +13,7 @@
     @include sidebar-background;
     @include respond-above(desktop) {
         height: 4.11vw;
-        left: 4.11vw;
+        left: 3vw;
         @include default-border-bottom;
     }
     @include respond-between(tablet, desktop) {

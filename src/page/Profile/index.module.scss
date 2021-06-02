@@ -9,7 +9,7 @@
 .imageCover {
     width: 100%;
     position: relative;
-    background-color: rgb(212, 198, 211);
+    background: linear-gradient(to bottom right, rgba(24, 175, 207,0.4), rgba(125, 67, 228,0.4));
     padding: 100px;
     .image {
         position: absolute;
@@ -21,9 +21,13 @@
         @include default-border_radio;
         @include respond-above(phone) {
             width: 140px;
+            height: 140px;
+            @include flex-center;
         }
         @include respond-below(phone) {
             width: 130px;
+            height: 130px;
+            @include flex-center;
         }
         img {
             @include image-cover;
@@ -118,7 +122,7 @@
     border-radius: 50%;
     opacity: 0.1;
     @include box-shadow-default;
-    @include default-overlay-background;
+    // @include default-overlay-background;
     // @include default-color;
     @include flex-center;
     i {

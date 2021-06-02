@@ -16,7 +16,7 @@ const Project = props => {
 
   const {
     onSubmit, selectIsFormSubmitting, values = {}, selectUniversity = [],
-    theme = "light", selectCategory, cancel
+    theme = "light", selectCategory, cancel, university
   } = props
 
   const [open, setOpen] = useState({

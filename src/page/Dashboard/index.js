@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";
+import { noProjects } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import ActivityIndicator from "@components/loaders/ActivityIndicator";
 import PageContainer from "@hoc/PageContainer";
@@ -51,7 +52,7 @@ const Dashboard = props => {
 
   const filter = () => {
     const _projects = Object.assign(selectHomeData, []);
-    if (!university.length && !categories.length && !search) 
+    if (!university.length && !categories.length && !search)
       setProjects(_projects);
     else {
       const filteredProjects = [];
@@ -59,7 +60,7 @@ const Dashboard = props => {
         let add = false;
         if (project.university.id === university) add = true;
         project.categories.forEach(category => {
-          if (category.id === categories) add = true;
+          if (category.category === categories) add = true;
         })
         if (add) filteredProjects.push(project);
       })
@@ -99,97 +100,98 @@ const Dashboard = props => {
 
   return (
     <PageContainer active={"dashboard"} name="Dashboard">
-      <div className={s.dashboard}>
-        <div className={s.container}>
-          {(selectHomeData && !!selectHomeData.length) || selectIsHomeDataLoading
-            ? (
-              <div className={s.infiniteLoader}>
-                <div className={s.filterAndSearch}>
-                  <div className={s.search}>
-                    <Input
-                      value={search}
-                      handleChange={e => setSearch(e.target.value)}
-                      placeholder={"Search"}
-                      noBorder={true}
-                      showEdit={true}
-                      secondaryText={<i className={`icon-search ${s.searchIcon}`} />}
-                    />
-                  </div>
-                  <div className={s.filter}>
-                    <MultiSelect
-                      options={selectCategory}
-                      selectedValues={categories}
-                      onSelect={(_, item) => setCategories(item.id)}
-                      onRemove={(_, item) => setCategories([])}
-                      display="name"
-                      name="categories"
-                      emptyMessage="No categories available."
-                      placeholder={!categories.length ? 'Category' : ''}
-                      key="id"
-                      label="Category"
-                      selectionLimit={1}
-                      closeOnSelect={true}
-                    />
-                    <MultiSelect
-                      options={selectUniversity}
-                      selectedValues={university}
-                      onSelect={(_, item) => setUniversity(item.id)}
-                      onRemove={(_, item) => setUniversity([])}
-                      display="name"
-                      name="university"
-                      emptyMessage="No universities available."
-                      placeholder={!categories.length ? 'University' : ''}
-                      key="id"
-                      label="University"
-                      selectionLimit={1}
-                      closeOnSelect={true}
-                    />
-                  </div>
+      <div className={s.container}>
+        {(selectHomeData && !!selectHomeData.length) || selectIsHomeDataLoading
+          ? (
+            <div className={s.infiniteLoader}>
+              <div className={s.filterAndSearch}>
+                <div className={s.search}>
+                  <Input
+                    value={search}
+                    handleChange={e => setSearch(e.target.value)}
+                    placeholder={"Search"}
+                    noBorder={true}
+                    showEdit={true}
+                    secondaryText={<i className={`icon-search ${s.searchIcon}`} />}
+                  />
                 </div>
-                <div className={s.projectsContainer}>
-                  {!!projects.length
-                    ? projects.map(project => (
-                      <div
-                        onMouseOver={() => setHoverItem(project.university.id)}
-                        onMouseLeave={() => setHoverItem('')}
-                      >
-                        <Project
-                          project={project}
-                          key={project.default ? undefined : project.id}
-                          showMessage={true}
-                          onClick={d__newChat}
-                        />
-                      </div>
-                    ))
-                    : <div className={s.noProjects}>
-                      There are no projects available. Refine your search.
+                <div className={s.filter}>
+                  <MultiSelect
+                    options={selectCategory}
+                    selectedValues={categories}
+                    onSelect={(_, item) => setCategories(item.id)}
+                    onRemove={(_, item) => setCategories([])}
+                    display="name"
+                    name="categories"
+                    emptyMessage="No categories available."
+                    placeholder={!categories.length ? 'Category' : ''}
+                    key="id"
+                    label="Category"
+                    selectionLimit={1}
+                    closeOnSelect={true}
+                  />
+                  <MultiSelect
+                    options={selectUniversity}
+                    selectedValues={university}
+                    onSelect={(_, item) => setUniversity(item.id)}
+                    onRemove={(_, item) => setUniversity([])}
+                    display="name"
+                    name="university"
+                    emptyMessage="No universities available."
+                    placeholder={!categories.length ? 'University' : ''}
+                    key="id"
+                    label="University"
+                    selectionLimit={1}
+                    closeOnSelect={true}
+                  />
+                </div>
+              </div>
+              <div className={s.projectsContainer}>
+                {!!projects.length
+                  ? projects.map(project => (
+                    <div
+                      onMouseOver={() => setHoverItem(project.university.id)}
+                      onMouseLeave={() => setHoverItem('')}
+                    >
+                      <Project
+                        project={project}
+                        key={project.default ? undefined : project.id}
+                        showMessage={true}
+                        onClick={d__newChat}
+                      />
                     </div>
-                  }
-                  {!!selectHomePageInfo.next && !university && !categories && !search &&
-                    <Waypoint fireOnRapidScroll={false} onEnter={() => { incrementPage() }} />
-                  }
-                </div>
-                <div className={s.spinnerContainer}>
-                  <ActivityIndicator showCondition={selectIsHomeDataLoading} />
-                </div>
+                  ))
+                  : <div className={s.noProjects}>
+                    There are no projects available. Refine your search.
+                    </div>
+                }
+                {!!selectHomePageInfo.next && !university && !categories && !search &&
+                  <Waypoint fireOnRapidScroll={false} onEnter={() => { incrementPage() }} />
+                }
               </div>
-            ) : (
-              <div className={s.noProjects}>
-                There are no projects available. Be the first one to create.
-                <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
-                  <p>Create Project</p>
-                </Link>
+              <div className={s.spinnerContainer}>
+                <ActivityIndicator showCondition={selectIsHomeDataLoading} />
               </div>
-            )}
-          <div className={s.maps}>
-            <Map
-              locations={locations}
-              latKey="latitude"
-              longKey="longitude"
-              theme={theme}
-              focusItem={hoverItem}
-            />
-          </div>
+            </div>
+          ) : (
+            <div className={s.noProjects}>
+              <div className={s.noProjectsImage}>
+                <img src={noProjects} />
+              </div>
+              There are no projects available. Be the first one to create.
+              <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
+                <p>Create Project</p>
+              </Link>
+            </div>
+          )}
+        <div className={s.maps}>
+          <Map
+            locations={locations}
+            latKey="latitude"
+            longKey="longitude"
+            theme={theme}
+            focusItem={hoverItem}
+          />
         </div>
       </div>
     </PageContainer>

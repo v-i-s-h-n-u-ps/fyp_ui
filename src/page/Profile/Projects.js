@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import _get from "lodash/get";
+import Link from "next/link";
 
 import s from "./Projects.module.scss";
+import { GROUP } from "@constants/routes";
 import prevState from "@hooks/prevState"
 import ProjectForm from "@forms/Project";
 import Button from "@common/Button";
@@ -20,7 +22,7 @@ const Projects = props => {
 
   const {
     isLoading, isSubmitting, projects, onSubmit, selectUniversity,
-    theme, selectCategory, selectUserInfo
+    theme, selectCategory, selectUserInfo, location
   } = props
 
   const [create, setCreate] = useState(false);
@@ -33,6 +35,10 @@ const Projects = props => {
       setCreate(false);
     }
   }, [isSubmitting])
+
+  useEffect(() => {
+    setValues({ ...values, location })
+  }, [location])
 
   return (
     <div className={s.container}>
@@ -58,11 +64,18 @@ const Projects = props => {
           </div>
           <div className={s.projectsContainer}>
             {projects.map((project, index) => (
-              <ProjectCard
-                project={project}
-                key={`project-${index}`}
-                isLeader={_get(selectUserInfo, 'id') === project.created_id}
-              />
+              <Link
+                href={{ pathname: GROUP, query: { id: project.id } }}
+                key={project._default ? undefined : project.id}
+              >
+                <div>
+                  <ProjectCard
+                    project={project}
+                    key={`project-${index}`}
+                    isLeader={_get(selectUserInfo, 'id') === project.created_id}
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </>

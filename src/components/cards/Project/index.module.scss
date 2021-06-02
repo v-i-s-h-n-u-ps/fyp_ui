@@ -4,6 +4,7 @@
 @import "@css/layouts/boxShadows.scss";
 @import "@css/components/texts.scss";
 @import "@css/components/animations.scss";
+@import "@css/components/tags.scss";
 
 .projectContainer {
     display: block;
@@ -15,7 +16,7 @@
         width: 100%;
     }
     .projectCard {
-        padding: 16px 20px;
+        padding: 16px 20px 0;
         overflow: hidden;
     }
 }
@@ -27,6 +28,7 @@
     justify-content: space-between;
     padding-bottom: 8px;
     @include default-border-bottom;
+    border-width: 2px !important;
     .details {
         @include flex;
         flex-grow: 1;
@@ -144,4 +146,17 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
     padding-top: 4px;
+}
+
+.tag {
+    @include tag;
+}
+
+.category {
+    @include flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 16px;
+    gap: 8px;
 }

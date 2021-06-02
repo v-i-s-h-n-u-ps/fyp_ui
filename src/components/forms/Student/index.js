@@ -135,7 +135,7 @@ const Student = props => {
                   options={universityList}
                   selectedValues={values.university}
                   onSelect={(_, item) => setFieldValue('university', item.id)}
-                  // onRemove={(_, item) => setFieldValue(values.categories.splice(item, 1))}
+                  onRemove={(_, item) => setFieldValue('university', '')}
                   display="name"
                   name="university"
                   emptyMessage="No universities available. Please contact admin."

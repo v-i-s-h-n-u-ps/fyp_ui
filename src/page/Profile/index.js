@@ -92,6 +92,7 @@ const Profile = props => {
       selectUserInfo={selectUserInfo}
       setGlobalModal={d__globalModalFlag}
       unsetGlobalModal={d__globalModalFlagUnset}
+      location={_get(selectStudentInfo, 'universityDetails.id')}
     />,
     'details': <Details selectStudentInfo={selectStudentInfo} />,
   }
@@ -117,8 +118,8 @@ const Profile = props => {
                 <div className={s.edit} onClick={() => setEdit(true)}>
                   <span>
                     <i className={`icon-pencil ${s.icon}`} />
-                                        Edit
-                                    </span>
+                      Edit
+                  </span>
                 </div>
               </S3Upload>
             )}

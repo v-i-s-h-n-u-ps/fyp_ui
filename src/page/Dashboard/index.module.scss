@@ -7,10 +7,6 @@
 @import "@css/components/tags.scss";
 @import "@css/theme/colors";
 
-.dashboard {
-    width: 100%
-}
-
 .filterAndSearch {
     gap: 16px;
     width: 100%;
@@ -85,9 +81,8 @@
 }
 
 .noProjects {
-    padding-top: 23vw;
+    padding-top: 16vw;
     height: 100%;
-    // width: 100%;
     align-items: center;
     text-align: center;
     @include flex-column;
@@ -101,4 +96,9 @@
             text-decoration: underline;
         }
     }
+}
+
+.noProjectsImage {
+    width: 80%;
+    margin: auto;
 }

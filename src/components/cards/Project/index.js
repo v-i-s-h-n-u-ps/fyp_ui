@@ -2,6 +2,7 @@ import React from "react";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
+import _get from "lodash/get";
 
 import s from "./index.module.scss";
 import { CHATS } from "@constants/routes";
@@ -30,7 +31,7 @@ const Project = props => {
     })
     router.push(CHATS);
   }
-
+  
   return (
     <div className={`${s.projectContainer}`}>
       <div className={`${s.projectCard} ${_default ? s.default : ''}`}>
@@ -75,6 +76,13 @@ const Project = props => {
               />
             </div>
           )}
+        </div>
+        <div className={s.category}>
+          {_get(project, 'categories', []).map(category => (
+            <span className={s.tag}>
+              {category.category_name}
+            </span>
+          ))}
         </div>
       </div>
     </div>
