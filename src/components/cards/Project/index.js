@@ -3,9 +3,10 @@ import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import _get from "lodash/get";
+import Link from "next/link";
 
 import s from "./index.module.scss";
-import { CHATS } from "@constants/routes";
+import { CHATS, GROUP } from "@constants/routes";
 import Button from "@common/Button";
 
 
@@ -13,14 +14,17 @@ const Project = props => {
 
   dayjs.extend(isSameOrAfter);
 
-  const { project = {}, isLeader = false, showMessage, onClick } = props;
+  const { 
+    project = {}, isLeader = false, showMessage, onClick, navigate = true ,
+    onDelete, onEdit
+  } = props;
 
   const { _default } = project;
 
   const router = useRouter();
   const isComplete = project.isComplete;
   const isDeferred = project.isDeferred;
-  const notStarted = dayjs().isSameOrAfter(dayjs("2021-02-19"));
+  const started = dayjs().isSameOrAfter(dayjs(project.startDate));
 
   const sendMessage = () => {
     onClick({
@@ -31,10 +35,26 @@ const Project = props => {
     })
     router.push(CHATS);
   }
-  
+
   return (
     <div className={`${s.projectContainer}`}>
       <div className={`${s.projectCard} ${_default ? s.default : ''}`}>
+        {isComplete
+          ? <div className={s.ribbon}>Complete</div>
+          : isLeader && <div className={s.ribbon}>
+            <i 
+              className={`${s.edit} icon-pencil`} 
+              onClick={() => onEdit(project)} 
+            />
+            {!started && <>
+              <div />
+              <i 
+                onClick={() => onDelete(project)} 
+                className={`${s.delete} icon-bin`} 
+              />
+            </>}
+          </div>
+        }
         <div className={s.flexTop}>
           <div className={s.details}>
             {_default
@@ -42,9 +62,19 @@ const Project = props => {
               : <img src={project.avatar} className={s.image} />
             }
             <div className={s.projectLeaderDetails}>
-              <p className={s.subHead}>
-                {project.name}
-              </p>
+              {navigate
+                ? <Link
+                  href={{ pathname: GROUP, query: { id: project.id } }}
+                  key={project._default ? undefined : project.id}
+                >
+                  <p className={`${s.subHead} ${s.hover}`}>
+                    {project.name}
+                  </p>
+                </Link>
+                : <p className={s.subHead}>
+                  {project.name}
+                </p>
+              }
               <p className={s.projectLeader}>
                 {project.createdBy}
               </p>

@@ -3,8 +3,9 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import withReduxSaga from "../..";
+import { globalModalFlag } from "@redux/auxiliary/actions";
 import {
-    getMyProjects
+    getMyProjects, deleteProjects, updateProject
 } from "@redux/projects/actions";
 import { 
     selectMyProjects, selectIsLoadingProjects
@@ -30,9 +31,18 @@ GroupsPage.getInitialProps = async (props) => {
     return { hostURL, fullURL, isServer };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        d__setGlobalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data)),
+        d__unSetGlobalModalFlag: () => dispatch(globalModalFlag.unset()),
+        d__deleteProjects: data => dispatch(deleteProjects.request(data)),
+        d__updateProject: data => dispatch(updateProject.request(data))
+    }
+}
+
 const mapStateToProps = createStructuredSelector({ 
     selectMyProjects, selectIsLoadingProjects,
     selectUserInfo
 })
 
-export default withReduxSaga(connect(mapStateToProps)(GroupsPage));
+export default withReduxSaga(connect(mapStateToProps, mapDispatchToProps)(GroupsPage));

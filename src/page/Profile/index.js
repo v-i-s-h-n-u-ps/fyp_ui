@@ -22,7 +22,8 @@ const Profile = props => {
   const {
     selectUserInfo = {}, selectStudentInfo = {}, selectMyProjects = [], selectIsLoadingProjects,
     selectIsProjectSubmitting, d__createProject, d__updateProject, selectUniversity,
-    selectThemePreference, selectCategory, d__updateUser, d__globalModalFlag, d__globalModalFlagUnset
+    selectThemePreference, selectCategory, d__updateUser, d__globalModalFlag, d__globalModalFlagUnset,
+    d__deleteProjects
   } = props;
 
   const [activeTabValue, setActiveTabValue] = useState(_get(router, 'query.tab', 'portfolio'));
@@ -32,6 +33,7 @@ const Profile = props => {
 
   const completedProjects = selectMyProjects.filter(item => item.isComplete);
   const currentProjects = selectMyProjects.filter(item => !item.isComplete);
+  const editItem = _get(router, 'query.editItem', '');
 
   const setTab = (param) => {
     const tab = _get(param, 'tab.value', 'upload-file');
@@ -76,6 +78,24 @@ const Profile = props => {
     setAvatar(_get(selectUserInfo, "avatar"));
   }
 
+  const onDelete = project => {
+    const modalData = {
+      primaryText: `${project.name}`,
+      secondaryText: 'Are you sure you want to delete this project',
+      primaryActionText: 'Confirm',
+      secondaryActionText: 'Cancel',
+      primaryAction: () => d__deleteProjects({ id: project.id }),
+      secondaryAction: d__globalModalFlagUnset,
+      closeOnBlur: false,
+      actionable: "selectIsProjectSubmitting"
+    }
+    d__globalModalFlag('confirm', modalData);
+  }
+
+  const onEdit = project => {
+    router.push({ pathname: PROFILE, query: { tab: 'projects', editItem: project.id } })
+  }
+
   const components = {
     'portfolio': <Portfolio
       isLoading={selectIsLoadingProjects}
@@ -86,6 +106,8 @@ const Profile = props => {
       isSubmitting={selectIsProjectSubmitting}
       projects={currentProjects}
       onSubmit={onSubmit}
+      onDelete={onDelete}
+      onEdit={onEdit}
       selectUniversity={selectUniversity}
       theme={_get(selectThemePreference, 'theme', 'light')}
       selectCategory={selectCategory}
@@ -93,6 +115,7 @@ const Profile = props => {
       setGlobalModal={d__globalModalFlag}
       unsetGlobalModal={d__globalModalFlagUnset}
       location={_get(selectStudentInfo, 'universityDetails.id')}
+      editItem={editItem}
     />,
     'details': <Details selectStudentInfo={selectStudentInfo} />,
   }

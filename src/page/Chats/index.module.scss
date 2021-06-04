@@ -1,5 +1,6 @@
 @import "@css/layouts/mediaQueries.scss";
 @import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
 
 .search {
     margin-left: 20px;
@@ -9,4 +10,10 @@
 .talkjs {
     @include flex;
     padding-top: 16px;
+}
+
+.search {
+    @include default-border;
+    border-radius: 20px;
+    padding: 0 4px 8px;
 }

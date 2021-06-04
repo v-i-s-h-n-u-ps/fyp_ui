@@ -12,3 +12,4 @@ export const MANAGE_PARTICIPANTS = createRequestTypes("MANAGE_PARTICIPANTS");
 export const ADD_PROJECT_TASK = createRequestTypes("ADD_PROJECT_TASK");
 export const UPDATE_PROJECT_TASK = createRequestTypes("UPDATE_PROJECT_TASK");
 export const GET_PROJECT_TASK = createRequestTypes("GET_PROJECT_TASK");
+export const DELETE_PROJECTS = createRequestTypes("DELETE_PROJECTS");

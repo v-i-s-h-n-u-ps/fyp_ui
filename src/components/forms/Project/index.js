@@ -165,7 +165,7 @@ const Project = props => {
                   type="message"
                   variant="block"
                   buttonType="submit"
-                  text="Create"
+                  text={!!values.id ? 'Update' : "Create"}
                   width="200px"
                   disabled={selectIsFormSubmitting}
                   loading={selectIsFormSubmitting}

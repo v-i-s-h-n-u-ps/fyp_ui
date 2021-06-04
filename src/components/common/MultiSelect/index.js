@@ -10,14 +10,14 @@ const MultiSelect = props => {
     options = [], selectedValues, onSelect, onRemove, keepSearchTerm = false,
     display, name, emptyMessage = "", closeOnSelect = false, showArrow = true,
     avoidHighlightFirstOption = true, placeholder = "Select", label = "", key = "id",
-    multiple = true, error, helperText, onSearch, showInput = true
+    multiple = true, error, helperText, onSearch, showInput = true, noBorder = false
   } = props
 
   const selected = options.filter(category => _includes(selectedValues, category[key]));
 
   return (
     <div>
-      <div className={`${s.select} ${error ? s.error : ''} ${!showInput ? s.noInput : ''}`} >
+      <div className={`${s.select} ${noBorder ? s.noBorder : ''} ${error ? s.error : ''} ${!showInput ? s.noInput : ''}`} >
         <div className={`${s.label} ${selected.length ? s.active : ''} ${error ? s.error : ''}`}>{label}</div>
         <Select
           name={name}

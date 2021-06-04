@@ -3,7 +3,8 @@ import {
     CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS, 
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
-    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK
+    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK,
+    DELETE_PROJECTS
 } from "./types";
 
 export const getMyProjects = {
@@ -66,4 +67,10 @@ export const getProjectTask = {
     request: data => action(GET_PROJECT_TASK[REQUEST], { data }),
     success: (data, response) => action(GET_PROJECT_TASK[SUCCESS], { data, response }),
     failure: (data, error) => action(GET_PROJECT_TASK[FAILURE], { data, error }),
+}
+
+export const deleteProjects = {
+    request: data => action(DELETE_PROJECTS[REQUEST], { data }),
+    success: (data, response) => action(DELETE_PROJECTS[SUCCESS], { data, response }),
+    failure: (data, error) => action(DELETE_PROJECTS[FAILURE], { data, error }),
 }

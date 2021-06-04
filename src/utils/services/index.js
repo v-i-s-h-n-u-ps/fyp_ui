@@ -45,6 +45,7 @@ export const getMyProjects = data => GET('projects/get-my-projects/', data);
 export const getFilteredProjects = data => GET('projects/filter-projects/', data);
 export const createProjects = data => POST('projects/create-projects/', data);
 export const updateProjects = data => POST('projects/update-projects/', data);
+export const deleteProjects = data => POST('projects/delete-projects/', data);
 export const getProjectDetails = data => GET('projects/get-project-details/', data);
 export const getProjects = data => GET('projects/list-projects/', data);
 export const getParticipants = data => GET('projects/get-project-participants/', data);

@@ -8,13 +8,13 @@ import {
     CREATE_PROJECT, MANAGE_PARTICIPANTS, MY_PROJECTS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS,
     UPDATE_PROJECT, ADD_PROJECT_TASK, GET_PROJECT_TASK,
-    UPDATE_PROJECT_TASK
+    UPDATE_PROJECT_TASK, DELETE_PROJECTS
 } from "./types";
 import {
     getFilteredProjects, createProjects, updateProjects,
     getProjectDetails, getProjects, getParticipants,
     manageParticipants, getMyProjects, getProjectTask,
-    updateProjectTask, addProjectTask
+    updateProjectTask, addProjectTask, deleteProjects
 } from "@services/";
 
 
@@ -24,6 +24,18 @@ function* handleGetMyProject({ data }) {
         yield sendPayload(apiResponse, MY_PROJECTS);
     } catch (e) {
         yield sendPayloadFailure(e, MY_PROJECTS);
+    }
+}
+
+function* handleDeleteProjects({ data }) {
+    try {
+        const apiResponse = yield call(deleteProjects, data);
+        if (isSuccess) {
+            yield put({ type: MY_PROJECTS[REQUEST] })
+        }
+        yield sendPayload(apiResponse, DELETE_PROJECTS);
+    } catch (e) {
+        yield sendPayloadFailure(e, DELETE_PROJECTS);
     }
 }
 
@@ -42,7 +54,7 @@ function* handleCreateProject({ data }) {
 function* handleUpdateProject({ data }) {
     try {
         const apiResponse = yield call(updateProjects, data);
-        yield put({ type: PROJECT_DETAILS[REQUEST], data: { id: data.id }});
+        yield put({ type: PROJECT_DETAILS[REQUEST], data: { id: data.id } });
         yield sendPayload(apiResponse, UPDATE_PROJECT);
     } catch (e) {
         yield sendPayloadFailure(e, UPDATE_PROJECT);
@@ -134,6 +146,7 @@ export const projectSaga = {
     watchGetMyProject: takeLatest(MY_PROJECTS[REQUEST], handleGetMyProject),
     watchCreateProject: takeLatest(CREATE_PROJECT[REQUEST], handleCreateProject),
     watchUpdateProject: takeLatest(UPDATE_PROJECT[REQUEST], handleUpdateProject),
+    watchDeleteProjects: takeLatest(DELETE_PROJECTS[REQUEST], handleDeleteProjects),
     watchGetProject: takeLatest(GET_PROJECTS_HOME[REQUEST], handleGetProject),
     watchProjectDetails: takeLatest(PROJECT_DETAILS[REQUEST], handleProjectDetails),
     watchProjectParticipants: takeLatest(PROJECT_PARTICIPANTS[REQUEST], handleProjectParticipants),

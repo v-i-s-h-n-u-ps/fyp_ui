@@ -232,3 +232,6 @@
 .icon-search:before {
   content: "\e919";
 }
+.icon-bin:before {
+  content: "\e9ac";
+}
