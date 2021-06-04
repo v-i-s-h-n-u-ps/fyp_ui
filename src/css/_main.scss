@@ -90,25 +90,11 @@ h3 {
 .light {
   background: #fff;
   color: #000;
-
-  ::-webkit-scrollbar-track {
-    background: none;
-    &:hover {
-      background: #f1f1f1;
-    }
-  }
 }
 
 .dark {
   background: #121212;
   color: white;
-
-  ::-webkit-scrollbar-track {
-    background: none;
-    &:hover {
-      background: #010101;
-    }
-  }
 }
 
 a {
@@ -194,12 +180,6 @@ body {
   -webkit-overflow-scrolling: touch;
   word-wrap: break-word;
   font-weight: normal;
-  overflow: hidden;
-  &:hover,
-  &:active,
-  &:focus {
-    overflow: auto;
-  }
 }
 
 input[type="Reset"],

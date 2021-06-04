@@ -44,7 +44,7 @@
 }
 
 .infiniteLoader {
-    max-height: 94vh;
+    max-height: 92vh;
     overflow: hidden;
     &:hover,
     &:active,
@@ -63,7 +63,7 @@
     width: 55%;
     padding: 10px 20px 20px 20px;
     @include respond-above(desktop) {
-        height: calc(100vh - 5vw);
+        height: calc(100vh - 4vw);
     }
     @include respond-between(tablet, desktop) {
         height: calc(100vh - 6vw);
