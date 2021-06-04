@@ -25,7 +25,7 @@ const Profile = props => {
   const completedProjects = _get(selectUserProfile, 'projects', []).filter(item => item.isComplete);
   const currentProjects = _get(selectUserProfile, 'projects', []).filter(item => !item.isComplete);
 
-  if (_get(selectUserInfo, 'id') === _get(selectUserProfile, 'id')) {
+  if (_get(selectUserInfo, 'id') === _get(router, 'query.id')) {
     router.push({ pathname: PROFILE })
   }
 
