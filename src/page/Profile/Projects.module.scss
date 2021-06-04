@@ -1,5 +1,7 @@
 @import "@css/layouts/flexBox.scss";
 @import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
 
 .container {
     width: 100%;
@@ -28,4 +30,28 @@
     @include flex;
     justify-content: flex-end;
     margin-bottom: 24px;
+}
+
+.noProjects {
+    padding-top: 1vw;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    @include flex-column;
+    @include subText-s-color;
+    @include heading-m;
+    p {
+        padding-top: 8px;
+        @include label-color;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.noProjectsImage {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 32px;
 }

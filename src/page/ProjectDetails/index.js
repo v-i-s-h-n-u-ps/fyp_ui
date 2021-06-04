@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import _get from "lodash/get";
+import _find from "lodash/find";
 import dynamic from "next/dynamic";
+import dayjs from "dayjs";
+import advancedFormat from 'dayjs/plugin/advancedFormat';
 
 import s from "./index.module.scss";
 import { GROUPS } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
-import TalkJS from "@components/thirdParty/talkjs";
 import NavigateTo from "@common/navigateTo";
 import Participant from "@cards/Participant";
 import TasksTable from "@components/tables/Tasks";
@@ -13,8 +15,11 @@ import TaskForm from "@forms/Task";
 import Button from "@common/Button";
 
 const MultiSelect = dynamic(() => import('@common/MultiSelect'), { ssr: false });
+const TalkJS = dynamic(() => import('@components/thirdParty/talkjs'), { ssr: false });
 
 const ProjectDetails = props => {
+
+  dayjs.extend(advancedFormat);
 
   const {
     selectProjectDetails, id, d__getProjectParticipants,
@@ -28,6 +33,7 @@ const ProjectDetails = props => {
 
   const [search, setSearch] = useState('');
   const [user, setUser] = useState();
+  const [searchResults, setSearchResults] = useState([]);
 
   const participants = _get(selectProjectDetails, 'participants', []);
   const leader = participants.filter(item => item.isLeader)[0];
@@ -58,12 +64,22 @@ const ProjectDetails = props => {
   }
 
   const markCompleted = () => {
-    const categories = selectProjectDetails.categories.map(category => category.category)
-    d__updateProject({
-      ...selectProjectDetails,
-      categories: categories,
-      isComplete: true,
-    })
+    const categories = selectProjectDetails.categories.map(category => category.category);
+    const modalData = {
+      primaryText: <>Complete Project</>,
+      secondaryText: "Are you sure this project is completed?",
+      primaryActionText: "Confirm",
+      secondaryActionText: "Cancel",
+      primaryAction: () => d__updateProject({
+        ...selectProjectDetails,
+        categories: categories,
+        isComplete: true,
+      }),
+      secondaryAction: d__unsetGlobalModalFlag,
+      closeOnBlur: false,
+      showCloseButton: false,
+    }
+    d__setGlobalModalFlag('confirm', modalData)
   }
 
   const addTask = values => {
@@ -85,14 +101,22 @@ const ProjectDetails = props => {
   useEffect(() => {
     d__getProjectParticipants({ id })
     d__getProjectTask({ id })
-  }, [])
+  }, [isComplete])
 
   useEffect(() => {
     if (search.length > 1 && !selectIsSearching)
       d__searchUsers({ search });
   }, [search])
 
-  console.log(selectProjectDetails, "project")
+  useEffect(() => {
+    const participants = _get(selectProjectDetails, 'participants', []);
+    const users = [];
+    selectSearchResults.forEach(item => {
+      const included = _find(participants, { userId: item.id })
+      if (!included) users.push(item);
+    })
+    setSearchResults(users);
+  }, [selectSearchResults]);
 
   return (
     <PageContainer name={_get(selectProjectDetails, 'name')}>
@@ -110,15 +134,28 @@ const ProjectDetails = props => {
       <div className={s.container}>
         <div className={s.projectDetails}>
           <div className={s.descriptionContainer}>
-            <p className={s.heading}>about project</p>
+            <div className={s.aboutMe}>
+              <p className={s.heading}>about project</p>
+              <p className={s.dates}>
+                {dayjs(_get(selectProjectDetails, 'startDate')).format("Do MMM, YYYY")}
+                {" "} - {dayjs(_get(selectProjectDetails, 'endDate')).format("Do MMM, YYYY")}
+              </p>
+            </div>
             <p className={s.description}>
               {_get(selectProjectDetails, 'description', "No Description")}
             </p>
+            <div className={s.category}>
+              {_get(selectProjectDetails, 'categories', []).map(category => (
+                <span className={s.tag}>
+                  {category.category_name}
+                </span>
+              ))}
+            </div>
           </div>
           <div className={s.addParticipant}>
             <div className={s.search}>
               <MultiSelect
-                options={selectSearchResults}
+                options={searchResults}
                 onSelect={(_, item) => onSelect(item)}
                 display="email"
                 onSearch={e => setSearch(e)}

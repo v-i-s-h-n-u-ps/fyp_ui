@@ -4,8 +4,20 @@ import {
     THEME_PREFERENCE, REFRESH, PASSWORD_RESET,
     PASSWORD_RESET_REQUEST, RESET_OTP_SEND,
     OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP,
-    UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER
+    UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
+    UNSET_ERRORS, GET_USER_PROFILE, USER_PROFILE,
 } from "./types";
+
+export const unsetErrors = {
+    unset: () => action(UNSET_ERRORS[UNSET])
+}
+
+export const getUserProfile = {
+    request: data => action(GET_USER_PROFILE[REQUEST], { data }),
+    success: (data, response) => action(GET_USER_PROFILE[SUCCESS], { data, response }),
+    failure: (data, error) => action(GET_USER_PROFILE[FAILURE], { data, error }),
+    unset: () => action(USER_PROFILE[UNSET])
+};
 
 export const signup = {
     request: data => action(SIGNUP[REQUEST], { data }),

@@ -19,7 +19,7 @@ import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
   REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT,
-  SEARCH_USERS, UPDATE_USER
+  SEARCH_USERS, UPDATE_USER, GET_USER_PROFILE
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -29,7 +29,7 @@ import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh,
   resendOTP, createStudent, updateStudent,
-  searchUsers, updateUser
+  searchUsers, updateUser, getUserProfile
 } from "@services";
 
 function* handleLogoutUser() {
@@ -221,6 +221,15 @@ function* handleUpdateUser({ data }) {
   }
 }
 
+function* handleUserProfile({ data }) {
+  try {
+    const apiResponse = yield call(getUserProfile, data);
+    yield sendPayload(apiResponse, GET_USER_PROFILE);
+  } catch (e) {
+    yield sendPayloadFailure(e, GET_USER_PROFILE);
+  }
+}
+
 export const userSaga = {
   watchLogoutUser: takeLatest(LOGOUT[REQUEST], handleLogoutUser),
   watchLogin: takeLatest(LOGIN[REQUEST], handleLogin),
@@ -236,6 +245,7 @@ export const userSaga = {
   watchUpdateStudent: takeLatest(UPDATE_STUDENT[REQUEST], handleUpdateStudent),
   watchSearchStudent: takeLatest(SEARCH_USERS[REQUEST], handleSearchStudent),
   watchUpdateUser: takeLatest(UPDATE_USER[REQUEST], handleUpdateUser),
+  watchUserProfile: takeLatest(GET_USER_PROFILE[REQUEST], handleUserProfile),
 }
 
 

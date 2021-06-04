@@ -4,6 +4,7 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import _isEmpty from "lodash/isEmpty";
 
+import s from "./index.module.scss";
 import { selectUserInfo } from "@redux/user/selectors";
 import { avatar } from "@constants/images";
 import ActivityIndicator from '@components/loaders/ActivityIndicator';
@@ -116,9 +117,12 @@ class TalkJS extends Component {
     }
 
     render() {
+
+        const { talkClass } = this.props;
+
         return (
             <div
-                style={{ height: "85vh", width: "100%" }}
+                className={!talkClass ? s.talkjsStyle : talkClass}
                 ref={c => this.container = c}
             >
                 <ActivityIndicator

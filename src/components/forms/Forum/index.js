@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import dynamic from 'next/dynamic';
 
 import s from "./index.module.scss";
+import { removeFromMultiList } from "@helpers/";
 import { selectCategory } from "@redux/resources/selectors";
 import { createForums, updateForums } from "@redux/forums/actions";
 import { selectIsForumSubmitting } from "@redux/forums/selectors";
@@ -70,19 +71,11 @@ const Forum = props => {
                 error={errors.name && touched.name}
                 helperText={errors.name && touched.name ? errors.name : ''}
               />
-              <Input
-                label="Forum Description"
-                name="description"
-                handleChange={handleChange}
-                value={values.description}
-                error={errors.description && touched.description}
-                helperText={errors.description && touched.description ? errors.description : ''}
-              />
               <MultiSelect
                 options={selectCategory}
                 selectedValues={values.categories}
                 onSelect={(_, item) => setFieldValue('categories', [...values.categories, item.id])}
-                onRemove={(_, item) => setFieldValue(values.categories.splice(item, 1))}
+                onRemove={(_, item) => setFieldValue('categories', removeFromMultiList([...values.categories], item, 'id'))}
                 display="name"
                 name="categories"
                 emptyMessage="No other categories available. Please contact admin to add."
@@ -91,6 +84,14 @@ const Forum = props => {
                 helperText={errors.categories && touched.categories ? errors.categories : ''}
                 key="id"
                 label="Category"
+              />
+              <Input
+                label="Forum Description"
+                name="description"
+                handleChange={handleChange}
+                value={values.description}
+                error={errors.description && touched.description}
+                helperText={errors.description && touched.description ? errors.description : ''}
               />
               <div className={s.flexCenter}>
                 <Button

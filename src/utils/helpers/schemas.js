@@ -111,7 +111,7 @@ export const TASK_VALIDATION = yup.object().shape({
     .required('name is required'),
   type: yup.string()
     .trim()
-    .required('Select a university'),
+    .required('Select a type'),
   dueDate: yup.date()
     .required('Start date is required'),
 

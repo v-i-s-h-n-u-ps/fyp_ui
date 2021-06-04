@@ -1,5 +1,6 @@
 @import "@css/components/texts.scss";
 @import "@css/components/animations.scss";
+@import "@css/layouts/mediaQueries.scss";
 
 .iconMapPin {
     @include heading-lm;
@@ -17,5 +18,16 @@
         @include heading-l;
         transition: all 0.3s linear;
         color: #8d4e99;
+    }
+}
+
+.talkjsStyle {
+    @include respond-above(desktop) {
+        height: 82vh;
+        width: 100%
+    }
+    @include respond-below(desktop) {
+        height: 85vh;
+        width: 100%
     }
 }

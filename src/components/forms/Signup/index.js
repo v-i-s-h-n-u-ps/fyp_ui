@@ -2,11 +2,12 @@ import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 import _omit from "lodash/omit";
+import _get from "lodash/get";
 import { createStructuredSelector } from "reselect";
 
 import s from "./index.module.scss";
-import { selectIsFormSubmitting } from "@redux/user/selectors";
-import { signup } from "@redux/user/actions";
+import { selectIsFormSubmitting, selectSignUpError } from "@redux/user/selectors";
+import { signup, unsetErrors } from "@redux/user/actions";
 import { SIGNUP_VALIDATION } from "@utils/helpers/schemas";
 import Button from "@common/Button";
 import Input from "@common/Input";
@@ -20,7 +21,7 @@ const init = {
 
 const Signup = props => {
 
-  const { d__signup, selectIsFormSubmitting, setEmail, email } = props
+  const { d__signup, selectIsFormSubmitting, setEmail, selectSignUpError, d__unsetErrors } = props
 
   const submit = (values, { setSubmitting }) => {
     setSubmitting(false);
@@ -64,10 +65,15 @@ const Signup = props => {
                 <Input
                   label="Email"
                   name="email"
-                  handleChange={handleChange}
+                  handleChange={e => { handleChange(e); d__unsetErrors() }}
                   value={values.email}
-                  error={errors.email && touched.email}
-                  helperText={errors.email && touched.email ? errors.email : ''}
+                  error={errors.email && touched.email || _get(selectSignUpError, 'email.0')}
+                  helperText={errors.email && touched.email
+                    ? errors.email
+                    : _get(selectSignUpError, 'email.0')
+                      ? _get(selectSignUpError, 'email.0')
+                      : ''
+                  }
                   showEdit={true}
                   secondaryText={<i className={`icon-mail ${s.icon} ${s.mail}`} />}
                 />
@@ -114,12 +120,13 @@ const Signup = props => {
 }
 
 const mapStateToProps = createStructuredSelector({
-  selectIsFormSubmitting
+  selectIsFormSubmitting, selectSignUpError
 })
 
 const mapDispatchToProps = dispatch => {
   return {
-    d__signup: data => dispatch(signup.request(data))
+    d__signup: data => dispatch(signup.request(data)),
+    d__unsetErrors: () => dispatch(unsetErrors.unset())
   }
 }
 

@@ -5,8 +5,10 @@ import { connect } from "react-redux";
 import withReduxSaga from "../..";
 import { 
     selectUserInfo,
-} from "@redux/user/selectors"
-import { searchUsers } from "@redux/user/actions";
+} from "@redux/user/selectors";
+import {
+    selectCategory
+} from "@redux/resources/selectors";
 import {
     selectForums
 } from "@redux/forums/selectors";
@@ -35,7 +37,7 @@ ForumsPage.getInitialProps = async (props) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    selectUserInfo, selectForums
+    selectUserInfo, selectForums, selectCategory
 })
 
 const mapDispatchToProps = dispatch => {

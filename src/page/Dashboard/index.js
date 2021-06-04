@@ -11,6 +11,7 @@ import PageContainer from "@hoc/PageContainer";
 import Map from "@components/thirdParty/maps";
 import Project from "@cards/Project";
 import Input from "@common/Input";
+import EmptyState from "@common/EmptyState";
 
 const MultiSelect = dynamic(() => import("@common/MultiSelect"), { ssr: false });
 
@@ -175,15 +176,12 @@ const Dashboard = props => {
               </div>
             </div>
           ) : (
-            <div className={s.noProjects}>
-              <div className={s.noProjectsImage}>
-                <img src={noProjects} />
-              </div>
-              There are no projects available. Be the first one to create.
-              <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
-                <p>Create Project</p>
-              </Link>
-            </div>
+            <EmptyState
+              message={"There are no projects available. Be the first one to create."}
+              link={{pathname: PROFILE, query: { tab: 'projects' }}}
+              text="Create Project"
+              image={noProjects}
+            />
           )}
         <div className={s.maps}>
           <Map

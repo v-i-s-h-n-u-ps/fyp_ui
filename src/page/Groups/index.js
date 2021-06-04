@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
+import { noGroups } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
 import ProjectCard from "@cards/Project";
+import EmptyState from "@common/EmptyState";
 
 const Groups = props => {
 
@@ -24,7 +26,7 @@ const Groups = props => {
       secondaryText: 'Are you sure you want to delete this project',
       primaryActionText: 'Confirm',
       secondaryActionText: 'Cancel',
-      primaryAction: () => d__deleteProjects({ id: project.id}),
+      primaryAction: () => d__deleteProjects({ id: project.id }),
       secondaryAction: d__unSetGlobalModalFlag,
       closeOnBlur: false,
       actionable: "selectIsProjectSubmitting"
@@ -40,12 +42,12 @@ const Groups = props => {
     <PageContainer name="Your Projects">
       <div className={s.container}>
         {!selectMyProjects.length && !selectIsLoadingProjects
-          ? <div className={s.noProjects}>
-            You're not part of any projects. Please go to your profile and create one now.
-            <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
-              <p>Create Project</p>
-            </Link>
-          </div>
+          ? <EmptyState
+            message="You're not part of any projects. Please go to your profile and create one now."
+            image={noGroups}
+            link={{ pathname: PROFILE, query: { tab: 'projects' } }}
+            text={"Create Project"}
+          />
           : selectMyProjects.map((project, index) => (
             <div className={s.project}>
               <ProjectCard

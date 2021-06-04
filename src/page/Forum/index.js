@@ -2,13 +2,15 @@ import React from "react";
 import _get from "lodash/get";
 import dayjs from "dayjs";
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";
 import { FORUMS } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
-import TalkJS from "@components/thirdParty/talkjs";
 import NavigateTo from "@common/navigateTo";
 import Button from "@common/Button";
+
+const TalkJS = dynamic(() => import('@components/thirdParty/talkjs'), { ssr: false });
 
 const Forum = props => {
 
@@ -97,6 +99,7 @@ const Forum = props => {
                   visible: isMember
                 }
               }}
+              talkClass={s.talkContainer}
               chatWith={_get(selectForumDetails, 'memberList', [])}
               selectUserInfo={selectUserInfo}
               theme={theme}
