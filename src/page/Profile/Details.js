@@ -9,7 +9,7 @@ import Button from "@common/Button";
 
 const Details = props => {
 
-  const { selectStudentInfo } = props;
+  const { selectStudentInfo, showEdit = true } = props;
 
   return (
     <div className={s.container}>
@@ -68,17 +68,19 @@ const Details = props => {
           <p>{_get(selectStudentInfo, 'facebook', '--') || '--'}</p>
         </div>
       </div>
-      <Link
-        href={{ pathname: FILL_STUDENT_DETAILS, query: { edit: 'true' } }}
-        asPath={`${FILL_STUDENT_DETAILS}?edit=true`}
-      >
-        <Button
-          text="edit"
-          type="grey"
-          variant="hollow"
-          width="150px"
-        />
-      </Link>
+      {showEdit && (
+        <Link
+          href={{ pathname: FILL_STUDENT_DETAILS, query: { edit: 'true' } }}
+          asPath={`${FILL_STUDENT_DETAILS}?edit=true`}
+        >
+          <Button
+            text="edit"
+            type="grey"
+            variant="hollow"
+            width="150px"
+          />
+        </Link>
+      )}
     </div>
   )
 }

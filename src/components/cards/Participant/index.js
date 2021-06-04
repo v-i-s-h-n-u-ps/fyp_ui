@@ -1,6 +1,8 @@
+import Link from "next/link";
 import React from "react";
 
 import s from "./index.module.scss";
+import { USER_PROFILE } from "@constants/routes";
 
 const Participant = props => {
 
@@ -14,7 +16,9 @@ const Participant = props => {
     <div className={s.participant} key={item._default ? undefined : item.userId}>
       <div>
         <img src={item.avatar} />
-        <p>{item.name}</p>
+        <Link href={{ pathname: USER_PROFILE, query: { id: item.userId } }}>
+          <p>{item.name}</p>
+        </Link>
       </div>
       {isLeader && !item.isLeader && (
         <div className={s.icon}>

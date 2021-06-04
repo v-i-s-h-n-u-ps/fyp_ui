@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import _get from "lodash/get";
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic';
+import { toast } from "react-toastify";
 
 import s from "./index.module.scss";
 import { PROFILE } from "@constants/routes";
@@ -11,7 +12,6 @@ import Details from "./Details";
 import Portfolio from "./Portfolio";
 import Projects from "./Projects";
 import Input from "@common/Input";
-import { toast } from "react-toastify";
 
 const S3Upload = dynamic(() => import('@components/thirdParty/s3'), { ssr: false });
 

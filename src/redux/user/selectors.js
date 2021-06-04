@@ -1,6 +1,8 @@
 import { createSelector } from "reselect";
 import _get from "lodash/get";
 
+import { projectCard } from "@constants/defaults";
+
 export const selectUsers = state => state.users;
 
 export const selectUserInfo = createSelector(
@@ -61,4 +63,14 @@ export const selectIsSearching = createSelector(
 export const selectSignUpError = createSelector(
     [selectUsers],
     val => _get(val, 'auth.signUpError')
+)
+
+export const selectIsUserProfileLoading = createSelector(
+    [selectUsers],
+    val => _get(val, 'auth.userProfile.isLoading')
+)
+
+export const selectUserProfile = createSelector(
+    [selectUsers],
+    val => _get(val, 'userProfile.data', { projects:  projectCard })
 )

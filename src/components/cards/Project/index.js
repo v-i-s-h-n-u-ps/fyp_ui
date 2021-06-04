@@ -6,7 +6,7 @@ import _get from "lodash/get";
 import Link from "next/link";
 
 import s from "./index.module.scss";
-import { CHATS, GROUP } from "@constants/routes";
+import { CHATS, GROUP, USER_PROFILE } from "@constants/routes";
 import Button from "@common/Button";
 
 
@@ -14,8 +14,8 @@ const Project = props => {
 
   dayjs.extend(isSameOrAfter);
 
-  const { 
-    project = {}, isLeader = false, showMessage, onClick, navigate = true ,
+  const {
+    project = {}, isLeader = false, showMessage, onClick, navigate = true,
     onDelete, onEdit
   } = props;
 
@@ -42,15 +42,15 @@ const Project = props => {
         {isComplete
           ? <div className={s.ribbon}>Complete</div>
           : isLeader && <div className={s.ribbon}>
-            <i 
-              className={`${s.edit} icon-pencil`} 
-              onClick={() => onEdit(project)} 
+            <i
+              className={`${s.edit} icon-pencil`}
+              onClick={() => onEdit(project)}
             />
             {!started && <>
               <div />
-              <i 
-                onClick={() => onDelete(project)} 
-                className={`${s.delete} icon-bin`} 
+              <i
+                onClick={() => onDelete(project)}
+                className={`${s.delete} icon-bin`}
               />
             </>}
           </div>
@@ -59,7 +59,9 @@ const Project = props => {
           <div className={s.details}>
             {_default
               ? <div className={s.defaultImage} />
-              : <img src={project.avatar} className={s.image} />
+              : <Link href={{ pathname: USER_PROFILE, query: { id: project.created_id } }}>
+                <img src={project.avatar} className={s.image} />
+              </Link>
             }
             <div className={s.projectLeaderDetails}>
               {navigate
@@ -75,9 +77,11 @@ const Project = props => {
                   {project.name}
                 </p>
               }
-              <p className={s.projectLeader}>
-                {project.createdBy}
-              </p>
+              <Link href={{ pathname: USER_PROFILE, query: { id: project.created_id } }}>
+                <p className={s.projectLeader}>
+                  {project.createdBy}
+                </p>
+              </Link>
             </div>
           </div>
           <div className={s.projectLocation}>

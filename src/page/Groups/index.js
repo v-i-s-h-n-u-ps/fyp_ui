@@ -8,6 +8,7 @@ import { noGroups } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
 import ProjectCard from "@cards/Project";
+import EmptyState from "@common/EmptyState";
 
 const Groups = props => {
 
@@ -41,15 +42,12 @@ const Groups = props => {
     <PageContainer name="Your Projects">
       <div className={s.container}>
         {!selectMyProjects.length && !selectIsLoadingProjects
-          ? <div className={s.noProjects}>
-            <div className={s.noProjectsImage}>
-              <img src={noGroups} />
-            </div>
-            You're not part of any projects. Please go to your profile and create one now.
-            <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
-              <p>Create Project</p>
-            </Link>
-          </div>
+          ? <EmptyState
+            message="You're not part of any projects. Please go to your profile and create one now."
+            image={noGroups}
+            link={{ pathname: PROFILE, query: { tab: 'projects' } }}
+            text={"Create Project"}
+          />
           : selectMyProjects.map((project, index) => (
             <div className={s.project}>
               <ProjectCard

@@ -7,6 +7,7 @@ import Forum from "@cards/Forum";
 import Input from "@common/Input";
 import Button from "@common/Button";
 import PageContainer from "@hoc/PageContainer";
+import EmptyState from "@common/EmptyState";
 
 const MultiSelect = dynamic(() => import("@common/MultiSelect"), { ssr: false });
 
@@ -101,13 +102,12 @@ const Forums = props => {
               : <div className={s.noForums}>
                 There are no projects available. Be the first one to create.
               </div>
-            : <div className={s.noForums}>
-              <div className={s.noForumsImage}>
-                <img src={noForums} />
-              </div>
-              There are no projects available. Be the first one to create.
-              <p onClick={() => d__globalModalFlag('forum')}>Create Project</p>
-            </div>
+            : <EmptyState
+                message="There are no projects available. Be the first one to create."
+                image={noForums}
+                text="Create Forum"
+                link={() => d__globalModalFlag('forum')}
+            />
           }
         </div>
       </div>

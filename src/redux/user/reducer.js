@@ -6,7 +6,7 @@ import {
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
   ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
   UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
-  UNSET_ERRORS
+  UNSET_ERRORS, GET_USER_PROFILE, USER_PROFILE
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -103,7 +103,15 @@ const users = () => {
     }
   }
 
-  // SEARCH_USERS
+  const userProfile = (state = initState, action) => {
+    switch (action.type) {
+      case GET_USER_PROFILE[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
+      case GET_USER_PROFILE[SUCCESS]: return { ...state, isLoading: false, isLoaded: true, data: action.payload }
+      case GET_USER_PROFILE[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
+      case USER_PROFILE[UNSET]:  return initState
+      default: return state;
+    }
+  }
 
   const themePreference = (state = {
     theme:
@@ -120,7 +128,7 @@ const users = () => {
 
   return combineReducers({
     auth, themePreference,
-    student, search
+    student, search, userProfile
   });
 };
 

@@ -35,6 +35,7 @@ export const updateStudent = data => POST('user/update-student-details/', data);
 export const resendOTP = data => GET('user/resend/', data);
 export const searchUsers = data => GET('user/search-users/', data);
 export const updateUser = data => POST('user/update-user/', data);
+export const getUserProfile = data => GET('user/get-user-profile/', data);
 
 export const getUniversity = data => GET('resources/get-university/');
 export const getRole = data => GET('resources/get-role/');

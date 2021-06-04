@@ -20,28 +20,3 @@
     }
     margin: 8px 0;
 }
-
-.noProjects {
-    padding-top: 5vw;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    @include flex-column;
-    @include subText-s-color;
-    @include heading-m;
-    p {
-        padding-top: 5px;
-        @include label-color;
-        cursor: pointer;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.noProjectsImage {
-    width: 80%;
-    margin: auto;
-    padding-bottom: 32px;
-}

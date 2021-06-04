@@ -4,11 +4,13 @@ import _find from "lodash/find";
 import { useRouter } from "next/router";
 
 import s from "./Projects.module.scss";
+import { noProjects } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import prevState from "@hooks/prevState"
 import ProjectForm from "@forms/Project";
 import Button from "@common/Button";
 import ProjectCard from "@cards/Project";
+import EmptyState from "@common/EmptyState";
 
 const init = {
   name: "",
@@ -24,7 +26,7 @@ const Projects = props => {
   const {
     isLoading, isSubmitting, projects, onSubmit, selectUniversity,
     theme, selectCategory, selectUserInfo, location, onEdit, onDelete,
-    editItem
+    editItem, showCreateButton = true, showActions = true
   } = props
 
   const [create, setCreate] = useState(false);
@@ -57,9 +59,9 @@ const Projects = props => {
         isComplete: project.isComplete
       });
       setCreate(true);
-      router.push({ 
-        pathname: PROFILE, 
-        query: { tab: 'projects' } 
+      router.push({
+        pathname: PROFILE,
+        query: { tab: 'projects' }
       }, undefined, { shallow: true });
     }
   }, [editItem])
@@ -77,28 +79,40 @@ const Projects = props => {
           cancel={() => setCreate(false)}
         />
         : <>
-          <div className={s.buttonContainer}>
-            <Button
-              text="Create New Project"
-              variant="hollow"
-              type="primary"
-              width="200px"
-              onClick={() => setCreate(true)}
-            />
-          </div>
-          <div className={s.projectsContainer}>
-            {projects.map((project, index) => (
-              <div>
-                <ProjectCard
-                  project={project}
-                  key={`project-${index}`}
-                  isLeader={_get(selectUserInfo, 'id') === project.created_id}
-                  onDelete={onDelete}
-                  onEdit={onEdit}
-                />
-              </div>
-            ))}
-          </div>
+          {showCreateButton && (
+            <div className={s.buttonContainer}>
+              <Button
+                text="Create New Project"
+                variant="hollow"
+                type="primary"
+                width="200px"
+                onClick={() => setCreate(true)}
+              />
+            </div>
+          )}
+          {!!projects.length
+            ? <div className={s.projectsContainer}>
+              {projects.map((project, index) => (
+                <div>
+                  <ProjectCard
+                    project={project}
+                    key={`project-${index}`}
+                    isLeader={showActions && _get(selectUserInfo, 'id') === project.created_id}
+                    onDelete={onDelete}
+                    onEdit={onEdit}
+                  />
+                </div>
+              ))}
+            </div>
+            : (
+              <EmptyState
+                message={showActions 
+                  ? "Your are not part of any projects now, Create one now"
+                  : "User is not part of any projects currently"
+                }
+                image={noProjects}
+              />
+            )}
         </>
       }
     </div>

@@ -12,6 +12,7 @@ export const GROUPS = "/groups";
 export const GROUP = "/groups/[id]";
 
 export const PROFILE = "/profile"
+export const USER_PROFILE = "/profile/[id]"
 export const FILL_STUDENT_DETAILS = "/profile/details-form";
 
 export const PUBLIC_ROUTES = [
@@ -22,5 +23,5 @@ export const PRIVATE_ROUTES = [
     DASHBOARD, FILL_STUDENT_DETAILS,
     CHATS, TASKS, FORUM, FORUMS,
     GROUPS, GROUP, PROFILE, 
-    FILL_STUDENT_DETAILS
+    FILL_STUDENT_DETAILS, USER_PROFILE
 ]
