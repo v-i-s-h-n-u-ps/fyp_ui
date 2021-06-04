@@ -33,30 +33,6 @@
     gap: 16px;
 }
 
-.noForums {
-    padding-top: 5vw;
-    height: 100%;
-    align-items: center;
-    text-align: center;
-    @include flex-column;
-    @include subText-s-color;
-    @include heading-m;
-    p {
-        padding-top: 16px;
-        @include label-color;
-        cursor: pointer;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.noForumsImage {
-    width: 80%;
-    margin: auto;
-    padding-bottom: 32px;
-}
-
 .filterAndSearch {
     @include flex-column;
     width: 50%;

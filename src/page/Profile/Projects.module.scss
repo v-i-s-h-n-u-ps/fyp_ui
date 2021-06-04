@@ -31,27 +31,3 @@
     justify-content: flex-end;
     margin-bottom: 24px;
 }
-
-.noProjects {
-    padding-top: 1vw;
-    height: 100%;
-    align-items: center;
-    text-align: center;
-    @include flex-column;
-    @include subText-s-color;
-    @include heading-m;
-    p {
-        padding-top: 8px;
-        @include label-color;
-        cursor: pointer;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.noProjectsImage {
-    width: 80%;
-    margin: auto;
-    padding-bottom: 32px;
-}

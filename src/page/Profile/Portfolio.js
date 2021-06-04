@@ -3,6 +3,7 @@ import React from "react";
 import s from "./Portfolio.module.scss";
 import { noProjects } from "@constants/images";
 import ProjectCard from "@cards/Project";
+import EmptyState from "@common/EmptyState";
 
 const Portfolio = props => {
 
