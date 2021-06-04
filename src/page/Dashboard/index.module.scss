@@ -23,7 +23,7 @@
     @include flex;
     gap: 16px;
     > div {
-        flex-grow: 1
+        width: 48%;
     }
 }
 

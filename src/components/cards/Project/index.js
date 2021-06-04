@@ -16,7 +16,7 @@ const Project = props => {
 
   const {
     project = {}, isLeader = false, showMessage, onClick, navigate = true,
-    onDelete, onEdit
+    onDelete, onEdit, filterBy
   } = props;
 
   const { _default } = project;
@@ -113,7 +113,11 @@ const Project = props => {
         </div>
         <div className={s.category}>
           {_get(project, 'categories', []).map(category => (
-            <span className={s.tag}>
+            <span 
+              className={s.tag} 
+              key={category.id}
+              onClick={!!filterBy ? () => filterBy(category.category) : null}
+            >
               {category.category_name}
             </span>
           ))}

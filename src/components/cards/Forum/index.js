@@ -10,7 +10,7 @@ const Forum = props => {
 
   dayjs.extend(advancedFormat);
 
-  const { item } = props;
+  const { item, filterBy } = props;
 
   const { isMember, isAdmin, _default } = item;
 
@@ -28,7 +28,11 @@ const Forum = props => {
         </div>
         <div className={s.categoryContainer}>
           {item.categories.map((category, index) => (
-            <span key={`category-${index}`} className={s.tag}>
+            <span 
+              key={`category-${index}`} 
+              className={s.tag}
+              onClick={() => filterBy(category.category)}
+            >
               {category.name}
             </span>
           ))}

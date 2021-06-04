@@ -14,7 +14,7 @@ const MultiSelect = dynamic(() => import("@common/MultiSelect"), { ssr: false })
 const Forums = props => {
 
   const {
-    selectForums, selectUserInfo, d__globalModalFlag, selectCategory
+    selectForums, d__globalModalFlag, selectCategory
   } = props;
 
   const [categories, setCategories] = useState([]);
@@ -31,7 +31,7 @@ const Forums = props => {
         _forums.forEach(forum => {
           let add = false;
           forum.categories.forEach(category => {
-            if (category.category === categories) add = true;
+            if (category.category === categories[0]) add = true;
           })
           if (add) filteredForums.push(forum);
         })
@@ -103,6 +103,7 @@ const Forums = props => {
                 <Forum
                   key={`forum-${index}`}
                   item={item}
+                  filterBy={id => setCategories([id])}
                 />
               ))
               : <div className={s.noForums}>

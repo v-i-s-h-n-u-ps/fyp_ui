@@ -61,7 +61,7 @@ const Dashboard = props => {
         _projects.forEach(project => {
           let add = false;
           project.categories.forEach(category => {
-            if (category.category === categories) add = true;
+            if (category.category === categories[0]) add = true;
           })
           if (add) filteredProjects.push(project);
         })
@@ -69,6 +69,8 @@ const Dashboard = props => {
       if (!!university.length) {
         filteredProjects.filter(project => project.university.id === university);
       }
+      if (!categories.length && !university.length)
+        selectHomeData.forEach(item => filteredProjects.push(item))
       if (!!search) {
         const _projects = Object.assign(filteredProjects, []);
         const searchedProjects = _projects.filter(project => (
@@ -125,7 +127,7 @@ const Dashboard = props => {
                   <MultiSelect
                     options={selectCategory}
                     selectedValues={categories}
-                    onSelect={(_, item) => setCategories(item.id)}
+                    onSelect={(_, item) => setCategories([item.id])}
                     onRemove={(_, item) => setCategories([])}
                     display="name"
                     name="categories"
@@ -139,7 +141,7 @@ const Dashboard = props => {
                   <MultiSelect
                     options={selectUniversity}
                     selectedValues={university}
-                    onSelect={(_, item) => setUniversity(item.id)}
+                    onSelect={(_, item) => setUniversity([item.id])}
                     onRemove={(_, item) => setUniversity([])}
                     display="name"
                     name="university"
@@ -165,6 +167,7 @@ const Dashboard = props => {
                         showMessage={true}
                         onClick={d__newChat}
                         navigate={false}
+                        filterBy={id => setCategories([id])}
                       />
                     </div>
                   ))
