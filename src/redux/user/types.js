@@ -15,6 +15,7 @@ export const UPDATE_STUDENT = createRequestTypes("UPDATE_STUDENT");
 export const RESEND_OTP = createRequestTypes("RESEND_OTP")
 export const SEARCH_USERS = createRequestTypes("SEARCH_USERS");
 export const UPDATE_USER = createRequestTypes("UPDATE_USER");
+export const UNSET_ERRORS = createFlagTypes("UNSET_ERRORS");
 
 export const REFRESH = createRequestTypes("REFRESH");
 export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");

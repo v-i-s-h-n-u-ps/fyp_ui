@@ -203,6 +203,11 @@ const Tasks = props => {
           })}
         </tbody>
       </table>
+      {!list.length && (
+        <div className={s.noTasks}>
+          There are no tasks for this project.
+        </div>
+      )}
     </div>
   )
 }

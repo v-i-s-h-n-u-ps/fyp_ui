@@ -5,7 +5,8 @@ import {
   THEME_PREFERENCE, PASSWORD_RESET_REQUEST,
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
   ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
-  UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER
+  UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
+  UNSET_ERRORS
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -26,9 +27,11 @@ const users = () => {
   const auth = (state = initialState, action) => {
     switch (action.type) {
 
+      case UNSET_ERRORS[UNSET]: return { ...state, signUpError: {} }
+
       case SIGNUP[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false }
       case SIGNUP[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: true }
-      case SIGNUP[FAILURE]: return { ...state, isSubmitting: false, error: action.payload.error, isOtpSent: false }
+      case SIGNUP[FAILURE]: return { ...state, isSubmitting: false, signUpError: action.payload.error, isOtpSent: false }
 
       case LOGIN[REQUEST]: return { ...state, isSubmitting: true, isAuthenticated: false }
       case LOGIN[SUCCESS]: return { ...state, isSubmitting: false, userInfo: action.payload.user_info }
@@ -54,7 +57,7 @@ const users = () => {
       case ACTIVATE[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: false }
       case ACTIVATE[FAILURE]: return { ...state, isSubmitting: false }
 
-      case RESEND_OTP[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false, requestSuccess: false}
+      case RESEND_OTP[REQUEST]: return { ...state, isSubmitting: true, isOtpSent: false, requestSuccess: false }
       case RESEND_OTP[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: true }
       case RESEND_OTP[FAILURE]: return { ...state, isSubmitting: false, isOtpSent: false }
 
@@ -79,8 +82,8 @@ const users = () => {
     }
   };
 
-  const student = (state=initState, action) => {
-    switch(action.type) {
+  const student = (state = initState, action) => {
+    switch (action.type) {
       case SAVE_STUDENT[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
       case SAVE_STUDENT[SUCCESS]: return { ...state, isLoading: false, isLoaded: true }
       case SAVE_STUDENT[FAILURE]: return { ...state, isLoading: false, isLoaded: false }
@@ -91,8 +94,8 @@ const users = () => {
     }
   }
 
-  const search = (state=initState, action) => {
-    switch(action.type) {
+  const search = (state = initState, action) => {
+    switch (action.type) {
       case SEARCH_USERS[REQUEST]: return { ...state, isLoading: true, isLoaded: false }
       case SEARCH_USERS[SUCCESS]: return { ...state, isLoading: false, isLoaded: true, data: action.payload }
       case SEARCH_USERS[FAILURE]: return { ...state, isLoading: false, isLoaded: false }

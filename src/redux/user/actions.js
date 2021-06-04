@@ -4,8 +4,13 @@ import {
     THEME_PREFERENCE, REFRESH, PASSWORD_RESET,
     PASSWORD_RESET_REQUEST, RESET_OTP_SEND,
     OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP,
-    UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER
+    UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
+    UNSET_ERRORS
 } from "./types";
+
+export const unsetErrors = {
+    unset: () => action(UNSET_ERRORS[UNSET])
+}
 
 export const signup = {
     request: data => action(SIGNUP[REQUEST], { data }),

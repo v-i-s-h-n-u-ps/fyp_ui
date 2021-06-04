@@ -58,3 +58,7 @@ export const selectIsSearching = createSelector(
     val => _get(val, 'search.isLoading')
 )
 
+export const selectSignUpError = createSelector(
+    [selectUsers],
+    val => _get(val, 'auth.signUpError')
+)

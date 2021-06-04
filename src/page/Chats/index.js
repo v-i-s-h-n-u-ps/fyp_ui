@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";
 import PageContainer from "@hoc/PageContainer";
-import Talkjs from "@components/thirdParty/talkjs";
 
 const MultiSelect = dynamic(() => import('@common/MultiSelect'), { ssr: false });
+const TalkJS = dynamic(() => import('@components/thirdParty/talkjs'), { ssr: false });
 
 const Chats = props => {
 
@@ -50,7 +50,7 @@ const Chats = props => {
         />
       </div>
       <div className={s.talkjs}>
-        <Talkjs
+        <TalkJS
           chatWith={user}
           selectUserInfo={selectUserInfo}
           theme={theme}

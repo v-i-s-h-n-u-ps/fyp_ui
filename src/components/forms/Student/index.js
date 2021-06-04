@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 
 import s from "./index.module.scss";
 import { STUDENT_VALIDATION } from "@helpers/schemas";
+import { removeFromMultiList } from "@helpers/";
 import { GENDERS } from "@constants/config";
 import { dateConfig } from "@constants/config";
 import Button from "@common/Button";
@@ -152,7 +153,7 @@ const Student = props => {
                 options={categoryList}
                 selectedValues={values.categories}
                 onSelect={(_, item) => setFieldValue('categories', [...values.categories, item.id])}
-                onRemove={(_, item) => setFieldValue(values.categories.splice(item, 1))}
+                onRemove={(_, item) => {setFieldValue('categories', removeFromMultiList([...values.categories], item, 'id'))}}
                 display="name"
                 name="categories"
                 emptyMessage="No other categories available. Please contact admin to add."

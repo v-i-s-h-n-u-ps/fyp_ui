@@ -5,6 +5,7 @@ import DatePicker from "react-mobile-datepicker";
 import dayjs from "dayjs";
 
 import s from "./index.module.scss";
+import { removeFromMultiList } from "@helpers/";
 import { PROJECT_VALIDATION } from "@helpers/schemas";
 import { dateConfig } from "@constants/config";
 import Button from "@common/Button";
@@ -139,7 +140,7 @@ const Project = props => {
                 options={selectCategory}
                 selectedValues={values.categories}
                 onSelect={(_, item) => setFieldValue('categories', [...values.categories, item.id])}
-                onRemove={(_, item) => setFieldValue(values.categories.splice(item, 1))}
+                onRemove={(_, item) => setFieldValue('categories', removeFromMultiList([...values.categories], item, 'id') )}
                 display="name"
                 name="categories"
                 emptyMessage="No other categories available. Please contact admin to add."

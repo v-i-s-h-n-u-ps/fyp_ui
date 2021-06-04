@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import s from "./index.module.scss";
+import { noGroups } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import PageContainer from "@hoc/PageContainer";
 import ProjectCard from "@cards/Project";
@@ -24,7 +25,7 @@ const Groups = props => {
       secondaryText: 'Are you sure you want to delete this project',
       primaryActionText: 'Confirm',
       secondaryActionText: 'Cancel',
-      primaryAction: () => d__deleteProjects({ id: project.id}),
+      primaryAction: () => d__deleteProjects({ id: project.id }),
       secondaryAction: d__unSetGlobalModalFlag,
       closeOnBlur: false,
       actionable: "selectIsProjectSubmitting"
@@ -41,6 +42,9 @@ const Groups = props => {
       <div className={s.container}>
         {!selectMyProjects.length && !selectIsLoadingProjects
           ? <div className={s.noProjects}>
+            <div className={s.noProjectsImage}>
+              <img src={noGroups} />
+            </div>
             You're not part of any projects. Please go to your profile and create one now.
             <Link href={{ pathname: PROFILE, query: { tab: 'projects' } }} >
               <p>Create Project</p>

@@ -5,6 +5,7 @@
 @import "@css/layouts/flexBox.scss";
 @import "@css/layouts/boxShadows.scss";
 @import "@css/components/images.scss";
+@import "@css/components/tags.scss";
 
 .container {
     @include responsive-flex;
@@ -53,8 +54,14 @@
 }
 
 .tasksContainer {
-    min-height: 400px;
+    @include respond-above(phone) {
+        min-height: 400px;
+    }
     width: 100%;
+    @include respond-below(phone) {
+
+        max-height: 400px;
+    }
 }
 
 .addParticipant {
@@ -71,3 +78,27 @@
 .completed {
     @include label-color;
 }
+
+.tag {
+    @include tag;
+}
+
+.category {
+    @include flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 16px;
+    gap: 8px;
+}
+
+.aboutMe {
+    @include flex;
+    justify-content: space-between;
+}
+
+.dates {
+    @include normal-content-size;
+    @include subtext-color
+}
+

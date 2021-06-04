@@ -67,7 +67,7 @@ const Input = props => {
             </label>
             <input
               ref={input}
-              className={`${s.floatingLabel}`}
+              className={`${s.floatingLabel} ${showEdit ? s.paddingRight : ''}`}
               readOnly={readOnly}
               type={type}
               name={name}

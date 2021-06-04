@@ -62,7 +62,7 @@ const Layout = (props) => {
   return (
     <>
       <Head>
-        {/* <title>Auxiliar</title> */}
+        <title>Auxiliar</title>
         <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content={theme === 'dark' ? '#000000' : '#FFFFFF'} />
         <meta name="theme-color" content={theme === 'dark' ? '#000000' : '#FFFFFF'} />
