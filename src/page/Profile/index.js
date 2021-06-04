@@ -38,7 +38,10 @@ const Profile = props => {
   const setTab = (param) => {
     const tab = _get(param, 'tab.value', 'upload-file');
     setActiveTabValue(tab);
-    router.push({ pathname: PROFILE, query: { tab } })
+    router.push({ 
+      pathname: PROFILE, 
+      query: { tab } 
+    }, undefined, { shallow: true });
   }
 
   const tabItems = [

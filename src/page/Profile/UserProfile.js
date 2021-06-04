@@ -25,14 +25,17 @@ const Profile = props => {
   const completedProjects = _get(selectUserProfile, 'projects', []).filter(item => item.isComplete);
   const currentProjects = _get(selectUserProfile, 'projects', []).filter(item => !item.isComplete);
 
-  if(_get(selectUserInfo, 'id') === _get(selectUserProfile, 'id')) {
+  if (_get(selectUserInfo, 'id') === _get(selectUserProfile, 'id')) {
     router.push({ pathname: PROFILE })
   }
 
   const setTab = (param) => {
     const tab = _get(param, 'tab.value', 'upload-file');
     setActiveTabValue(tab);
-    router.push({ pathname: USER_PROFILE, query: { ...router.query, tab } })
+    router.push({ 
+      pathname: USER_PROFILE, 
+      query: { ...router.query, tab } 
+    }, undefined, { shallow: true });
   }
 
   const tabItems = [
