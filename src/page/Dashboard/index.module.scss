@@ -45,7 +45,13 @@
 
 .infiniteLoader {
     max-height: 94vh;
-    overflow: scroll;
+    overflow: hidden;
+    &:hover,
+    &:active,
+    &:focus {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
     max-width: 45%;
     padding-left: 8px;
     @include respond-below(tablet) {

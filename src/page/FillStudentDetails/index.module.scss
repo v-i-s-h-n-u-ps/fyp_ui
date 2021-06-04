@@ -67,7 +67,13 @@
         @include default-background;
         @include box-shadow-default;
         transform: translate(0, -25%);
-        overflow: auto;
+        overflow: hidden;
+        &:hover,
+        &:active,
+        &:focus {
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
         @include respond-below(tablet) {
             transform: none;
             position: relative;

@@ -17,7 +17,13 @@
 
 .tabList {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
+  &:hover,
+  &:active,
+  &:focus {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
   @include highlight-background;
 }
 

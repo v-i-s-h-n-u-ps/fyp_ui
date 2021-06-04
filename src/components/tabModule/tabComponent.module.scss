@@ -37,7 +37,13 @@
 
 .filterBtnContainer {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
+  &:hover,
+  &:active,
+  &:focus {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
   @include respond-below(phone){
     width: 100%;
   }

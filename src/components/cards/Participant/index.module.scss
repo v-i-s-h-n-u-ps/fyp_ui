@@ -16,6 +16,8 @@
     }
     div {
         @include flex;
+        cursor: pointer;
+        align-items: center;
         p {
             @include heading-m;
             margin-left: 4px;

@@ -45,7 +45,13 @@
 }
 
 .participants {
-    overflow: scroll;
+    overflow: hidden;
+    &:hover,
+    &:active,
+    &:focus {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
     > div {
         margin: 16px 0;
         @include flex;
@@ -86,7 +92,7 @@
 .category {
     @include flex;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     padding-top: 16px;
     gap: 8px;

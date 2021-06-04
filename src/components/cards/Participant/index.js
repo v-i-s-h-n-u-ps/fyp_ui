@@ -14,12 +14,12 @@ const Participant = props => {
 
   return (
     <div className={s.participant} key={item._default ? undefined : item.userId}>
-      <div>
-        <img src={item.avatar} />
-        <Link href={{ pathname: USER_PROFILE, query: { id: item.userId } }}>
+      <Link href={{ pathname: USER_PROFILE, query: { id: item.userId } }}>
+        <div>
+          <img src={item.avatar} />
           <p>{item.name}</p>
-        </Link>
-      </div>
+        </div>
+      </Link>
       {isLeader && !item.isLeader && (
         <div className={s.icon}>
           <i

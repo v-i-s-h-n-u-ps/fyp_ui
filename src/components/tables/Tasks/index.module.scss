@@ -30,7 +30,12 @@
         }
     }
     max-height: 50vh;
-    overflow: scroll;
+    overflow: hidden;
+    &:active,
+    &:focus,
+    &:hover {
+        overflow: auto;
+    }
 }
 
 .pointer {
@@ -55,7 +60,7 @@
     &.active {
         font-size: 15px;
         color: $color-affair;
-        transition: all .2s linear;
+        transition: all 0.2s linear;
         margin-left: 5px;
         margin-top: 5px;
     }
