@@ -20,8 +20,11 @@ const Layout = (props) => {
   useEffect(() => {
     let _theme = theme;
     let themeChange;
+    let lastTheme = GET_THEME();
     let themeChangeFunction;
-    if (window.matchMedia) {
+    if (lastTheme) {
+      _theme = lastTheme
+    } else if (window.matchMedia) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         _theme = "dark"
       }

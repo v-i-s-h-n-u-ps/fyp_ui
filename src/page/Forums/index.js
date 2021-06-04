@@ -41,12 +41,18 @@ const Forums = props => {
       if (!!search) {
         const _forums = Object.assign(filteredForums, []);
         const searchedForums = _forums.filter(forum => (
-          forum.name.indexOf(search) !== -1 || forum.description.indexOf(search) !== -1
+          forum.name.toLowerCase().indexOf(search) !== -1 || 
+          forum.description.toLowerCase().indexOf(search) !== -1
         ))
         setForums(searchedForums)
       } else setForums(filteredForums);
     }
   }
+
+  useEffect(() => {
+    setForums(selectForums);
+    filter();
+  }, [selectForums]);
 
   useEffect(() => {
     filter();

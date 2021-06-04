@@ -57,19 +57,24 @@ const Dashboard = props => {
       setProjects(_projects);
     else {
       const filteredProjects = [];
-      _projects.forEach(project => {
-        let add = false;
-        if (project.university.id === university) add = true;
-        project.categories.forEach(category => {
-          if (category.category === categories) add = true;
+      if (!!categories.length) {
+        _projects.forEach(project => {
+          let add = false;
+          project.categories.forEach(category => {
+            if (category.category === categories) add = true;
+          })
+          if (add) filteredProjects.push(project);
         })
-        if (add) filteredProjects.push(project);
-      })
+      }
+      if (!!university.length) {
+        filteredProjects.filter(project => project.university.id === university);
+      }
       if (!!search) {
-        const _projects = Object.assign(selectHomeData, []);
+        const _projects = Object.assign(filteredProjects, []);
         const searchedProjects = _projects.filter(project => (
-          project.name.indexOf(search) !== -1 || project.createdBy.indexOf(search) !== -1 ||
-          project.description.indexOf(search) !== -1
+          project.name.toLowerCase().indexOf(search) !== -1 || 
+          project.createdBy.toLowerCase().indexOf(search) !== -1 ||
+          project.description.toLowerCase().indexOf(search) !== -1
         ))
         setProjects(searchedProjects)
       } else setProjects(filteredProjects);
@@ -178,7 +183,7 @@ const Dashboard = props => {
           ) : (
             <EmptyState
               message={"There are no projects available. Be the first one to create."}
-              link={{pathname: PROFILE, query: { tab: 'projects' }}}
+              link={{ pathname: PROFILE, query: { tab: 'projects' } }}
               text="Create Project"
               image={noProjects}
             />
