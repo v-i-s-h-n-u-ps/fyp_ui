@@ -18,6 +18,7 @@
     .projectCard {
         padding: 16px 20px 0;
         overflow: hidden;
+        position: relative;
     }
 }
 
@@ -40,6 +41,11 @@
         font-weight: 500;
         @include respond-above(desktop) {
             @include heading-sm;
+        }
+        &.hover {
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     .image {
@@ -92,7 +98,6 @@
 .projectDetails {
     @include heading-sm;
     min-width: 50%;
-    max-width: calc(100% - 160px);
 }
 
 .pinIcon {
@@ -159,4 +164,33 @@
     overflow-y: hidden;
     padding-top: 16px;
     gap: 8px;
+}
+
+.ribbon {
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include normal-content-size;
+    background-color: $color-affair;
+    padding: 4px 16px;
+    @include flex-center;
+    gap: 8px;
+    div {
+        @include default-border-right;
+        height: 16px;
+    }
+}
+
+.delete {
+    @include heading-sm;
+    cursor: pointer;
+    padding-left: 4px;
+    color: white;
+}
+
+.edit {
+    @include heading-m;
+    cursor: pointer;
+    color: white;
 }

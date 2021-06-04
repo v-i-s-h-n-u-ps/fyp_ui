@@ -29,8 +29,9 @@
         @include heading-sm;
         @include default-color;
         @include flex;
+        @include text-ellipsis;
+        width: 100%;
         align-items: flex-end;
-        // color: $color-affair;
         flex-wrap: wrap;
         gap: 8px;
         font-weight: normal !important;

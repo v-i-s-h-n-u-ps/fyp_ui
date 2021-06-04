@@ -14,7 +14,7 @@
 
 @mixin main-container {
     @include respond-above(desktop) {
-        margin: 5vw 0 0 4.47vw;
+        margin: 5vw 0 0 3.45vw;
         &.guest {
             margin: 3.86vw 0 0 0;
         }

@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import withReduxSaga from "../..";
 import { globalModalFlag } from "@redux/auxiliary/actions";
 import {
-    createProject, updateProject, getMyProjects
+    createProject, updateProject, getMyProjects,
+    deleteProjects
 } from "@redux/projects/actions";
 import {
     selectIsLoadingProjects, selectIsProjectSubmitting, 
@@ -47,6 +48,7 @@ const mapDispatchToProps = dispatch => {
     return {
         d__createProject: data => dispatch(createProject.request(data)),
         d__updateProject: data => dispatch(updateProject.request(data)),
+        d__deleteProjects: data => dispatch(deleteProjects.request(data)),
         d__updateUser: data => dispatch(updateUser.request(data)),
         d__globalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data)),
         d__globalModalFlagUnset: () => dispatch(globalModalFlag.unset())

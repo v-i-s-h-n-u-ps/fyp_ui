@@ -158,6 +158,7 @@ const Dashboard = props => {
                         key={project.default ? undefined : project.id}
                         showMessage={true}
                         onClick={d__newChat}
+                        navigate={false}
                       />
                     </div>
                   ))

@@ -45,7 +45,8 @@ const Chats = props => {
           multiple={true}
           selectionLimit={1}
           closeOnSelect={true}
-          placeholder={"Search"}
+          placeholder={"Search By Email"}
+          noBorder={true}
         />
       </div>
       <div className={s.talkjs}>

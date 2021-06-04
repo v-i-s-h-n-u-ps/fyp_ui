@@ -5,7 +5,8 @@ import {
     CREATE_PROJECT, MY_PROJECTS, SET_PROJECT_DETAILS,
     GET_PROJECTS_HOME, PROJECT_DETAILS, PROJECT_PARTICIPANTS,
     SET_PROJECTS_HOME, UPDATE_PROJECT, MANAGE_PARTICIPANTS,
-    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK
+    ADD_PROJECT_TASK, GET_PROJECT_TASK, UPDATE_PROJECT_TASK,
+    DELETE_PROJECTS
 } from "./types";
 import { FAILURE, REQUEST, SUCCESS, UNSET } from "../actionCreator";
 
@@ -41,6 +42,12 @@ const projects = () => {
             case UPDATE_PROJECT[SUCCESS]:
                 return { ...state, isLoading: false, isLoaded: true }
             case UPDATE_PROJECT[FAILURE]:
+                return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
+            case DELETE_PROJECTS[REQUEST]:
+                return { ...state, isLoading: true, isLoaded: false }
+            case DELETE_PROJECTS[SUCCESS]:
+                return { ...state, isLoading: false, isLoaded: true }
+            case DELETE_PROJECTS[FAILURE]:
                 return { ...state, isLoading: false, error: action.payload.error, isLoaded: false }
             case MANAGE_PARTICIPANTS[REQUEST]:
                 return { ...state, isLoading: true, isLoaded: false }

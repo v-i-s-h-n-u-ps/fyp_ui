@@ -49,6 +49,10 @@
         padding: 8px 16px !important;
     }
     @include input-border-bottom;
+    &.noBorder {
+        border-width: 0 !important;
+        margin-top: 8px;
+    }
     margin: 24px 0 2px;
     :global {
         ._32r8xHW3WLH5mygPuyDIBF {

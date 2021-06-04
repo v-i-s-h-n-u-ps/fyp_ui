@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import s from "./index.module.scss";
+import { selectIsProjectSubmitting } from "@redux/projects/selectors";
 import ActivityIndicator from "@components/loaders/ActivityIndicator";
 
 const Confirm = props => {
@@ -54,11 +55,18 @@ const Confirm = props => {
           onClick={action}
           disabled={props[actionable]}
         >
-          {primaryActionText}
+          {props[actionable]
+            ? <ActivityIndicator showCondition={true} stroke={'#8e4d99'} />
+            : primaryActionText
+          }
         </button>
       </div>
     </div>
   )
 }
 
-export default Confirm;
+const mapStateToProps = createStructuredSelector({
+  selectIsProjectSubmitting
+})
+
+export default connect(mapStateToProps)(Confirm);
