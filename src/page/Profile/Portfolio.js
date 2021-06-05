@@ -1,7 +1,7 @@
 import React from "react";
 
 import s from "./Portfolio.module.scss";
-import { noProjects } from "@constants/images";
+import { noProfile } from "@constants/images";
 import ProjectCard from "@cards/Project";
 import EmptyState from "@common/EmptyState";
 
@@ -23,10 +23,10 @@ const Portfolio = props => {
         : (
           <EmptyState
             message={showActions
-              ? "Your are not part of any projects now. Create one now"
+              ? "Complete projects to be displayed in your portfolio."
               : "User is not part of any projects currently"
             }
-            image={noProjects}
+            image={noProfile}
           />
         )}
     </div>

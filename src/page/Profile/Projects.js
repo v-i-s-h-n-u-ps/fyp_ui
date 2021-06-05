@@ -4,7 +4,7 @@ import _find from "lodash/find";
 import { useRouter } from "next/router";
 
 import s from "./Projects.module.scss";
-import { noProjects } from "@constants/images";
+import { noProfile } from "@constants/images";
 import { PROFILE } from "@constants/routes";
 import prevState from "@hooks/prevState"
 import ProjectForm from "@forms/Project";
@@ -108,10 +108,10 @@ const Projects = props => {
             : (
               <EmptyState
                 message={showActions
-                  ? "Your are not part of any projects now, Create one now"
+                  ? "Your are not part of any projects now, Create one now!"
                   : "User is not part of any projects currently"
                 }
-                image={noProjects}
+                image={noProfile}
               />
             )}
         </>

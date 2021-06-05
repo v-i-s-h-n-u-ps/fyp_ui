@@ -185,7 +185,7 @@ const Dashboard = props => {
           ) : (
             <div className={s.emptyState}>
               <EmptyState
-                message={"There are no projects available. Be the first one to create."}
+                message={"There are no projects available. Be the first to create one."}
                 link={{ pathname: PROFILE, query: { tab: 'projects' } }}
                 text="Create Project"
                 image={noProjects}

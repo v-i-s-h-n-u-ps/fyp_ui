@@ -110,7 +110,7 @@ const Forums = props => {
                 There are no projects available. Be the first one to create.
               </div>
             : <EmptyState
-                message="There are no projects available. Be the first one to create."
+                message="There are no forums available. Be the first to create one."
                 image={noForums}
                 text="Create Forum"
                 link={() => d__globalModalFlag('forum')}

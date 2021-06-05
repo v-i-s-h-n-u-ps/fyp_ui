@@ -43,7 +43,7 @@ const Groups = props => {
       <div className={s.container}>
         {!selectMyProjects.length && !selectIsLoadingProjects
           ? <EmptyState
-            message="You're not part of any projects. Please go to your profile and create one now."
+            message="You're not part of any projects. Please go to your profile to create one now."
             image={noGroups}
             link={{ pathname: PROFILE, query: { tab: 'projects' } }}
             text={"Create Project"}
