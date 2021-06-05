@@ -82,9 +82,9 @@ const Details = props => {
         </div>
       </div>
       {showEdit && (
-        <div>
+        <div className={s.actionContainer}>
           <Button
-            text="edit"
+            text="edit details"
             type="grey"
             variant="hollow"
             width="150px"
@@ -93,7 +93,7 @@ const Details = props => {
               query: { edit: 'true' }
             })}
           />
-          <p onClick={trigger}>Change Password</p>
+          <p className={s.changePassword} onClick={trigger}>Change Password</p>
         </div>
       )}
     </div>

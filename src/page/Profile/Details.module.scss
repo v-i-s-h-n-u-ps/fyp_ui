@@ -59,3 +59,18 @@
 .tag {
     @include tag;
 }
+
+.changePassword {
+    @include label-color;
+    @include heading-sm;
+    cursor: pointer;
+}
+
+.actionContainer {
+    @include flex;
+    align-items: center;
+    gap: 20px;
+    @include respond-below(phone) {
+        justify-content: space-between;
+    }
+}
