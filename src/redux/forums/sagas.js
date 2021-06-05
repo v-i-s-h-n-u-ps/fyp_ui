@@ -29,7 +29,10 @@ function* handleUpdateForum({ data }) {
     try {
         const apiResponse = yield call(updateForums, data);
         if (isSuccess) {
-            yield put({ type: GET_FORUMS[REQUEST] })
+            yield put({
+                type: GET_FORUM_DETAILS[REQUEST],
+                data: { id: data.id }
+            })
         }
         yield sendPayload(apiResponse, UPDATE_FORUMS);
     } catch (e) {

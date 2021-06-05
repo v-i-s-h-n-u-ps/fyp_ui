@@ -1,6 +1,7 @@
 @import "@css/layouts/mediaQueries.scss";
 @import "@css/layouts/flexBox.scss";
 @import "@css/components/texts.scss";
+@import "@css/components/tags.scss";
 @import "@css/layouts/container.scss";
 
 .talkjs {
@@ -67,4 +68,18 @@
 
 .talkContainer {
     height: 60vh;
+}
+
+.tag {
+    @include tag;
+}
+
+.category {
+    @include flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 8px;
 }

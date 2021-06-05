@@ -84,6 +84,16 @@ const Forum = props => {
             </div>
             <div className={s.date}>{dayjs(selectForumDetails.createdAt).format("Do MMM, YYYY")}</div>
           </div>
+          <div className={s.category}>
+            {_get(selectForumDetails, 'categories', []).map(category => (
+              <span
+                className={s.tag}
+                key={category.id}
+              >
+                {category.name}
+              </span>
+            ))}
+          </div>
           <div className={s.description}>
             {selectForumDetails.description}
           </div>

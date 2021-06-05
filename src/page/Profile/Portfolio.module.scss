@@ -10,8 +10,9 @@
 
 .projectsContainer {
     @include flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 3.33%;
     > div {
         @include respond-below(phone) {
             flex: 0 0 100%

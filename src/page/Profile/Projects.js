@@ -35,6 +35,11 @@ const Projects = props => {
   const prev = prevState(isSubmitting)
   const router = useRouter();
 
+  const onCreate = () => {
+    setCreate(true);
+    setValues(init);
+  }
+
   useEffect(() => {
     if (prev && !isSubmitting && create) {
       setCreate(false);
@@ -86,7 +91,7 @@ const Projects = props => {
                 variant="hollow"
                 type="primary"
                 width="200px"
-                onClick={() => setCreate(true)}
+                onClick={onCreate}
               />
             </div>
           )}
@@ -99,7 +104,7 @@ const Projects = props => {
                     isLeader={showActions && _get(selectUserInfo, 'id') === project.created_id}
                     onDelete={onDelete}
                     onEdit={onEdit}
-                    navigate={false}
+                    navigate={navigate}
                   />
                 </div>
               ))}
@@ -107,7 +112,7 @@ const Projects = props => {
             : (
               <EmptyState
                 message={showActions
-                  ? "Your are not part of any projects now, Create one now!"
+                  ? "Your are not part of any projects. Create one now!"
                   : "User is not part of any projects currently"
                 }
                 image={noProfile}

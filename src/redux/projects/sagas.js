@@ -16,6 +16,7 @@ import {
     manageParticipants, getMyProjects, getProjectTask,
     updateProjectTask, addProjectTask, deleteProjects
 } from "@services/";
+import { toast } from "react-toastify";
 
 
 function* handleGetMyProject({ data }) {
@@ -96,6 +97,8 @@ function* handleManageParticipants({ data }) {
                 type: PROJECT_PARTICIPANTS[REQUEST],
                 data: { id: data.project }
             })
+        } else {
+            toast.error(_get(apiResponse, 'data.error', "Something went wrong"))
         }
         yield sendPayload(apiResponse, MANAGE_PARTICIPANTS);
     } catch (e) {
@@ -109,7 +112,7 @@ function* handleAddProjectTask({ data }) {
         if (isSuccess) {
             yield put({
                 type: GET_PROJECT_TASK[REQUEST],
-                data: { project: data.project }
+                data: { id: data.project }
             })
         }
         yield sendPayload(apiResponse, ADD_PROJECT_TASK);
@@ -124,7 +127,7 @@ function* handleUpdateProjectTask({ data }) {
         if (isSuccess) {
             yield put({
                 type: GET_PROJECT_TASK[REQUEST],
-                data: { project: data.project }
+                data: { id: data.project }
             })
         }
         yield sendPayload(apiResponse, UPDATE_PROJECT_TASK);
