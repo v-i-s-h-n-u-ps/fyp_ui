@@ -63,6 +63,7 @@ const Profile = props => {
       projects={currentProjects}
       selectUserInfo={selectUserInfo}
       showActions={false}
+      navigate={false}
     />,
     'details': <Details
       selectStudentInfo={_get(selectUserProfile, 'student', {})}

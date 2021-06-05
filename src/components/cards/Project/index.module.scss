@@ -39,6 +39,7 @@
         color: #8e4d99;
         @include heading-m;
         font-weight: 500;
+        padding-bottom: 4px;
         @include respond-above(desktop) {
             @include heading-sm;
         }
@@ -57,7 +58,6 @@
 
 .projectLeaderDetails {
     padding: 0px 0px 0px 10px;
-    cursor: pointer;
 }
 
 .flexCenter {
@@ -94,6 +94,7 @@
 
 .projectLeader {
     @include heading-sm;
+    cursor: pointer;
     min-width: 50%;
 }
 

@@ -10,17 +10,18 @@
 
 .projectsContainer {
     @include flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 3%;
     > div {
         @include respond-below(phone) {
             flex: 0 0 100%
         }
         @include respond-between(phone, desktop) {
-            flex: 0 0 48%
+            flex: 0 0 48%;
         }
         @include respond-above(desktop) {
-            flex: 0 0 31%
+            flex: 0 0 31%;
         }
         margin-bottom: 16px;
     }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Waypoint } from "react-waypoint";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import s from "./index.module.scss";

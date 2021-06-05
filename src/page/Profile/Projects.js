@@ -26,7 +26,7 @@ const Projects = props => {
   const {
     isLoading, isSubmitting, projects, onSubmit, selectUniversity,
     theme, selectCategory, selectUserInfo, location, onEdit, onDelete,
-    editItem, showCreateButton = true, showActions = true
+    editItem, showCreateButton = true, showActions = true, navigate = true
   } = props
 
   const [create, setCreate] = useState(false);
@@ -100,13 +100,14 @@ const Projects = props => {
                     isLeader={showActions && _get(selectUserInfo, 'id') === project.created_id}
                     onDelete={onDelete}
                     onEdit={onEdit}
+                    navigate={false}
                   />
                 </div>
               ))}
             </div>
             : (
               <EmptyState
-                message={showActions 
+                message={showActions
                   ? "Your are not part of any projects now, Create one now"
                   : "User is not part of any projects currently"
                 }
