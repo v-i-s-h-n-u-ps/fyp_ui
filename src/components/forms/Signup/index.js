@@ -58,7 +58,6 @@ const Signup = props => {
                   value={values.name}
                   error={errors.name && touched.name}
                   helperText={errors.name && touched.name ? errors.name : ''}
-                  autoFocus={true}
                   showEdit={true}
                   secondaryText={<i className={`icon-user_outline ${s.icon} ${s.user}`} />}
                 />
