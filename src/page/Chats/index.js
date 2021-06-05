@@ -49,15 +49,13 @@ const Chats = props => {
           noBorder={true}
         />
       </div>
-      <h2>Your Calendar:</h2>
-      <iframe src="https://calendar.google.com/calendar/embed?src=' + encodeURI(kracymailz@gmail.com)"></iframe>
-      {/* <div className={s.talkjs}>
+      <div className={s.talkjs}>
         <TalkJS
           chatWith={user}
           selectUserInfo={selectUserInfo}
           theme={theme}
         />
-      </div> */}
+      </div>
     </PageContainer>
   );
 };

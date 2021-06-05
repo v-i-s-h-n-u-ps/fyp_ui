@@ -93,10 +93,9 @@ const Projects = props => {
           {!!projects.length
             ? <div className={s.projectsContainer}>
               {projects.map((project, index) => (
-                <div>
+                <div key={`project-${index}`}>
                   <ProjectCard
                     project={project}
-                    key={`project-${index}`}
                     isLeader={showActions && _get(selectUserInfo, 'id') === project.created_id}
                     onDelete={onDelete}
                     onEdit={onEdit}

@@ -1,7 +1,7 @@
 import React from "react";
 import _get from "lodash/get";
 import dayjs from "dayjs";
-import Link from "next/link";
+import { useRouter } from "next/router"
 
 import s from "./Details.module.scss";
 import { FILL_STUDENT_DETAILS } from "@constants/routes";
@@ -10,6 +10,7 @@ import Button from "@common/Button";
 const Details = props => {
 
   const { selectStudentInfo, showEdit = true } = props;
+  const router = useRouter();
 
   return (
     <div className={s.container}>
@@ -38,7 +39,7 @@ const Details = props => {
         <label>Category</label>
         <p>
           {_get(selectStudentInfo, 'categories', []).map(category => (
-            <span className={s.tag}>
+            <span className={s.tag} key={category.category}>
               {category.categoryName}
             </span>
           ))}
@@ -69,17 +70,16 @@ const Details = props => {
         </div>
       </div>
       {showEdit && (
-        <Link
-          href={{ pathname: FILL_STUDENT_DETAILS, query: { edit: 'true' } }}
-          asPath={`${FILL_STUDENT_DETAILS}?edit=true`}
-        >
-          <Button
-            text="edit"
-            type="grey"
-            variant="hollow"
-            width="150px"
-          />
-        </Link>
+        <Button
+          text="edit"
+          type="grey"
+          variant="hollow"
+          width="150px"
+          onClick={() => router.push({
+            pathname: FILL_STUDENT_DETAILS,
+            query: { edit: 'true' }
+          })}
+        />
       )}
     </div>
   )

@@ -136,6 +136,7 @@ const Dashboard = props => {
                     label="Category"
                     selectionLimit={1}
                     closeOnSelect={true}
+                    key="category"
                   />
                   <MultiSelect
                     options={selectUniversity}
@@ -150,6 +151,7 @@ const Dashboard = props => {
                     label="University"
                     selectionLimit={1}
                     closeOnSelect={true}
+                    key="university"
                   />
                 </div>
               </div>
@@ -159,6 +161,7 @@ const Dashboard = props => {
                     <div
                       onMouseOver={() => setHoverItem(project.university.id)}
                       onMouseLeave={() => setHoverItem('')}
+                      key={project._default ? undefined : project.id}
                     >
                       <Project
                         project={project}
