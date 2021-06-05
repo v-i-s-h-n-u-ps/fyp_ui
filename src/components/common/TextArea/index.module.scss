@@ -1,0 +1,57 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+
+.textAreaContainer {
+    margin-bottom: 15px;
+    margin-top: 16px;
+    @include flex-column;
+    textarea {
+        font-family: Muli;
+        resize: none;
+        // width: 95%;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        @include highlight-background;
+        @include default-border;
+        @include default-color;
+    }
+}
+
+.textareaBottom {
+    @include flex;
+    justify-content: space-between;
+    p {
+        flex-grow: 1;
+        @include heading-s;
+    }
+    span {
+        @include heading-s;
+        @include subtext-color;
+        flex-grow: 1;
+        text-align: right;
+    }
+}
+
+.label {
+    letter-spacing: 0.4px;
+    padding: 0 2px 8px;
+    background: transparent;
+    @include default-color;
+    @include heading-sm;
+    &.active {
+        font-weight: 500;
+        @include label-color;
+        @include default-background;
+        @include heading-sm;
+    }
+}
+
+.error {
+    textarea {
+        border-color: $color-alizarin !important;
+    }
+    color: $color-alizarin !important;
+}

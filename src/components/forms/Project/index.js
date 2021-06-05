@@ -90,7 +90,7 @@ const Project = props => {
               />
               <div className={s.flex}>
                 <Input
-                  label="Name"
+                  label="Project Name"
                   name="name"
                   handleChange={handleChange}
                   value={values.name}

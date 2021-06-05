@@ -13,6 +13,7 @@ import { GENDERS } from "@constants/config";
 import { dateConfig } from "@constants/config";
 import Button from "@common/Button";
 import Input from "@common/Input";
+import TextArea from "@common/TextArea";
 
 const S3Upload = dynamic(() => import('@components/thirdParty/s3'), { ssr: false });
 const MultiSelect = dynamic(() => import('@common/MultiSelect'), { ssr: false });
@@ -82,7 +83,7 @@ const Student = props => {
                 <div />
               </div>
               <div className={s.multiInput}>
-              <div className={s.social}>
+                <div className={s.social}>
                   <Input
                     label="Date of Birth"
                     name="dateOfBirth"
@@ -153,7 +154,7 @@ const Student = props => {
                 options={categoryList}
                 selectedValues={values.categories}
                 onSelect={(_, item) => setFieldValue('categories', [...values.categories, item.id])}
-                onRemove={(_, item) => {setFieldValue('categories', removeFromMultiList([...values.categories], item, 'id'))}}
+                onRemove={(_, item) => { setFieldValue('categories', removeFromMultiList([...values.categories], item, 'id')) }}
                 display="name"
                 name="categories"
                 emptyMessage="No other categories available. Please contact admin to add."
@@ -230,22 +231,17 @@ const Student = props => {
                   />
                 </div>
               </div>
-              <div className={`${s.aboutYouContainer} ${errors.about && touched.about ? s.error : ''}`}>
-                <p className={`${s.label} ${!!values.about ? s.active : ''} ${errors.about && touched.about ? s.error : ''}`}>About you</p>
-                <textarea
-                  rows={3}
-                  placeholder={'Write something about you...'}
-                  name={"about"}
-                  value={values.about}
-                  onChange={handleChange}
-                />
-                <div className={s.textareaBottom}>
-                  <p>{errors.about && touched.about ? errors.about : ''}</p>
-                  <span>
-                    {values.about.length}/300
-                                </span>
-                </div>
-              </div>
+              <TextArea
+                label="About You"
+                error={errors.about && touched.about}
+                rows={3}
+                placeholder={'Write something about you...'}
+                name={"about"}
+                value={values.about}
+                onChange={handleChange}
+                helperText={errors.about && touched.about ? errors.about : ''}
+                maxLength={300}
+              />
               <div className={s.flexCenter}>
                 <Button
                   type="message"

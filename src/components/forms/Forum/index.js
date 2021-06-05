@@ -12,6 +12,7 @@ import { selectIsForumSubmitting } from "@redux/forums/selectors";
 import { FORUM_VALIDATION } from "@helpers/schemas";
 import Button from "@common/Button";
 import Input from "@common/Input";
+import TextArea from "@common/TextArea";
 
 const MultiSelect = dynamic(() => import('@common/MultiSelect'), { ssr: false });
 
@@ -85,11 +86,13 @@ const Forum = props => {
                 key="id"
                 label="Category"
               />
-              <Input
-                label="Forum Description"
-                name="description"
-                handleChange={handleChange}
+              <TextArea
+                onChange={handleChange}
+                rows={3}
+                placeholder='Write in a few words...'
+                name='description'
                 value={values.description}
+                label={'Description'}
                 error={errors.description && touched.description}
                 helperText={errors.description && touched.description ? errors.description : ''}
               />

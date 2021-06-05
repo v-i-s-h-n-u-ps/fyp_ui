@@ -73,7 +73,7 @@ const Dashboard = props => {
       if (!!search) {
         const _projects = Object.assign(filteredProjects, []);
         const searchedProjects = _projects.filter(project => (
-          project.name.toLowerCase().indexOf(search) !== -1 || 
+          project.name.toLowerCase().indexOf(search) !== -1 ||
           project.createdBy.toLowerCase().indexOf(search) !== -1 ||
           project.description.toLowerCase().indexOf(search) !== -1
         ))
@@ -183,12 +183,14 @@ const Dashboard = props => {
               </div>
             </div>
           ) : (
-            <EmptyState
-              message={"There are no projects available. Be the first one to create."}
-              link={{ pathname: PROFILE, query: { tab: 'projects' } }}
-              text="Create Project"
-              image={noProjects}
-            />
+            <div className={s.emptyState}>
+              <EmptyState
+                message={"There are no projects available. Be the first one to create."}
+                link={{ pathname: PROFILE, query: { tab: 'projects' } }}
+                text="Create Project"
+                image={noProjects}
+              />
+            </div>
           )}
         <div className={s.maps}>
           <Map

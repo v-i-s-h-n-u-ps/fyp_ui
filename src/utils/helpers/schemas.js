@@ -85,7 +85,7 @@ export const STUDENT_VALIDATION = yup.object().shape({
 export const PROJECT_VALIDATION = yup.object().shape({
   name: yup.string()
     .trim()
-    .required('name is required'),
+    .required('Project name is required'),
   description: yup.string()
     .trim()
     .required('Description is required'),
