@@ -40,6 +40,9 @@
     @include respond-below(tablet) {
         width: 80%;
     }
+    @include respond-below(phone) {
+        padding-top: 8px;
+    }
     gap: 16px;
     > div {
         flex-grow: 1;

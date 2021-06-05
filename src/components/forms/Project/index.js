@@ -161,7 +161,7 @@ const Project = props => {
               <div className={s.flexCenter}>
                 <p className={s.cancel} onClick={cancel}>
                   Cancel
-                                </p>
+                </p>
                 <Button
                   type="message"
                   variant="block"

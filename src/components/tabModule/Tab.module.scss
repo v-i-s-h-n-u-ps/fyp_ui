@@ -5,114 +5,113 @@
 @import "@css/theme/fontSizes";
 
 .tabContainer {
-  @include highlight-background;
-  @include default-border;
-  border-radius: 4px;
-  @include respond-below(phone) {
-    top: 13.1vw;
-    padding: 0;
-    @include default-background;
-  }
+    @include highlight-background;
+    @include default-border;
+    border-radius: 4px;
+    @include respond-below(phone) {
+        top: 13.1vw;
+        padding: 0;
+        @include default-background;
+    }
 }
 
 .tabList {
-  display: flex;
-  overflow: hidden;
-  &:hover,
-  &:active,
-  &:focus {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  @include highlight-background;
+    display: flex;
+    overflow: hidden;
+    &:hover,
+    &:active,
+    &:focus {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    @include highlight-background;
 }
 
 .tabListItem {
-  cursor: pointer;
-  position: relative;
-  color: #7d7d7d;
-  list-style: none;
-  flex: 1 1;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  white-space: nowrap;
-  transition: all 0.3s;
-  @include respond-above(desktop) {
-    height: 2.57vw;
-    font-size: $font-size-screen-m;
-  }
-  @include respond-between(tablet, desktop) {
-    height: 3.06vw;
-    font-size: $font-size-desktop-m;
-  }
-  @include respond-between(phone, tablet) {
-    height: 5vw;
-    font-size: $font-size-tablet-lm;
-  }
-  @include respond-below(phone) {
-    height: 10.53vw;
-    min-width: 36vw;
-    flex-direction: column-reverse;
-    font-size: $font-size-phone-sm;
-    @include highlight-background;
-  }
-
-  &:last-child {
-    margin-left: auto;
-  }
-
-  &:only-child {
-    cursor: default;
-    margin-left: inherit;
-    @include respond-above(phone) {
-      flex: 0 0 30%;
+    cursor: pointer;
+    position: relative;
+    color: #7d7d7d;
+    list-style: none;
+    flex: 1 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    white-space: nowrap;
+    transition: all 0.3s;
+    @include respond-above(desktop) {
+        height: 2.57vw;
+        font-size: $font-size-screen-m;
     }
-  }
-
-  &.tabListActive {
-    // border-radius: 8px 8px 0 0;
-    @include subtext-color;
-    @include default-background;
-    @include respond-above(phone) {
-      box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.07);
+    @include respond-between(tablet, desktop) {
+        height: 3.06vw;
+        font-size: $font-size-desktop-m;
+    }
+    @include respond-between(phone, tablet) {
+        height: 5vw;
+        font-size: $font-size-tablet-lm;
     }
     @include respond-below(phone) {
-      border-radius: 0;
+        height: 10.53vw;
+        min-width: 36vw;
+        flex-direction: column-reverse;
+        font-size: $font-size-phone-sm;
+        @include highlight-background;
     }
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      animation: outwards 0.5s ease-out;
-      opacity: 1;
-      background-color: $color-affair;
+
+    &:last-child {
+        margin-left: auto;
     }
-    &:before {
-      left: 0%;
-      bottom: 0;
+
+    &:only-child {
+        cursor: default;
+        margin-left: inherit;
+        @include respond-above(phone) {
+            flex: 0 0 30%;
+        }
     }
-    &:after {
-      right: 0%;
-      top: 0;
+
+    &.tabListActive {
+        @include subtext-color;
+        @include default-background;
+        @include respond-above(phone) {
+            box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.07);
+        }
+        @include respond-below(phone) {
+            border-radius: 0;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            animation: outwards 0.5s ease-out;
+            opacity: 1;
+            background-color: $color-affair;
+        }
+        &:before {
+            left: 0%;
+            bottom: 0;
+        }
+        &:after {
+            right: 0%;
+            top: 0;
+        }
     }
-  }
 }
 
 @keyframes outwards {
-  0% {
-    opacity: 1;
-    width: 0%;
-  }
+    0% {
+        opacity: 1;
+        width: 0%;
+    }
 }
 
 .tabLabel {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
 }

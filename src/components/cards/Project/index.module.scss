@@ -5,6 +5,7 @@
 @import "@css/components/texts.scss";
 @import "@css/components/animations.scss";
 @import "@css/components/tags.scss";
+@import "@css/components/images.scss";
 
 .projectContainer {
     display: block;
@@ -54,6 +55,7 @@
         height: 50px;
         border-radius: 50%;
         cursor: pointer;
+        object-fit: cover;
     }
 }
 

@@ -12,8 +12,6 @@ const initialSuccessState = {
 };
 
 const aux = () => {
-    // Only latest Api Error will be reflected
-    // to catch here add action  to GLOBAL_API_SUCCESS_CONFIG
     const globalAPIError = (state = {}, action) => {
         if (_includes(GLOBAL_API_FAILURE_CONFIG, action.type)) {
             return Object.assign({}, state, action.payload, {
@@ -26,8 +24,6 @@ const aux = () => {
         return state;
     };
 
-    // Only latest Api Success will be reflected
-    // to catch here add action  to GLOBAL_API_SUCCESS_CONFIG
     const globalAPISuccess = (state = {}, action) => {
         if (_get(GLOBAL_API_SUCCESS_CONFIG, [action.type])) {
             return Object.assign(

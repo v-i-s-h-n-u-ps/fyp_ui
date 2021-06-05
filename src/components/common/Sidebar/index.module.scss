@@ -30,7 +30,6 @@
             }
             .link{
                 transform: translateX(0);
-                // opacity: 1;
             }
             &+ .overlay.overlay {
                 opacity: 1;
@@ -45,22 +44,16 @@
     width: 4.31vw;
     display: flex;
     height: 100%;
-    // align-items: center;
     flex-flow: column;
-    // justify-content: center;
-    // transition: width 0.4s ease;
-    // will-change: width;
 }
 
 .contents {
     display: flex;
     align-items: center;
     flex-flow: column;
-    // justify-content: center;
     transition: width 0.4s ease;
     will-change: width;
     flex-grow: 1;
-    // height: 100vh;
 }
 
 .linkContainer {
@@ -79,14 +72,12 @@
     .fullLogo {
         height: 5vw;
         transform: scale(1.4);
-        // padding: 1vw 0;
     }
 
     .shortLogo {
         min-width: 4.31vw;
         width: 4.31vw;
         padding: 1.3vw 1.3vw 1.3vw 0.3vw;
-        // padding: 1vw;
         height: 5vw;
         @include respond-below(desktop) {
             padding: 1vw;
@@ -112,7 +103,6 @@
     min-width: 4.31vw;
     height: 4vw;
     @include flex-center;
-    // height: 4vw;
     @include sidebar-background;
     position: relative;
     z-index: 1;
@@ -219,7 +209,6 @@
     white-space: nowrap;
     color: $color-affair;
     transition: transform 0.4s ease;
-    // opacity: 0;
 }
 
 .overlay {
@@ -228,7 +217,6 @@
     top:0;
     right:0;
     left: 0;
-    // background: rgba(0, 0, 0, 0.8);
     @include default-overlay-background;
     opacity: 0;
     visibility: hidden;
@@ -290,7 +278,6 @@
         }
         .fullLogo {
             height: 8.6vw;
-            // padding: 2vw 0;
         }
     
         .shortLogo {
@@ -328,7 +315,6 @@
         }
         .fullLogo {
             height: 13.2vw;
-            // padding: 2vw 0;
         }
     
         .shortLogo {

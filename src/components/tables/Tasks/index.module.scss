@@ -36,6 +36,9 @@
     &:hover {
         overflow: auto;
     }
+    @include respond-below(phone) {
+        margin-top: 8px;
+    }
 }
 
 .pointer {

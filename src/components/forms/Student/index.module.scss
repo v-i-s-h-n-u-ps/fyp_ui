@@ -18,7 +18,6 @@
     @include respond-above(phone) {
         button {
             width: 150px !important;
-            // float: right;
         }
     }
 }

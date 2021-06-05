@@ -15,6 +15,9 @@
     }
     span {
         @include heading-sm;
+        width: 100%;
+        overflow: hidden;
+        @include text-ellipsis
     }
     &.noInput {
         input {
