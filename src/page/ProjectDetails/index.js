@@ -128,7 +128,9 @@ const ProjectDetails = props => {
             onClick={markCompleted}
             width="250px"
           />
-          : <p className={s.completed}>Completed</p>
+          : isComplete
+            ? <p className={s.completed}>Completed</p>
+            : ''
         }
       </NavigateTo>
       <div className={s.container}>
