@@ -49,7 +49,7 @@ const Groups = props => {
             text={"Create Project"}
           />
           : selectMyProjects.map((project, index) => (
-            <div className={s.project}>
+            <div className={s.project} key={project._default ? undefined : project.id}>
               <ProjectCard
                 project={project}
                 key={`project-${index}`}

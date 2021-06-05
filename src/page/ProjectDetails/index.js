@@ -146,7 +146,7 @@ const ProjectDetails = props => {
             </p>
             <div className={s.category}>
               {_get(selectProjectDetails, 'categories', []).map(category => (
-                <span className={s.tag}>
+                <span className={s.tag} key={category.category}>
                   {category.category_name}
                 </span>
               ))}
@@ -181,6 +181,7 @@ const ProjectDetails = props => {
                   item={item}
                   isLeader={userIsLeader}
                   onRemove={remove}
+                  key={item.id}
                 />
               ))}
             </div>
