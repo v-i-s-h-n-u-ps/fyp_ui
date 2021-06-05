@@ -32,7 +32,7 @@ const Chats = props => {
   }, [selectNewChat])
 
   return (
-    <PageContainer active={"chats"} name="Chats">
+    <PageContainer active={"send"} name="Chats">
       <div className={s.search}>
         <MultiSelect
           options={selectSearchResults}
@@ -49,13 +49,15 @@ const Chats = props => {
           noBorder={true}
         />
       </div>
-      <div className={s.talkjs}>
+      <h2>Your Calendar:</h2>
+      <iframe src="https://calendar.google.com/calendar/embed?src=' + encodeURI(kracymailz@gmail.com)"></iframe>
+      {/* <div className={s.talkjs}>
         <TalkJS
           chatWith={user}
           selectUserInfo={selectUserInfo}
           theme={theme}
         />
-      </div>
+      </div> */}
     </PageContainer>
   );
 };
