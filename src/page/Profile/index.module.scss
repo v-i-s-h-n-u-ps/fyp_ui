@@ -9,7 +9,7 @@
 .imageCover {
     width: 100%;
     position: relative;
-    background: linear-gradient(to bottom right, rgba(24, 175, 207,0.4), rgba(125, 67, 228,0.4));
+    background: linear-gradient(to bottom right, rgba(24, 175, 207, 0.4), rgba(125, 67, 228, 0.4));
     padding: 100px;
     .image {
         position: absolute;
@@ -111,9 +111,11 @@
 
 .imageArea {
     position: relative;
+    @include image-cover;
 }
 
 .edit {
+    cursor: pointer;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -122,8 +124,7 @@
     border-radius: 50%;
     opacity: 0.1;
     @include box-shadow-default;
-    // @include default-overlay-background;
-    // @include default-color;
+    @include default-overlay-background;
     @include flex-center;
     i {
         @include heading-lm;
@@ -133,6 +134,7 @@
         opacity: 0.8;
         transition: all 0.2s ease;
         span {
+            color: white;
             opacity: 1;
         }
     }

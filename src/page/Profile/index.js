@@ -143,7 +143,7 @@ const Profile = props => {
               >
                 <div className={s.edit} onClick={() => setEdit(true)}>
                   <span>
-                    <i className={`icon-pencil ${s.icon}`} />
+                    <i className={`icon-linked_camera ${s.icon}`} />
                       Edit
                   </span>
                 </div>

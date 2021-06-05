@@ -235,3 +235,6 @@
 .icon-bin:before {
   content: "\e9ac";
 }
+.icon-linked_camera:before {
+  content: "\e91a";
+}

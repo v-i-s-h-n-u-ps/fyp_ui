@@ -89,7 +89,7 @@ const Forum = props => {
               <TextArea
                 onChange={handleChange}
                 rows={3}
-                placeholder='Write in a few words...'
+                placeholder='Start your discussion...'
                 name='description'
                 value={values.description}
                 label={'Description'}

@@ -38,7 +38,7 @@
     width: 50%;
     margin: auto;
     @include respond-below(tablet) {
-        widows: 80%;
+        width: 80%;
     }
     gap: 16px;
     > div {

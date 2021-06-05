@@ -31,7 +31,7 @@ export const sidebarLinks = () => {
         {
             text: 'Chats',
             path: CHATS,
-            icon: 'chats',
+            icon: 'send',
             sameTab: true
         },
         {
