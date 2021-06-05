@@ -28,14 +28,14 @@ const Details = props => {
           <p>{_get(selectStudentInfo, 'gender')}</p>
         </div>
       </div>
-      <div className={s.details}>
+      <div className={`${s.details} ${s.fullWidth}`}>
         <label>University</label>
         <p>
           {_get(selectStudentInfo, 'universityDetails.name')}
           <small>{_get(selectStudentInfo, 'universityDetails.location')}</small>
         </p>
       </div>
-      <div className={s.details}>
+      <div className={`${s.details} ${s.fullWidth}`}>
         <label>Category</label>
         <p>
           {_get(selectStudentInfo, 'categories', []).map(category => (

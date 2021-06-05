@@ -38,6 +38,10 @@
     }
 }
 
+.fullWidth {
+    width: 100%
+}
+
 .header {
     @include flex-center;
     margin-bottom: 16px;
