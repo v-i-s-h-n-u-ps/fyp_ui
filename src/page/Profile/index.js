@@ -23,7 +23,7 @@ const Profile = props => {
     selectUserInfo = {}, selectStudentInfo = {}, selectMyProjects = [], selectIsLoadingProjects,
     selectIsProjectSubmitting, d__createProject, d__updateProject, selectUniversity,
     selectThemePreference, selectCategory, d__updateUser, d__globalModalFlag, d__globalModalFlagUnset,
-    d__deleteProjects
+    d__deleteProjects, d__changePassword, selectIsFormSubmitting
   } = props;
 
   const [activeTabValue, setActiveTabValue] = useState(_get(router, 'query.tab', 'portfolio'));
@@ -99,6 +99,10 @@ const Profile = props => {
     router.push({ pathname: PROFILE, query: { tab: 'projects', editItem: project.id } })
   }
 
+  const changePassword = values => {
+    d__changePassword(values)
+  }
+
   const components = {
     'portfolio': <Portfolio
       isLoading={selectIsLoadingProjects}
@@ -120,7 +124,12 @@ const Profile = props => {
       location={_get(selectStudentInfo, 'universityDetails.id')}
       editItem={editItem}
     />,
-    'details': <Details selectStudentInfo={selectStudentInfo} />,
+    'details': <Details 
+      selectStudentInfo={selectStudentInfo}
+      selectIsFormSubmitting={selectIsFormSubmitting}
+      changePassword={changePassword}
+      setGlobalModal={d__globalModalFlag}
+    />,
   }
 
   useEffect(() => {

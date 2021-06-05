@@ -6,11 +6,18 @@ import {
     OTP_SEND, ACTIVATE, SAVE_STUDENT, RESEND_OTP,
     UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
     UNSET_ERRORS, GET_USER_PROFILE, USER_PROFILE,
+    CHANGE_PASSWORD
 } from "./types";
 
 export const unsetErrors = {
     unset: () => action(UNSET_ERRORS[UNSET])
 }
+
+export const changePassword = {
+    request: data => action(CHANGE_PASSWORD[REQUEST], { data }),
+    success: (data, response) => action(CHANGE_PASSWORD[SUCCESS], { data, response }),
+    failure: (data, error) => action(CHANGE_PASSWORD[FAILURE], { data, error }),
+};
 
 export const getUserProfile = {
     request: data => action(GET_USER_PROFILE[REQUEST], { data }),

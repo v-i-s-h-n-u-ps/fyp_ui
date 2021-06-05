@@ -19,7 +19,8 @@ import {
   LOGOUT, LOGIN, SIGNUP, AUTHENTICATE, ME, OTP_SEND,
   PASSWORD_RESET, PASSWORD_RESET_REQUEST, ACTIVATE,
   REFRESH, RESEND_OTP, SAVE_STUDENT, UPDATE_STUDENT,
-  SEARCH_USERS, UPDATE_USER, GET_USER_PROFILE
+  SEARCH_USERS, UPDATE_USER, GET_USER_PROFILE,
+  CHANGE_PASSWORD
 } from "./types";
 import {
   selectUserInfo, selectTokens
@@ -29,7 +30,8 @@ import {
   login, signup, me, passwordResetRequest,
   passwordReset, activate, logout, refresh,
   resendOTP, createStudent, updateStudent,
-  searchUsers, updateUser, getUserProfile
+  searchUsers, updateUser, getUserProfile,
+  passwordChange
 } from "@services";
 
 function* handleLogoutUser() {
@@ -98,6 +100,16 @@ function* handleMe() {
     yield sendPayload(apiResponse, ME);
   } catch (e) {
     yield sendPayloadFailure(e, ME);
+  }
+}
+
+function* handlePasswordChange({ data }) {
+  try {
+    const apiResponse = yield call(passwordChange, data);
+    if(!isSuccess(apiResponse)) toast.error(apiResponse.data.message)
+    yield sendPayload(apiResponse, CHANGE_PASSWORD);
+  } catch (e) {
+    yield sendPayloadFailure(e, CHANGE_PASSWORD);
   }
 }
 
@@ -246,6 +258,7 @@ export const userSaga = {
   watchSearchStudent: takeLatest(SEARCH_USERS[REQUEST], handleSearchStudent),
   watchUpdateUser: takeLatest(UPDATE_USER[REQUEST], handleUpdateUser),
   watchUserProfile: takeLatest(GET_USER_PROFILE[REQUEST], handleUserProfile),
+  watchPasswordChange: takeLatest(CHANGE_PASSWORD[REQUEST], handlePasswordChange),
 }
 
 

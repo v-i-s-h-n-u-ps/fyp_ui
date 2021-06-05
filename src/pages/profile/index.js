@@ -13,9 +13,12 @@ import {
     selectMyProjects
 } from "@redux/projects/selectors";
 import {
-    selectUserInfo, selectStudentInfo, selectThemePreference
+    selectUserInfo, selectStudentInfo, selectThemePreference,
+    selectIsFormSubmitting
 } from "@redux/user/selectors";
-import { updateUser } from "@redux/user/actions";
+import { 
+    updateUser, changePassword
+} from "@redux/user/actions";
 import {
     selectUniversity, selectCategory
 } from "@redux/resources/selectors";
@@ -41,7 +44,8 @@ const mapStateToProps = createStructuredSelector({
     selectUserInfo, selectStudentInfo,
     selectMyProjects, selectIsLoadingProjects,
     selectIsProjectSubmitting, selectUniversity,
-    selectThemePreference, selectCategory
+    selectThemePreference, selectCategory,
+    selectIsFormSubmitting
 })
 
 const mapDispatchToProps = dispatch => {
@@ -50,6 +54,7 @@ const mapDispatchToProps = dispatch => {
         d__updateProject: data => dispatch(updateProject.request(data)),
         d__deleteProjects: data => dispatch(deleteProjects.request(data)),
         d__updateUser: data => dispatch(updateUser.request(data)),
+        d__changePassword: data => dispatch(changePassword.request(data)),
         d__globalModalFlag: (modal, data) => dispatch(globalModalFlag.set(modal, data)),
         d__globalModalFlagUnset: () => dispatch(globalModalFlag.unset())
     }

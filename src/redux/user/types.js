@@ -18,6 +18,7 @@ export const UPDATE_USER = createRequestTypes("UPDATE_USER");
 export const UNSET_ERRORS = createFlagTypes("UNSET_ERRORS");
 export const GET_USER_PROFILE = createRequestTypes("GET_USER_PROFILE");
 export const USER_PROFILE = createFlagTypes("USER_PROFILE");
+export const CHANGE_PASSWORD = createRequestTypes("CHANGE_PASSWORD");
 
 export const REFRESH = createRequestTypes("REFRESH");
 export const CHECK_USER_EXISTS = createRequestTypes("CHECK_USER_EXISTS");

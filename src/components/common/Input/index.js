@@ -8,7 +8,7 @@ const Input = props => {
     handleChange, label, value, onSecondaryAction, onBlur, name, onEnter, placeholder,
     readOnly = false, alwaysFloat = false, showEdit = false, type = "text", focusCallback,
     secondaryText = "Edit", error = false, helperText = "", autoFocus = false, icon = false,
-    noBorder = false
+    noBorder = false, autofill = true
   } = props;
 
   const [focus, setFocus] = useState(!!value || alwaysFloat);
@@ -71,6 +71,7 @@ const Input = props => {
               readOnly={readOnly}
               type={type}
               name={name}
+              autofill={autofill}
               value={value}
               onChange={onChange}
               placeholder={label ? alwaysFloat ? placeholder : '' : placeholder}

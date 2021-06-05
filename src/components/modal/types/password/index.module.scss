@@ -1,0 +1,29 @@
+@import "@css/layouts/container.scss";
+@import "@css/layouts/mediaQueries.scss";
+@import "@css/layouts/flexBox.scss";
+@import "@css/components/texts.scss";
+
+.container {
+    overflow: hidden;
+    @include default-background;
+    @include default-color;
+    @include respond-below(phone) {
+        width: 100vw;
+        padding: 5vw 2.45vw 2.65vw;
+    }
+    @include respond-between(phone, tablet) {
+        width: 75vw;
+        border-radius: 8px 8px 0 0;
+        padding: 3.2vw 2.5vw 2.5vw;
+    }
+    @include respond-between(tablet, desktop) {
+        width: 40vw;
+        border-radius: 8px;
+        padding: 2.25vw 2.2vw 1.4vw;
+    }
+    @include respond-above(desktop) {
+        width: 28vw;
+        border-radius: 8px;
+        padding: 2.52vw 1.9vw 1vw;
+    }
+}

@@ -3,4 +3,5 @@ export default {
   forum: require('./types/forum').default,
   project: require('./types/project').default,
   confirm: require('./types/confirm').default,
+  password: require('./types/password').default,
 }

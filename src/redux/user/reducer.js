@@ -6,7 +6,8 @@ import {
   PASSWORD_RESET, RESET_OTP_SEND, OTP_SEND,
   ACTIVATE, REFRESH, SAVE_STUDENT, RESEND_OTP,
   UPDATE_STUDENT, SEARCH_USERS, UPDATE_USER,
-  UNSET_ERRORS, GET_USER_PROFILE, USER_PROFILE
+  UNSET_ERRORS, GET_USER_PROFILE, USER_PROFILE,
+  CHANGE_PASSWORD
 } from "./types";
 import { FAILURE, REQUEST, SET, SUCCESS, UNSET } from "../actionCreator";
 
@@ -52,6 +53,10 @@ const users = () => {
       case PASSWORD_RESET[REQUEST]: return { ...state, isSubmitting: false }
       case PASSWORD_RESET[SUCCESS]: return { ...state, isSubmitting: false, error: '', requestSuccess: false }
       case PASSWORD_RESET[FAILURE]: return { ...state, isSubmitting: false }
+
+      case CHANGE_PASSWORD[REQUEST]: return { ...state, isSubmitting: true }
+      case CHANGE_PASSWORD[SUCCESS]: return { ...state, isSubmitting: false }
+      case CHANGE_PASSWORD[FAILURE]: return { ...state, isSubmitting: false }
 
       case ACTIVATE[REQUEST]: return { ...state, isSubmitting: true }
       case ACTIVATE[SUCCESS]: return { ...state, isSubmitting: false, isOtpSent: false }

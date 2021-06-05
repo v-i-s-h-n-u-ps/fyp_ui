@@ -4,7 +4,7 @@ import React from "react";
 import s from "./index.module.scss";
 import Project from "@forms/Project";
 
-const Forums = props => {
+const Projects = props => {
 
   const { modalData = {} } = props
 
@@ -28,4 +28,4 @@ const Forums = props => {
   )
 }
 
-export default Forums
+export default Projects

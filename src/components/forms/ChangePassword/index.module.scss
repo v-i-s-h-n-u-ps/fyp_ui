@@ -1,0 +1,34 @@
+@import "@css/layouts/flexBox.scss";
+@import "@css/layouts/container.scss";
+@import "@css/components/texts.scss";
+@import "@css/layouts/mediaQueries.scss";
+
+.form {
+    padding-top: 25px;
+    margin: auto;
+    width: 100%;
+}
+
+.flexCenter {
+    @include responsive-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    @include respond-below(phone) {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+}
+
+.icon {
+    @include heading-m;
+    color: rgb(167, 167, 167);
+}
+
+.password {
+    color: #e89d13;
+}
+
+.confirm {
+    color: green;
+}

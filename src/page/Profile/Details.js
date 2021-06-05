@@ -9,8 +9,20 @@ import Button from "@common/Button";
 
 const Details = props => {
 
-  const { selectStudentInfo, showEdit = true } = props;
+  const {
+    selectStudentInfo, showEdit = true, setGlobalModal,
+    changePassword, selectIsFormSubmitting
+  } = props;
+
   const router = useRouter();
+
+  const trigger = () => {
+    setGlobalModal('password', {
+      selectIsFormSubmitting: selectIsFormSubmitting,
+      onSubmit: changePassword,
+      values: { old: "", new: "", confirm: "" }
+    })
+  }
 
   return (
     <div className={s.container}>
@@ -70,16 +82,19 @@ const Details = props => {
         </div>
       </div>
       {showEdit && (
-        <Button
-          text="edit"
-          type="grey"
-          variant="hollow"
-          width="150px"
-          onClick={() => router.push({
-            pathname: FILL_STUDENT_DETAILS,
-            query: { edit: 'true' }
-          })}
-        />
+        <div>
+          <Button
+            text="edit"
+            type="grey"
+            variant="hollow"
+            width="150px"
+            onClick={() => router.push({
+              pathname: FILL_STUDENT_DETAILS,
+              query: { edit: 'true' }
+            })}
+          />
+          <p onClick={trigger}>Change Password</p>
+        </div>
       )}
     </div>
   )

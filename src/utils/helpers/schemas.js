@@ -129,3 +129,18 @@ export const FORUM_VALIDATION = yup.object().shape({
     .of(yup.string())
     .required("Select at least one category")
 })
+
+export const CHANGE_PASSWORD_VALIDATION = yup.object().shape({
+  old: yup.string()
+    .trim()
+    .required('Old password is required'),
+  new: yup.string()
+    .trim()
+    .required('Password is required')
+    .min(8, 'Password should be at least 8 characters.'),
+  confirm: yup.string()
+    .trim()
+    .required('Password is required')
+    .oneOf([yup.ref('new'), null], 'Passwords must match')
+})
+
