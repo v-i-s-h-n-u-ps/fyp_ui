@@ -65,10 +65,13 @@ const Dashboard = props => {
           if (add) filteredProjects.push(project);
         })
       }
-      if (!!university.length) {
-        filteredProjects = filteredProjects.filter(project => project.university.id === university);
+      if(!categories.length) {
+        selectHomeData.forEach(item => filteredProjects.push(item))
       }
-      if (!categories.length && !university.length)
+      if (!!university.length) {
+        filteredProjects = filteredProjects.filter(project => project.university.id === university[0]);
+      }
+      if (!university.length && !filteredProjects.length)
         selectHomeData.forEach(item => filteredProjects.push(item))
       if (!!search) {
         const _projects = Object.assign(filteredProjects, []);
