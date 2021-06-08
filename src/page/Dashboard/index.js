@@ -55,7 +55,7 @@ const Dashboard = props => {
     if (!university.length && !categories.length && !search)
       setProjects(_projects);
     else {
-      const filteredProjects = [];
+      let filteredProjects = [];
       if (!!categories.length) {
         _projects.forEach(project => {
           let add = false;
@@ -66,7 +66,7 @@ const Dashboard = props => {
         })
       }
       if (!!university.length) {
-        filteredProjects.filter(project => project.university.id === university);
+        filteredProjects = filteredProjects.filter(project => project.university.id === university);
       }
       if (!categories.length && !university.length)
         selectHomeData.forEach(item => filteredProjects.push(item))
