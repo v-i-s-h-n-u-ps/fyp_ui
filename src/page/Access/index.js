@@ -27,7 +27,7 @@ const Access = props => {
                 {active === 'login'
                   ? (
                     <div className={`${s.form} ${s.left}`}>
-                      <Login setEmail={setEmail} />
+                      {/* <Login setEmail={setEmail} /> */}
                     </div>
                   )
                   : (
@@ -56,7 +56,7 @@ const Access = props => {
                 {active === 'signup'
                   ? (
                     <div className={`${s.form} ${s.right}`}>
-                      <Signup setEmail={setEmail} email={email} />
+                      {/* <Signup setEmail={setEmail} email={email} /> */}
                     </div>
                   )
                   : (
