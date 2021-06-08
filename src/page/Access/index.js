@@ -12,7 +12,7 @@ const Access = props => {
 
   const { selectIsOtpSent } = props;
 
-  const [active, setActive] = useState('login');
+  const [active, setActive] = useState('loginsd');
   const [email, setEmail] = useState("");
 
   return (
